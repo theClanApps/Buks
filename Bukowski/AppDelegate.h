@@ -1,25 +1,16 @@
 //
-//  AppDelegate.h
-//  Bukowski
+//  ParseStarterProjectAppDelegate.h
+//  ParseStarterProject
 //
-//  Created by Nicholas Servidio on 10/27/14.
-//  Copyright (c) 2014 The Clan. All rights reserved.
+//  Copyright 2014 Parse, Inc. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
+#import <Foundation/Foundation.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@class BKSBeerViewController;
 
-@property (strong, nonatomic) UIWindow *window;
+@interface AppDelegate : NSObject <UIApplicationDelegate>
 
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-
-- (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
-
+@property (nonatomic, strong) IBOutlet UIWindow *window;
 
 @end
-
