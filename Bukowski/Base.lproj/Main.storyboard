@@ -80,11 +80,19 @@
                                     <action selector="loginButtonPressed:" destination="578-XC-RFG" eventType="touchUpInside" id="xir-gZ-jrc"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYh-lF-KLJ">
+                                <rect key="frame" x="261" y="107" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="x6h-wx-agW" firstAttribute="top" secondItem="sh2-43-bWg" secondAttribute="bottom" constant="8" id="5cw-Oz-rmI"/>
+                            <constraint firstItem="sh2-43-bWg" firstAttribute="centerX" secondItem="JYh-lF-KLJ" secondAttribute="centerX" id="JiW-L8-x8J"/>
                             <constraint firstAttribute="centerY" secondItem="x6h-wx-agW" secondAttribute="centerY" constant="-9.5" id="SHk-1c-ZgX"/>
+                            <constraint firstItem="sh2-43-bWg" firstAttribute="top" secondItem="JYh-lF-KLJ" secondAttribute="bottom" constant="35" id="c9Q-Pz-Vz8"/>
                             <constraint firstItem="SWc-HI-Y63" firstAttribute="top" secondItem="x6h-wx-agW" secondAttribute="bottom" constant="64" id="dL5-EQ-Pm5"/>
                             <constraint firstItem="SWc-HI-Y63" firstAttribute="centerX" secondItem="x6h-wx-agW" secondAttribute="centerX" constant="-0.5" id="f9G-p1-PEH"/>
                             <constraint firstAttribute="centerX" secondItem="x6h-wx-agW" secondAttribute="centerX" id="nzb-0N-kgC"/>
