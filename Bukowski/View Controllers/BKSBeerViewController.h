@@ -9,4 +9,7 @@
 
 @interface BKSBeerViewController : UIViewController
 
+//random comment
+//foo ya
+
 @end
