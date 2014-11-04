@@ -23,6 +23,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="bnr-9E-thk" eventType="touchUpInside" id="s3A-B6-lvc"/>
+                                    <segue destination="USW-ah-Ada" kind="show" identifier="kBKSSegueToWelcomeViewControllerIdentifier" id="7nb-ha-DXE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -33,9 +34,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5CW-Mh-pDE"/>
-                    <connections>
-                        <segue destination="578-XC-RFG" kind="show" identifier="kBKSSegueToWelcomeViewControllerIdentifier" id="JaT-Z0-iGs"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="02W-6v-GWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -106,7 +104,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QtO-nb-49F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1640" y="131"/>
+            <point key="canvasLocation" x="2333" y="825"/>
+        </scene>
+        <!--Start Mug Club View Controller-->
+        <scene sceneID="RQR-QI-1Ya">
+            <objects>
+                <viewController id="USW-ah-Ada" customClass="BKSStartMugClubViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kfF-dq-FkW"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZLn-5M-cwJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Any-25-JnY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPA-vs-DWB">
+                                <rect key="frame" x="247" y="285" width="105" height="30"/>
+                                <state key="normal" title="Start Mug Club">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startMugClubButtonPressed:" destination="USW-ah-Ada" eventType="touchUpInside" id="lsV-gx-b0S"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="gPA-vs-DWB" secondAttribute="centerX" id="TcF-v1-T9s"/>
+                            <constraint firstAttribute="centerY" secondItem="gPA-vs-DWB" secondAttribute="centerY" id="Xwh-JW-KO3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="7Hg-od-lHU" kind="show" identifier="kSegueToBeerViewController" id="nhl-Ym-EHJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dMg-QR-cAI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1657" y="136"/>
         </scene>
         <!--Beer View Controller-->
         <scene sceneID="z8s-fW-VQT">

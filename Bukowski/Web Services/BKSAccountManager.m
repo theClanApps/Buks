@@ -10,6 +10,8 @@
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <FacebookSDK/FacebookSDK.h>
 
+static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
+
 @interface BKSAccountManager ()
 @property (strong, nonatomic) NSArray *faceBookPermissions;
 
@@ -82,9 +84,47 @@
     }];
 }
 
+- (void)startMugClubWithSuccess:(BKSSuccessBlock)success failure:(BKSErrorBlock)failure
+{
+    if (![self savedStartDateInUserDefaults]) {
+        PFUser *currentUser = [PFUser currentUser];
+        NSDate * currentDate = [NSDate date];
+        currentUser[@"MugClubStartDate"] = currentDate;
+        [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                [self storeStartDateInUserDefaults:currentDate];
+                if (success) {
+                    success([NSNumber numberWithBool:succeeded]);
+                }
+            } else {
+                if (error) {
+                    NSLog(@"Error starting mug club: %@", error);
+                }
+            }
+        }];
+    }
+}
+
 - (void)logout
 {
     [PFUser logOut];
+}
+
+#pragma mark - helpers
+
+- (void)storeStartDateInUserDefaults:(NSDate *)date
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if ([userDefaults objectForKey:kBKSMugClubStartDate] == nil) {
+        [userDefaults setObject:date
+                         forKey:kBKSMugClubStartDate];
+    }
+    [userDefaults synchronize];
+}
+
+- (BOOL)savedStartDateInUserDefaults
+{
+    return ([[NSUserDefaults standardUserDefaults] objectForKey:kBKSMugClubStartDate] != nil);
 }
 
 @end
