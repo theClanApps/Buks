@@ -59,8 +59,8 @@
     CollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     BeerObject *beer = [self.beers objectAtIndex:indexPath.row];
     
-    cell.beerImage.image = beer.beerImage;
-    cell.beerNameLabel.text =  beer.beerName;
+    cell.beerImage.image = beer.bottleImage;
+    cell.beerNameLabel.text =  beer.nickname;
     
     return cell;
 }
