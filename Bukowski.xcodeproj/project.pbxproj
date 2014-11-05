@@ -43,6 +43,7 @@
 		6308B1D01A08369B00B1C4FA /* BeerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6308B1CF1A08369B00B1C4FA /* BeerObject.m */; };
 		6308B1D61A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6308B1D31A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.m */; };
 		6308B1D71A0836BF00B1C4FA /* BKSMyFavoritesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6308B1D51A0836BF00B1C4FA /* BKSMyFavoritesCollectionViewController.m */; };
+		63686E681A0AE97200D38A1B /* BKSBeerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63686E671A0AE97200D38A1B /* BKSBeerDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,8 @@
 		6308B1D31A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSBaseBeerCollectionViewController.m; sourceTree = "<group>"; };
 		6308B1D41A0836BF00B1C4FA /* BKSMyFavoritesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSMyFavoritesCollectionViewController.h; sourceTree = "<group>"; };
 		6308B1D51A0836BF00B1C4FA /* BKSMyFavoritesCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSMyFavoritesCollectionViewController.m; sourceTree = "<group>"; };
+		63686E661A0AE97200D38A1B /* BKSBeerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKSBeerDetailViewController.h; path = ../BKSBeerDetailViewController.h; sourceTree = "<group>"; };
+		63686E671A0AE97200D38A1B /* BKSBeerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKSBeerDetailViewController.m; path = ../BKSBeerDetailViewController.m; sourceTree = "<group>"; };
 		C2D1ECEB79DB5C78EF171D49 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -247,6 +250,8 @@
 				49BB686A19FF273700DFD75D /* BKSWelcomeViewController.m */,
 				6308B1CB1A08321F00B1C4FA /* BKSCollectionViewListViewController.h */,
 				6308B1CC1A08321F00B1C4FA /* BKSCollectionViewListViewController.m */,
+				63686E661A0AE97200D38A1B /* BKSBeerDetailViewController.h */,
+				63686E671A0AE97200D38A1B /* BKSBeerDetailViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -474,6 +479,7 @@
 				49BB686F19FF273700DFD75D /* BKSLoginViewController.m in Sources */,
 				49BB686019FF271600DFD75D /* Model.xcdatamodeld in Sources */,
 				49BB686119FF271600DFD75D /* NonPersistedBeer.m in Sources */,
+				63686E681A0AE97200D38A1B /* BKSBeerDetailViewController.m in Sources */,
 				6308B1CD1A08321F00B1C4FA /* BKSCollectionViewListViewController.m in Sources */,
 				49BB685F19FF271600DFD75D /* Brewery.m in Sources */,
 				49BB682719FF26AA00DFD75D /* main.m in Sources */,
