@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VGe-Vf-7H8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bpM-PJ-jm7">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -68,8 +69,25 @@
                                     <constraint firstAttribute="height" constant="128" id="eb5-Lm-WCt"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYh-lF-KLJ">
+                                <rect key="frame" x="261" y="107" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2XG-h7-avG">
+                                <rect key="frame" x="263" y="328" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="GuL-ng-jSm"/>
+                                    <constraint firstAttribute="width" constant="75" id="cld-24-7VO"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="qUe-xU-Goy"/>
+                                </constraints>
+                                <state key="normal" image="beer.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWc-HI-Y63">
-                                <rect key="frame" x="275" y="384" width="49" height="30"/>
+                                <rect key="frame" x="276" y="411" width="49" height="30"/>
                                 <state key="normal" title="Logout">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -78,23 +96,19 @@
                                     <action selector="loginButtonPressed:" destination="578-XC-RFG" eventType="touchUpInside" id="xir-gZ-jrc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYh-lF-KLJ">
-                                <rect key="frame" x="261" y="107" width="76" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="x6h-wx-agW" firstAttribute="top" secondItem="sh2-43-bWg" secondAttribute="bottom" constant="8" id="5cw-Oz-rmI"/>
+                            <constraint firstAttribute="centerY" secondItem="2XG-h7-avG" secondAttribute="centerY" constant="-65.5" id="DZp-M5-0g1"/>
                             <constraint firstItem="sh2-43-bWg" firstAttribute="centerX" secondItem="JYh-lF-KLJ" secondAttribute="centerX" id="JiW-L8-x8J"/>
                             <constraint firstAttribute="centerY" secondItem="x6h-wx-agW" secondAttribute="centerY" constant="-9.5" id="SHk-1c-ZgX"/>
                             <constraint firstItem="sh2-43-bWg" firstAttribute="top" secondItem="JYh-lF-KLJ" secondAttribute="bottom" constant="35" id="c9Q-Pz-Vz8"/>
-                            <constraint firstItem="SWc-HI-Y63" firstAttribute="top" secondItem="x6h-wx-agW" secondAttribute="bottom" constant="64" id="dL5-EQ-Pm5"/>
                             <constraint firstItem="SWc-HI-Y63" firstAttribute="centerX" secondItem="x6h-wx-agW" secondAttribute="centerX" constant="-0.5" id="f9G-p1-PEH"/>
                             <constraint firstAttribute="centerX" secondItem="x6h-wx-agW" secondAttribute="centerX" id="nzb-0N-kgC"/>
                             <constraint firstItem="x6h-wx-agW" firstAttribute="centerX" secondItem="sh2-43-bWg" secondAttribute="centerX" constant="1.5" id="reJ-pN-euC"/>
+                            <constraint firstItem="2XG-h7-avG" firstAttribute="top" secondItem="x6h-wx-agW" secondAttribute="bottom" constant="8" id="s3T-dR-RGa"/>
+                            <constraint firstItem="SWc-HI-Y63" firstAttribute="top" secondItem="2XG-h7-avG" secondAttribute="bottom" constant="8" id="s8M-4y-sPR"/>
                         </constraints>
                     </view>
                     <connections>
@@ -141,6 +155,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dMg-QR-cAI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1657" y="136"/>
+        </scene>
+        <!--Collection View List View Controller-->
+        <scene sceneID="JZl-MZ-pcc">
+            <objects>
+                <viewController id="tom-LD-ur7" customClass="BKSCollectionViewListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U4O-Dd-leF"/>
+                        <viewControllerLayoutGuide type="bottom" id="M9C-f4-pvm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NxV-qo-e70">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Favorites" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXx-J7-Xla">
+                                <rect key="frame" x="16" y="79" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FJy-nh-UlU">
+                                <rect key="frame" x="16" y="108" width="568" height="323"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="323" id="kef-SP-Ewc"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="46h-1M-fUe" kind="embed" id="l9V-Py-Kai"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PXx-J7-Xla" firstAttribute="leading" secondItem="NxV-qo-e70" secondAttribute="leadingMargin" id="Bb9-UT-GtN"/>
+                            <constraint firstItem="PXx-J7-Xla" firstAttribute="trailing" secondItem="NxV-qo-e70" secondAttribute="trailingMargin" id="ID5-Q6-jYb"/>
+                            <constraint firstItem="FJy-nh-UlU" firstAttribute="trailing" secondItem="NxV-qo-e70" secondAttribute="trailingMargin" id="TFD-xP-8OO"/>
+                            <constraint firstItem="PXx-J7-Xla" firstAttribute="top" secondItem="U4O-Dd-leF" secondAttribute="bottom" constant="15" id="cKE-fu-Xav"/>
+                            <constraint firstItem="FJy-nh-UlU" firstAttribute="leading" secondItem="NxV-qo-e70" secondAttribute="leadingMargin" id="cos-FG-COD"/>
+                            <constraint firstItem="FJy-nh-UlU" firstAttribute="top" secondItem="PXx-J7-Xla" secondAttribute="bottom" constant="8" id="xUt-oB-O3S"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="DrE-4Z-L8v"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GeL-Cv-XFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2451" y="880"/>
         </scene>
         <!--Beer View Controller-->
         <scene sceneID="z8s-fW-VQT">
@@ -205,5 +263,160 @@
             </objects>
             <point key="canvasLocation" x="155" y="133"/>
         </scene>
+        <!--My Favorites Collection View Controller-->
+        <scene sceneID="kKc-u6-IbA">
+            <objects>
+                <collectionViewController id="46h-1M-fUe" customClass="BKSMyFavoritesCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="GLD-be-pvr">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="323"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vFG-zl-Dw6">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Isa-wn-6sv">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="5hT-WA-1y3" kind="show" identifier="beerDetailSegue" id="5En-2t-C8A"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="46h-1M-fUe" id="60m-XF-HkE"/>
+                            <outlet property="delegate" destination="46h-1M-fUe" id="1H6-8B-ge3"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vwE-AR-iaF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1640" y="1473.5"/>
+        </scene>
+        <!--Beer Detail View Controller-->
+        <scene sceneID="VPa-qo-Oox">
+            <objects>
+                <viewController id="5hT-WA-1y3" customClass="BKSBeerDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gGB-z6-x8L"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Re-SY-W16"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8HN-kX-y5P">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="700"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bf-FI-skT">
+                                <rect key="frame" x="180" y="139" width="209" height="287"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="beerName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adB-AH-mcP">
+                                <rect key="frame" x="16" y="52" width="536" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="brewery" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zh8-Vq-Idj">
+                                <rect key="frame" x="16" y="81" width="536" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="beerStyle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9y5-p0-sux">
+                                <rect key="frame" x="16" y="110" width="536" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="abv" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7i-Fn-ZTc">
+                                <rect key="frame" x="502" y="434" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoL-4C-Jhb">
+                                <rect key="frame" x="84" y="434" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="price-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="p1G-YO-qsh">
+                                <rect key="frame" x="16" y="430" width="60" height="30"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="beer-size-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="kqU-ld-6fp">
+                                <rect key="frame" x="250" y="430" width="37" height="30"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="size" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xf9-zy-tBA">
+                                <rect key="frame" x="295" y="434" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="abv-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="cEP-f3-2Na">
+                                <rect key="frame" x="423" y="430" width="71" height="30"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About the beer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOf-Il-nvm">
+                                <rect key="frame" x="16" y="468" width="115" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H1J-Xp-juN">
+                                <rect key="frame" x="16" y="497" width="536" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="C3z-uD-IZM"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="568" height="700"/>
+                    <connections>
+                        <outlet property="abvLabel" destination="X7i-Fn-ZTc" id="vN4-lV-rco"/>
+                        <outlet property="beerDescriptionTextView" destination="H1J-Xp-juN" id="ETV-7R-n9h"/>
+                        <outlet property="beerNameLabel" destination="adB-AH-mcP" id="4Dd-z9-zMh"/>
+                        <outlet property="beerStyleLabel" destination="9y5-p0-sux" id="fDg-oM-Agf"/>
+                        <outlet property="bottleImage" destination="4bf-FI-skT" id="SEF-ks-QX9"/>
+                        <outlet property="breweryLabel" destination="Zh8-Vq-Idj" id="Mt0-Kx-Qf4"/>
+                        <outlet property="priceLabel" destination="DoL-4C-Jhb" id="ovY-lR-hDh"/>
+                        <outlet property="sizeLabel" destination="Xf9-zy-tBA" id="4wS-mq-mbh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r34-1s-IfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3164" y="1473"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oBc-aC-cg5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bpM-PJ-jm7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3r7-84-56M">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tom-LD-ur7" kind="relationship" relationship="rootViewController" id="wTA-Zh-Znx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VQa-zp-Mby" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1639" y="880"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="abv-icon.png" width="71" height="30"/>
+        <image name="beer-size-icon.png" width="37" height="30"/>
+        <image name="beer.png" width="150" height="150"/>
+        <image name="price-icon.png" width="60" height="30"/>
+    </resources>
 </document>

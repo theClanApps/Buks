@@ -24,6 +24,27 @@
 		49BB687419FF274600DFD75D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB687319FF274600DFD75D /* AppDelegate.m */; };
 		49F1D2D21A0B024A0073A19D /* funnyImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F1D2D11A0B024A0073A19D /* funnyImage.png */; };
 		4CD478DE1C524DD0C1156959 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4439E0F969A77184CFD09AAE /* libPods.a */; };
+		6308B1B11A082BC900B1C4FA /* bluemoonwhite.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1A81A082BC900B1C4FA /* bluemoonwhite.jpg */; };
+		6308B1B21A082BC900B1C4FA /* bostonlager in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1A91A082BC900B1C4FA /* bostonlager */; };
+		6308B1B31A082BC900B1C4FA /* dogfish90.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1AA1A082BC900B1C4FA /* dogfish90.jpg */; };
+		6308B1B41A082BC900B1C4FA /* guinessdraught in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1AB1A082BC900B1C4FA /* guinessdraught */; };
+		6308B1B51A082BC900B1C4FA /* lagunitasipa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1AC1A082BC900B1C4FA /* lagunitasipa.jpg */; };
+		6308B1B61A082BC900B1C4FA /* magichat#9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1AD1A082BC900B1C4FA /* magichat#9.jpg */; };
+		6308B1B71A082BC900B1C4FA /* millerlite in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1AE1A082BC900B1C4FA /* millerlite */; };
+		6308B1B81A082BC900B1C4FA /* newcastlebrown in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1AF1A082BC900B1C4FA /* newcastlebrown */; };
+		6308B1B91A082BC900B1C4FA /* yuenglinglager.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1B01A082BC900B1C4FA /* yuenglinglager.jpg */; };
+		6308B1BB1A082BD900B1C4FA /* collection-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1BA1A082BD900B1C4FA /* collection-back.png */; };
+		6308B1BE1A082C4D00B1C4FA /* NibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1BD1A082C4D00B1C4FA /* NibCell.xib */; };
+		6308B1C61A082F0100B1C4FA /* beer.png in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1C51A082F0100B1C4FA /* beer.png */; };
+		6308B1CA1A08302C00B1C4FA /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6308B1C91A08302C00B1C4FA /* CollectionCell.m */; };
+		6308B1CD1A08321F00B1C4FA /* BKSCollectionViewListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6308B1CC1A08321F00B1C4FA /* BKSCollectionViewListViewController.m */; };
+		6308B1D01A08369B00B1C4FA /* BeerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6308B1CF1A08369B00B1C4FA /* BeerObject.m */; };
+		6308B1D61A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6308B1D31A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.m */; };
+		6308B1D71A0836BF00B1C4FA /* BKSMyFavoritesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6308B1D51A0836BF00B1C4FA /* BKSMyFavoritesCollectionViewController.m */; };
+		63686E681A0AE97200D38A1B /* BKSBeerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63686E671A0AE97200D38A1B /* BKSBeerDetailViewController.m */; };
+		63686E6A1A0AF40100D38A1B /* price-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63686E691A0AF40100D38A1B /* price-icon.png */; };
+		63686E6C1A0AF40800D38A1B /* abv-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63686E6B1A0AF40800D38A1B /* abv-icon.png */; };
+		63686E6E1A0AF40F00D38A1B /* beer-size-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63686E6D1A0AF40F00D38A1B /* beer-size-icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +88,33 @@
 		49BB687219FF274600DFD75D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49BB687319FF274600DFD75D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		49F1D2D11A0B024A0073A19D /* funnyImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = funnyImage.png; sourceTree = "<group>"; };
+		6308B1A81A082BC900B1C4FA /* bluemoonwhite.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bluemoonwhite.jpg; sourceTree = "<group>"; };
+		6308B1A91A082BC900B1C4FA /* bostonlager */ = {isa = PBXFileReference; lastKnownFileType = file; path = bostonlager; sourceTree = "<group>"; };
+		6308B1AA1A082BC900B1C4FA /* dogfish90.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dogfish90.jpg; sourceTree = "<group>"; };
+		6308B1AB1A082BC900B1C4FA /* guinessdraught */ = {isa = PBXFileReference; lastKnownFileType = file; path = guinessdraught; sourceTree = "<group>"; };
+		6308B1AC1A082BC900B1C4FA /* lagunitasipa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lagunitasipa.jpg; sourceTree = "<group>"; };
+		6308B1AD1A082BC900B1C4FA /* magichat#9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "magichat#9.jpg"; sourceTree = "<group>"; };
+		6308B1AE1A082BC900B1C4FA /* millerlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = millerlite; sourceTree = "<group>"; };
+		6308B1AF1A082BC900B1C4FA /* newcastlebrown */ = {isa = PBXFileReference; lastKnownFileType = file; path = newcastlebrown; sourceTree = "<group>"; };
+		6308B1B01A082BC900B1C4FA /* yuenglinglager.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yuenglinglager.jpg; sourceTree = "<group>"; };
+		6308B1BA1A082BD900B1C4FA /* collection-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "collection-back.png"; sourceTree = "<group>"; };
+		6308B1BD1A082C4D00B1C4FA /* NibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NibCell.xib; path = "View Controllers/NibCell.xib"; sourceTree = "<group>"; };
+		6308B1C51A082F0100B1C4FA /* beer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beer.png; sourceTree = "<group>"; };
+		6308B1C81A08302C00B1C4FA /* CollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCell.h; sourceTree = "<group>"; };
+		6308B1C91A08302C00B1C4FA /* CollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCell.m; sourceTree = "<group>"; };
+		6308B1CB1A08321F00B1C4FA /* BKSCollectionViewListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSCollectionViewListViewController.h; sourceTree = "<group>"; };
+		6308B1CC1A08321F00B1C4FA /* BKSCollectionViewListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSCollectionViewListViewController.m; sourceTree = "<group>"; };
+		6308B1CE1A08369B00B1C4FA /* BeerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeerObject.h; sourceTree = "<group>"; };
+		6308B1CF1A08369B00B1C4FA /* BeerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeerObject.m; sourceTree = "<group>"; };
+		6308B1D21A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSBaseBeerCollectionViewController.h; sourceTree = "<group>"; };
+		6308B1D31A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSBaseBeerCollectionViewController.m; sourceTree = "<group>"; };
+		6308B1D41A0836BF00B1C4FA /* BKSMyFavoritesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSMyFavoritesCollectionViewController.h; sourceTree = "<group>"; };
+		6308B1D51A0836BF00B1C4FA /* BKSMyFavoritesCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSMyFavoritesCollectionViewController.m; sourceTree = "<group>"; };
+		63686E661A0AE97200D38A1B /* BKSBeerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKSBeerDetailViewController.h; path = ../BKSBeerDetailViewController.h; sourceTree = "<group>"; };
+		63686E671A0AE97200D38A1B /* BKSBeerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKSBeerDetailViewController.m; path = ../BKSBeerDetailViewController.m; sourceTree = "<group>"; };
+		63686E691A0AF40100D38A1B /* price-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price-icon.png"; sourceTree = "<group>"; };
+		63686E6B1A0AF40800D38A1B /* abv-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "abv-icon.png"; sourceTree = "<group>"; };
+		63686E6D1A0AF40F00D38A1B /* beer-size-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beer-size-icon.png"; sourceTree = "<group>"; };
 		C2D1ECEB79DB5C78EF171D49 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,13 +171,16 @@
 			children = (
 				49BB687219FF274600DFD75D /* AppDelegate.h */,
 				49BB687319FF274600DFD75D /* AppDelegate.m */,
+				6308B1D11A08369F00B1C4FA /* Test Objects */,
 				49BB686419FF273700DFD75D /* View Controllers */,
 				49BB686B19FF273700DFD75D /* Web Services */,
 				49BB684D19FF271600DFD75D /* Core Data */,
 				49BB683119FF26AA00DFD75D /* Main.storyboard */,
+				6308B1BD1A082C4D00B1C4FA /* NibCell.xib */,
 				49BB683419FF26AA00DFD75D /* Images.xcassets */,
 				49BB683619FF26AB00DFD75D /* LaunchScreen.xib */,
 				49BB682B19FF26AA00DFD75D /* Bukowski.xcdatamodeld */,
+				6308B1A61A082B9000B1C4FA /* Images */,
 				49BB682419FF26AA00DFD75D /* Supporting Files */,
 			);
 			path = Bukowski;
@@ -165,6 +216,12 @@
 		49BB684D19FF271600DFD75D /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				6308B1C81A08302C00B1C4FA /* CollectionCell.h */,
+				6308B1C91A08302C00B1C4FA /* CollectionCell.m */,
+				49BB684E19FF271600DFD75D /* Beer.h */,
+				49BB684F19FF271600DFD75D /* Beer.m */,
+				49BB685019FF271600DFD75D /* BeerStyle.h */,
+				49BB685119FF271600DFD75D /* BeerStyle.m */,
 				49BB685219FF271600DFD75D /* BKSDataManager.h */,
 				49BB685319FF271600DFD75D /* BKSDataManager.m */,
 				49BB685619FF271600DFD75D /* Model.xcdatamodeld */,
@@ -177,6 +234,10 @@
 		49BB686419FF273700DFD75D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6308B1D21A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.h */,
+				6308B1D31A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.m */,
+				6308B1D41A0836BF00B1C4FA /* BKSMyFavoritesCollectionViewController.h */,
+				6308B1D51A0836BF00B1C4FA /* BKSMyFavoritesCollectionViewController.m */,
 				49BB686519FF273700DFD75D /* BKSBeerViewController.h */,
 				49BB686619FF273700DFD75D /* BKSBeerViewController.m */,
 				49BB686719FF273700DFD75D /* BKSLoginViewController.h */,
@@ -185,6 +246,10 @@
 				49BB686A19FF273700DFD75D /* BKSWelcomeViewController.m */,
 				49A02DA91A08370D004517B6 /* BKSStartMugClubViewController.h */,
 				49A02DAA1A08370D004517B6 /* BKSStartMugClubViewController.m */,
+				6308B1CB1A08321F00B1C4FA /* BKSCollectionViewListViewController.h */,
+				6308B1CC1A08321F00B1C4FA /* BKSCollectionViewListViewController.m */,
+				63686E661A0AE97200D38A1B /* BKSBeerDetailViewController.h */,
+				63686E671A0AE97200D38A1B /* BKSBeerDetailViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -196,6 +261,60 @@
 				49BB686D19FF273700DFD75D /* BKSAccountManager.m */,
 			);
 			path = "Web Services";
+			sourceTree = "<group>";
+		};
+		6308B1A61A082B9000B1C4FA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6308B1C71A082F1F00B1C4FA /* Buttons and Icons */,
+				6308B1BC1A082BDE00B1C4FA /* Frames and Containers */,
+				6308B1A71A082B9A00B1C4FA /* Beer Bottle Images */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		6308B1A71A082B9A00B1C4FA /* Beer Bottle Images */ = {
+			isa = PBXGroup;
+			children = (
+				6308B1A81A082BC900B1C4FA /* bluemoonwhite.jpg */,
+				6308B1A91A082BC900B1C4FA /* bostonlager */,
+				6308B1AA1A082BC900B1C4FA /* dogfish90.jpg */,
+				6308B1AB1A082BC900B1C4FA /* guinessdraught */,
+				6308B1AC1A082BC900B1C4FA /* lagunitasipa.jpg */,
+				6308B1AD1A082BC900B1C4FA /* magichat#9.jpg */,
+				6308B1AE1A082BC900B1C4FA /* millerlite */,
+				6308B1AF1A082BC900B1C4FA /* newcastlebrown */,
+				6308B1B01A082BC900B1C4FA /* yuenglinglager.jpg */,
+			);
+			name = "Beer Bottle Images";
+			sourceTree = "<group>";
+		};
+		6308B1BC1A082BDE00B1C4FA /* Frames and Containers */ = {
+			isa = PBXGroup;
+			children = (
+				6308B1BA1A082BD900B1C4FA /* collection-back.png */,
+			);
+			name = "Frames and Containers";
+			sourceTree = "<group>";
+		};
+		6308B1C71A082F1F00B1C4FA /* Buttons and Icons */ = {
+			isa = PBXGroup;
+			children = (
+				63686E6D1A0AF40F00D38A1B /* beer-size-icon.png */,
+				63686E6B1A0AF40800D38A1B /* abv-icon.png */,
+				63686E691A0AF40100D38A1B /* price-icon.png */,
+				6308B1C51A082F0100B1C4FA /* beer.png */,
+			);
+			name = "Buttons and Icons";
+			sourceTree = "<group>";
+		};
+		6308B1D11A08369F00B1C4FA /* Test Objects */ = {
+			isa = PBXGroup;
+			children = (
+				6308B1CE1A08369B00B1C4FA /* BeerObject.h */,
+				6308B1CF1A08369B00B1C4FA /* BeerObject.m */,
+			);
+			name = "Test Objects";
 			sourceTree = "<group>";
 		};
 		80B2D75E4C6B5B015104C7DB /* Frameworks */ = {
@@ -289,8 +408,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				49F1D2D21A0B024A0073A19D /* funnyImage.png in Resources */,
+				6308B1B61A082BC900B1C4FA /* magichat#9.jpg in Resources */,
+				6308B1B41A082BC900B1C4FA /* guinessdraught in Resources */,
+				6308B1B51A082BC900B1C4FA /* lagunitasipa.jpg in Resources */,
+				6308B1B21A082BC900B1C4FA /* bostonlager in Resources */,
+				6308B1BB1A082BD900B1C4FA /* collection-back.png in Resources */,
+				6308B1B31A082BC900B1C4FA /* dogfish90.jpg in Resources */,
+				6308B1B71A082BC900B1C4FA /* millerlite in Resources */,
+				63686E6C1A0AF40800D38A1B /* abv-icon.png in Resources */,
+				6308B1BE1A082C4D00B1C4FA /* NibCell.xib in Resources */,
+				6308B1B91A082BC900B1C4FA /* yuenglinglager.jpg in Resources */,
 				49BB683319FF26AA00DFD75D /* Main.storyboard in Resources */,
+				63686E6A1A0AF40100D38A1B /* price-icon.png in Resources */,
 				49BB683819FF26AB00DFD75D /* LaunchScreen.xib in Resources */,
+				63686E6E1A0AF40F00D38A1B /* beer-size-icon.png in Resources */,
+				6308B1C61A082F0100B1C4FA /* beer.png in Resources */,
+				6308B1B11A082BC900B1C4FA /* bluemoonwhite.jpg in Resources */,
+				6308B1B81A082BC900B1C4FA /* newcastlebrown in Resources */,
 				49BB683519FF26AA00DFD75D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,15 +477,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				49BB682D19FF26AA00DFD75D /* Bukowski.xcdatamodeld in Sources */,
+				49BB685D19FF271600DFD75D /* BeerStyle.m in Sources */,
+				6308B1D61A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.m in Sources */,
 				49BB687019FF273700DFD75D /* BKSWelcomeViewController.m in Sources */,
 				49BB686E19FF273700DFD75D /* BKSBeerViewController.m in Sources */,
 				49BB686F19FF273700DFD75D /* BKSLoginViewController.m in Sources */,
 				49BB686019FF271600DFD75D /* Model.xcdatamodeld in Sources */,
 				49BB686119FF271600DFD75D /* NonPersistedBeer.m in Sources */,
 				49A02DAB1A08370D004517B6 /* BKSStartMugClubViewController.m in Sources */,
+				63686E681A0AE97200D38A1B /* BKSBeerDetailViewController.m in Sources */,
+				6308B1CD1A08321F00B1C4FA /* BKSCollectionViewListViewController.m in Sources */,
+				49BB685F19FF271600DFD75D /* Brewery.m in Sources */,
 				49BB682719FF26AA00DFD75D /* main.m in Sources */,
+				6308B1CA1A08302C00B1C4FA /* CollectionCell.m in Sources */,
 				49BB685E19FF271600DFD75D /* BKSDataManager.m in Sources */,
 				49BB687419FF274600DFD75D /* AppDelegate.m in Sources */,
+				49BB685C19FF271600DFD75D /* Beer.m in Sources */,
+				6308B1D01A08369B00B1C4FA /* BeerObject.m in Sources */,
+				6308B1D71A0836BF00B1C4FA /* BKSMyFavoritesCollectionViewController.m in Sources */,
 				49BB687119FF273700DFD75D /* BKSAccountManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
