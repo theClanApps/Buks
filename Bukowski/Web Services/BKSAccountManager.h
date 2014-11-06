@@ -15,7 +15,10 @@ typedef void (^BKSErrorBlock) (NSError *error);
 + (id)sharedAccountManager;
 
 - (void)logout;
-
 - (void)loginWithWithSuccess:(BKSSuccessBlock)success failure:(BKSErrorBlock)failure;
+- (void)startMugClubWithSuccess:(BKSSuccessBlock)success failure:(BKSErrorBlock)failure;
+- (void)loadInitialBeers;
+- (BOOL)userStartedMugClub;
+- (void)loadBeersWithSuccess:(void(^)(NSArray *beers, NSError *error))block;
 
 @end
