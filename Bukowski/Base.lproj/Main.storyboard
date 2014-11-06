@@ -154,17 +154,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcb-rj-Bcw">
-                                <rect key="frame" x="195" y="289" width="86" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="N2V-QL-cAb"/>
-                                    <constraint firstAttribute="width" constant="86" id="aes-0s-yqT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vN-Fs-C68">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vN-Fs-C68">
                                 <rect key="frame" x="232" y="28" width="136" height="30"/>
                                 <state key="normal" title="Get a Random Beer">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -173,63 +163,24 @@
                                     <action selector="loadRandomBeer:" destination="7Hg-od-lHU" eventType="touchUpInside" id="Otp-bR-YcN"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BeerID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WaA-UN-Jrw">
-                                <rect key="frame" x="195" y="327" width="53" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer ABV" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gR5-9S-0Pt">
-                                <rect key="frame" x="195" y="368" width="74" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NsK-WH-qfy">
-                                <rect key="frame" x="319" y="289" width="86" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aVw-sR-fxl">
+                                <rect key="frame" x="180" y="179" width="240" height="242"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="86" id="bhV-OE-c7N"/>
-                                    <constraint firstAttribute="height" constant="21" id="kSS-JR-hob"/>
+                                    <constraint firstAttribute="width" constant="240" id="tVm-LK-V7c"/>
+                                    <constraint firstAttribute="height" constant="242" id="vrD-jJ-U8c"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BeerID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWd-rb-8Cx">
-                                <rect key="frame" x="319" y="327" width="53" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer ABV" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ltd-O2-w2k">
-                                <rect key="frame" x="319" y="368" width="74" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pcb-rj-Bcw" firstAttribute="leading" secondItem="WaA-UN-Jrw" secondAttribute="leading" id="0lT-om-l0W"/>
                             <constraint firstAttribute="centerX" secondItem="5vN-Fs-C68" secondAttribute="centerX" id="1VV-eq-qUY"/>
-                            <constraint firstItem="Ltd-O2-w2k" firstAttribute="leading" secondItem="gWd-rb-8Cx" secondAttribute="leading" id="Eaw-ZP-gc4"/>
-                            <constraint firstItem="gR5-9S-0Pt" firstAttribute="leading" secondItem="WaA-UN-Jrw" secondAttribute="leading" id="Gor-Wr-HgT"/>
+                            <constraint firstAttribute="centerX" secondItem="aVw-sR-fxl" secondAttribute="centerX" id="8vt-i3-yV8"/>
+                            <constraint firstAttribute="centerY" secondItem="aVw-sR-fxl" secondAttribute="centerY" id="IZI-q1-NDQ"/>
                             <constraint firstItem="5vN-Fs-C68" firstAttribute="top" secondItem="2pk-LQ-zan" secondAttribute="bottom" constant="8" id="Jot-UH-KJk"/>
-                            <constraint firstAttribute="centerX" secondItem="pcb-rj-Bcw" secondAttribute="centerX" constant="62" id="Owi-2k-6bg"/>
-                            <constraint firstItem="NsK-WH-qfy" firstAttribute="leading" secondItem="gWd-rb-8Cx" secondAttribute="leading" id="bev-Fz-4ac"/>
-                            <constraint firstAttribute="centerY" secondItem="pcb-rj-Bcw" secondAttribute="centerY" id="dTc-L7-X39"/>
-                            <constraint firstItem="gWd-rb-8Cx" firstAttribute="top" secondItem="NsK-WH-qfy" secondAttribute="bottom" constant="17" id="djp-PN-3Qc"/>
-                            <constraint firstItem="NsK-WH-qfy" firstAttribute="leading" secondItem="pcb-rj-Bcw" secondAttribute="trailing" constant="38" id="kJU-n7-soz"/>
-                            <constraint firstItem="WaA-UN-Jrw" firstAttribute="top" secondItem="pcb-rj-Bcw" secondAttribute="bottom" constant="17" id="m6c-rx-gZY"/>
-                            <constraint firstItem="pcb-rj-Bcw" firstAttribute="baseline" secondItem="NsK-WH-qfy" secondAttribute="baseline" id="pkg-S0-p20"/>
-                            <constraint firstItem="gR5-9S-0Pt" firstAttribute="top" secondItem="WaA-UN-Jrw" secondAttribute="bottom" constant="20" id="pxo-7y-n0j"/>
-                            <constraint firstItem="Ltd-O2-w2k" firstAttribute="top" secondItem="gWd-rb-8Cx" secondAttribute="bottom" constant="20" id="rvQ-cU-8Dk"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="BeerAbvLabel" destination="Ltd-O2-w2k" id="Wub-SO-j48"/>
-                        <outlet property="beerIDLabel" destination="gWd-rb-8Cx" id="YeL-13-nyI"/>
-                        <outlet property="beerNameLabel" destination="NsK-WH-qfy" id="Lh1-I9-edk"/>
+                        <outlet property="beerImageView" destination="aVw-sR-fxl" id="Cpu-7l-Hx0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lic-7V-tvW" userLabel="First Responder" sceneMemberID="firstResponder"/>

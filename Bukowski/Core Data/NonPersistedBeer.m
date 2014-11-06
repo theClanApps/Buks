@@ -12,7 +12,7 @@
 @end
 
 @implementation NonPersistedBeer
-@dynamic nonPersistedBeerID,nonPersistedBeerName,nonPersistedBeerAbv, nonPersistedBeerStyle;
+@dynamic nonPersistedBeerName,nonPersistedBeerABV,nonPersistedBeerBreweryName, nonPersistedBeerDescription,nonPersistedBeerNickName,nonPersistedBeerPrice,nonPersistedBeerSize,nonPersistedBeerStyleName,nonPersistedBeerImage, userHasDrunk;
 
 + (void)load {
     [self registerSubclass];
@@ -20,16 +20,6 @@
 
 + (NSString *)parseClassName {
     return @"NonPersistedBeer";
-}
-
-+ (NonPersistedBeer *)beerWithDatabaseBeer:(Beer *)beer
-{
-    NonPersistedBeer *nonPersistedBeer = [NonPersistedBeer object];
-    nonPersistedBeer.nonPersistedBeerName = beer.beerName;
-    nonPersistedBeer.nonPersistedBeerID = beer.beerID;
-    nonPersistedBeer.nonPersistedBeerAbv = beer.beerAbv;
-
-    return nonPersistedBeer;
 }
 
 @end

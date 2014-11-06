@@ -7,16 +7,19 @@
 //
 
 #import <Parse/Parse.h>
-#import "Beer.h"
-#import "NonPersistedBeerStyle.h"
 
 @interface NonPersistedBeer : PFObject<PFSubclassing>
-@property (strong, nonatomic) NSNumber *nonPersistedBeerID;
 @property (strong, nonatomic) NSString *nonPersistedBeerName;
-@property (strong, nonatomic) NSNumber *nonPersistedBeerAbv;
-@property (strong, nonatomic) NonPersistedBeerStyle *nonPersistedBeerStyle;
+@property (strong, nonatomic) NSString *nonPersistedBeerBreweryName;
+@property (strong, nonatomic) NSString *nonPersistedBeerStyleName;
+@property (strong, nonatomic) NSString *nonPersistedBeerDescription;
+@property (strong, nonatomic) NSNumber *nonPersistedBeerABV;
+@property (strong, nonatomic) NSNumber *nonPersistedBeerPrice;
+@property (strong, nonatomic) NSNumber *nonPersistedBeerSize;
+@property (strong, nonatomic) NSString *nonPersistedBeerNickName;
+@property (strong, nonatomic) PFFile *nonPersistedBeerImage;
+@property (nonatomic) BOOL userHasDrunk;
 
 + (NSString *)parseClassName;
-+ (NonPersistedBeer *)beerWithDatabaseBeer:(Beer *)beer;
 
 @end

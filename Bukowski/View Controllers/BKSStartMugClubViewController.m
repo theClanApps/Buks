@@ -12,14 +12,16 @@
 static NSString * const kSegueToBeerViewController = @"kSegueToBeerViewController";
 
 @interface BKSStartMugClubViewController () <UIAlertViewDelegate>
-
 @end
 
 @implementation BKSStartMugClubViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if ([[BKSAccountManager sharedAccountManager] userStartedMugClub]) {
+        [self performSegueWithIdentifier:kSegueToBeerViewController sender:self];
+    }
 }
 
 - (IBAction)startMugClubButtonPressed:(id)sender {

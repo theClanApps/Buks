@@ -22,6 +22,7 @@ static NSString * const kBKSSegueToWelcomeViewControllerIdentifier = @"kBKSSegue
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[BKSAccountManager sharedAccountManager] loadInitialBeers];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
