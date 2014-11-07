@@ -27,13 +27,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.beerNameLabel.text = self.beer.beerName;
-    self.breweryLabel.text = self.beer.brewery;
-    self.beerStyleLabel.text = self.beer.beerStyle;
+    self.beerNameLabel.text = self.beer.beerName.uppercaseString;
+    self.breweryLabel.text = self.beer.brewery.uppercaseString;
+    self.beerStyleLabel.text = self.beer.beerStyle.uppercaseString;
     self.beerDescriptionTextView.text = self.beer.beerDescription;
-    self.abvLabel.text = self.beer.abv;
+    self.abvLabel.text = [NSString stringWithFormat:@"%@ %%",self.beer.abv];
     self.priceLabel.text = self.beer.price;
-    self.sizeLabel.text = self.beer.size;
+    self.sizeLabel.text = [NSString stringWithFormat:@"%@ oz.",self.beer.size];
     self.bottleImage.image = self.beer.bottleImage;
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
