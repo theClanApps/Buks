@@ -9,6 +9,7 @@
 #import <Parse/Parse.h>
 #import "NonPersistedBeer.h"
 #import "BKSAccountManager.h"
+#import "BeerObject.h"
 
 @interface BKSBeerViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *beerImageView;

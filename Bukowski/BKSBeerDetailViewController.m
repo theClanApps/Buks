@@ -35,6 +35,9 @@
     self.priceLabel.text = self.beer.price;
     self.sizeLabel.text = self.beer.size;
     self.bottleImage.image = self.beer.bottleImage;
+    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
 }
 
 @end
