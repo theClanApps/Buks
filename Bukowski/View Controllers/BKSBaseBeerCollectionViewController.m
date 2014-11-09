@@ -38,7 +38,7 @@
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"cvCell"];
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setItemSize:CGSizeMake(223, 363)];
+    [flowLayout setItemSize:CGSizeMake(112, 182)];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     
     [self.collectionView setCollectionViewLayout:flowLayout];
