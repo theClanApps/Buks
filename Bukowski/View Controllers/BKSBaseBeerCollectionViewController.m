@@ -28,9 +28,7 @@
 }
 
 -(void)loadBeers {
-    
-    self.beers = [BeerObject listOfBeers];
-    
+        
 }
 
 -(void)setupCollectionView {
@@ -59,7 +57,6 @@
     CollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     BeerObject *beer = [self.beers objectAtIndex:indexPath.row];
     
-    cell.beerImage.image = beer.bottleImage;
     cell.beerNameLabel.text =  beer.nickname;
     
     return cell;

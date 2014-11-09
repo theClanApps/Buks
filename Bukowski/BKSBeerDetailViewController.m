@@ -34,7 +34,6 @@
     self.abvLabel.text = [NSString stringWithFormat:@"%@ %%",self.beer.abv];
     self.priceLabel.text = self.beer.price;
     self.sizeLabel.text = [NSString stringWithFormat:@"%@ oz.",self.beer.size];
-    self.bottleImage.image = self.beer.bottleImage;
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
