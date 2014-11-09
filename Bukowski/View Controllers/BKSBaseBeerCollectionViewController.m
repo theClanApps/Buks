@@ -9,6 +9,7 @@
 #import "BKSBaseBeerCollectionViewController.h"
 #import "CollectionCell.h"
 #import "BeerObject.h"
+#import "BKSAccountManager.h"
 
 @interface BKSBaseBeerCollectionViewController ()
 
@@ -28,7 +29,16 @@
 }
 
 -(void)loadBeers {
-        
+    [[BKSAccountManager sharedAccountManager] loadBeersWithSuccess:^(NSArray *beers, NSError *error) {
+        if (!error) {
+            self.beers = beers;
+            [self.collectionView reloadData];
+            
+        } else {
+            UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error loading beers" message:@"Beers were unable to load" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [errorAlert show];
+        }
+    }];
 }
 
 -(void)setupCollectionView {
@@ -58,8 +68,19 @@
     BeerObject *beer = [self.beers objectAtIndex:indexPath.row];
     
     cell.beerNameLabel.text =  beer.nickname;
+    cell.beerImage.image = [self imageForParseFile:beer.bottleImage];
     
     return cell;
 }
+
+- (UIImage*)imageForParseFile:(PFFile *)pffile
+{
+    PFFile *theImage = pffile;
+    NSData *imageData = [theImage getData];
+    UIImage *image = [UIImage imageWithData:imageData];
+    return image;
+}
+
+
 
 @end

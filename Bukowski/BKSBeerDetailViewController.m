@@ -35,6 +35,11 @@
     self.priceLabel.text = self.beer.price;
     self.sizeLabel.text = [NSString stringWithFormat:@"%@ oz.",self.beer.size];
     
+    PFFile *theImage = self.beer.bottleImage;
+    NSData *imageData = [theImage getData];
+    UIImage *image = [UIImage imageWithData:imageData];
+    self.bottleImage.image = image;
+    
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
 }

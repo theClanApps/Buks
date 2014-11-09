@@ -24,10 +24,6 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)loadBeers
-{
-}
-
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     self.beerSelected = [self.beers objectAtIndex:indexPath.item];

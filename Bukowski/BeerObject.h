@@ -18,7 +18,8 @@
 @property (strong, nonatomic) NSString *price;
 @property (strong, nonatomic) NSString *size;
 @property (strong, nonatomic) NSString *nickname;
-@property (strong, nonatomic) PFFile *beerImage;
+@property (strong, nonatomic) PFFile *bottleImage;
+@property (strong, nonatomic) PFFile *glassImage;
 
 + (NSString *)parseClassName;
 
