@@ -26,7 +26,6 @@
 
 - (void)loadBeers
 {
-    self.beers = [BeerObject listOfBeers];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
