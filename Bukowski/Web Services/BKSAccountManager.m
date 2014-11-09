@@ -134,25 +134,9 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
     return ([[NSUserDefaults standardUserDefaults] objectForKey:kBKSMugClubStartDate] != nil);
 }
 
-- (void)loadInitialBeers
-{
-    PFQuery *query = [PFQuery queryWithClassName:@"NonPersistedBeer"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            if (objects.count > 0) {
-                return;
-            } else {
-                [self uploadBeers];
-            }
-        } else {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
-}
-
 - (void)loadBeersWithSuccess:(void(^)(NSArray *beers, NSError *error))block
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"NonPersistedBeer"];
+    PFQuery *query = [PFQuery queryWithClassName:@"BeerObject"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if (block) {
@@ -162,12 +146,6 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
-}
-
-
-- (void)uploadBeers
-{
-
 }
 
 @end
