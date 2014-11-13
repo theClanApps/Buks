@@ -44,8 +44,7 @@ static NSString * const kSegueToBeerViewController = @"kSegueToBeerViewControlle
 
 #pragma mark - AlertView Delegate
 
-- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
-{
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
     
 }
 

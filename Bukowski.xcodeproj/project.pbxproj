@@ -17,12 +17,10 @@
 		49BB685E19FF271600DFD75D /* BKSDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB685319FF271600DFD75D /* BKSDataManager.m */; };
 		49BB686019FF271600DFD75D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49BB685619FF271600DFD75D /* Model.xcdatamodeld */; };
 		49BB686119FF271600DFD75D /* NonPersistedBeer.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB685919FF271600DFD75D /* NonPersistedBeer.m */; };
-		49BB686E19FF273700DFD75D /* BKSBeerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB686619FF273700DFD75D /* BKSBeerViewController.m */; };
 		49BB686F19FF273700DFD75D /* BKSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB686819FF273700DFD75D /* BKSLoginViewController.m */; };
 		49BB687019FF273700DFD75D /* BKSWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB686A19FF273700DFD75D /* BKSWelcomeViewController.m */; };
 		49BB687119FF273700DFD75D /* BKSAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB686D19FF273700DFD75D /* BKSAccountManager.m */; };
 		49BB687419FF274600DFD75D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB687319FF274600DFD75D /* AppDelegate.m */; };
-		49F1D2D21A0B024A0073A19D /* funnyImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F1D2D11A0B024A0073A19D /* funnyImage.png */; };
 		4CD478DE1C524DD0C1156959 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4439E0F969A77184CFD09AAE /* libPods.a */; };
 		6308B1B11A082BC900B1C4FA /* bluemoonwhite.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1A81A082BC900B1C4FA /* bluemoonwhite.jpg */; };
 		6308B1B21A082BC900B1C4FA /* bostonlager in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1A91A082BC900B1C4FA /* bostonlager */; };
@@ -99,8 +97,6 @@
 		49BB685719FF271600DFD75D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		49BB685819FF271600DFD75D /* NonPersistedBeer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NonPersistedBeer.h; sourceTree = "<group>"; };
 		49BB685919FF271600DFD75D /* NonPersistedBeer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NonPersistedBeer.m; sourceTree = "<group>"; };
-		49BB686519FF273700DFD75D /* BKSBeerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSBeerViewController.h; sourceTree = "<group>"; };
-		49BB686619FF273700DFD75D /* BKSBeerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSBeerViewController.m; sourceTree = "<group>"; };
 		49BB686719FF273700DFD75D /* BKSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSLoginViewController.h; sourceTree = "<group>"; };
 		49BB686819FF273700DFD75D /* BKSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSLoginViewController.m; sourceTree = "<group>"; };
 		49BB686919FF273700DFD75D /* BKSWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSWelcomeViewController.h; sourceTree = "<group>"; };
@@ -109,7 +105,6 @@
 		49BB686D19FF273700DFD75D /* BKSAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSAccountManager.m; sourceTree = "<group>"; };
 		49BB687219FF274600DFD75D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49BB687319FF274600DFD75D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		49F1D2D11A0B024A0073A19D /* funnyImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = funnyImage.png; sourceTree = "<group>"; };
 		6308B1A81A082BC900B1C4FA /* bluemoonwhite.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bluemoonwhite.jpg; sourceTree = "<group>"; };
 		6308B1A91A082BC900B1C4FA /* bostonlager */ = {isa = PBXFileReference; lastKnownFileType = file; path = bostonlager; sourceTree = "<group>"; };
 		6308B1AA1A082BC900B1C4FA /* dogfish90.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dogfish90.jpg; sourceTree = "<group>"; };
@@ -234,7 +229,6 @@
 		49BB682419FF26AA00DFD75D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				49F1D2D11A0B024A0073A19D /* funnyImage.png */,
 				49BB682519FF26AA00DFD75D /* Info.plist */,
 				49BB682619FF26AA00DFD75D /* main.m */,
 			);
@@ -279,8 +273,6 @@
 				6308B1D31A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.m */,
 				6308B1D41A0836BF00B1C4FA /* BKSMyFavoritesCollectionViewController.h */,
 				6308B1D51A0836BF00B1C4FA /* BKSMyFavoritesCollectionViewController.m */,
-				49BB686519FF273700DFD75D /* BKSBeerViewController.h */,
-				49BB686619FF273700DFD75D /* BKSBeerViewController.m */,
 				49BB686719FF273700DFD75D /* BKSLoginViewController.h */,
 				49BB686819FF273700DFD75D /* BKSLoginViewController.m */,
 				49BB686919FF273700DFD75D /* BKSWelcomeViewController.h */,
@@ -493,7 +485,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49F1D2D21A0B024A0073A19D /* funnyImage.png in Resources */,
 				6308B1B61A082BC900B1C4FA /* magichat#9.jpg in Resources */,
 				63362A071A0D700E00121D1C /* Oswald-Bold.ttf in Resources */,
 				6308B1B41A082BC900B1C4FA /* guinessdraught in Resources */,
@@ -587,7 +578,6 @@
 				49BB682D19FF26AA00DFD75D /* Bukowski.xcdatamodeld in Sources */,
 				6308B1D61A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.m in Sources */,
 				49BB687019FF273700DFD75D /* BKSWelcomeViewController.m in Sources */,
-				49BB686E19FF273700DFD75D /* BKSBeerViewController.m in Sources */,
 				49BB686F19FF273700DFD75D /* BKSLoginViewController.m in Sources */,
 				49BB686019FF271600DFD75D /* Model.xcdatamodeld in Sources */,
 				49BB686119FF271600DFD75D /* NonPersistedBeer.m in Sources */,
