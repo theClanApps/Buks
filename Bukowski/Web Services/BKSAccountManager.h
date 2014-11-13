@@ -19,5 +19,5 @@ typedef void (^BKSErrorBlock) (NSError *error);
 - (void)startMugClubWithSuccess:(BKSSuccessBlock)success failure:(BKSErrorBlock)failure;
 - (BOOL)userStartedMugClub;
 - (void)loadBeersWithSuccess:(void(^)(NSArray *beers, NSError *error))block;
-
+- (void)executeCloudCode;
 @end

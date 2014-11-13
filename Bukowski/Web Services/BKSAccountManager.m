@@ -98,8 +98,8 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
                     success([NSNumber numberWithBool:succeeded]);
                 }
             } else {
-                if (error) {
-                    NSLog(@"Error starting mug club: %@", error);
+                if (failure) {
+                    failure(error);
                 }
             }
         }];
@@ -146,6 +146,16 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
+}
+
+- (void)executeCloudCode {
+    [PFCloud callFunctionInBackground:@"hello"
+                       withParameters:@{}
+                                block:^(NSString *result, NSError *error) {
+                                    if (!error) {
+                                        NSLog(@"Result: %@",result);
+                                    }
+                                }];
 }
 
 @end

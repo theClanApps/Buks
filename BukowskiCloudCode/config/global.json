@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "Bukowski": {
+            "applicationId": "GPAodgbqufdLMefPZWU8mWCIeD49bfcVXQNe1CkB", 
+            "masterKey": "8JnQfAuwQJLUQbIQBpk8JaR515qKLdztZFC0vZL3"
+        }, 
+        "_default": {
+            "link": "Bukowski"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.1"
+    }
+}
