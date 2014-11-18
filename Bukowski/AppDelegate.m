@@ -11,7 +11,6 @@
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 
 #import "AppDelegate.h"
-#import "BKSBeerViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 
 @implementation AppDelegate
