@@ -10,6 +10,7 @@
 #import "CollectionCell.h"
 #import "BeerObject.h"
 #import "BKSAccountManager.h"
+#import "UserBeerObject.h"
 
 @interface BKSBaseBeerCollectionViewController ()
 
@@ -65,8 +66,8 @@
     static NSString *cellIdentifier = @"cvCell";
     
     CollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    BeerObject *beer = [self.beers objectAtIndex:indexPath.row];
-    
+    BeerObject *beer = ((UserBeerObject *)[self.beers objectAtIndex:indexPath.row]).beer;
+    [beer fetchIfNeeded];
     cell.beerNameLabel.text =  beer.nickname;
     cell.beerImage.image = [self imageForParseFile:beer.bottleImage];
     

@@ -12,6 +12,7 @@
 
 #import "AppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "BKSAccountManager.h"
 
 @implementation AppDelegate
 
@@ -66,7 +67,6 @@
                                                          UIRemoteNotificationTypeAlert |
                                                          UIRemoteNotificationTypeSound)];
     }
-
     return YES;
 }
 
