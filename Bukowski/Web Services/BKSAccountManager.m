@@ -88,20 +88,22 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
 - (void)startMugClubWithSuccess:(BKSSuccessBlock)success failure:(BKSErrorBlock)failure
 {
     if (![self savedStartDateInUserDefaults]) {
-        PFUser *currentUser = [PFUser currentUser];
-        NSDate * currentDate = [NSDate date];
-        currentUser[@"MugClubStartDate"] = currentDate;
-        [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (!error) {
-                [self storeStartDateInUserDefaults:currentDate];
-                if (success) {
-                    success([NSNumber numberWithBool:succeeded]);
+        [self createUsersBeersInCloudWithCompletion:^(NSError *error, NSString *result) {
+            PFUser *currentUser = [PFUser currentUser];
+            NSDate * currentDate = [NSDate date];
+            currentUser[@"MugClubStartDate"] = currentDate;
+            [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (!error) {
+                    [self storeStartDateInUserDefaults:currentDate];
+                    if (success) {
+                        success([NSNumber numberWithBool:succeeded]);
+                    }
+                } else {
+                    if (failure) {
+                        failure(error);
+                    }
                 }
-            } else {
-                if (failure) {
-                    failure(error);
-                }
-            }
+            }];
         }];
     }
 }
@@ -148,12 +150,20 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
     }];
 }
 
-- (void)executeCloudCode {
-    [PFCloud callFunctionInBackground:@"hello"
-                       withParameters:@{}
+- (void)createUsersBeersInCloudWithCompletion:(void(^)(NSError *error, NSString *result))completion {
+    [PFCloud callFunctionInBackground:@"createUserBeerInCloud"
+                       withParameters:@{
+                                        @"user" : [PFUser currentUser].username,
+                                        }
                                 block:^(NSString *result, NSError *error) {
                                     if (!error) {
-                                        NSLog(@"Result: %@",result);
+                                        if (completion) {
+                                            completion(nil, result);
+                                        }
+                                    } else {
+                                        if (completion) {
+                                            completion(error, nil);
+                                        }
                                     }
                                 }];
 }
