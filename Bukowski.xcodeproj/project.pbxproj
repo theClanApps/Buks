@@ -21,6 +21,7 @@
 		49BB687019FF273700DFD75D /* BKSWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB686A19FF273700DFD75D /* BKSWelcomeViewController.m */; };
 		49BB687119FF273700DFD75D /* BKSAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB686D19FF273700DFD75D /* BKSAccountManager.m */; };
 		49BB687419FF274600DFD75D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB687319FF274600DFD75D /* AppDelegate.m */; };
+		49BE31AB1A1D8105003F246F /* UserBeerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BE31AA1A1D8105003F246F /* UserBeerObject.m */; };
 		4CD478DE1C524DD0C1156959 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4439E0F969A77184CFD09AAE /* libPods.a */; };
 		6308B1B11A082BC900B1C4FA /* bluemoonwhite.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1A81A082BC900B1C4FA /* bluemoonwhite.jpg */; };
 		6308B1B21A082BC900B1C4FA /* bostonlager in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1A91A082BC900B1C4FA /* bostonlager */; };
@@ -105,6 +106,8 @@
 		49BB686D19FF273700DFD75D /* BKSAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSAccountManager.m; sourceTree = "<group>"; };
 		49BB687219FF274600DFD75D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49BB687319FF274600DFD75D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		49BE31A91A1D8105003F246F /* UserBeerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserBeerObject.h; sourceTree = "<group>"; };
+		49BE31AA1A1D8105003F246F /* UserBeerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserBeerObject.m; sourceTree = "<group>"; };
 		6308B1A81A082BC900B1C4FA /* bluemoonwhite.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bluemoonwhite.jpg; sourceTree = "<group>"; };
 		6308B1A91A082BC900B1C4FA /* bostonlager */ = {isa = PBXFileReference; lastKnownFileType = file; path = bostonlager; sourceTree = "<group>"; };
 		6308B1AA1A082BC900B1C4FA /* dogfish90.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dogfish90.jpg; sourceTree = "<group>"; };
@@ -344,6 +347,8 @@
 		6308B1D11A08369F00B1C4FA /* Test Objects */ = {
 			isa = PBXGroup;
 			children = (
+				49BE31A91A1D8105003F246F /* UserBeerObject.h */,
+				49BE31AA1A1D8105003F246F /* UserBeerObject.m */,
 				6308B1CE1A08369B00B1C4FA /* BeerObject.h */,
 				6308B1CF1A08369B00B1C4FA /* BeerObject.m */,
 			);
@@ -584,6 +589,7 @@
 				49A02DAB1A08370D004517B6 /* BKSStartMugClubViewController.m in Sources */,
 				63686E681A0AE97200D38A1B /* BKSBeerDetailViewController.m in Sources */,
 				6308B1CD1A08321F00B1C4FA /* BKSCollectionViewListViewController.m in Sources */,
+				49BE31AB1A1D8105003F246F /* UserBeerObject.m in Sources */,
 				49BB682719FF26AA00DFD75D /* main.m in Sources */,
 				6308B1CA1A08302C00B1C4FA /* CollectionCell.m in Sources */,
 				49BB685E19FF271600DFD75D /* BKSDataManager.m in Sources */,

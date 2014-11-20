@@ -138,7 +138,8 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
 
 - (void)loadBeersWithSuccess:(void(^)(NSArray *beers, NSError *error))block
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"BeerObject"];
+    PFQuery *query = [PFQuery queryWithClassName:@"UserBeerObject"];
+    [query whereKey:@"drinkingUser" equalTo:[PFUser currentUser]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             if (block) {
