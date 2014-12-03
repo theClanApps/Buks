@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BeerObject.h"
+@class UserBeerObject;
 
 @interface BKSBeerDetailViewController : UIViewController
 
-@property (nonatomic, strong) BeerObject *beer;
+@property (nonatomic, strong) UserBeerObject *beer;
 
 @end

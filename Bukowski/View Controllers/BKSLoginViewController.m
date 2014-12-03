@@ -13,6 +13,7 @@
 #import "PFFacebookUtils.h"
 
 static NSString * const kBKSSegueToWelcomeViewControllerIdentifier = @"kBKSSegueToWelcomeViewControllerIdentifier";
+static NSString * const kSegueToBeerViewController = @"kSegueToBeerViewController";
 
 @interface BKSLoginViewController ()
 
@@ -26,13 +27,21 @@ static NSString * const kBKSSegueToWelcomeViewControllerIdentifier = @"kBKSSegue
 
 - (void)viewWillAppear:(BOOL)animated {
     if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
-        [self performSegueWithIdentifier:kBKSSegueToWelcomeViewControllerIdentifier sender:self];
+        if ([[BKSAccountManager sharedAccountManager] userStartedMugClub]) {
+            [self performSegueWithIdentifier:kSegueToBeerViewController sender:self];
+        } else {
+            [self performSegueWithIdentifier:kBKSSegueToWelcomeViewControllerIdentifier sender:self];
+        }
     }
 }
 
 - (IBAction)loginButtonPressed:(id)sender {
     [[BKSAccountManager sharedAccountManager] loginWithWithSuccess:^(id successObject) {
-        [self performSegueWithIdentifier:kBKSSegueToWelcomeViewControllerIdentifier sender:self];
+        if ([[BKSAccountManager sharedAccountManager] userStartedMugClub]) {
+            [self performSegueWithIdentifier:kSegueToBeerViewController sender:self];
+        } else {
+            [self performSegueWithIdentifier:kBKSSegueToWelcomeViewControllerIdentifier sender:self];
+        }
     } failure:^(NSError *error) {
         [self showLoginFailureAlertView];
     }];

@@ -7,6 +7,8 @@
 //
 
 #import "BKSBeerDetailViewController.h"
+#import "UserBeerObject.h"
+#import "BeerObject.h"
 
 @interface BKSBeerDetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *beerNameLabel;
@@ -26,16 +28,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    BeerObject *beer = self.beer.beer;
+    self.beerNameLabel.text = beer.beerName.uppercaseString;
+    self.breweryLabel.text = beer.brewery.uppercaseString;
+    self.beerStyleLabel.text = beer.beerStyle.uppercaseString;
+    self.beerDescriptionTextView.text = beer.beerDescription;
+    self.abvLabel.text = [NSString stringWithFormat:@"%@ %%",beer.abv];
+    self.priceLabel.text = beer.price;
+    self.sizeLabel.text = [NSString stringWithFormat:@"%@ oz.",beer.size];
     
-    self.beerNameLabel.text = self.beer.beerName.uppercaseString;
-    self.breweryLabel.text = self.beer.brewery.uppercaseString;
-    self.beerStyleLabel.text = self.beer.beerStyle.uppercaseString;
-    self.beerDescriptionTextView.text = self.beer.beerDescription;
-    self.abvLabel.text = [NSString stringWithFormat:@"%@ %%",self.beer.abv];
-    self.priceLabel.text = self.beer.price;
-    self.sizeLabel.text = [NSString stringWithFormat:@"%@ oz.",self.beer.size];
-    
-    PFFile *theImage = self.beer.bottleImage;
+    PFFile *theImage = beer.bottleImage;
     NSData *imageData = [theImage getData];
     UIImage *image = [UIImage imageWithData:imageData];
     self.bottleImage.image = image;
