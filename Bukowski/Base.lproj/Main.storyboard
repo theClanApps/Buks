@@ -600,6 +600,9 @@
                             <constraint firstItem="eCE-XR-XdS" firstAttribute="top" secondItem="GSG-9e-sCa" secondAttribute="bottom" constant="8" id="kbx-yc-9Xo"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="GSG-9e-sCa" id="ui7-fR-n4o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j32-xY-Uuo" sceneMemberID="firstResponder"/>
             </objects>
