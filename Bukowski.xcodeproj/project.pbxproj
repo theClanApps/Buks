@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490ED78A1A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 490ED7871A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.m */; };
+		490ED78B1A2EA2C500FC0019 /* BKSBeerListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 490ED7891A2EA2C500FC0019 /* BKSBeerListsViewController.m */; };
 		49A02DAB1A08370D004517B6 /* BKSStartMugClubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A02DAA1A08370D004517B6 /* BKSStartMugClubViewController.m */; };
 		49BB682719FF26AA00DFD75D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB682619FF26AA00DFD75D /* main.m */; };
 		49BB682D19FF26AA00DFD75D /* Bukowski.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49BB682B19FF26AA00DFD75D /* Bukowski.xcdatamodeld */; };
@@ -81,6 +83,10 @@
 /* Begin PBXFileReference section */
 		2AE21DD105B94890FB73E2DE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4439E0F969A77184CFD09AAE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		490ED7861A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSBeerCollectionTableViewCell.h; sourceTree = "<group>"; };
+		490ED7871A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSBeerCollectionTableViewCell.m; sourceTree = "<group>"; };
+		490ED7881A2EA2C500FC0019 /* BKSBeerListsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSBeerListsViewController.h; sourceTree = "<group>"; };
+		490ED7891A2EA2C500FC0019 /* BKSBeerListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSBeerListsViewController.m; sourceTree = "<group>"; };
 		49A02DA91A08370D004517B6 /* BKSStartMugClubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSStartMugClubViewController.h; sourceTree = "<group>"; };
 		49A02DAA1A08370D004517B6 /* BKSStartMugClubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSStartMugClubViewController.m; sourceTree = "<group>"; };
 		49BB682119FF26AA00DFD75D /* Bukowski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bukowski.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,6 +278,10 @@
 		49BB686419FF273700DFD75D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				490ED7861A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.h */,
+				490ED7871A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.m */,
+				490ED7881A2EA2C500FC0019 /* BKSBeerListsViewController.h */,
+				490ED7891A2EA2C500FC0019 /* BKSBeerListsViewController.m */,
 				6308B1D21A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.h */,
 				6308B1D31A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.m */,
 				6308B1D41A0836BF00B1C4FA /* BKSMyFavoritesCollectionViewController.h */,
@@ -582,8 +592,10 @@
 			files = (
 				49BB682D19FF26AA00DFD75D /* Bukowski.xcdatamodeld in Sources */,
 				6308B1D61A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.m in Sources */,
+				490ED78A1A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.m in Sources */,
 				49BB687019FF273700DFD75D /* BKSWelcomeViewController.m in Sources */,
 				49BB686F19FF273700DFD75D /* BKSLoginViewController.m in Sources */,
+				490ED78B1A2EA2C500FC0019 /* BKSBeerListsViewController.m in Sources */,
 				49BB686019FF271600DFD75D /* Model.xcdatamodeld in Sources */,
 				49BB686119FF271600DFD75D /* NonPersistedBeer.m in Sources */,
 				49A02DAB1A08370D004517B6 /* BKSStartMugClubViewController.m in Sources */,
