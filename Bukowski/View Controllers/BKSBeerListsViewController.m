@@ -36,6 +36,7 @@ NSInteger const kBKSNumberOfSections = 3;
 @property (strong, nonatomic) UserBeerObject *beerSelected;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISwitch *toggleAllOrRemainingSwitch;
 @end
 
 @implementation BKSBeerListsViewController
@@ -43,10 +44,17 @@ NSInteger const kBKSNumberOfSections = 3;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setup];
+    
+    [self.toggleAllOrRemainingSwitch addTarget:self
+                                        action:@selector(stateChanged:)
+                              forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)setup {
     [self loadBeers];
+    
+    self.showOnlyRemainingBeers = YES;
+    
     self.edgesForExtendedLayout = UIRectEdgeAll;
 //    self.extendedLayoutIncludesOpaqueBars = YES;
 }
@@ -56,15 +64,10 @@ NSInteger const kBKSNumberOfSections = 3;
         [userBeerObject.beer fetchIfNeeded];
     }
     self.beersUnderEight = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.price < %@)", @"7"]];
-    
-    //NSLog(@"BeersUnderEight: %@", self.beersUnderEight);
     self.beersUnderFivePercent = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.abv < %@)", @"5"]];
-    
-    
-    //NSLog(@"BeersUnderFivePercent: %@", self.beersUnderFivePercent);
-    //self.allBeersRemaining = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
-    //self.beersUnderEightRemaining = [self.beersUnderEight filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
-    //self.beersUnderFivePercentRemaining = [self.beersUnderFivePercent filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"drank = false"]];
+    self.allBeersRemaining = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
+    self.beersUnderEightRemaining = [self.beersUnderEight filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
+    self.beersUnderFivePercentRemaining = [self.beersUnderFivePercent filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"drank = false"]];
 }
 
 - (void)loadBeers {
@@ -134,13 +137,25 @@ NSInteger const kBKSNumberOfSections = 3;
     NSInteger numberOfBeersInSection = 0;
     
     if (collectionView.tag == BKSBeerCategorySectionAllBeers) {
-        numberOfBeersInSection = self.allBeers.count;
+        if (self.showOnlyRemainingBeers) {
+            numberOfBeersInSection = self.allBeersRemaining.count;
+        } else {
+            numberOfBeersInSection = self.allBeers.count;
+        }
     } else
     if (collectionView.tag == BKSBeerCategorySectionBeersUnderEight) {
-        numberOfBeersInSection = self.beersUnderEight.count;
+        if (self.showOnlyRemainingBeers) {
+            numberOfBeersInSection = self.beersUnderEightRemaining.count;
+        } else {
+            numberOfBeersInSection = self.beersUnderEight.count;
+        }
     } else
     if (collectionView.tag == BKSBeerCategorySectionBeersUnderFivePercent) {
-        numberOfBeersInSection = self.beersUnderFivePercent.count;
+        if (self.showOnlyRemainingBeers) {
+            numberOfBeersInSection = self.beersUnderFivePercentRemaining.count;
+        } else {
+            numberOfBeersInSection = self.beersUnderFivePercent.count;
+        }
     }
 
     NSLog(@"#: %lu", numberOfBeersInSection);
@@ -155,11 +170,23 @@ NSInteger const kBKSNumberOfSections = 3;
     BeerObject *beer;
     
     if (collectionView.tag == BKSBeerCategorySectionAllBeers) {
-        beer = ((UserBeerObject *)[self.allBeers objectAtIndex:indexPath.row]).beer;
+        if (self.showOnlyRemainingBeers) {
+            beer = ((UserBeerObject *)[self.allBeersRemaining objectAtIndex:indexPath.row]).beer;
+        } else {
+            beer = ((UserBeerObject *)[self.allBeers objectAtIndex:indexPath.row]).beer;
+        }
     } else if (collectionView.tag == BKSBeerCategorySectionBeersUnderEight) {
-        beer = ((UserBeerObject *)[self.beersUnderEight objectAtIndex:indexPath.row]).beer;
+        if (self.showOnlyRemainingBeers) {
+            beer = ((UserBeerObject *)[self.beersUnderEightRemaining objectAtIndex:indexPath.row]).beer;
+        } else {
+            beer = ((UserBeerObject *)[self.beersUnderEight objectAtIndex:indexPath.row]).beer;
+        }
     } else if (collectionView.tag == BKSBeerCategorySectionBeersUnderFivePercent) {
-        beer = ((UserBeerObject *)[self.beersUnderFivePercent objectAtIndex:indexPath.row]).beer;
+        if (self.showOnlyRemainingBeers) {
+            beer = ((UserBeerObject *)[self.beersUnderFivePercentRemaining objectAtIndex:indexPath.row]).beer;
+        } else {
+            beer = ((UserBeerObject *)[self.beersUnderFivePercent objectAtIndex:indexPath.row]).beer;
+        }
     }
     
     [beer fetchIfNeeded];
@@ -195,6 +222,20 @@ NSInteger const kBKSNumberOfSections = 3;
     UIImage *image = [UIImage imageWithData:imageData];
     return image;
 }
+
+- (void)stateChanged:(UISwitch *)switchState
+{
+    if ([switchState isOn]) {
+        self.showOnlyRemainingBeers = YES;
+    } else {
+        self.showOnlyRemainingBeers = NO;
+    }
+    
+    [self reloadAllCollectionViews];
+    
+}
+
+
 
 #pragma mark - Navigation
 

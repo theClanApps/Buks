@@ -10,6 +10,7 @@
 
 @interface BKSBeerListsViewController : UIViewController
 
+@property (nonatomic) BOOL showOnlyRemainingBeers;
 
 @end
 
