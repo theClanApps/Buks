@@ -14,7 +14,6 @@
         </mutableArray>
         <mutableArray key="Oswald-Regular.ttf">
             <string>Oswald-Regular</string>
-            <string>Oswald-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -172,61 +171,6 @@
             </objects>
             <point key="canvasLocation" x="1657" y="136"/>
         </scene>
-        <!--Collection View List View Controller-->
-        <scene sceneID="JZl-MZ-pcc">
-            <objects>
-                <viewController id="tom-LD-ur7" customClass="BKSCollectionViewListViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="U4O-Dd-leF"/>
-                        <viewControllerLayoutGuide type="bottom" id="M9C-f4-pvm"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="NxV-qo-e70">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="My Favorites" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXx-J7-Xla">
-                                <rect key="frame" x="16" y="79" width="568" height="21"/>
-                                <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FJy-nh-UlU">
-                                <rect key="frame" x="16" y="108" width="568" height="182"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="182" id="kef-SP-Ewc"/>
-                                </constraints>
-                                <connections>
-                                    <segue destination="46h-1M-fUe" kind="embed" id="l9V-Py-Kai"/>
-                                </connections>
-                            </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwM-0d-muB">
-                                <rect key="frame" x="275" y="562" width="49" height="30"/>
-                                <state key="normal" title="Logout">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapLogoutButton:" destination="tom-LD-ur7" eventType="touchUpInside" id="ETO-aO-mWT"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="gwM-0d-muB" secondAttribute="centerX" id="8kS-R3-rK9"/>
-                            <constraint firstItem="PXx-J7-Xla" firstAttribute="leading" secondItem="NxV-qo-e70" secondAttribute="leadingMargin" id="Bb9-UT-GtN"/>
-                            <constraint firstItem="PXx-J7-Xla" firstAttribute="trailing" secondItem="NxV-qo-e70" secondAttribute="trailingMargin" id="ID5-Q6-jYb"/>
-                            <constraint firstItem="FJy-nh-UlU" firstAttribute="trailing" secondItem="NxV-qo-e70" secondAttribute="trailingMargin" id="TFD-xP-8OO"/>
-                            <constraint firstItem="M9C-f4-pvm" firstAttribute="top" secondItem="gwM-0d-muB" secondAttribute="bottom" constant="8" id="Tba-dp-fD4"/>
-                            <constraint firstItem="PXx-J7-Xla" firstAttribute="top" secondItem="U4O-Dd-leF" secondAttribute="bottom" constant="15" id="cKE-fu-Xav"/>
-                            <constraint firstItem="FJy-nh-UlU" firstAttribute="leading" secondItem="NxV-qo-e70" secondAttribute="leadingMargin" id="cos-FG-COD"/>
-                            <constraint firstItem="FJy-nh-UlU" firstAttribute="top" secondItem="PXx-J7-Xla" secondAttribute="bottom" constant="8" id="xUt-oB-O3S"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="DrE-4Z-L8v"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GeL-Cv-XFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1657" y="890"/>
-        </scene>
         <!--Beer View Controller-->
         <scene sceneID="z8s-fW-VQT">
             <objects>
@@ -289,43 +233,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fvT-Xd-0cV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="155" y="133"/>
-        </scene>
-        <!--My Favorites Collection View Controller-->
-        <scene sceneID="kKc-u6-IbA">
-            <objects>
-                <collectionViewController id="46h-1M-fUe" customClass="BKSMyFavoritesCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="GLD-be-pvr">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="182"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vFG-zl-Dw6">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Isa-wn-6sv">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <connections>
-                                    <segue destination="5hT-WA-1y3" kind="show" identifier="beerDetailSegue" id="5En-2t-C8A"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="46h-1M-fUe" id="60m-XF-HkE"/>
-                            <outlet property="delegate" destination="46h-1M-fUe" id="1H6-8B-ge3"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vwE-AR-iaF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2333" y="889.5"/>
         </scene>
         <!--Beer Detail View Controller-->
         <scene sceneID="VPa-qo-Oox">
@@ -505,7 +412,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r34-1s-IfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3004" y="890"/>
+            <point key="canvasLocation" x="2835" y="947"/>
         </scene>
         <!--Beer Lists View Controller-->
         <scene sceneID="4EM-Rq-vJC">
@@ -519,18 +426,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="154" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GSG-9e-sCa">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="169" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GSG-9e-sCa">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="154" id="OTp-pS-wre" customClass="BKSBeerCollectionTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="169" id="OTp-pS-wre" customClass="BKSBeerCollectionTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OTp-pS-wre" id="Cpb-vK-BtP">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fxc-iV-oew">
-                                                    <rect key="frame" x="0.0" y="-1" width="600" height="153.5"/>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fxc-iV-oew">
+                                                    <rect key="frame" x="0.0" y="-1" width="600" height="154"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hrp-R4-6Wu">
                                                         <size key="itemSize" width="113" height="141"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -555,6 +462,9 @@
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             </view>
                                                             <color key="backgroundColor" red="0.27797847930000003" green="0.66666666669999997" blue="0.21387900900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <connections>
+                                                                <segue destination="5hT-WA-1y3" kind="show" identifier="beerDetailSegue" id="oXc-0C-96r"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                     <connections>
@@ -586,15 +496,15 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="didTapLogoutButton:" destination="tom-LD-ur7" eventType="touchUpInside" id="1d7-eu-pcq"/>
+                                    <action selector="didTapLogoutButton:" destination="ejc-bG-TaG" eventType="touchUpInside" id="aQc-HF-CvF"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="GSG-9e-sCa" secondAttribute="trailing" constant="-16" id="1mi-3h-Nck"/>
-                            <constraint firstItem="GSG-9e-sCa" firstAttribute="top" secondItem="Hp5-GZ-Qxd" secondAttribute="bottom" constant="-20" id="DrR-Jb-CWk"/>
                             <constraint firstItem="6Qg-Ne-ah2" firstAttribute="top" secondItem="eCE-XR-XdS" secondAttribute="bottom" constant="12" id="Uh5-G7-gUo"/>
+                            <constraint firstItem="GSG-9e-sCa" firstAttribute="top" secondItem="Hp5-GZ-Qxd" secondAttribute="bottom" constant="-64" id="ZxC-cC-ZeO"/>
                             <constraint firstItem="GSG-9e-sCa" firstAttribute="centerX" secondItem="eCE-XR-XdS" secondAttribute="centerX" constant="-0.5" id="ajY-EC-KOx"/>
                             <constraint firstItem="GSG-9e-sCa" firstAttribute="leading" secondItem="ZF3-rO-bEJ" secondAttribute="leadingMargin" constant="-16" id="cAJ-K1-nmK"/>
                             <constraint firstItem="eCE-XR-XdS" firstAttribute="top" secondItem="GSG-9e-sCa" secondAttribute="bottom" constant="8" id="kbx-yc-9Xo"/>
@@ -606,7 +516,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j32-xY-Uuo" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="889"/>
+            <point key="canvasLocation" x="2073" y="897"/>
         </scene>
     </scenes>
     <resources>

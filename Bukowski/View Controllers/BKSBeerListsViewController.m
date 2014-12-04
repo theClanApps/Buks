@@ -10,7 +10,9 @@
 #import "BKSBeerCollectionTableViewCell.h"
 #import "BKSAccountManager.h"
 #import "UserBeerObject.h"
-//#import "BeerObject.h"
+#import "BeerObject.h"
+#import "CollectionCell.h"
+#import "BKSBeerDetailViewController.h"
 
 typedef NS_ENUM(NSInteger, BKSBeerCategorySection) {
     BKSBeerCategorySectionAllBeers,
@@ -28,6 +30,10 @@ NSInteger const kBKSNumberOfSections = 3;
 @property (strong, nonatomic) NSArray *allBeers;
 @property (strong, nonatomic) NSArray *beersUnderEight;
 @property (strong, nonatomic) NSArray *beersUnderFivePercent;
+@property (strong, nonatomic) NSArray *allBeersRemaining;
+@property (strong, nonatomic) NSArray *beersUnderEightRemaining;
+@property (strong, nonatomic) NSArray *beersUnderFivePercentRemaining;
+@property (strong, nonatomic) UserBeerObject *beerSelected;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
@@ -41,6 +47,8 @@ NSInteger const kBKSNumberOfSections = 3;
 
 - (void)setup {
     [self loadBeers];
+    self.edgesForExtendedLayout = UIRectEdgeAll;
+//    self.extendedLayoutIncludesOpaqueBars = YES;
 }
 
 - (void)sortAllBeersIntoCategories:(NSArray *)allBeers {
@@ -48,6 +56,15 @@ NSInteger const kBKSNumberOfSections = 3;
         [userBeerObject.beer fetchIfNeeded];
     }
     self.beersUnderEight = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.price < %@)", @"7"]];
+    
+    //NSLog(@"BeersUnderEight: %@", self.beersUnderEight);
+    self.beersUnderFivePercent = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.abv < %@)", @"5"]];
+    
+    
+    //NSLog(@"BeersUnderFivePercent: %@", self.beersUnderFivePercent);
+    //self.allBeersRemaining = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
+    //self.beersUnderEightRemaining = [self.beersUnderEight filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
+    //self.beersUnderFivePercentRemaining = [self.beersUnderFivePercent filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"drank = false"]];
 }
 
 - (void)loadBeers {
@@ -58,6 +75,8 @@ NSInteger const kBKSNumberOfSections = 3;
             [self sortAllBeersIntoCategories:self.allBeers];
             
             [self.tableView reloadData];
+            
+            [self reloadAllCollectionViews];
         } else {
             UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error loading beers" message:@"Beers were unable to load" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [errorAlert show];
@@ -95,6 +114,14 @@ NSInteger const kBKSNumberOfSections = 3;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BKSBeerCollectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    
+    if (indexPath.section == BKSBeerCategorySectionAllBeers) {
+        cell.collectionView.tag = BKSBeerCategorySectionAllBeers;
+    } else if (indexPath.section == BKSBeerCategorySectionBeersUnderEight) {
+        cell.collectionView.tag = BKSBeerCategorySectionBeersUnderEight;
+    } else if (indexPath.section == BKSBeerCategorySectionBeersUnderFivePercent) {
+        cell.collectionView.tag = BKSBeerCategorySectionBeersUnderFivePercent;
+    }
     [self setupFlowLayoutForCell:cell];
     
     return cell;
@@ -102,15 +129,86 @@ NSInteger const kBKSNumberOfSections = 3;
 
 #pragma mark - UICollectionView
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView
-     numberOfItemsInSection:(NSInteger)section {
-    return 5;
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    
+    NSInteger numberOfBeersInSection = 0;
+    
+    if (collectionView.tag == BKSBeerCategorySectionAllBeers) {
+        numberOfBeersInSection = self.allBeers.count;
+    } else
+    if (collectionView.tag == BKSBeerCategorySectionBeersUnderEight) {
+        numberOfBeersInSection = self.beersUnderEight.count;
+    } else
+    if (collectionView.tag == BKSBeerCategorySectionBeersUnderFivePercent) {
+        numberOfBeersInSection = self.beersUnderFivePercent.count;
+    }
+
+    NSLog(@"#: %lu", numberOfBeersInSection);
+    
+    return numberOfBeersInSection;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cvCell" forIndexPath:indexPath];
+    CollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cvCell" forIndexPath:indexPath];
+    
+    BeerObject *beer;
+    
+    if (collectionView.tag == BKSBeerCategorySectionAllBeers) {
+        beer = ((UserBeerObject *)[self.allBeers objectAtIndex:indexPath.row]).beer;
+    } else if (collectionView.tag == BKSBeerCategorySectionBeersUnderEight) {
+        beer = ((UserBeerObject *)[self.beersUnderEight objectAtIndex:indexPath.row]).beer;
+    } else if (collectionView.tag == BKSBeerCategorySectionBeersUnderFivePercent) {
+        beer = ((UserBeerObject *)[self.beersUnderFivePercent objectAtIndex:indexPath.row]).beer;
+    }
+    
+    [beer fetchIfNeeded];
+    cell.beerNameLabel.text =  beer.nickname;
+    cell.beerImage.image = [self imageForParseFile:beer.bottleImage];
+    
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (collectionView.tag == BKSBeerCategorySectionAllBeers) {
+        self.beerSelected = ((UserBeerObject *)[self.allBeers objectAtIndex:indexPath.row]);
+    } else if (collectionView.tag == BKSBeerCategorySectionBeersUnderEight) {
+        self.beerSelected = ((UserBeerObject *)[self.beersUnderEight objectAtIndex:indexPath.row]);
+    } else if (collectionView.tag == BKSBeerCategorySectionBeersUnderFivePercent) {
+        self.beerSelected = ((UserBeerObject *)[self.beersUnderFivePercent objectAtIndex:indexPath.row]);
+    }
+    [self performSegueWithIdentifier:@"beerDetailSegue" sender:nil];
+}
+
+- (void)reloadAllCollectionViews {
+    for (int section = 0; section < [self.tableView numberOfSections]; section++) {
+        for (int row = 0; row < [self.tableView numberOfRowsInSection:section]; row++) {
+            BKSBeerCollectionTableViewCell *cell = (BKSBeerCollectionTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+            [cell.collectionView reloadData];
+        }
+    }
+}
+
+- (UIImage*)imageForParseFile:(PFFile *)pffile {
+    PFFile *theImage = pffile;
+    NSData *imageData = [theImage getData];
+    UIImage *image = [UIImage imageWithData:imageData];
+    return image;
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"beerDetailSegue"]) {
+        BKSBeerDetailViewController *detailVC = (BKSBeerDetailViewController *)segue.destinationViewController;
+        detailVC.beer = self.beerSelected;
+    }
+}
+
+- (IBAction)didTapLogoutButton:(id)sender {
+    [[BKSAccountManager sharedAccountManager] logout];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end
