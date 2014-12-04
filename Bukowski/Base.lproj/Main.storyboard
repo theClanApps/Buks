@@ -426,8 +426,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCE-XR-XdS">
+                                <rect key="frame" x="276" y="562" width="49" height="30"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapLogoutButton:" destination="ejc-bG-TaG" eventType="touchUpInside" id="aQc-HF-CvF"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Ut-68-oAb">
+                                <rect key="frame" x="276" y="72" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show All" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6o-OY-8SH">
+                                <rect key="frame" x="201" y="77" width="67" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remaining" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="puc-ue-Qgd">
+                                <rect key="frame" x="333" y="77" width="82" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="169" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GSG-9e-sCa">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
+                                <rect key="frame" x="0.0" y="106" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="169" id="OTp-pS-wre" customClass="BKSBeerCollectionTableViewCell">
@@ -490,28 +514,26 @@
                                     <outlet property="delegate" destination="ejc-bG-TaG" id="W6M-49-YFw"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCE-XR-XdS">
-                                <rect key="frame" x="276" y="558" width="49" height="30"/>
-                                <state key="normal" title="Logout">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapLogoutButton:" destination="ejc-bG-TaG" eventType="touchUpInside" id="aQc-HF-CvF"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="GSG-9e-sCa" secondAttribute="trailing" constant="-16" id="1mi-3h-Nck"/>
-                            <constraint firstItem="6Qg-Ne-ah2" firstAttribute="top" secondItem="eCE-XR-XdS" secondAttribute="bottom" constant="12" id="Uh5-G7-gUo"/>
-                            <constraint firstItem="GSG-9e-sCa" firstAttribute="top" secondItem="Hp5-GZ-Qxd" secondAttribute="bottom" constant="-64" id="ZxC-cC-ZeO"/>
-                            <constraint firstItem="GSG-9e-sCa" firstAttribute="centerX" secondItem="eCE-XR-XdS" secondAttribute="centerX" constant="-0.5" id="ajY-EC-KOx"/>
-                            <constraint firstItem="GSG-9e-sCa" firstAttribute="leading" secondItem="ZF3-rO-bEJ" secondAttribute="leadingMargin" constant="-16" id="cAJ-K1-nmK"/>
-                            <constraint firstItem="eCE-XR-XdS" firstAttribute="top" secondItem="GSG-9e-sCa" secondAttribute="bottom" constant="8" id="kbx-yc-9Xo"/>
+                            <constraint firstItem="puc-ue-Qgd" firstAttribute="leading" secondItem="5Ut-68-oAb" secondAttribute="trailing" constant="8" id="0Ij-8I-0Cz"/>
+                            <constraint firstItem="5Ut-68-oAb" firstAttribute="centerY" secondItem="R6o-OY-8SH" secondAttribute="centerY" id="8wV-c8-pTb"/>
+                            <constraint firstAttribute="centerX" secondItem="eCE-XR-XdS" secondAttribute="centerX" constant="-0.5" id="F7i-ri-HnS"/>
+                            <constraint firstItem="5Ut-68-oAb" firstAttribute="top" secondItem="Hp5-GZ-Qxd" secondAttribute="bottom" constant="8" id="FLa-Nt-Em6"/>
+                            <constraint firstItem="eCE-XR-XdS" firstAttribute="top" secondItem="GSG-9e-sCa" secondAttribute="bottom" constant="13" id="HdC-qQ-ON8"/>
+                            <constraint firstItem="5Ut-68-oAb" firstAttribute="centerY" secondItem="puc-ue-Qgd" secondAttribute="centerY" id="Tge-wA-954"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GSG-9e-sCa" secondAttribute="trailing" constant="-16" id="Yt8-yT-bR2"/>
+                            <constraint firstAttribute="centerX" secondItem="5Ut-68-oAb" secondAttribute="centerX" constant="-0.5" id="bxh-XR-4ar"/>
+                            <constraint firstItem="5Ut-68-oAb" firstAttribute="leading" secondItem="R6o-OY-8SH" secondAttribute="trailing" constant="8" id="cfV-BA-KcE"/>
+                            <constraint firstItem="6Qg-Ne-ah2" firstAttribute="top" secondItem="eCE-XR-XdS" secondAttribute="bottom" constant="8" id="fTV-OB-pkn"/>
+                            <constraint firstItem="GSG-9e-sCa" firstAttribute="leading" secondItem="ZF3-rO-bEJ" secondAttribute="leadingMargin" constant="-16" id="gQL-rp-7cN"/>
+                            <constraint firstItem="GSG-9e-sCa" firstAttribute="top" secondItem="5Ut-68-oAb" secondAttribute="bottom" constant="3" id="xDS-6v-Cte"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="GSG-9e-sCa" id="ui7-fR-n4o"/>
+                        <outlet property="toggleAllOrRemainingSwitch" destination="5Ut-68-oAb" id="f9z-2g-T4F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j32-xY-Uuo" sceneMemberID="firstResponder"/>
