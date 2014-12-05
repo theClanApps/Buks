@@ -245,6 +245,20 @@ NSInteger const kBKSNumberOfSections = 3;
         BKSBeerDetailViewController *detailVC = (BKSBeerDetailViewController *)segue.destinationViewController;
         detailVC.beer = self.beerSelected;
     }
+    
+    if ([[segue identifier] isEqualToString:@"randomBeerSegue"]) {
+        BKSBeerDetailViewController *detailVC = (BKSBeerDetailViewController *)segue.destinationViewController;
+        int i = 0;
+        if (self.showOnlyRemainingBeers) {
+            i = (arc4random() % (self.allBeersRemaining.count));
+            NSLog(@"%i / %lu",i,(unsigned long)self.allBeersRemaining.count);
+            detailVC.beer = self.allBeersRemaining[i];
+        } else {
+            i = (arc4random() % (self.allBeers.count));
+            NSLog(@"%i / %lu",i,(unsigned long)self.allBeers.count);
+            detailVC.beer = self.allBeers[i];
+        }
+    }
 }
 
 - (IBAction)didTapLogoutButton:(id)sender {

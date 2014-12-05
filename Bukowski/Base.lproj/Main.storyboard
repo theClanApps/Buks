@@ -514,6 +514,19 @@
                                     <outlet property="delegate" destination="ejc-bG-TaG" id="W6M-49-YFw"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPx-Bs-DIY">
+                                <rect key="frame" x="16" y="75" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="HP0-be-EDE"/>
+                                    <constraint firstAttribute="width" constant="25" id="hxB-tb-nOY"/>
+                                </constraints>
+                                <state key="normal" image="question.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="5hT-WA-1y3" kind="show" identifier="randomBeerSegue" id="H2T-d5-IE9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -522,6 +535,7 @@
                             <constraint firstAttribute="centerX" secondItem="eCE-XR-XdS" secondAttribute="centerX" constant="-0.5" id="F7i-ri-HnS"/>
                             <constraint firstItem="5Ut-68-oAb" firstAttribute="top" secondItem="Hp5-GZ-Qxd" secondAttribute="bottom" constant="8" id="FLa-Nt-Em6"/>
                             <constraint firstItem="eCE-XR-XdS" firstAttribute="top" secondItem="GSG-9e-sCa" secondAttribute="bottom" constant="13" id="HdC-qQ-ON8"/>
+                            <constraint firstItem="5Ut-68-oAb" firstAttribute="centerY" secondItem="oPx-Bs-DIY" secondAttribute="centerY" id="Hmq-Jn-RQ1"/>
                             <constraint firstItem="5Ut-68-oAb" firstAttribute="centerY" secondItem="puc-ue-Qgd" secondAttribute="centerY" id="Tge-wA-954"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GSG-9e-sCa" secondAttribute="trailing" constant="-16" id="Yt8-yT-bR2"/>
                             <constraint firstAttribute="centerX" secondItem="5Ut-68-oAb" secondAttribute="centerX" constant="-0.5" id="bxh-XR-4ar"/>
@@ -529,6 +543,7 @@
                             <constraint firstItem="6Qg-Ne-ah2" firstAttribute="top" secondItem="eCE-XR-XdS" secondAttribute="bottom" constant="8" id="fTV-OB-pkn"/>
                             <constraint firstItem="GSG-9e-sCa" firstAttribute="leading" secondItem="ZF3-rO-bEJ" secondAttribute="leadingMargin" constant="-16" id="gQL-rp-7cN"/>
                             <constraint firstItem="GSG-9e-sCa" firstAttribute="top" secondItem="5Ut-68-oAb" secondAttribute="bottom" constant="3" id="xDS-6v-Cte"/>
+                            <constraint firstItem="oPx-Bs-DIY" firstAttribute="leading" secondItem="ZF3-rO-bEJ" secondAttribute="leadingMargin" id="y4c-HY-I6f"/>
                         </constraints>
                     </view>
                     <connections>
@@ -546,8 +561,10 @@
         <image name="beer-size-icon.png" width="37" height="30"/>
         <image name="beer.png" width="150" height="150"/>
         <image name="price-icon.png" width="60" height="30"/>
+        <image name="question.png" width="72" height="72"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="H2T-d5-IE9"/>
         <segue reference="vlt-xi-ixs"/>
     </inferredMetricsTieBreakers>
 </document>
