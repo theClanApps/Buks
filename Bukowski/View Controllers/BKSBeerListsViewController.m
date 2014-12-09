@@ -44,19 +44,29 @@ NSInteger const kBKSNumberOfSections = 3;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setup];
-    
-    [self.toggleAllOrRemainingSwitch addTarget:self
-                                        action:@selector(stateChanged:)
-                              forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)setup {
     [self loadBeers];
-    
-    self.showOnlyRemainingBeers = YES;
+    [self setToggleValue];
     
     self.edgesForExtendedLayout = UIRectEdgeAll;
-//    self.extendedLayoutIncludesOpaqueBars = YES;
+    //    self.extendedLayoutIncludesOpaqueBars = YES;
+}
+
+- (void)setToggleValue {
+    NSUserDefaults *userToggleSetting = [NSUserDefaults standardUserDefaults];
+    
+    //Check if default has been set.
+    //If so, retrieve stored value & apply to switch
+    //If not, set switch to ON
+    id obj = [userToggleSetting objectForKey:@"userToggleSetting"];
+    
+    if (obj != nil) {
+        [self.toggleAllOrRemainingSwitch setOn:[userToggleSetting boolForKey:@"userToggleSetting"]];
+    } else {
+        [self.toggleAllOrRemainingSwitch setOn:YES];
+    }
 }
 
 - (void)sortAllBeersIntoCategories:(NSArray *)allBeers {
@@ -137,27 +147,27 @@ NSInteger const kBKSNumberOfSections = 3;
     NSInteger numberOfBeersInSection = 0;
     
     if (collectionView.tag == BKSBeerCategorySectionAllBeers) {
-        if (self.showOnlyRemainingBeers) {
+        if (self.toggleAllOrRemainingSwitch.isOn) {
             numberOfBeersInSection = self.allBeersRemaining.count;
         } else {
             numberOfBeersInSection = self.allBeers.count;
         }
     } else
-    if (collectionView.tag == BKSBeerCategorySectionBeersUnderEight) {
-        if (self.showOnlyRemainingBeers) {
-            numberOfBeersInSection = self.beersUnderEightRemaining.count;
-        } else {
-            numberOfBeersInSection = self.beersUnderEight.count;
-        }
-    } else
-    if (collectionView.tag == BKSBeerCategorySectionBeersUnderFivePercent) {
-        if (self.showOnlyRemainingBeers) {
-            numberOfBeersInSection = self.beersUnderFivePercentRemaining.count;
-        } else {
-            numberOfBeersInSection = self.beersUnderFivePercent.count;
-        }
-    }
-
+        if (collectionView.tag == BKSBeerCategorySectionBeersUnderEight) {
+            if (self.toggleAllOrRemainingSwitch.isOn) {
+                numberOfBeersInSection = self.beersUnderEightRemaining.count;
+            } else {
+                numberOfBeersInSection = self.beersUnderEight.count;
+            }
+        } else
+            if (collectionView.tag == BKSBeerCategorySectionBeersUnderFivePercent) {
+                if (self.toggleAllOrRemainingSwitch.isOn) {
+                    numberOfBeersInSection = self.beersUnderFivePercentRemaining.count;
+                } else {
+                    numberOfBeersInSection = self.beersUnderFivePercent.count;
+                }
+            }
+    
     NSLog(@"#: %lu", numberOfBeersInSection);
     
     return numberOfBeersInSection;
@@ -170,19 +180,19 @@ NSInteger const kBKSNumberOfSections = 3;
     BeerObject *beer;
     
     if (collectionView.tag == BKSBeerCategorySectionAllBeers) {
-        if (self.showOnlyRemainingBeers) {
+        if (self.toggleAllOrRemainingSwitch.isOn) {
             beer = ((UserBeerObject *)[self.allBeersRemaining objectAtIndex:indexPath.row]).beer;
         } else {
             beer = ((UserBeerObject *)[self.allBeers objectAtIndex:indexPath.row]).beer;
         }
     } else if (collectionView.tag == BKSBeerCategorySectionBeersUnderEight) {
-        if (self.showOnlyRemainingBeers) {
+        if (self.toggleAllOrRemainingSwitch.isOn) {
             beer = ((UserBeerObject *)[self.beersUnderEightRemaining objectAtIndex:indexPath.row]).beer;
         } else {
             beer = ((UserBeerObject *)[self.beersUnderEight objectAtIndex:indexPath.row]).beer;
         }
     } else if (collectionView.tag == BKSBeerCategorySectionBeersUnderFivePercent) {
-        if (self.showOnlyRemainingBeers) {
+        if (self.toggleAllOrRemainingSwitch.isOn) {
             beer = ((UserBeerObject *)[self.beersUnderFivePercentRemaining objectAtIndex:indexPath.row]).beer;
         } else {
             beer = ((UserBeerObject *)[self.beersUnderFivePercent objectAtIndex:indexPath.row]).beer;
@@ -198,13 +208,32 @@ NSInteger const kBKSNumberOfSections = 3;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (collectionView.tag == BKSBeerCategorySectionAllBeers) {
-        self.beerSelected = ((UserBeerObject *)[self.allBeers objectAtIndex:indexPath.row]);
+        if (self.toggleAllOrRemainingSwitch.isOn) {
+            self.beerSelected = ((UserBeerObject *)[self.allBeersRemaining objectAtIndex:indexPath.row]);
+        } else {
+            self.beerSelected = ((UserBeerObject *)[self.allBeers objectAtIndex:indexPath.row]);
+        }
     } else if (collectionView.tag == BKSBeerCategorySectionBeersUnderEight) {
-        self.beerSelected = ((UserBeerObject *)[self.beersUnderEight objectAtIndex:indexPath.row]);
+        if (self.toggleAllOrRemainingSwitch.isOn) {
+            self.beerSelected = ((UserBeerObject *)[self.beersUnderEightRemaining objectAtIndex:indexPath.row]);
+        } else {
+            self.beerSelected = ((UserBeerObject *)[self.beersUnderEight objectAtIndex:indexPath.row]);
+        }
     } else if (collectionView.tag == BKSBeerCategorySectionBeersUnderFivePercent) {
-        self.beerSelected = ((UserBeerObject *)[self.beersUnderFivePercent objectAtIndex:indexPath.row]);
+        if (self.toggleAllOrRemainingSwitch.isOn) {
+            self.beerSelected = ((UserBeerObject *)[self.beersUnderFivePercentRemaining objectAtIndex:indexPath.row]);
+        } else {
+            self.beerSelected = ((UserBeerObject *)[self.beersUnderFivePercent objectAtIndex:indexPath.row]);
+        }
     }
     [self performSegueWithIdentifier:@"beerDetailSegue" sender:nil];
+}
+- (IBAction)toggledSwitch:(UISwitch *)sender {
+    //Save toggle setting for that user
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:self.toggleAllOrRemainingSwitch.on forKey:@"userToggleSetting"];
+    [defaults synchronize];
+    [self reloadAllCollectionViews];
 }
 
 - (void)reloadAllCollectionViews {
@@ -223,20 +252,6 @@ NSInteger const kBKSNumberOfSections = 3;
     return image;
 }
 
-- (void)stateChanged:(UISwitch *)switchState
-{
-    if ([switchState isOn]) {
-        self.showOnlyRemainingBeers = YES;
-    } else {
-        self.showOnlyRemainingBeers = NO;
-    }
-    
-    [self reloadAllCollectionViews];
-    
-}
-
-
-
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -248,17 +263,23 @@ NSInteger const kBKSNumberOfSections = 3;
     
     if ([[segue identifier] isEqualToString:@"randomBeerSegue"]) {
         BKSBeerDetailViewController *detailVC = (BKSBeerDetailViewController *)segue.destinationViewController;
-        int i = 0;
-        if (self.showOnlyRemainingBeers) {
-            i = (arc4random() % (self.allBeersRemaining.count));
-            NSLog(@"%i / %lu",i,(unsigned long)self.allBeersRemaining.count);
-            detailVC.beer = self.allBeersRemaining[i];
-        } else {
-            i = (arc4random() % (self.allBeers.count));
-            NSLog(@"%i / %lu",i,(unsigned long)self.allBeers.count);
-            detailVC.beer = self.allBeers[i];
-        }
+        detailVC.beer = [self generateRandomBeer];
     }
+}
+
+- (UserBeerObject *)generateRandomBeer {
+    UserBeerObject *randomBeer = nil;
+    int i = 0;
+    if (self.toggleAllOrRemainingSwitch.isOn) {
+        i = (arc4random() % (self.allBeersRemaining.count));
+        NSLog(@"%i / %lu",i,(unsigned long)self.allBeersRemaining.count);
+        randomBeer = self.allBeersRemaining[i];
+    } else {
+        i = (arc4random() % (self.allBeers.count));
+        NSLog(@"%i / %lu",i,(unsigned long)self.allBeers.count);
+        randomBeer = self.allBeers[i];
+    }
+    return randomBeer;
 }
 
 - (IBAction)didTapLogoutButton:(id)sender {

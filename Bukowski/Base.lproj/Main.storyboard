@@ -437,6 +437,9 @@
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Ut-68-oAb">
                                 <rect key="frame" x="276" y="72" width="51" height="31"/>
+                                <connections>
+                                    <action selector="toggledSwitch:" destination="ejc-bG-TaG" eventType="valueChanged" id="lsn-lz-Nie"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show All" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6o-OY-8SH">
                                 <rect key="frame" x="201" y="77" width="67" height="21"/>
