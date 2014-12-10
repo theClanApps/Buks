@@ -64,7 +64,7 @@ NSInteger const kBKSNumberOfSections = 3;
     id obj = [userToggleSetting objectForKey:kBKSUserToggleSetting];
     
     if (obj != nil) {
-        [self.toggleAllOrRemainingSwitch setOn:[userToggleSetting boolForKey:kBKSUserToggleSetting]];
+        [self.toggleAllOrRemainingSwitch setOn:[[userToggleSetting objectForKey:kBKSUserToggleSetting] boolValue]];
     } else {
         [self.toggleAllOrRemainingSwitch setOn:YES];
     }
@@ -232,7 +232,7 @@ NSInteger const kBKSNumberOfSections = 3;
 - (IBAction)toggledSwitch:(UISwitch *)sender {
     //Save toggle setting for that user
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:self.toggleAllOrRemainingSwitch.on forKey:kBKSUserToggleSetting];
+    [defaults setObject:[NSNumber numberWithBool:self.toggleAllOrRemainingSwitch.on] forKey:kBKSUserToggleSetting];
     [defaults synchronize];
     [self reloadAllCollectionViews];
 }
