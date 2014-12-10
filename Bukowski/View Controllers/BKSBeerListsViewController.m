@@ -23,6 +23,7 @@ typedef NS_ENUM(NSInteger, BKSBeerCategorySection) {
 NSString * const kBKSAllBeers = @"All Beers";
 NSString * const kBKSBeersUnderEight = @"Don't Break the Bank";
 NSString * const kBKSBeersUnderFivePercent = @"Staying Soberish";
+NSString * const kBKSUserToggleSetting = @"UserToggleSetting";
 
 NSInteger const kBKSNumberOfSections = 3;
 
@@ -60,10 +61,10 @@ NSInteger const kBKSNumberOfSections = 3;
     //Check if default has been set.
     //If so, retrieve stored value & apply to switch
     //If not, set switch to ON
-    id obj = [userToggleSetting objectForKey:@"userToggleSetting"];
+    id obj = [userToggleSetting objectForKey:kBKSUserToggleSetting];
     
     if (obj != nil) {
-        [self.toggleAllOrRemainingSwitch setOn:[userToggleSetting boolForKey:@"userToggleSetting"]];
+        [self.toggleAllOrRemainingSwitch setOn:[userToggleSetting boolForKey:kBKSUserToggleSetting]];
     } else {
         [self.toggleAllOrRemainingSwitch setOn:YES];
     }
@@ -231,7 +232,7 @@ NSInteger const kBKSNumberOfSections = 3;
 - (IBAction)toggledSwitch:(UISwitch *)sender {
     //Save toggle setting for that user
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:self.toggleAllOrRemainingSwitch.on forKey:@"userToggleSetting"];
+    [defaults setBool:self.toggleAllOrRemainingSwitch.on forKey:kBKSUserToggleSetting];
     [defaults synchronize];
     [self reloadAllCollectionViews];
 }
