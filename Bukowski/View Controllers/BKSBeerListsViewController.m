@@ -23,6 +23,7 @@ typedef NS_ENUM(NSInteger, BKSBeerCategorySection) {
 NSString * const kBKSAllBeers = @"All Beers";
 NSString * const kBKSBeersUnderEight = @"Don't Break the Bank";
 NSString * const kBKSBeersUnderFivePercent = @"Staying Soberish";
+NSString * const kBKSUserToggleSetting = @"UserToggleSetting";
 
 NSInteger const kBKSNumberOfSections = 3;
 
@@ -36,6 +37,7 @@ NSInteger const kBKSNumberOfSections = 3;
 @property (strong, nonatomic) UserBeerObject *beerSelected;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISwitch *toggleAllOrRemainingSwitch;
 @end
 
 @implementation BKSBeerListsViewController
@@ -47,8 +49,25 @@ NSInteger const kBKSNumberOfSections = 3;
 
 - (void)setup {
     [self loadBeers];
+    [self setToggleValue];
+    
     self.edgesForExtendedLayout = UIRectEdgeAll;
-//    self.extendedLayoutIncludesOpaqueBars = YES;
+    //    self.extendedLayoutIncludesOpaqueBars = YES;
+}
+
+- (void)setToggleValue {
+    NSUserDefaults *userToggleSetting = [NSUserDefaults standardUserDefaults];
+    
+    //Check if default has been set.
+    //If so, retrieve stored value & apply to switch
+    //If not, set switch to ON
+    id obj = [userToggleSetting objectForKey:kBKSUserToggleSetting];
+    
+    if (obj != nil) {
+        [self.toggleAllOrRemainingSwitch setOn:[[userToggleSetting objectForKey:kBKSUserToggleSetting] boolValue]];
+    } else {
+        [self.toggleAllOrRemainingSwitch setOn:YES];
+    }
 }
 
 - (void)sortAllBeersIntoCategories:(NSArray *)allBeers {
@@ -56,15 +75,10 @@ NSInteger const kBKSNumberOfSections = 3;
         [userBeerObject.beer fetchIfNeeded];
     }
     self.beersUnderEight = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.price < %@)", @"7"]];
-    
-    //NSLog(@"BeersUnderEight: %@", self.beersUnderEight);
     self.beersUnderFivePercent = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.abv < %@)", @"5"]];
-    
-    
-    //NSLog(@"BeersUnderFivePercent: %@", self.beersUnderFivePercent);
-    //self.allBeersRemaining = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
-    //self.beersUnderEightRemaining = [self.beersUnderEight filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
-    //self.beersUnderFivePercentRemaining = [self.beersUnderFivePercent filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"drank = false"]];
+    self.allBeersRemaining = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
+    self.beersUnderEightRemaining = [self.beersUnderEight filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
+    self.beersUnderFivePercentRemaining = [self.beersUnderFivePercent filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"drank = false"]];
 }
 
 - (void)loadBeers {
@@ -134,15 +148,27 @@ NSInteger const kBKSNumberOfSections = 3;
     NSInteger numberOfBeersInSection = 0;
     
     if (collectionView.tag == BKSBeerCategorySectionAllBeers) {
-        numberOfBeersInSection = self.allBeers.count;
+        if (self.toggleAllOrRemainingSwitch.isOn) {
+            numberOfBeersInSection = self.allBeersRemaining.count;
+        } else {
+            numberOfBeersInSection = self.allBeers.count;
+        }
     } else
-    if (collectionView.tag == BKSBeerCategorySectionBeersUnderEight) {
-        numberOfBeersInSection = self.beersUnderEight.count;
-    } else
-    if (collectionView.tag == BKSBeerCategorySectionBeersUnderFivePercent) {
-        numberOfBeersInSection = self.beersUnderFivePercent.count;
-    }
-
+        if (collectionView.tag == BKSBeerCategorySectionBeersUnderEight) {
+            if (self.toggleAllOrRemainingSwitch.isOn) {
+                numberOfBeersInSection = self.beersUnderEightRemaining.count;
+            } else {
+                numberOfBeersInSection = self.beersUnderEight.count;
+            }
+        } else
+            if (collectionView.tag == BKSBeerCategorySectionBeersUnderFivePercent) {
+                if (self.toggleAllOrRemainingSwitch.isOn) {
+                    numberOfBeersInSection = self.beersUnderFivePercentRemaining.count;
+                } else {
+                    numberOfBeersInSection = self.beersUnderFivePercent.count;
+                }
+            }
+    
     NSLog(@"#: %lu", numberOfBeersInSection);
     
     return numberOfBeersInSection;
@@ -155,11 +181,23 @@ NSInteger const kBKSNumberOfSections = 3;
     BeerObject *beer;
     
     if (collectionView.tag == BKSBeerCategorySectionAllBeers) {
-        beer = ((UserBeerObject *)[self.allBeers objectAtIndex:indexPath.row]).beer;
+        if (self.toggleAllOrRemainingSwitch.isOn) {
+            beer = ((UserBeerObject *)[self.allBeersRemaining objectAtIndex:indexPath.row]).beer;
+        } else {
+            beer = ((UserBeerObject *)[self.allBeers objectAtIndex:indexPath.row]).beer;
+        }
     } else if (collectionView.tag == BKSBeerCategorySectionBeersUnderEight) {
-        beer = ((UserBeerObject *)[self.beersUnderEight objectAtIndex:indexPath.row]).beer;
+        if (self.toggleAllOrRemainingSwitch.isOn) {
+            beer = ((UserBeerObject *)[self.beersUnderEightRemaining objectAtIndex:indexPath.row]).beer;
+        } else {
+            beer = ((UserBeerObject *)[self.beersUnderEight objectAtIndex:indexPath.row]).beer;
+        }
     } else if (collectionView.tag == BKSBeerCategorySectionBeersUnderFivePercent) {
-        beer = ((UserBeerObject *)[self.beersUnderFivePercent objectAtIndex:indexPath.row]).beer;
+        if (self.toggleAllOrRemainingSwitch.isOn) {
+            beer = ((UserBeerObject *)[self.beersUnderFivePercentRemaining objectAtIndex:indexPath.row]).beer;
+        } else {
+            beer = ((UserBeerObject *)[self.beersUnderFivePercent objectAtIndex:indexPath.row]).beer;
+        }
     }
     
     [beer fetchIfNeeded];
@@ -171,13 +209,32 @@ NSInteger const kBKSNumberOfSections = 3;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (collectionView.tag == BKSBeerCategorySectionAllBeers) {
-        self.beerSelected = ((UserBeerObject *)[self.allBeers objectAtIndex:indexPath.row]);
+        if (self.toggleAllOrRemainingSwitch.isOn) {
+            self.beerSelected = ((UserBeerObject *)[self.allBeersRemaining objectAtIndex:indexPath.row]);
+        } else {
+            self.beerSelected = ((UserBeerObject *)[self.allBeers objectAtIndex:indexPath.row]);
+        }
     } else if (collectionView.tag == BKSBeerCategorySectionBeersUnderEight) {
-        self.beerSelected = ((UserBeerObject *)[self.beersUnderEight objectAtIndex:indexPath.row]);
+        if (self.toggleAllOrRemainingSwitch.isOn) {
+            self.beerSelected = ((UserBeerObject *)[self.beersUnderEightRemaining objectAtIndex:indexPath.row]);
+        } else {
+            self.beerSelected = ((UserBeerObject *)[self.beersUnderEight objectAtIndex:indexPath.row]);
+        }
     } else if (collectionView.tag == BKSBeerCategorySectionBeersUnderFivePercent) {
-        self.beerSelected = ((UserBeerObject *)[self.beersUnderFivePercent objectAtIndex:indexPath.row]);
+        if (self.toggleAllOrRemainingSwitch.isOn) {
+            self.beerSelected = ((UserBeerObject *)[self.beersUnderFivePercentRemaining objectAtIndex:indexPath.row]);
+        } else {
+            self.beerSelected = ((UserBeerObject *)[self.beersUnderFivePercent objectAtIndex:indexPath.row]);
+        }
     }
     [self performSegueWithIdentifier:@"beerDetailSegue" sender:nil];
+}
+- (IBAction)toggledSwitch:(UISwitch *)sender {
+    //Save toggle setting for that user
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithBool:self.toggleAllOrRemainingSwitch.on] forKey:kBKSUserToggleSetting];
+    [defaults synchronize];
+    [self reloadAllCollectionViews];
 }
 
 - (void)reloadAllCollectionViews {
@@ -204,6 +261,26 @@ NSInteger const kBKSNumberOfSections = 3;
         BKSBeerDetailViewController *detailVC = (BKSBeerDetailViewController *)segue.destinationViewController;
         detailVC.beer = self.beerSelected;
     }
+    
+    if ([[segue identifier] isEqualToString:@"randomBeerSegue"]) {
+        BKSBeerDetailViewController *detailVC = (BKSBeerDetailViewController *)segue.destinationViewController;
+        detailVC.beer = [self generateRandomBeer];
+    }
+}
+
+- (UserBeerObject *)generateRandomBeer {
+    UserBeerObject *randomBeer = nil;
+    int i = 0;
+    if (self.toggleAllOrRemainingSwitch.isOn) {
+        i = (arc4random() % (self.allBeersRemaining.count));
+        NSLog(@"%i / %lu",i,(unsigned long)self.allBeersRemaining.count);
+        randomBeer = self.allBeersRemaining[i];
+    } else {
+        i = (arc4random() % (self.allBeers.count));
+        NSLog(@"%i / %lu",i,(unsigned long)self.allBeers.count);
+        randomBeer = self.allBeers[i];
+    }
+    return randomBeer;
 }
 
 - (IBAction)didTapLogoutButton:(id)sender {

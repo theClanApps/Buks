@@ -68,6 +68,7 @@
 		63686E6A1A0AF40100D38A1B /* price-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63686E691A0AF40100D38A1B /* price-icon.png */; };
 		63686E6C1A0AF40800D38A1B /* abv-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63686E6B1A0AF40800D38A1B /* abv-icon.png */; };
 		63686E6E1A0AF40F00D38A1B /* beer-size-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63686E6D1A0AF40F00D38A1B /* beer-size-icon.png */; };
+		63AD447B1A311E3400263465 /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AD447A1A311E3400263465 /* question.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +164,7 @@
 		63686E691A0AF40100D38A1B /* price-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price-icon.png"; sourceTree = "<group>"; };
 		63686E6B1A0AF40800D38A1B /* abv-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "abv-icon.png"; sourceTree = "<group>"; };
 		63686E6D1A0AF40F00D38A1B /* beer-size-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beer-size-icon.png"; sourceTree = "<group>"; };
+		63AD447A1A311E3400263465 /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question.png; sourceTree = "<group>"; };
 		C2D1ECEB79DB5C78EF171D49 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -346,6 +348,7 @@
 		6308B1C71A082F1F00B1C4FA /* Buttons and Icons */ = {
 			isa = PBXGroup;
 			children = (
+				63AD447A1A311E3400263465 /* question.png */,
 				63686E6D1A0AF40F00D38A1B /* beer-size-icon.png */,
 				63686E6B1A0AF40800D38A1B /* abv-icon.png */,
 				63686E691A0AF40100D38A1B /* price-icon.png */,
@@ -527,6 +530,7 @@
 				63686E6A1A0AF40100D38A1B /* price-icon.png in Resources */,
 				633629FD1A0D6FC000121D1C /* HelveLig in Resources */,
 				633629FA1A0D6FC000121D1C /* HelveExtCom in Resources */,
+				63AD447B1A311E3400263465 /* question.png in Resources */,
 				49BB683819FF26AB00DFD75D /* LaunchScreen.xib in Resources */,
 				633629FB1A0D6FC000121D1C /* HelveFra in Resources */,
 				633629F71A0D6FC000121D1C /* HelveConLig in Resources */,

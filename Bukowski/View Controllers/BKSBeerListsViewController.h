@@ -10,6 +10,5 @@
 
 @interface BKSBeerListsViewController : UIViewController
 
-
 @end
 
