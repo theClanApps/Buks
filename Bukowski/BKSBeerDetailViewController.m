@@ -37,11 +37,19 @@
     self.priceLabel.text = beer.price;
     self.sizeLabel.text = [NSString stringWithFormat:@"%@ oz.",beer.size];
     
-    PFFile *theImage = beer.bottleImage;
-    NSData *imageData = [theImage getData];
-    UIImage *image = [UIImage imageWithData:imageData];
-    self.bottleImage.image = image;
-    
+    dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(aQueue, ^{
+        PFFile *theImage = beer.bottleImage;
+        NSData *imageData = [theImage getData];
+        if (imageData) {
+            UIImage *image = [UIImage imageWithData:imageData];
+            if (image) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.bottleImage.image = image;
+                });
+            }
+        }
+    });
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
 }

@@ -52,7 +52,6 @@ NSInteger const kBKSNumberOfSections = 3;
     [self setToggleValue];
     
     self.edgesForExtendedLayout = UIRectEdgeAll;
-    //    self.extendedLayoutIncludesOpaqueBars = YES;
 }
 
 - (void)setToggleValue {
@@ -71,15 +70,22 @@ NSInteger const kBKSNumberOfSections = 3;
 }
 
 - (void)sortAllBeersIntoCategories:(NSArray *)allBeers {
+    NSMutableArray *beerObjects = [[NSMutableArray alloc] init];
     for (UserBeerObject *userBeerObject in self.allBeers) {
-        [userBeerObject.beer fetchIfNeeded];
+        [beerObjects addObject:userBeerObject.beer];
     }
-    self.beersUnderEight = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.price < %@)", @"7"]];
-    self.beersUnderFivePercent = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.abv < %@)", @"5"]];
-    self.allBeersRemaining = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
-    self.beersUnderEightRemaining = [self.beersUnderEight filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
-    self.beersUnderFivePercentRemaining = [self.beersUnderFivePercent filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"drank = false"]];
+
+    [PFObject fetchAllInBackground:[beerObjects mutableCopy] block:^(NSArray *objects, NSError *error) {
+                self.beersUnderEight = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.price < %@)", @"7"]];
+                self.beersUnderFivePercent = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.abv < %@)", @"5"]];
+                self.allBeersRemaining = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
+                self.beersUnderEightRemaining = [self.beersUnderEight filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
+                self.beersUnderFivePercentRemaining = [self.beersUnderFivePercent filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"drank = false"]];
+                [self reloadAllCollectionViews];
+
+    }];
 }
+
 
 - (void)loadBeers {
     [[BKSAccountManager sharedAccountManager] loadBeersWithSuccess:^(NSArray *beers, NSError *error) {
@@ -168,9 +174,7 @@ NSInteger const kBKSNumberOfSections = 3;
                     numberOfBeersInSection = self.beersUnderFivePercent.count;
                 }
             }
-    
-    NSLog(@"#: %lu", numberOfBeersInSection);
-    
+
     return numberOfBeersInSection;
 }
 
@@ -200,10 +204,22 @@ NSInteger const kBKSNumberOfSections = 3;
         }
     }
     
-    [beer fetchIfNeeded];
     cell.beerNameLabel.text =  beer.nickname;
-    cell.beerImage.image = [self imageForParseFile:beer.bottleImage];
-    
+
+    dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(aQueue, ^{
+        PFFile *theImage = beer.bottleImage;
+        NSData *imageData = [theImage getData];
+        if (imageData) {
+            UIImage *image = [UIImage imageWithData:imageData];
+            if (image) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    cell.beerImage.image = image;
+                });
+            }
+        }
+    });
+
     return cell;
 }
 
@@ -229,6 +245,7 @@ NSInteger const kBKSNumberOfSections = 3;
     }
     [self performSegueWithIdentifier:@"beerDetailSegue" sender:nil];
 }
+
 - (IBAction)toggledSwitch:(UISwitch *)sender {
     //Save toggle setting for that user
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -244,13 +261,6 @@ NSInteger const kBKSNumberOfSections = 3;
             [cell.collectionView reloadData];
         }
     }
-}
-
-- (UIImage*)imageForParseFile:(PFFile *)pffile {
-    PFFile *theImage = pffile;
-    NSData *imageData = [theImage getData];
-    UIImage *image = [UIImage imageWithData:imageData];
-    return image;
 }
 
 #pragma mark - Navigation
