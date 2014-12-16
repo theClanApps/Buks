@@ -55,7 +55,7 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
                 NSLog(@"User with facebook signed up and logged in!");
                 [self configureParseUserObject:user];
             } else {
-                NSLog(@"User with facebook logged in!");
+                // DO NOTHING
             }
             if (success) {
                 success(user);
@@ -108,14 +108,11 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
     }
 }
 
-- (void)logout
-{
+- (void)logout {
     [PFUser logOut];
 }
 
-- (BOOL)userStartedMugClub
-{
-    NSLog(@"%@",[[PFUser currentUser] objectForKey:@"MugClubStartDate"]);
+- (BOOL)userStartedMugClub {
     return ([[PFUser currentUser] objectForKey:@"MugClubStartDate"]!=nil);
 }
 
