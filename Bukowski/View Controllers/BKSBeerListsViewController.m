@@ -91,12 +91,7 @@ NSInteger const kBKSNumberOfSections = 3;
     [[BKSAccountManager sharedAccountManager] loadBeersWithSuccess:^(NSArray *beers, NSError *error) {
         if (!error) {
             self.allBeers = beers;
-            
             [self sortAllBeersIntoCategories:self.allBeers];
-            
-            [self.tableView reloadData];
-            
-            [self reloadAllCollectionViews];
         } else {
             UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error loading beers" message:@"Beers were unable to load" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [errorAlert show];
@@ -203,22 +198,23 @@ NSInteger const kBKSNumberOfSections = 3;
             beer = ((UserBeerObject *)[self.beersUnderFivePercent objectAtIndex:indexPath.row]).beer;
         }
     }
-    
-    cell.beerNameLabel.text =  beer.nickname;
 
-    dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(aQueue, ^{
-        PFFile *theImage = beer.bottleImage;
-        NSData *imageData = [theImage getData];
-        if (imageData) {
-            UIImage *image = [UIImage imageWithData:imageData];
-            if (image) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    cell.beerImage.image = image;
-                });
+    if (beer.bottleImage) {
+        dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(aQueue, ^{
+            PFFile *theImage = beer.bottleImage;
+            NSData *imageData = [theImage getData];
+            if (imageData) {
+                UIImage *image = [UIImage imageWithData:imageData];
+                if (image) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        cell.beerImage.image = image;
+                        cell.beerNameLabel.text =  beer.nickname;
+                    });
+                }
             }
-        }
-    });
+        });
+    }
 
     return cell;
 }

@@ -453,7 +453,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="169" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GSG-9e-sCa">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="204" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GSG-9e-sCa">
                                 <rect key="frame" x="0.0" y="106" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -463,8 +463,8 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OTp-pS-wre" id="Cpb-vK-BtP">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fxc-iV-oew">
-                                                    <rect key="frame" x="0.0" y="-1" width="600" height="154"/>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fxc-iV-oew">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="169"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hrp-R4-6Wu">
                                                         <size key="itemSize" width="113" height="141"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -501,8 +501,8 @@
                                                 </collectionView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Fxc-iV-oew" firstAttribute="top" secondItem="Cpb-vK-BtP" secondAttribute="topMargin" constant="-9" id="BZN-fp-ueP"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Fxc-iV-oew" secondAttribute="bottom" constant="-7" id="BeL-vy-v2n"/>
+                                                <constraint firstItem="Fxc-iV-oew" firstAttribute="top" secondItem="Cpb-vK-BtP" secondAttribute="topMargin" constant="-8" id="BZN-fp-ueP"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Fxc-iV-oew" secondAttribute="bottom" constant="-8" id="BeL-vy-v2n"/>
                                                 <constraint firstItem="Fxc-iV-oew" firstAttribute="leading" secondItem="Cpb-vK-BtP" secondAttribute="leadingMargin" constant="-8" id="dLi-CH-EeN"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Fxc-iV-oew" secondAttribute="trailing" constant="-8" id="xES-00-Mui"/>
                                             </constraints>
