@@ -37,7 +37,6 @@
     self.abvLabel.text = [NSString stringWithFormat:@"%@ %%",beer.abv];
     self.priceLabel.text = beer.price;
     self.sizeLabel.text = [NSString stringWithFormat:@"%@ oz.",beer.size];
-    [self.rateButton setTitle:@"Rate" forState:UIControlStateNormal];
     
     dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(aQueue, ^{
@@ -59,12 +58,12 @@
 
 - (void)setupRateView {
     if ([self.beer.drank intValue] == 0) {
-        self.rateButton.enabled = NO;
-        self.rateButton.hidden = YES;
+        self.rateBarButton.enabled = NO;
+        self.rateBarButton.title = @"";
         self.rateView.hidden = YES;
-        NSLog(@"editable? %d",self.rateView.editable);
     } else {
-        self.rateButton.enabled = YES;
+        self.rateBarButton.enabled = YES;
+        self.rateBarButton.title = @"Rate";
     }
     self.rateView.editable = NO;
     self.rateView.rating = self.beer.userRating;
@@ -79,12 +78,11 @@
     
 }
 
-- (IBAction)rateButtonPressed:(id)sender {
-    if ([self.rateButton.currentTitle isEqualToString:@"Rate"]) {
+- (IBAction)rateBarButtonPressed:(id)sender {
+    if ([self.rateBarButton.title isEqualToString:@"Rate"]) {
         self.rateView.editable = YES;
-        [self.rateButton setTitle:@"Save" forState:UIControlStateNormal];
-        
-    } else if ([self.rateButton.currentTitle isEqualToString:@"Save"]) {
+        [self.rateBarButton setTitle:@"Save"];
+    } else if ([self.rateBarButton.title isEqualToString:@"Save"]) {
         
         [[BKSAccountManager sharedAccountManager] rateBeer:self.beer withRating:self.rateView.rating WithCompletion:^(NSError *error, UserBeerObject *userBeer) {
             if (!error) {
@@ -94,11 +92,9 @@
             }
         }];
         
-        [self.rateButton setTitle:@"Rate" forState:UIControlStateNormal];
+        [self.rateBarButton setTitle:@"Rate"];
         self.rateView.editable = NO;
-
     }
 }
-
 
 @end

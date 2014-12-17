@@ -16,7 +16,7 @@
 
 
 @property (weak, nonatomic) IBOutlet BKSRateView *rateView;
-@property (weak, nonatomic) IBOutlet UIButton *rateButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *rateBarButton;
 
 
 
