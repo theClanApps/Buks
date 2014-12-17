@@ -36,6 +36,7 @@
     self.abvLabel.text = [NSString stringWithFormat:@"%@ %%",beer.abv];
     self.priceLabel.text = beer.price;
     self.sizeLabel.text = [NSString stringWithFormat:@"%@ oz.",beer.size];
+    [self.rateButton setTitle:@"Rate" forState:UIControlStateNormal];
     
     dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(aQueue, ^{
@@ -52,6 +53,44 @@
     });
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
+    [self setupRateView];
 }
+
+- (void)setupRateView {
+//    if ([self.beer.drank isEqualToNumber:0]) {
+//        NSLog(@"Beer is not drank");
+//        self.rateButton.enabled = NO;
+//        self.rateView.editable = NO;
+//    } else {
+//        NSLog(@"Beer is drank");
+//        NSLog(@"%@",self.beer.drank);
+//        self.rateButton.enabled = YES;
+//        self.rateView.editable = YES;
+//    }
+    
+    self.rateView.rating = self.beer.userRating;
+    
+    self.rateView.notSelectedImage = [UIImage imageNamed:@"unshadedstar"];
+    self.rateView.fullSelectedImage = [UIImage imageNamed:@"shadedstar"];
+    self.rateView.greyImage = [UIImage imageNamed:@"greystar"];
+    self.rateView.editable = YES;
+    self.rateView.numberOfStars = 5;
+    self.rateView.delegate = self;
+}
+
+- (void)rateView:(BKSRateView *)rateView ratingDidChange:(float)rating {
+    
+}
+
+- (IBAction)rateButtonPressed:(id)sender {
+    if ([self.rateButton.currentTitle isEqualToString:@"Rate"]) {
+        [self.rateButton setTitle:@"Save" forState:UIControlStateNormal];
+    }
+    if ([self.rateButton.currentTitle isEqualToString:@"Save"]) {
+        [self.rateButton setTitle:@"Rate" forState:UIControlStateNormal];
+
+    }
+}
+
 
 @end

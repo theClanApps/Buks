@@ -69,6 +69,10 @@
 		63686E6C1A0AF40800D38A1B /* abv-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63686E6B1A0AF40800D38A1B /* abv-icon.png */; };
 		63686E6E1A0AF40F00D38A1B /* beer-size-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63686E6D1A0AF40F00D38A1B /* beer-size-icon.png */; };
 		63AD447B1A311E3400263465 /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AD447A1A311E3400263465 /* question.png */; };
+		63DB79CC1A3F21BC00EBF7F1 /* shadedstar.png in Resources */ = {isa = PBXBuildFile; fileRef = 63DB79CA1A3F21BC00EBF7F1 /* shadedstar.png */; };
+		63DB79CD1A3F21BC00EBF7F1 /* unshadedstar.png in Resources */ = {isa = PBXBuildFile; fileRef = 63DB79CB1A3F21BC00EBF7F1 /* unshadedstar.png */; };
+		63DB7A0D1A3F3ED900EBF7F1 /* greystar.png in Resources */ = {isa = PBXBuildFile; fileRef = 63DB7A0C1A3F3ED900EBF7F1 /* greystar.png */; };
+		63DB7A101A3FE5E000EBF7F1 /* BKSRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DB7A0F1A3FE5E000EBF7F1 /* BKSRateView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +169,11 @@
 		63686E6B1A0AF40800D38A1B /* abv-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "abv-icon.png"; sourceTree = "<group>"; };
 		63686E6D1A0AF40F00D38A1B /* beer-size-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beer-size-icon.png"; sourceTree = "<group>"; };
 		63AD447A1A311E3400263465 /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question.png; sourceTree = "<group>"; };
+		63DB79CA1A3F21BC00EBF7F1 /* shadedstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadedstar.png; sourceTree = "<group>"; };
+		63DB79CB1A3F21BC00EBF7F1 /* unshadedstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unshadedstar.png; sourceTree = "<group>"; };
+		63DB7A0C1A3F3ED900EBF7F1 /* greystar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greystar.png; sourceTree = "<group>"; };
+		63DB7A0E1A3FE5E000EBF7F1 /* BKSRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSRateView.h; sourceTree = "<group>"; };
+		63DB7A0F1A3FE5E000EBF7F1 /* BKSRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSRateView.m; sourceTree = "<group>"; };
 		C2D1ECEB79DB5C78EF171D49 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -298,6 +307,8 @@
 				6308B1CC1A08321F00B1C4FA /* BKSCollectionViewListViewController.m */,
 				63686E661A0AE97200D38A1B /* BKSBeerDetailViewController.h */,
 				63686E671A0AE97200D38A1B /* BKSBeerDetailViewController.m */,
+				63DB7A0E1A3FE5E000EBF7F1 /* BKSRateView.h */,
+				63DB7A0F1A3FE5E000EBF7F1 /* BKSRateView.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -348,6 +359,9 @@
 		6308B1C71A082F1F00B1C4FA /* Buttons and Icons */ = {
 			isa = PBXGroup;
 			children = (
+				63DB7A0C1A3F3ED900EBF7F1 /* greystar.png */,
+				63DB79CA1A3F21BC00EBF7F1 /* shadedstar.png */,
+				63DB79CB1A3F21BC00EBF7F1 /* unshadedstar.png */,
 				63AD447A1A311E3400263465 /* question.png */,
 				63686E6D1A0AF40F00D38A1B /* beer-size-icon.png */,
 				63686E6B1A0AF40800D38A1B /* abv-icon.png */,
@@ -506,6 +520,7 @@
 				6308B1B61A082BC900B1C4FA /* magichat#9.jpg in Resources */,
 				63362A071A0D700E00121D1C /* Oswald-Bold.ttf in Resources */,
 				6308B1B41A082BC900B1C4FA /* guinessdraught in Resources */,
+				63DB79CD1A3F21BC00EBF7F1 /* unshadedstar.png in Resources */,
 				6308B1B51A082BC900B1C4FA /* lagunitasipa.jpg in Resources */,
 				6308B1B21A082BC900B1C4FA /* bostonlager in Resources */,
 				633629F61A0D6FC000121D1C /* HelveConBolObl in Resources */,
@@ -522,6 +537,7 @@
 				63362A001A0D6FC000121D1C /* HelveUltCom in Resources */,
 				6308B1BE1A082C4D00B1C4FA /* NibCell.xib in Resources */,
 				63362A091A0D700E00121D1C /* Oswald-Regular.ttf in Resources */,
+				63DB7A0D1A3F3ED900EBF7F1 /* greystar.png in Resources */,
 				6308B1B91A082BC900B1C4FA /* yuenglinglager.jpg in Resources */,
 				49BB683319FF26AA00DFD75D /* Main.storyboard in Resources */,
 				63362A011A0D6FC000121D1C /* Helvetica.dfont in Resources */,
@@ -535,6 +551,7 @@
 				633629FB1A0D6FC000121D1C /* HelveFra in Resources */,
 				633629F71A0D6FC000121D1C /* HelveConLig in Resources */,
 				633629FE1A0D6FC000121D1C /* HelveLigObl in Resources */,
+				63DB79CC1A3F21BC00EBF7F1 /* shadedstar.png in Resources */,
 				633629F51A0D6FC000121D1C /* HelveConBol in Resources */,
 				63686E6E1A0AF40F00D38A1B /* beer-size-icon.png in Resources */,
 				6308B1C61A082F0100B1C4FA /* beer.png in Resources */,
@@ -602,6 +619,7 @@
 				490ED78B1A2EA2C500FC0019 /* BKSBeerListsViewController.m in Sources */,
 				49BB686019FF271600DFD75D /* Model.xcdatamodeld in Sources */,
 				49BB686119FF271600DFD75D /* NonPersistedBeer.m in Sources */,
+				63DB7A101A3FE5E000EBF7F1 /* BKSRateView.m in Sources */,
 				49A02DAB1A08370D004517B6 /* BKSStartMugClubViewController.m in Sources */,
 				63686E681A0AE97200D38A1B /* BKSBeerDetailViewController.m in Sources */,
 				6308B1CD1A08321F00B1C4FA /* BKSCollectionViewListViewController.m in Sources */,
