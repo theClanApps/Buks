@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *bottleImage;
 @property (weak, nonatomic) IBOutlet UITextView *beerDescriptionTextView;
+@property (nonatomic) BOOL isRating;
 
 @end
 
@@ -36,6 +37,7 @@
     self.abvLabel.text = [NSString stringWithFormat:@"%@ %%",beer.abv];
     self.priceLabel.text = beer.price;
     self.sizeLabel.text = [NSString stringWithFormat:@"%@ oz.",beer.size];
+    self.isRating = NO;
     
     dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(aQueue, ^{
@@ -74,14 +76,17 @@
 }
 
 - (IBAction)rateBarButtonPressed:(id)sender {
-    if ([self.rateBarButton.title isEqualToString:@"Rate"]) {
+    
+    if (!self.isRating) {
+        self.isRating = YES;
         self.rateView.editable = YES;
         [self.rateBarButton setTitle:@"Save"];
-    } else if ([self.rateBarButton.title isEqualToString:@"Save"]) {
+    } else {
         
+        self.isRating = NO;
         [[BKSAccountManager sharedAccountManager] rateBeer:self.beer withRating:self.rateView.rating WithCompletion:^(NSError *error, UserBeerObject *userBeer) {
             if (!error) {
-                NSLog(@"Success!");
+                //NSLog(@"Success!");
             } else {
                 NSLog(@"Error checking beer: %@", error);
             }
