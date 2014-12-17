@@ -21,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *bottleImage;
 @property (weak, nonatomic) IBOutlet UITextView *beerDescriptionTextView;
 
-
 @end
 
 @implementation BKSBeerDetailViewController
@@ -72,10 +71,6 @@
     self.rateView.greyImage = [UIImage imageNamed:@"greystar"];
     self.rateView.numberOfStars = 5;
     self.rateView.delegate = self;
-}
-
-- (void)rateView:(BKSRateView *)rateView ratingDidChange:(float)rating {
-    
 }
 
 - (IBAction)rateBarButtonPressed:(id)sender {

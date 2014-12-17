@@ -21,6 +21,6 @@ typedef void (^BKSErrorBlock) (NSError *error);
 - (BOOL)userStartedMugClub;
 - (void)loadBeersWithSuccess:(void(^)(NSArray *beers, NSError *error))block;
 - (void)rateBeer:(UserBeerObject *)userBeer
-        withRating:(float)rating
+        withRating:(NSNumber*)rating
       WithCompletion:(void(^)(NSError *error, UserBeerObject *userBeer))completion;
 @end

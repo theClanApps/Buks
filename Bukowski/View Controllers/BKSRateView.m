@@ -14,7 +14,7 @@
     _notSelectedImage = nil;
     _fullSelectedImage = nil;
     _greyImage = nil;
-    _rating = 0;
+    _rating = nil;
     _editable = NO;
     _imageViews = [[NSMutableArray alloc] init];
     _numberOfStars = 5;
@@ -47,7 +47,7 @@
         UIImageView *imageView = [self.imageViews objectAtIndex:i];
         if (!self.rating) {
             imageView.image = self.greyImage;
-        } else if (self.rating >= i+1) {
+        } else if (self.rating >= [NSNumber numberWithInt:i+1]) {
             imageView.image = self.fullSelectedImage;
         } else {
             imageView.image = self.notSelectedImage;
@@ -95,7 +95,7 @@
     [self refresh];
 }
 
-- (void)setRating:(float)rating {
+- (void)setRating:(NSNumber*)rating {
     _rating = rating;
     [self refresh];
 }
@@ -105,11 +105,11 @@
         return;
     }
     
-    int newRating = 0;
+    NSNumber *newRating = 0;
     for (long i = self.imageViews.count  - 1; i >= 0; i--) {
         UIImageView *imageView = [self.imageViews objectAtIndex:i];
         if (touchLocation.x > imageView.frame.origin.x) {
-            newRating = i+1.0;
+            newRating = [NSNumber numberWithInt:i+1.0];
             break;
         }
     }
@@ -126,10 +126,6 @@
     UITouch *touch = [touches anyObject];
     CGPoint touchLocation = [touch locationInView:self];
     [self handleTouchAtLocation:touchLocation];
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.delegate rateView:self ratingDidChange:self.rating];
 }
 
 /*

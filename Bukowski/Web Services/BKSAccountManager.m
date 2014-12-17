@@ -118,7 +118,7 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
 }
 
 - (void)rateBeer:(UserBeerObject *)userBeer
-        withRating:(float)rating
+        withRating:(NSNumber*)rating
       WithCompletion:(void(^)(NSError *error, UserBeerObject *userBeer))completion {
     userBeer.userRating = rating;
     

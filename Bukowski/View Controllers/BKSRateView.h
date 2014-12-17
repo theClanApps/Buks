@@ -11,7 +11,6 @@
 @class BKSRateView;
 
 @protocol BKSRateViewDelegate
-- (void)rateView:(BKSRateView *)rateView ratingDidChange:(float)rating;
 @end
 
 @interface BKSRateView : UIView
@@ -19,7 +18,7 @@
 @property (strong, nonatomic) UIImage *notSelectedImage;
 @property (strong, nonatomic) UIImage *fullSelectedImage;
 @property (strong, nonatomic) UIImage *greyImage;
-@property (assign, nonatomic) float rating;
+@property (assign, nonatomic) NSNumber *rating;
 @property (assign) BOOL editable;
 @property (strong) NSMutableArray *imageViews;
 @property (assign, nonatomic) int numberOfStars;
