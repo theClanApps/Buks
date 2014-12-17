@@ -9,7 +9,7 @@
 #import "BeerObject.h"
 
 @implementation BeerObject
-@dynamic beerName, brewery, beerStyle, beerDescription, abv, price, size, nickname, bottleImage, glassImage;
+@dynamic beerName, brewery, beerStyle, beerDescription, abv, price, size, nickname, bottleImage, glassImage, style;
 
 + (void)load {
     [self registerSubclass];

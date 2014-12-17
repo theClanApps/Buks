@@ -13,19 +13,22 @@
 #import "BeerObject.h"
 #import "CollectionCell.h"
 #import "BKSBeerDetailViewController.h"
+#import "BeerStyle.h"
 
 typedef NS_ENUM(NSInteger, BKSBeerCategorySection) {
     BKSBeerCategorySectionAllBeers,
     BKSBeerCategorySectionBeersUnderEight,
     BKSBeerCategorySectionBeersUnderFivePercent,
+    BKSBeerCategorySectionStyles,
 };
 
 NSString * const kBKSAllBeers = @"All Beers";
 NSString * const kBKSBeersUnderEight = @"Don't Break the Bank";
 NSString * const kBKSBeersUnderFivePercent = @"Staying Soberish";
+NSString * const kBKSBeerStyles = @"Styles";
 NSString * const kBKSUserToggleSetting = @"UserToggleSetting";
 
-NSInteger const kBKSNumberOfSections = 3;
+NSInteger const kBKSNumberOfSections = 4;
 
 @interface BKSBeerListsViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) NSArray *allBeers;
@@ -34,7 +37,11 @@ NSInteger const kBKSNumberOfSections = 3;
 @property (strong, nonatomic) NSArray *allBeersRemaining;
 @property (strong, nonatomic) NSArray *beersUnderEightRemaining;
 @property (strong, nonatomic) NSArray *beersUnderFivePercentRemaining;
+@property (strong, nonatomic) NSArray *styles;
+@property (strong, nonatomic) NSArray *stylesRemaining;
+
 @property (strong, nonatomic) UserBeerObject *beerSelected;
+@property (strong, nonatomic) BeerStyle *styleSelected;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISwitch *toggleAllOrRemainingSwitch;
@@ -70,19 +77,23 @@ NSInteger const kBKSNumberOfSections = 3;
 }
 
 - (void)sortAllBeersIntoCategories:(NSArray *)allBeers {
-    NSMutableArray *beerObjects = [[NSMutableArray alloc] init];
-    for (UserBeerObject *userBeerObject in self.allBeers) {
-        [beerObjects addObject:userBeerObject.beer];
-    }
 
-    [PFObject fetchAllInBackground:[beerObjects mutableCopy] block:^(NSArray *objects, NSError *error) {
-                self.beersUnderEight = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.price < %@)", @"7"]];
-                self.beersUnderFivePercent = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.abv < %@)", @"5"]];
-                self.allBeersRemaining = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
-                self.beersUnderEightRemaining = [self.beersUnderEight filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
-                self.beersUnderFivePercentRemaining = [self.beersUnderFivePercent filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"drank = false"]];
+    [PFObject fetchAllInBackground:[self beerObjectsFromUserBeerObjects:self.allBeers] block:^(NSArray *objects, NSError *error) {
+        self.beersUnderEight = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.price < %@)", @"7"]];
+        self.beersUnderFivePercent = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.abv < %@)", @"5"]];
+        self.allBeersRemaining = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
+        self.beersUnderEightRemaining = [self.beersUnderEight filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
+        self.beersUnderFivePercentRemaining = [self.beersUnderFivePercent filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"drank = false"]];
+
+        [PFObject fetchAllInBackground:[self stylesContainedInBeers:[self beerObjectsFromUserBeerObjects:self.allBeers]] block:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                self.styles = [self uniqueStylesFromStyles:objects];
+                self.stylesRemaining = [self uniqueStylesFromStyles:[self stylesContainedInBeers:[self beerObjectsFromUserBeerObjects:self.allBeersRemaining]]];
                 [self reloadAllCollectionViews];
-
+            } else {
+                NSLog(@"Error: %@", error);
+            }
+        }];
     }];
 }
 
@@ -123,20 +134,24 @@ NSInteger const kBKSNumberOfSections = 3;
         case BKSBeerCategorySectionAllBeers: return kBKSAllBeers; break;
         case BKSBeerCategorySectionBeersUnderEight: return kBKSBeersUnderEight; break;
         case BKSBeerCategorySectionBeersUnderFivePercent: return kBKSBeersUnderFivePercent; break;
+        case BKSBeerCategorySectionStyles: return kBKSBeerStyles; break;
         default: return nil; break;
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BKSBeerCollectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    
+
     if (indexPath.section == BKSBeerCategorySectionAllBeers) {
         cell.collectionView.tag = BKSBeerCategorySectionAllBeers;
     } else if (indexPath.section == BKSBeerCategorySectionBeersUnderEight) {
         cell.collectionView.tag = BKSBeerCategorySectionBeersUnderEight;
     } else if (indexPath.section == BKSBeerCategorySectionBeersUnderFivePercent) {
         cell.collectionView.tag = BKSBeerCategorySectionBeersUnderFivePercent;
+    } else if (indexPath.section == BKSBeerCategorySectionStyles) {
+        cell.collectionView.tag = BKSBeerCategorySectionStyles;
     }
+    [cell.collectionView reloadData];
     [self setupFlowLayoutForCell:cell];
     
     return cell;
@@ -154,21 +169,25 @@ NSInteger const kBKSNumberOfSections = 3;
         } else {
             numberOfBeersInSection = self.allBeers.count;
         }
-    } else
-        if (collectionView.tag == BKSBeerCategorySectionBeersUnderEight) {
-            if (self.toggleAllOrRemainingSwitch.isOn) {
-                numberOfBeersInSection = self.beersUnderEightRemaining.count;
-            } else {
-                numberOfBeersInSection = self.beersUnderEight.count;
-            }
-        } else
-            if (collectionView.tag == BKSBeerCategorySectionBeersUnderFivePercent) {
-                if (self.toggleAllOrRemainingSwitch.isOn) {
-                    numberOfBeersInSection = self.beersUnderFivePercentRemaining.count;
-                } else {
-                    numberOfBeersInSection = self.beersUnderFivePercent.count;
-                }
-            }
+    } else if (collectionView.tag == BKSBeerCategorySectionBeersUnderEight) {
+        if (self.toggleAllOrRemainingSwitch.isOn) {
+            numberOfBeersInSection = self.beersUnderEightRemaining.count;
+        } else {
+            numberOfBeersInSection = self.beersUnderEight.count;
+        }
+    } else if (collectionView.tag == BKSBeerCategorySectionBeersUnderFivePercent) {
+        if (self.toggleAllOrRemainingSwitch.isOn) {
+            numberOfBeersInSection = self.beersUnderFivePercentRemaining.count;
+        } else {
+            numberOfBeersInSection = self.beersUnderFivePercent.count;
+        }
+    } else if (collectionView.tag == BKSBeerCategorySectionStyles) {
+        if (self.toggleAllOrRemainingSwitch.isOn) {
+            numberOfBeersInSection = self.stylesRemaining.count;
+        } else {
+            numberOfBeersInSection = self.styles.count;
+        }
+    }
 
     return numberOfBeersInSection;
 }
@@ -178,6 +197,7 @@ NSInteger const kBKSNumberOfSections = 3;
     CollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cvCell" forIndexPath:indexPath];
     
     BeerObject *beer;
+    BeerStyle *style;
     
     if (collectionView.tag == BKSBeerCategorySectionAllBeers) {
         if (self.toggleAllOrRemainingSwitch.isOn) {
@@ -197,23 +217,18 @@ NSInteger const kBKSNumberOfSections = 3;
         } else {
             beer = ((UserBeerObject *)[self.beersUnderFivePercent objectAtIndex:indexPath.row]).beer;
         }
+    } else if (collectionView.tag == BKSBeerCategorySectionStyles) {
+        if (self.toggleAllOrRemainingSwitch.isOn) {
+            style = ((BeerStyle *)[self.stylesRemaining objectAtIndex:indexPath.row]);
+        } else {
+            style = ((BeerStyle *)[self.styles objectAtIndex:indexPath.row]);
+        }
     }
 
-    if (beer.bottleImage) {
-        dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        dispatch_async(aQueue, ^{
-            PFFile *theImage = beer.bottleImage;
-            NSData *imageData = [theImage getData];
-            if (imageData) {
-                UIImage *image = [UIImage imageWithData:imageData];
-                if (image) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        cell.beerImage.image = image;
-                        cell.beerNameLabel.text =  beer.nickname;
-                    });
-                }
-            }
-        });
+    if (collectionView.tag == BKSBeerCategorySectionStyles) {
+        [self configureCell:cell forBeerStyle:style];
+    } else {
+        [self configureCell:cell forBeer:beer];
     }
 
     return cell;
@@ -238,8 +253,16 @@ NSInteger const kBKSNumberOfSections = 3;
         } else {
             self.beerSelected = ((UserBeerObject *)[self.beersUnderFivePercent objectAtIndex:indexPath.row]);
         }
+    } else if (collectionView.tag == BKSBeerCategorySectionStyles) {
+        if (self.toggleAllOrRemainingSwitch.isOn) {
+            self.styleSelected = ((BeerStyle *)[self.stylesRemaining objectAtIndex:indexPath.row]);
+        } else {
+            self.styleSelected = ((BeerStyle *)[self.styles objectAtIndex:indexPath.row]);
+        }
     }
     [self performSegueWithIdentifier:@"beerDetailSegue" sender:nil];
+
+#warning need to dif between beers and beerstyles;
 }
 
 - (IBAction)toggledSwitch:(UISwitch *)sender {
@@ -292,6 +315,72 @@ NSInteger const kBKSNumberOfSections = 3;
 - (IBAction)didTapLogoutButton:(id)sender {
     [[BKSAccountManager sharedAccountManager] logout];
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+#pragma mark - Helpers
+
+- (NSArray *)beerObjectsFromUserBeerObjects:(NSArray *)userBeerObjects {
+    NSMutableArray *beerObjects = [[NSMutableArray alloc] init];
+    for (UserBeerObject *userBeerObject in self.allBeers) {
+        [beerObjects addObject:userBeerObject.beer];
+    }
+    return [beerObjects copy];
+}
+
+- (NSArray *)stylesContainedInBeers:(NSArray *)beers {
+    NSMutableArray *styleArray = [[NSMutableArray alloc] init];
+    for (BeerObject *beer in beers) {
+        [styleArray addObject:beer.style];
+    }
+    return [styleArray copy];
+}
+
+- (NSArray *)uniqueStylesFromStyles:(NSArray *)styles {
+    NSMutableArray *styleArray = [[NSMutableArray alloc] init];
+    for (BeerStyle *style in styles) {
+        if (![styleArray containsObject:style]) {
+            [styleArray addObject:style];
+        }
+    }
+    return [styleArray copy];
+}
+
+- (void)configureCell:(CollectionCell *)cell forBeerStyle:(BeerStyle *)style {
+    if (style.styleImage) {
+        dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(aQueue, ^{
+            PFFile *theImage = style.styleImage;
+            NSData *imageData = [theImage getData];
+            if (imageData) {
+                UIImage *image = [UIImage imageWithData:imageData];
+                if (image) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        cell.beerImage.image = image;
+                        cell.beerNameLabel.text =  style.styleName;
+                    });
+                }
+            }
+        });
+    }
+}
+
+- (void)configureCell:(CollectionCell *)cell forBeer:(BeerObject *)beer {
+    if (beer.bottleImage) {
+        dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(aQueue, ^{
+            PFFile *theImage = beer.bottleImage;
+            NSData *imageData = [theImage getData];
+            if (imageData) {
+                UIImage *image = [UIImage imageWithData:imageData];
+                if (image) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        cell.beerImage.image = image;
+                        cell.beerNameLabel.text =  beer.nickname;
+                    });
+                }
+            }
+        });
+    }
 }
 
 @end

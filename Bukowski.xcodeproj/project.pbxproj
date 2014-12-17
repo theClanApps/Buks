@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		490ED78A1A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 490ED7871A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.m */; };
 		490ED78B1A2EA2C500FC0019 /* BKSBeerListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 490ED7891A2EA2C500FC0019 /* BKSBeerListsViewController.m */; };
+		4971E71D1A42427B00DB3BE1 /* BeerStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4971E71C1A42427B00DB3BE1 /* BeerStyle.m */; };
 		49A02DAB1A08370D004517B6 /* BKSStartMugClubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A02DAA1A08370D004517B6 /* BKSStartMugClubViewController.m */; };
 		49BB682719FF26AA00DFD75D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB682619FF26AA00DFD75D /* main.m */; };
 		49BB682D19FF26AA00DFD75D /* Bukowski.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49BB682B19FF26AA00DFD75D /* Bukowski.xcdatamodeld */; };
@@ -92,6 +93,8 @@
 		490ED7871A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSBeerCollectionTableViewCell.m; sourceTree = "<group>"; };
 		490ED7881A2EA2C500FC0019 /* BKSBeerListsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSBeerListsViewController.h; sourceTree = "<group>"; };
 		490ED7891A2EA2C500FC0019 /* BKSBeerListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSBeerListsViewController.m; sourceTree = "<group>"; };
+		4971E71B1A42427B00DB3BE1 /* BeerStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeerStyle.h; sourceTree = "<group>"; };
+		4971E71C1A42427B00DB3BE1 /* BeerStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeerStyle.m; sourceTree = "<group>"; };
 		49A02DA91A08370D004517B6 /* BKSStartMugClubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSStartMugClubViewController.h; sourceTree = "<group>"; };
 		49A02DAA1A08370D004517B6 /* BKSStartMugClubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSStartMugClubViewController.m; sourceTree = "<group>"; };
 		49BB682119FF26AA00DFD75D /* Bukowski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bukowski.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -378,6 +381,8 @@
 				49BE31AA1A1D8105003F246F /* UserBeerObject.m */,
 				6308B1CE1A08369B00B1C4FA /* BeerObject.h */,
 				6308B1CF1A08369B00B1C4FA /* BeerObject.m */,
+				4971E71B1A42427B00DB3BE1 /* BeerStyle.h */,
+				4971E71C1A42427B00DB3BE1 /* BeerStyle.m */,
 			);
 			name = "Test Objects";
 			sourceTree = "<group>";
@@ -612,6 +617,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49BB682D19FF26AA00DFD75D /* Bukowski.xcdatamodeld in Sources */,
+				4971E71D1A42427B00DB3BE1 /* BeerStyle.m in Sources */,
 				6308B1D61A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.m in Sources */,
 				490ED78A1A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.m in Sources */,
 				49BB687019FF273700DFD75D /* BKSWelcomeViewController.m in Sources */,
