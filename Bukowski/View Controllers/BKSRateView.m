@@ -102,7 +102,6 @@
 
 - (void)handleTouchAtLocation:(CGPoint)touchLocation {
     if (!self.editable) {
-        NSLog(@"not editable");
         return;
     }
     

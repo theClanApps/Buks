@@ -9,6 +9,7 @@
 #import "BKSBeerDetailViewController.h"
 #import "UserBeerObject.h"
 #import "BeerObject.h"
+#import "BKSAccountManager.h"
 
 @interface BKSBeerDetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *beerNameLabel;
@@ -57,23 +58,19 @@
 }
 
 - (void)setupRateView {
-//    if ([self.beer.drank isEqualToNumber:0]) {
-//        NSLog(@"Beer is not drank");
-//        self.rateButton.enabled = NO;
-//        self.rateView.editable = NO;
-//    } else {
-//        NSLog(@"Beer is drank");
-//        NSLog(@"%@",self.beer.drank);
-//        self.rateButton.enabled = YES;
-//        self.rateView.editable = YES;
-//    }
-    
+    if ([self.beer.drank intValue] == 0) {
+        self.rateButton.enabled = NO;
+        self.rateButton.hidden = YES;
+        self.rateView.hidden = YES;
+        NSLog(@"editable? %d",self.rateView.editable);
+    } else {
+        self.rateButton.enabled = YES;
+    }
+    self.rateView.editable = NO;
     self.rateView.rating = self.beer.userRating;
-    
     self.rateView.notSelectedImage = [UIImage imageNamed:@"unshadedstar"];
     self.rateView.fullSelectedImage = [UIImage imageNamed:@"shadedstar"];
     self.rateView.greyImage = [UIImage imageNamed:@"greystar"];
-    self.rateView.editable = YES;
     self.rateView.numberOfStars = 5;
     self.rateView.delegate = self;
 }
@@ -84,10 +81,21 @@
 
 - (IBAction)rateButtonPressed:(id)sender {
     if ([self.rateButton.currentTitle isEqualToString:@"Rate"]) {
+        self.rateView.editable = YES;
         [self.rateButton setTitle:@"Save" forState:UIControlStateNormal];
-    }
-    if ([self.rateButton.currentTitle isEqualToString:@"Save"]) {
+        
+    } else if ([self.rateButton.currentTitle isEqualToString:@"Save"]) {
+        
+        [[BKSAccountManager sharedAccountManager] rateBeer:self.beer withRating:self.rateView.rating WithCompletion:^(NSError *error, UserBeerObject *userBeer) {
+            if (!error) {
+                NSLog(@"Success!");
+            } else {
+                NSLog(@"Error checking beer: %@", error);
+            }
+        }];
+        
         [self.rateButton setTitle:@"Rate" forState:UIControlStateNormal];
+        self.rateView.editable = NO;
 
     }
 }

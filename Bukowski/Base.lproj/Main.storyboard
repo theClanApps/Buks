@@ -380,8 +380,12 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEu-PM-Cn2">
-                                <rect key="frame" x="522" y="315" width="30" height="30"/>
-                                <state key="normal">
+                                <rect key="frame" x="510" y="315" width="42" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="59t-bU-dd7"/>
+                                    <constraint firstAttribute="height" constant="30" id="jvk-0R-m4b"/>
+                                </constraints>
+                                <state key="normal" title="Save">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -392,6 +396,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Zh8-Vq-Idj" firstAttribute="leading" secondItem="8HN-kX-y5P" secondAttribute="leadingMargin" id="1jH-zu-Fle"/>
+                            <constraint firstItem="baK-Wn-o6i" firstAttribute="top" secondItem="fqi-IE-qh8" secondAttribute="bottom" constant="8" id="3ld-75-17I"/>
                             <constraint firstItem="9y5-p0-sux" firstAttribute="top" secondItem="Zh8-Vq-Idj" secondAttribute="bottom" constant="8" id="4Pn-kn-Hu6"/>
                             <constraint firstItem="fEu-PM-Cn2" firstAttribute="leading" secondItem="baK-Wn-o6i" secondAttribute="trailing" constant="8" id="BNb-PP-86f"/>
                             <constraint firstItem="Zh8-Vq-Idj" firstAttribute="top" secondItem="adB-AH-mcP" secondAttribute="bottom" constant="8" id="DQh-30-Ema"/>
@@ -419,6 +424,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="LIp-DZ-CEV"/>
                                 <exclude reference="v4u-1E-LHY"/>
                             </mask>
                         </variation>

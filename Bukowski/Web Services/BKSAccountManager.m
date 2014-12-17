@@ -10,6 +10,7 @@
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import "NonPersistedBeer.h"
+#import "UserBeerObject.h"
 
 static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
 
@@ -114,6 +115,24 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
 
 - (BOOL)userStartedMugClub {
     return ([[PFUser currentUser] objectForKey:@"MugClubStartDate"]!=nil);
+}
+
+- (void)rateBeer:(UserBeerObject *)userBeer
+        withRating:(float)rating
+      WithCompletion:(void(^)(NSError *error, UserBeerObject *userBeer))completion {
+    userBeer.userRating = rating;
+    
+    [userBeer saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            if (completion) {
+                completion(nil, userBeer);
+            }
+        } else {
+            if (completion) {
+                completion(error, nil);
+            }
+        }
+    }];
 }
 
 #pragma mark - helpers
