@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BKSRateView.h"
 @class UserBeerObject;
 
-@interface BKSBeerDetailViewController : UIViewController
+@interface BKSBeerDetailViewController : UIViewController <BKSRateViewDelegate>
 
 @property (nonatomic, strong) UserBeerObject *beer;
+
+
+@property (weak, nonatomic) IBOutlet BKSRateView *rateView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *rateBarButton;
+
+
 
 @end
