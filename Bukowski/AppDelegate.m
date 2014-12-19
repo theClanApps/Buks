@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "BKSAccountManager.h"
+#import "UserObject.h"
 
 @implementation AppDelegate
 
@@ -21,6 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // ****************************************************************************
     // Uncomment and fill in with your Parse credentials:
+    [UserObject registerSubclass];
     [Parse setApplicationId:@"GPAodgbqufdLMefPZWU8mWCIeD49bfcVXQNe1CkB" clientKey:@"HVNQ9uOEf7qLryTPoKYcdkSVjvHz9rnSBEE4F6bR"];
     //
     // If you are using Facebook, uncomment and add your FacebookAppID to your bundle's plist as

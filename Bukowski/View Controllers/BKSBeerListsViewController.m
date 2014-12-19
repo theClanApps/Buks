@@ -15,6 +15,7 @@
 #import "BKSBeerDetailViewController.h"
 #import "BeerStyle.h"
 #import "BKSStyleViewController.h"
+#import "BKSProgressViewController.h"
 
 typedef NS_ENUM(NSInteger, BKSBeerCategorySection) {
     BKSBeerCategorySectionAllBeers,
@@ -47,6 +48,7 @@ NSInteger const kBKSNumberOfSections = 4;
 
 @property (strong, nonatomic) UserBeerObject *beerSelected;
 @property (strong, nonatomic) BeerStyle *styleSelected;
+@property (strong, nonatomic) UserObject *userLoggedIn;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISwitch *toggleAllOrRemainingSwitch;
@@ -61,6 +63,7 @@ NSInteger const kBKSNumberOfSections = 4;
 
 - (void)setup {
     [self loadBeers];
+    [self loadUser];
     [self setToggleValue];
     
     self.edgesForExtendedLayout = UIRectEdgeAll;
@@ -82,7 +85,6 @@ NSInteger const kBKSNumberOfSections = 4;
 }
 
 - (void)sortAllBeersIntoCategories:(NSArray *)allBeers {
-
     [PFObject fetchAllInBackground:[self beerObjectsFromUserBeerObjects:self.allBeers] block:^(NSArray *objects, NSError *error) {
         self.beersUnderEight = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.price < %@)", @"7"]];
         self.beersUnderFivePercent = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.abv < %@)", @"5"]];
@@ -113,6 +115,10 @@ NSInteger const kBKSNumberOfSections = 4;
             [errorAlert show];
         }
     }];
+}
+
+- (void)loadUser {
+    self.userLoggedIn = [UserObject currentUser];
 }
 
 - (void)setupFlowLayoutForCell:(BKSBeerCollectionTableViewCell *)cell {
@@ -235,7 +241,6 @@ NSInteger const kBKSNumberOfSections = 4;
     } else {
         [self configureCell:cell forBeer:beer];
     }
-
     return cell;
 }
 
@@ -308,6 +313,14 @@ NSInteger const kBKSNumberOfSections = 4;
         BKSStyleViewController *styleVC = (BKSStyleViewController *)segue.destinationViewController;
         styleVC.beersOfStyle = [self beerObjectsFromStyle:self.styleSelected];
         styleVC.style = self.styleSelected;
+	}
+    
+    if ([[segue identifier] isEqualToString:@"progressSegue"]) {
+        BKSProgressViewController *detailVC = (BKSProgressViewController *)segue.destinationViewController;
+        //send the user logged in to this VC
+        detailVC.currentUser = self.userLoggedIn;
+        //send the userBeers to this VC
+        detailVC.userBeers = self.allBeers;
     }
 }
 
