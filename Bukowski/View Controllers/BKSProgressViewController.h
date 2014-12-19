@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserObject.h"
 
 @interface BKSProgressViewController : UIViewController
+
+@property (strong, nonatomic) UserObject *currentUser;
+@property (strong, nonatomic) NSArray *userBeers;
 
 @end

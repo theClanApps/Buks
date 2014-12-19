@@ -277,6 +277,9 @@ NSInteger const kBKSNumberOfSections = 3;
     if ([[segue identifier] isEqualToString:@"progressSegue"]) {
         BKSProgressViewController *detailVC = (BKSProgressViewController *)segue.destinationViewController;
         //send the user logged in to this VC
+        
+        //send the userBeers to this VC
+        detailVC.userBeers = self.allBeers;
     }
 }
 
