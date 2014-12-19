@@ -13,6 +13,7 @@
 #import "BeerObject.h"
 #import "CollectionCell.h"
 #import "BKSBeerDetailViewController.h"
+#import "BKSProgressViewController.h"
 
 typedef NS_ENUM(NSInteger, BKSBeerCategorySection) {
     BKSBeerCategorySectionAllBeers,
@@ -74,15 +75,15 @@ NSInteger const kBKSNumberOfSections = 3;
     for (UserBeerObject *userBeerObject in self.allBeers) {
         [beerObjects addObject:userBeerObject.beer];
     }
-
+    
     [PFObject fetchAllInBackground:[beerObjects mutableCopy] block:^(NSArray *objects, NSError *error) {
-                self.beersUnderEight = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.price < %@)", @"7"]];
-                self.beersUnderFivePercent = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.abv < %@)", @"5"]];
-                self.allBeersRemaining = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
-                self.beersUnderEightRemaining = [self.beersUnderEight filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
-                self.beersUnderFivePercentRemaining = [self.beersUnderFivePercent filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"drank = false"]];
-                [self reloadAllCollectionViews];
-
+        self.beersUnderEight = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.price < %@)", @"7"]];
+        self.beersUnderFivePercent = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.abv < %@)", @"5"]];
+        self.allBeersRemaining = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
+        self.beersUnderEightRemaining = [self.beersUnderEight filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
+        self.beersUnderFivePercentRemaining = [self.beersUnderFivePercent filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"drank = false"]];
+        [self reloadAllCollectionViews];
+        
     }];
 }
 
@@ -169,7 +170,7 @@ NSInteger const kBKSNumberOfSections = 3;
                     numberOfBeersInSection = self.beersUnderFivePercent.count;
                 }
             }
-
+    
     return numberOfBeersInSection;
 }
 
@@ -198,7 +199,7 @@ NSInteger const kBKSNumberOfSections = 3;
             beer = ((UserBeerObject *)[self.beersUnderFivePercent objectAtIndex:indexPath.row]).beer;
         }
     }
-
+    
     if (beer.bottleImage) {
         dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_async(aQueue, ^{
@@ -215,7 +216,7 @@ NSInteger const kBKSNumberOfSections = 3;
             }
         });
     }
-
+    
     return cell;
 }
 
@@ -271,6 +272,11 @@ NSInteger const kBKSNumberOfSections = 3;
     if ([[segue identifier] isEqualToString:@"randomBeerSegue"]) {
         BKSBeerDetailViewController *detailVC = (BKSBeerDetailViewController *)segue.destinationViewController;
         detailVC.beer = [self generateRandomBeer];
+    }
+    
+    if ([[segue identifier] isEqualToString:@"progressSegue"]) {
+        BKSProgressViewController *detailVC = (BKSProgressViewController *)segue.destinationViewController;
+        //send the user logged in to this VC
     }
 }
 

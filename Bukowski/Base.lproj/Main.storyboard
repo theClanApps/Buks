@@ -558,6 +558,19 @@
                                     <segue destination="5hT-WA-1y3" kind="show" identifier="randomBeerSegue" id="H2T-d5-IE9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Lv-Zn-rEu">
+                                <rect key="frame" x="559" y="75" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="Mnr-ud-xfj"/>
+                                    <constraint firstAttribute="height" constant="25" id="x8o-9s-ijM"/>
+                                </constraints>
+                                <state key="normal" image="stats.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="8p9-vl-bpC" kind="show" identifier="progressSegue" id="EN9-0J-Uyj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -567,7 +580,9 @@
                             <constraint firstItem="5Ut-68-oAb" firstAttribute="top" secondItem="Hp5-GZ-Qxd" secondAttribute="bottom" constant="8" id="FLa-Nt-Em6"/>
                             <constraint firstItem="eCE-XR-XdS" firstAttribute="top" secondItem="GSG-9e-sCa" secondAttribute="bottom" constant="13" id="HdC-qQ-ON8"/>
                             <constraint firstItem="5Ut-68-oAb" firstAttribute="centerY" secondItem="oPx-Bs-DIY" secondAttribute="centerY" id="Hmq-Jn-RQ1"/>
+                            <constraint firstItem="9Lv-Zn-rEu" firstAttribute="trailing" secondItem="ZF3-rO-bEJ" secondAttribute="trailingMargin" id="Ice-Kg-mAh"/>
                             <constraint firstItem="5Ut-68-oAb" firstAttribute="centerY" secondItem="puc-ue-Qgd" secondAttribute="centerY" id="Tge-wA-954"/>
+                            <constraint firstItem="9Lv-Zn-rEu" firstAttribute="top" secondItem="Hp5-GZ-Qxd" secondAttribute="bottom" constant="11" id="V7f-aL-FCT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GSG-9e-sCa" secondAttribute="trailing" constant="-16" id="Yt8-yT-bR2"/>
                             <constraint firstAttribute="centerX" secondItem="5Ut-68-oAb" secondAttribute="centerX" constant="-0.5" id="bxh-XR-4ar"/>
                             <constraint firstItem="5Ut-68-oAb" firstAttribute="leading" secondItem="R6o-OY-8SH" secondAttribute="trailing" constant="8" id="cfV-BA-KcE"/>
@@ -586,6 +601,24 @@
             </objects>
             <point key="canvasLocation" x="2073" y="897"/>
         </scene>
+        <!--Progress View Controller-->
+        <scene sceneID="QTC-Gl-80z">
+            <objects>
+                <viewController id="8p9-vl-bpC" customClass="BKSProgressViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bls-qj-Nsk"/>
+                        <viewControllerLayoutGuide type="bottom" id="0IN-Rz-L28"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2aT-tb-IMz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Mk-Y6-Ifm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2073" y="1571"/>
+        </scene>
     </scenes>
     <resources>
         <image name="abv-icon.png" width="71" height="30"/>
@@ -593,6 +626,7 @@
         <image name="beer.png" width="150" height="150"/>
         <image name="price-icon.png" width="60" height="30"/>
         <image name="question.png" width="72" height="72"/>
+        <image name="stats.png" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="H2T-d5-IE9"/>

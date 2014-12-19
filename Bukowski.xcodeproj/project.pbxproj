@@ -64,6 +64,9 @@
 		63362A071A0D700E00121D1C /* Oswald-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63362A041A0D700E00121D1C /* Oswald-Bold.ttf */; };
 		63362A081A0D700E00121D1C /* Oswald-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63362A051A0D700E00121D1C /* Oswald-Light.ttf */; };
 		63362A091A0D700E00121D1C /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63362A061A0D700E00121D1C /* Oswald-Regular.ttf */; };
+		634DE8811A447B47004DAD0C /* stats.png in Resources */ = {isa = PBXBuildFile; fileRef = 634DE8801A447B47004DAD0C /* stats.png */; };
+		634DE8841A447DCC004DAD0C /* BKSProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 634DE8831A447DCC004DAD0C /* BKSProgressViewController.m */; };
+		634DE8871A4489F0004DAD0C /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 634DE8861A4489F0004DAD0C /* UserObject.m */; };
 		63686E681A0AE97200D38A1B /* BKSBeerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63686E671A0AE97200D38A1B /* BKSBeerDetailViewController.m */; };
 		63686E6A1A0AF40100D38A1B /* price-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63686E691A0AF40100D38A1B /* price-icon.png */; };
 		63686E6C1A0AF40800D38A1B /* abv-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63686E6B1A0AF40800D38A1B /* abv-icon.png */; };
@@ -163,6 +166,11 @@
 		63362A041A0D700E00121D1C /* Oswald-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Bold.ttf"; sourceTree = "<group>"; };
 		63362A051A0D700E00121D1C /* Oswald-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Light.ttf"; sourceTree = "<group>"; };
 		63362A061A0D700E00121D1C /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
+		634DE8801A447B47004DAD0C /* stats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stats.png; sourceTree = "<group>"; };
+		634DE8821A447DCC004DAD0C /* BKSProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSProgressViewController.h; sourceTree = "<group>"; };
+		634DE8831A447DCC004DAD0C /* BKSProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSProgressViewController.m; sourceTree = "<group>"; };
+		634DE8851A4489F0004DAD0C /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserObject.h; sourceTree = "<group>"; };
+		634DE8861A4489F0004DAD0C /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserObject.m; sourceTree = "<group>"; };
 		63686E661A0AE97200D38A1B /* BKSBeerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKSBeerDetailViewController.h; path = ../BKSBeerDetailViewController.h; sourceTree = "<group>"; };
 		63686E671A0AE97200D38A1B /* BKSBeerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKSBeerDetailViewController.m; path = ../BKSBeerDetailViewController.m; sourceTree = "<group>"; };
 		63686E691A0AF40100D38A1B /* price-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price-icon.png"; sourceTree = "<group>"; };
@@ -307,6 +315,8 @@
 				6308B1CC1A08321F00B1C4FA /* BKSCollectionViewListViewController.m */,
 				63686E661A0AE97200D38A1B /* BKSBeerDetailViewController.h */,
 				63686E671A0AE97200D38A1B /* BKSBeerDetailViewController.m */,
+				634DE8821A447DCC004DAD0C /* BKSProgressViewController.h */,
+				634DE8831A447DCC004DAD0C /* BKSProgressViewController.m */,
 				63DB7A0E1A3FE5E000EBF7F1 /* BKSRateView.h */,
 				63DB7A0F1A3FE5E000EBF7F1 /* BKSRateView.m */,
 			);
@@ -359,6 +369,7 @@
 		6308B1C71A082F1F00B1C4FA /* Buttons and Icons */ = {
 			isa = PBXGroup;
 			children = (
+				634DE8801A447B47004DAD0C /* stats.png */,
 				63DB7A0C1A3F3ED900EBF7F1 /* greystar.png */,
 				63DB79CA1A3F21BC00EBF7F1 /* shadedstar.png */,
 				63DB79CB1A3F21BC00EBF7F1 /* unshadedstar.png */,
@@ -376,6 +387,8 @@
 			children = (
 				49BE31A91A1D8105003F246F /* UserBeerObject.h */,
 				49BE31AA1A1D8105003F246F /* UserBeerObject.m */,
+				634DE8851A4489F0004DAD0C /* UserObject.h */,
+				634DE8861A4489F0004DAD0C /* UserObject.m */,
 				6308B1CE1A08369B00B1C4FA /* BeerObject.h */,
 				6308B1CF1A08369B00B1C4FA /* BeerObject.m */,
 			);
@@ -536,6 +549,7 @@
 				63686E6C1A0AF40800D38A1B /* abv-icon.png in Resources */,
 				63362A001A0D6FC000121D1C /* HelveUltCom in Resources */,
 				6308B1BE1A082C4D00B1C4FA /* NibCell.xib in Resources */,
+				634DE8811A447B47004DAD0C /* stats.png in Resources */,
 				63362A091A0D700E00121D1C /* Oswald-Regular.ttf in Resources */,
 				63DB7A0D1A3F3ED900EBF7F1 /* greystar.png in Resources */,
 				6308B1B91A082BC900B1C4FA /* yuenglinglager.jpg in Resources */,
@@ -618,6 +632,7 @@
 				49BB686F19FF273700DFD75D /* BKSLoginViewController.m in Sources */,
 				490ED78B1A2EA2C500FC0019 /* BKSBeerListsViewController.m in Sources */,
 				49BB686019FF271600DFD75D /* Model.xcdatamodeld in Sources */,
+				634DE8841A447DCC004DAD0C /* BKSProgressViewController.m in Sources */,
 				49BB686119FF271600DFD75D /* NonPersistedBeer.m in Sources */,
 				63DB7A101A3FE5E000EBF7F1 /* BKSRateView.m in Sources */,
 				49A02DAB1A08370D004517B6 /* BKSStartMugClubViewController.m in Sources */,
@@ -629,6 +644,7 @@
 				49BB685E19FF271600DFD75D /* BKSDataManager.m in Sources */,
 				49BB687419FF274600DFD75D /* AppDelegate.m in Sources */,
 				6308B1D01A08369B00B1C4FA /* BeerObject.m in Sources */,
+				634DE8871A4489F0004DAD0C /* UserObject.m in Sources */,
 				6308B1D71A0836BF00B1C4FA /* BKSMyFavoritesCollectionViewController.m in Sources */,
 				49BB687119FF273700DFD75D /* BKSAccountManager.m in Sources */,
 			);
