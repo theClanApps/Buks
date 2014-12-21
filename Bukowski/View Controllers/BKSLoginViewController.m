@@ -8,7 +8,6 @@
 
 #import "BKSLoginViewController.h"
 #import "BKSAccountManager.h"
-#import "BKSWelcomeViewController.h"
 #import <Parse/Parse.h>
 #import "PFFacebookUtils.h"
 
@@ -55,22 +54,6 @@ static NSString * const kSegueToBeerViewController = @"kSegueToBeerViewControlle
                                           cancelButtonTitle:nil
                                           otherButtonTitles:@"Dismiss", nil];
     [alert show];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:kBKSSegueToWelcomeViewControllerIdentifier]) {
-        if ([segue.destinationViewController isKindOfClass:[BKSWelcomeViewController class]]) {
-            BKSWelcomeViewController *welcomeVC = (BKSWelcomeViewController *)segue.destinationViewController;
-            welcomeVC.userName = [PFUser currentUser][@"name"];
-            welcomeVC.profilePicture = [NSURL URLWithString:[PFUser currentUser][@"profilePictureURL"]];
-            welcomeVC.navigationItem.hidesBackButton = YES;
-        }
-    }
-}
-
-- (IBAction)logoutButtonPressed:(id)sender {
-    [[BKSAccountManager sharedAccountManager] logout];
 }
 
 @end

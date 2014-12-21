@@ -14,6 +14,7 @@
 #import "CollectionCell.h"
 #import "BKSBeerDetailViewController.h"
 #import "BeerStyle.h"
+#import "BKSStyleViewController.h"
 
 typedef NS_ENUM(NSInteger, BKSBeerCategorySection) {
     BKSBeerCategorySectionAllBeers,
@@ -27,6 +28,10 @@ NSString * const kBKSBeersUnderEight = @"Don't Break the Bank";
 NSString * const kBKSBeersUnderFivePercent = @"Staying Soberish";
 NSString * const kBKSBeerStyles = @"Styles";
 NSString * const kBKSUserToggleSetting = @"UserToggleSetting";
+
+NSString * const kBKSBeerDetailSegue = @"beerDetailSegue";
+NSString * const kBKSRandomBeerSegue = @"randomBeerSegue";
+NSString * const KBKSStyleDetailSegue = @"KBKSStyleDetailSegue";
 
 NSInteger const kBKSNumberOfSections = 4;
 
@@ -260,9 +265,12 @@ NSInteger const kBKSNumberOfSections = 4;
             self.styleSelected = ((BeerStyle *)[self.styles objectAtIndex:indexPath.row]);
         }
     }
-    [self performSegueWithIdentifier:@"beerDetailSegue" sender:nil];
 
-#warning need to dif between beers and beerstyles;
+    if (collectionView.tag == BKSBeerCategorySectionStyles) {
+        [self performSegueWithIdentifier:KBKSStyleDetailSegue sender:nil];
+    } else {
+        [self performSegueWithIdentifier:kBKSBeerDetailSegue sender:nil];
+    }
 }
 
 - (IBAction)toggledSwitch:(UISwitch *)sender {
@@ -286,14 +294,20 @@ NSInteger const kBKSNumberOfSections = 4;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"beerDetailSegue"]) {
+    if ([[segue identifier] isEqualToString:kBKSBeerDetailSegue]) {
         BKSBeerDetailViewController *detailVC = (BKSBeerDetailViewController *)segue.destinationViewController;
         detailVC.beer = self.beerSelected;
     }
     
-    if ([[segue identifier] isEqualToString:@"randomBeerSegue"]) {
+    if ([[segue identifier] isEqualToString:kBKSRandomBeerSegue]) {
         BKSBeerDetailViewController *detailVC = (BKSBeerDetailViewController *)segue.destinationViewController;
         detailVC.beer = [self generateRandomBeer];
+    }
+
+    if ([[segue identifier] isEqualToString:KBKSStyleDetailSegue]) {
+        BKSStyleViewController *styleVC = (BKSStyleViewController *)segue.destinationViewController;
+        styleVC.beersOfStyle = [self beerObjectsFromStyle:self.styleSelected];
+        styleVC.style = self.styleSelected;
     }
 }
 
@@ -343,6 +357,11 @@ NSInteger const kBKSNumberOfSections = 4;
         }
     }
     return [styleArray copy];
+}
+
+- (NSArray *)beerObjectsFromStyle:(BeerStyle *)style {
+    NSArray *beers = [self.allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.style == %@)", self.styleSelected]];
+    return beers;
 }
 
 - (void)configureCell:(CollectionCell *)cell forBeerStyle:(BeerStyle *)style {
