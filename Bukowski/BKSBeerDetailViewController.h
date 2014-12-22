@@ -13,11 +13,10 @@
 @interface BKSBeerDetailViewController : UIViewController <BKSRateViewDelegate>
 
 @property (nonatomic, strong) UserBeerObject *beer;
-
+@property (strong, nonatomic) NSArray *allBeers;
 
 @property (weak, nonatomic) IBOutlet BKSRateView *rateView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *rateBarButton;
-
 
 
 @end
