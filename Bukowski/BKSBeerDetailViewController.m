@@ -10,6 +10,7 @@
 #import "UserBeerObject.h"
 #import "BeerObject.h"
 #import "BKSAccountManager.h"
+#import "BeerStyle.h"
 
 @interface BKSBeerDetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *beerNameLabel;
@@ -32,7 +33,7 @@
     BeerObject *beer = self.beer.beer;
     self.beerNameLabel.text = beer.beerName.uppercaseString;
     self.breweryLabel.text = beer.brewery.uppercaseString;
-    self.beerStyleLabel.text = beer.beerStyle.uppercaseString;
+    self.beerStyleLabel.text = beer.style.styleName.uppercaseString;
     self.beerDescriptionTextView.text = beer.beerDescription;
     self.abvLabel.text = [NSString stringWithFormat:@"%@ %%",beer.abv];
     self.priceLabel.text = beer.price;
