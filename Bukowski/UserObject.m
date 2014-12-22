@@ -10,7 +10,7 @@
 
 @implementation UserObject
 
-@dynamic name, mugClubStartDate, mugClubEndDate, userImage, dateOfLastBeerDrank;
+@dynamic name, MugClubStartDate, mugClubEndDate, userImage, dateOfLastBeerDrank;
 
 + (void)load
 {

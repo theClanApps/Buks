@@ -11,8 +11,9 @@
 @interface UserObject : PFUser <PFSubclassing>
 
 @property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSDate *mugClubStartDate;
+@property (strong, nonatomic) NSDate *MugClubStartDate;
 @property (strong, nonatomic) NSDate *mugClubEndDate;
+
 
 @property (strong, nonatomic) PFFile *userImage;
 @property (strong, nonatomic) NSDate *dateOfLastBeerDrank;

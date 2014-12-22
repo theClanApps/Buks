@@ -36,6 +36,7 @@ NSInteger const kBKSNumberOfSections = 3;
 @property (strong, nonatomic) NSArray *beersUnderEightRemaining;
 @property (strong, nonatomic) NSArray *beersUnderFivePercentRemaining;
 @property (strong, nonatomic) UserBeerObject *beerSelected;
+@property (strong, nonatomic) UserObject *userLoggedIn;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISwitch *toggleAllOrRemainingSwitch;
@@ -50,6 +51,7 @@ NSInteger const kBKSNumberOfSections = 3;
 
 - (void)setup {
     [self loadBeers];
+    [self loadUser];
     [self setToggleValue];
     
     self.edgesForExtendedLayout = UIRectEdgeAll;
@@ -98,6 +100,10 @@ NSInteger const kBKSNumberOfSections = 3;
             [errorAlert show];
         }
     }];
+}
+
+- (void)loadUser {
+    self.userLoggedIn = [UserObject currentUser];
 }
 
 - (void)setupFlowLayoutForCell:(BKSBeerCollectionTableViewCell *)cell {
@@ -277,7 +283,7 @@ NSInteger const kBKSNumberOfSections = 3;
     if ([[segue identifier] isEqualToString:@"progressSegue"]) {
         BKSProgressViewController *detailVC = (BKSProgressViewController *)segue.destinationViewController;
         //send the user logged in to this VC
-        
+        detailVC.currentUser = self.userLoggedIn;
         //send the userBeers to this VC
         detailVC.userBeers = self.allBeers;
     }
