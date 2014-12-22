@@ -297,11 +297,13 @@ NSInteger const kBKSNumberOfSections = 4;
     if ([[segue identifier] isEqualToString:kBKSBeerDetailSegue]) {
         BKSBeerDetailViewController *detailVC = (BKSBeerDetailViewController *)segue.destinationViewController;
         detailVC.beer = self.beerSelected;
+        detailVC.allBeers = self.allBeers;
     }
     
     if ([[segue identifier] isEqualToString:kBKSRandomBeerSegue]) {
         BKSBeerDetailViewController *detailVC = (BKSBeerDetailViewController *)segue.destinationViewController;
         detailVC.beer = [self generateRandomBeer];
+        detailVC.allBeers = self.allBeers;
     }
 
     if ([[segue identifier] isEqualToString:KBKSStyleDetailSegue]) {

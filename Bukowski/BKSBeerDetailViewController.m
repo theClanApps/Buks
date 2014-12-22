@@ -11,11 +11,12 @@
 #import "BeerObject.h"
 #import "BKSAccountManager.h"
 #import "BeerStyle.h"
+#import "BKSStyleViewController.h"
 
 @interface BKSBeerDetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *beerNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *breweryLabel;
-@property (weak, nonatomic) IBOutlet UILabel *beerStyleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *beerStyleButton;
 @property (weak, nonatomic) IBOutlet UILabel *abvLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
@@ -33,7 +34,7 @@
     BeerObject *beer = self.beer.beer;
     self.beerNameLabel.text = beer.beerName.uppercaseString;
     self.breweryLabel.text = beer.brewery.uppercaseString;
-    self.beerStyleLabel.text = beer.style.styleName.uppercaseString;
+    [self.beerStyleButton setTitle:beer.style.styleName.uppercaseString forState:UIControlStateNormal];
     self.beerDescriptionTextView.text = beer.beerDescription;
     self.abvLabel.text = [NSString stringWithFormat:@"%@ %%",beer.abv];
     self.priceLabel.text = beer.price;
@@ -96,6 +97,21 @@
         [self.rateBarButton setTitle:@"Rate"];
         self.rateView.editable = NO;
     }
+}
+
+- (NSArray *)beerObjectsFromStyle:(BeerStyle *)style {
+    NSArray *beers = [self.allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.style == %@)", style]];
+    return beers;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"goToStyleFromBeerSegue"]) {
+        BKSStyleViewController *detailVC = (BKSStyleViewController *)segue.destinationViewController;
+        detailVC.beersOfStyle = [self beerObjectsFromStyle:self.beer.beer.style];
+        detailVC.style = self.beer.beer.style;
+    }
+
 }
 
 @end
