@@ -11,6 +11,7 @@
 @interface BeerStyle : PFObject <PFSubclassing>
 @property (strong, nonatomic) NSString *styleID;
 @property (strong, nonatomic) NSString *styleName;
+@property (strong, nonatomic) NSString *styleDescription;
 @property (strong, nonatomic) PFFile *styleImage;
 
 @end
