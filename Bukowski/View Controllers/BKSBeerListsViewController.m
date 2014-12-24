@@ -350,7 +350,7 @@ NSInteger const kBKSNumberOfSections = 4;
 
 - (NSArray *)beerObjectsFromUserBeerObjects:(NSArray *)userBeerObjects {
     NSMutableArray *beerObjects = [[NSMutableArray alloc] init];
-    for (UserBeerObject *userBeerObject in self.allBeers) {
+    for (UserBeerObject *userBeerObject in userBeerObjects) {
         [beerObjects addObject:userBeerObject.beer];
     }
     return [beerObjects copy];
