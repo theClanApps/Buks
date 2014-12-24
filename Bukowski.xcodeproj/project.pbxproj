@@ -19,7 +19,6 @@
 		49BB684419FF26AB00DFD75D /* BukowskiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB684319FF26AB00DFD75D /* BukowskiTests.m */; };
 		49BB685E19FF271600DFD75D /* BKSDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB685319FF271600DFD75D /* BKSDataManager.m */; };
 		49BB686019FF271600DFD75D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49BB685619FF271600DFD75D /* Model.xcdatamodeld */; };
-		49BB686119FF271600DFD75D /* NonPersistedBeer.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB685919FF271600DFD75D /* NonPersistedBeer.m */; };
 		49BB686F19FF273700DFD75D /* BKSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB686819FF273700DFD75D /* BKSLoginViewController.m */; };
 		49BB687119FF273700DFD75D /* BKSAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB686D19FF273700DFD75D /* BKSAccountManager.m */; };
 		49BB687419FF274600DFD75D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB687319FF274600DFD75D /* AppDelegate.m */; };
@@ -39,9 +38,7 @@
 		6308B1BE1A082C4D00B1C4FA /* NibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1BD1A082C4D00B1C4FA /* NibCell.xib */; };
 		6308B1C61A082F0100B1C4FA /* beer.png in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1C51A082F0100B1C4FA /* beer.png */; };
 		6308B1CA1A08302C00B1C4FA /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6308B1C91A08302C00B1C4FA /* CollectionCell.m */; };
-		6308B1CD1A08321F00B1C4FA /* BKSCollectionViewListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6308B1CC1A08321F00B1C4FA /* BKSCollectionViewListViewController.m */; };
 		6308B1D01A08369B00B1C4FA /* BeerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6308B1CF1A08369B00B1C4FA /* BeerObject.m */; };
-		6308B1D61A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6308B1D31A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.m */; };
 		633629EF1A0D6FC000121D1C /* HelveBla in Resources */ = {isa = PBXBuildFile; fileRef = 633629DC1A0D6FC000121D1C /* HelveBla */; };
 		633629F01A0D6FC000121D1C /* HelveBlaObl in Resources */ = {isa = PBXBuildFile; fileRef = 633629DD1A0D6FC000121D1C /* HelveBlaObl */; };
 		633629F11A0D6FC000121D1C /* HelveCom in Resources */ = {isa = PBXBuildFile; fileRef = 633629DE1A0D6FC000121D1C /* HelveCom */; };
@@ -112,8 +109,6 @@
 		49BB685219FF271600DFD75D /* BKSDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSDataManager.h; sourceTree = "<group>"; };
 		49BB685319FF271600DFD75D /* BKSDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSDataManager.m; sourceTree = "<group>"; };
 		49BB685719FF271600DFD75D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		49BB685819FF271600DFD75D /* NonPersistedBeer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NonPersistedBeer.h; sourceTree = "<group>"; };
-		49BB685919FF271600DFD75D /* NonPersistedBeer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NonPersistedBeer.m; sourceTree = "<group>"; };
 		49BB686719FF273700DFD75D /* BKSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSLoginViewController.h; sourceTree = "<group>"; };
 		49BB686819FF273700DFD75D /* BKSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSLoginViewController.m; sourceTree = "<group>"; };
 		49BB686C19FF273700DFD75D /* BKSAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSAccountManager.h; sourceTree = "<group>"; };
@@ -138,12 +133,8 @@
 		6308B1C51A082F0100B1C4FA /* beer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beer.png; sourceTree = "<group>"; };
 		6308B1C81A08302C00B1C4FA /* CollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCell.h; sourceTree = "<group>"; };
 		6308B1C91A08302C00B1C4FA /* CollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCell.m; sourceTree = "<group>"; };
-		6308B1CB1A08321F00B1C4FA /* BKSCollectionViewListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSCollectionViewListViewController.h; sourceTree = "<group>"; };
-		6308B1CC1A08321F00B1C4FA /* BKSCollectionViewListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSCollectionViewListViewController.m; sourceTree = "<group>"; };
 		6308B1CE1A08369B00B1C4FA /* BeerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeerObject.h; sourceTree = "<group>"; };
 		6308B1CF1A08369B00B1C4FA /* BeerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeerObject.m; sourceTree = "<group>"; };
-		6308B1D21A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSBaseBeerCollectionViewController.h; sourceTree = "<group>"; };
-		6308B1D31A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSBaseBeerCollectionViewController.m; sourceTree = "<group>"; };
 		633629DC1A0D6FC000121D1C /* HelveBla */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveBla; sourceTree = "<group>"; };
 		633629DD1A0D6FC000121D1C /* HelveBlaObl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveBlaObl; sourceTree = "<group>"; };
 		633629DE1A0D6FC000121D1C /* HelveCom */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveCom; sourceTree = "<group>"; };
@@ -288,8 +279,6 @@
 				49BB685219FF271600DFD75D /* BKSDataManager.h */,
 				49BB685319FF271600DFD75D /* BKSDataManager.m */,
 				49BB685619FF271600DFD75D /* Model.xcdatamodeld */,
-				49BB685819FF271600DFD75D /* NonPersistedBeer.h */,
-				49BB685919FF271600DFD75D /* NonPersistedBeer.m */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -299,22 +288,18 @@
 			children = (
 				490ED7861A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.h */,
 				490ED7871A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.m */,
-				490ED7881A2EA2C500FC0019 /* BKSBeerListsViewController.h */,
-				490ED7891A2EA2C500FC0019 /* BKSBeerListsViewController.m */,
-				6308B1D21A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.h */,
-				6308B1D31A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.m */,
-				49BB686719FF273700DFD75D /* BKSLoginViewController.h */,
-				49BB686819FF273700DFD75D /* BKSLoginViewController.m */,
-				49A02DA91A08370D004517B6 /* BKSStartMugClubViewController.h */,
-				49A02DAA1A08370D004517B6 /* BKSStartMugClubViewController.m */,
-				6308B1CB1A08321F00B1C4FA /* BKSCollectionViewListViewController.h */,
-				6308B1CC1A08321F00B1C4FA /* BKSCollectionViewListViewController.m */,
 				63686E661A0AE97200D38A1B /* BKSBeerDetailViewController.h */,
 				63686E671A0AE97200D38A1B /* BKSBeerDetailViewController.m */,
+				490ED7881A2EA2C500FC0019 /* BKSBeerListsViewController.h */,
+				490ED7891A2EA2C500FC0019 /* BKSBeerListsViewController.m */,
+				49BB686719FF273700DFD75D /* BKSLoginViewController.h */,
+				49BB686819FF273700DFD75D /* BKSLoginViewController.m */,
 				634DE8821A447DCC004DAD0C /* BKSProgressViewController.h */,
 				634DE8831A447DCC004DAD0C /* BKSProgressViewController.m */,
 				63DB7A0E1A3FE5E000EBF7F1 /* BKSRateView.h */,
 				63DB7A0F1A3FE5E000EBF7F1 /* BKSRateView.m */,
+				49A02DA91A08370D004517B6 /* BKSStartMugClubViewController.h */,
+				49A02DAA1A08370D004517B6 /* BKSStartMugClubViewController.m */,
 				49E36BFE1A46745700514708 /* BKSStyleViewController.h */,
 				49E36BFF1A46745700514708 /* BKSStyleViewController.m */,
 			);
@@ -627,17 +612,14 @@
 			files = (
 				49BB682D19FF26AA00DFD75D /* Bukowski.xcdatamodeld in Sources */,
 				4971E71D1A42427B00DB3BE1 /* BeerStyle.m in Sources */,
-				6308B1D61A0836BF00B1C4FA /* BKSBaseBeerCollectionViewController.m in Sources */,
 				490ED78A1A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.m in Sources */,
 				49BB686F19FF273700DFD75D /* BKSLoginViewController.m in Sources */,
 				490ED78B1A2EA2C500FC0019 /* BKSBeerListsViewController.m in Sources */,
 				49BB686019FF271600DFD75D /* Model.xcdatamodeld in Sources */,
 				634DE8841A447DCC004DAD0C /* BKSProgressViewController.m in Sources */,
-				49BB686119FF271600DFD75D /* NonPersistedBeer.m in Sources */,
 				63DB7A101A3FE5E000EBF7F1 /* BKSRateView.m in Sources */,
 				49A02DAB1A08370D004517B6 /* BKSStartMugClubViewController.m in Sources */,
 				63686E681A0AE97200D38A1B /* BKSBeerDetailViewController.m in Sources */,
-				6308B1CD1A08321F00B1C4FA /* BKSCollectionViewListViewController.m in Sources */,
 				49E36C001A46745700514708 /* BKSStyleViewController.m in Sources */,
 				49BE31AB1A1D8105003F246F /* UserBeerObject.m in Sources */,
 				49BB682719FF26AA00DFD75D /* main.m in Sources */,
@@ -646,7 +628,6 @@
 				49BB687419FF274600DFD75D /* AppDelegate.m in Sources */,
 				6308B1D01A08369B00B1C4FA /* BeerObject.m in Sources */,
 				634DE8871A4489F0004DAD0C /* UserObject.m in Sources */,
-				6308B1D71A0836BF00B1C4FA /* BKSMyFavoritesCollectionViewController.m in Sources */,
 				49BB687119FF273700DFD75D /* BKSAccountManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

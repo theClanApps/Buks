@@ -9,7 +9,6 @@
 #import "BKSAccountManager.h"
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <FacebookSDK/FacebookSDK.h>
-#import "NonPersistedBeer.h"
 #import "UserBeerObject.h"
 
 static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
