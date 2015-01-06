@@ -7,18 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserBeerObject.h"
+#import "BeerStyle.h"
 
-@protocol BKSBeerListsViewControllerDeleagate;
+@protocol BKSBeerListsViewControllerDelegate;
 
 @interface BKSBeerListsViewController : UIViewController
 
 @property (strong, nonatomic) NSArray *allBeers;
-@property (weak, nonatomic) id <BKSBeerListsViewControllerDeleagate> delegate;
+@property (weak, nonatomic) id <BKSBeerListsViewControllerDelegate> delegate;
 
 @end
 
-@protocol BKSBeerListsViewControllerDeleagate <NSObject>
+@protocol BKSBeerListsViewControllerDelegate <NSObject>
 
 - (void)beerListsViewControllerDidPushProgressButton:(BKSBeerListsViewController *)beerListsVC;
+
+- (void)beerListsViewControllerDidSelectBeer:(BKSBeerListsViewController *)beerListsVC beerSelected:(UserBeerObject *)beerSelected;
+
+- (void)beerListsViewControllerDidPushRandomButton:(BKSBeerListsViewController *)beerListsVC randomBeer:(UserBeerObject *)beer;
+
+- (void)beerListsViewControllerDidSelectStyle:(BKSBeerListsViewController *)beerListsVC styleSelected:(BeerStyle *)styleSelected;
 
 @end

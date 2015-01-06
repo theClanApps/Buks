@@ -30,10 +30,6 @@ NSString * const kBKSBeersUnderFivePercent = @"Staying Soberish";
 NSString * const kBKSBeerStyles = @"Styles";
 NSString * const kBKSUserToggleSetting = @"UserToggleSetting";
 
-NSString * const kBKSBeerDetailSegue = @"beerDetailSegue";
-NSString * const kBKSRandomBeerSegue = @"randomBeerSegue";
-NSString * const KBKSStyleDetailSegue = @"KBKSStyleDetailSegue";
-
 NSInteger const kBKSNumberOfSections = 4;
 
 @interface BKSBeerListsViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -87,8 +83,13 @@ NSInteger const kBKSNumberOfSections = 4;
         [self.toggleAllOrRemainingSwitch setOn:YES];
     }
 }
+
 - (IBAction)progressButtonPushed:(id)sender {
     [self.delegate beerListsViewControllerDidPushProgressButton:self];
+}
+
+- (IBAction)randomButtonPushed:(id)sender {
+    [self.delegate beerListsViewControllerDidPushRandomButton:self randomBeer:[self generateRandomBeer]];
 }
 
 - (void)sortAllBeersIntoCategories:(NSArray *)allBeers {
@@ -269,9 +270,9 @@ NSInteger const kBKSNumberOfSections = 4;
     }
 
     if (collectionView.tag == BKSBeerCategorySectionStyles) {
-        [self performSegueWithIdentifier:KBKSStyleDetailSegue sender:nil];
+        [self.delegate beerListsViewControllerDidSelectStyle:self styleSelected:self.styleSelected];
     } else {
-        [self performSegueWithIdentifier:kBKSBeerDetailSegue sender:nil];
+        [self.delegate beerListsViewControllerDidSelectBeer:self beerSelected:self.beerSelected];
     }
 }
 
@@ -296,31 +297,7 @@ NSInteger const kBKSNumberOfSections = 4;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:kBKSBeerDetailSegue]) {
-        BKSBeerDetailViewController *detailVC = (BKSBeerDetailViewController *)segue.destinationViewController;
-        detailVC.beer = self.beerSelected;
-        detailVC.allBeers = self.allBeers;
-    }
     
-    if ([[segue identifier] isEqualToString:kBKSRandomBeerSegue]) {
-        BKSBeerDetailViewController *detailVC = (BKSBeerDetailViewController *)segue.destinationViewController;
-        detailVC.beer = [self generateRandomBeer];
-        detailVC.allBeers = self.allBeers;
-    }
-
-    if ([[segue identifier] isEqualToString:KBKSStyleDetailSegue]) {
-        BKSStyleViewController *styleVC = (BKSStyleViewController *)segue.destinationViewController;
-        styleVC.beersOfStyle = [self beerObjectsFromStyle:self.styleSelected];
-        styleVC.style = self.styleSelected;
-	}
-    
-    if ([[segue identifier] isEqualToString:@"progressSegue"]) {
-        BKSProgressViewController *detailVC = (BKSProgressViewController *)segue.destinationViewController;
-        //send the user logged in to this VC
-        detailVC.currentUser = self.userLoggedIn;
-        //send the userBeers to this VC
-        detailVC.userBeers = self.allBeers;
-    }
 }
 
 - (UserBeerObject *)generateRandomBeer {
@@ -369,11 +346,6 @@ NSInteger const kBKSNumberOfSections = 4;
         }
     }
     return [styleArray copy];
-}
-
-- (NSArray *)beerObjectsFromStyle:(BeerStyle *)style {
-    NSArray *beers = [self.allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.style == %@)", self.styleSelected]];
-    return beers;
 }
 
 - (void)configureCell:(CollectionCell *)cell forBeerStyle:(BeerStyle *)style {

@@ -10,11 +10,16 @@
 #import "BKSBeerListsViewController.h"
 #import "BKSAccountManager.h"
 #import "BKSProgressViewController.h"
+#import "BKSSearchResultsViewController.h"
+#import "BKSBeerDetailViewController.h"
+#import "BKSStyleViewController.h"
 
 NSString * const kBKSBeerListsViewController = @"BKSBeerListsViewController";
 NSString * const kBKSProgressSegue = @"kBKSProgressSegue";
+NSString * const kBKSBeerDetailSegue = @"kBKSBeerDetailSegue";
+NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
 
-@interface BKSBaseBeerViewController () <BKSBeerListsViewControllerDeleagate>
+@interface BKSBaseBeerViewController () <BKSBeerListsViewControllerDelegate, BKSSearchResultsViewControllerDeleagate>
 @property (weak, nonatomic) IBOutlet UIView *childView;
 @property (strong, nonatomic) BKSBeerListsViewController *beerListsVC;
 @property (strong, nonatomic) NSArray *allBeers;
@@ -72,6 +77,21 @@ NSString * const kBKSProgressSegue = @"kBKSProgressSegue";
     [self performSegueWithIdentifier:kBKSProgressSegue sender:nil];
 }
 
+- (void)beerListsViewControllerDidSelectBeer:(BKSBeerListsViewController *)beerListsVC beerSelected:(UserBeerObject *)beerSelected {
+    self.beerSelected = beerSelected;
+    [self performSegueWithIdentifier:kBKSBeerDetailSegue sender:nil];
+}
+
+- (void)beerListsViewControllerDidPushRandomButton:(BKSBeerListsViewController *)beerListsVC randomBeer:(UserBeerObject *)beer {
+    self.beerSelected = beer;
+    [self performSegueWithIdentifier:kBKSBeerDetailSegue sender:nil];
+}
+
+- (void)beerListsViewControllerDidSelectStyle:(BKSBeerListsViewController *)beerListsVC styleSelected:(BeerStyle *)styleSelected {
+    self.styleSelected = styleSelected;
+    [self performSegueWithIdentifier:kBKSStyleDetailSegue sender:nil];
+}
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -83,10 +103,29 @@ NSString * const kBKSProgressSegue = @"kBKSProgressSegue";
         //send the userBeers to this VC
         detailVC.userBeers = self.allBeers;
     }
+    
+    if ([[segue identifier] isEqualToString:kBKSBeerDetailSegue]) {
+        BKSBeerDetailViewController *detailVC = (BKSBeerDetailViewController *)segue.destinationViewController;
+        detailVC.beer = self.beerSelected;
+        detailVC.allBeers = self.allBeers;
+    }
+    
+    if ([[segue identifier] isEqualToString:kBKSStyleDetailSegue]) {
+        BKSStyleViewController *styleVC = (BKSStyleViewController *)segue.destinationViewController;
+        styleVC.beersOfStyle = [self beerObjectsFromStyle:self.styleSelected];
+        styleVC.style = self.styleSelected;
+    }
 }
 
 //- (BOOL)searchVCIsVisible {
 //    return [self.childViewControllers firstObject] == self.searchVC;
 //}
+
+#pragma mark - Helpers
+
+- (NSArray *)beerObjectsFromStyle:(BeerStyle *)style {
+    NSArray *beers = [self.allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.style == %@)", self.styleSelected]];
+    return beers;
+}
 
 @end

@@ -68,6 +68,7 @@
 		63686E6A1A0AF40100D38A1B /* price-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63686E691A0AF40100D38A1B /* price-icon.png */; };
 		63686E6C1A0AF40800D38A1B /* abv-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63686E6B1A0AF40800D38A1B /* abv-icon.png */; };
 		63686E6E1A0AF40F00D38A1B /* beer-size-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63686E6D1A0AF40F00D38A1B /* beer-size-icon.png */; };
+		63A87AB81A5B8FF800D9F523 /* BKSSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A87AB71A5B8FF800D9F523 /* BKSSearchResultsViewController.m */; };
 		63AD447B1A311E3400263465 /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AD447A1A311E3400263465 /* question.png */; };
 		63D1AFB81A5B7C7100FD1A1B /* BKSBaseBeerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D1AFB71A5B7C7100FD1A1B /* BKSBaseBeerViewController.m */; };
 		63DB79CC1A3F21BC00EBF7F1 /* shadedstar.png in Resources */ = {isa = PBXBuildFile; fileRef = 63DB79CA1A3F21BC00EBF7F1 /* shadedstar.png */; };
@@ -168,6 +169,8 @@
 		63686E691A0AF40100D38A1B /* price-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price-icon.png"; sourceTree = "<group>"; };
 		63686E6B1A0AF40800D38A1B /* abv-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "abv-icon.png"; sourceTree = "<group>"; };
 		63686E6D1A0AF40F00D38A1B /* beer-size-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beer-size-icon.png"; sourceTree = "<group>"; };
+		63A87AB61A5B8FF800D9F523 /* BKSSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSSearchResultsViewController.h; sourceTree = "<group>"; };
+		63A87AB71A5B8FF800D9F523 /* BKSSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSSearchResultsViewController.m; sourceTree = "<group>"; };
 		63AD447A1A311E3400263465 /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question.png; sourceTree = "<group>"; };
 		63D1AFB61A5B7C7100FD1A1B /* BKSBaseBeerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSBaseBeerViewController.h; sourceTree = "<group>"; };
 		63D1AFB71A5B7C7100FD1A1B /* BKSBaseBeerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSBaseBeerViewController.m; sourceTree = "<group>"; };
@@ -303,6 +306,8 @@
 				634DE8831A447DCC004DAD0C /* BKSProgressViewController.m */,
 				63DB7A0E1A3FE5E000EBF7F1 /* BKSRateView.h */,
 				63DB7A0F1A3FE5E000EBF7F1 /* BKSRateView.m */,
+				63A87AB61A5B8FF800D9F523 /* BKSSearchResultsViewController.h */,
+				63A87AB71A5B8FF800D9F523 /* BKSSearchResultsViewController.m */,
 				49A02DA91A08370D004517B6 /* BKSStartMugClubViewController.h */,
 				49A02DAA1A08370D004517B6 /* BKSStartMugClubViewController.m */,
 				49E36BFE1A46745700514708 /* BKSStyleViewController.h */,
@@ -619,6 +624,7 @@
 				4971E71D1A42427B00DB3BE1 /* BeerStyle.m in Sources */,
 				490ED78A1A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.m in Sources */,
 				49BB686F19FF273700DFD75D /* BKSLoginViewController.m in Sources */,
+				63A87AB81A5B8FF800D9F523 /* BKSSearchResultsViewController.m in Sources */,
 				490ED78B1A2EA2C500FC0019 /* BKSBeerListsViewController.m in Sources */,
 				49BB686019FF271600DFD75D /* Model.xcdatamodeld in Sources */,
 				634DE8841A447DCC004DAD0C /* BKSProgressViewController.m in Sources */,
