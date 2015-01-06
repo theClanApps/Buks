@@ -6,15 +6,16 @@
 //  Copyright (c) 2015 The Clan. All rights reserved.
 //
 
-
-
 #import <UIKit/UIKit.h>
+#import "BKSBeersFilteredCollection.h"
 
 @protocol BKSSearchResultsViewControllerDelegate;
 
 @interface BKSSearchResultsViewController : UIViewController
 
 @property (strong, nonatomic) NSArray *allBeers;
+@property (strong, nonatomic) NSMutableString *searchString;
+@property (strong, nonatomic) BKSBeersFilteredCollection *beersFilteredCollection;
 @property (weak, nonatomic) id <BKSSearchResultsViewControllerDelegate> delegate;
 
 @end

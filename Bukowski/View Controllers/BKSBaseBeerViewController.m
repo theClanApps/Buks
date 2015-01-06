@@ -102,6 +102,26 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
     [self performSegueWithIdentifier:kBKSStyleDetailSegue sender:nil];
 }
 
+#pragma mark - Search Bar
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:YES animated:YES];
+    [self setChildViewController:self.searchResultsVC];
+    
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+    [self setChildViewController:self.beerListsVC];
+    
+}
+
+- (void)searchBar:(UISearchBar *)searchBar
+    textDidChange:(NSString *)searchText {
+    
+}
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -125,21 +145,6 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
         styleVC.beersOfStyle = [self beerObjectsFromStyle:self.styleSelected];
         styleVC.style = self.styleSelected;
     }
-}
-
-#pragma mark - Search Bar
-
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    [searchBar setShowsCancelButton:YES animated:YES];
-    [self setChildViewController:self.searchResultsVC];
-
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [searchBar setShowsCancelButton:NO animated:YES];
-    [searchBar resignFirstResponder];
-    [self setChildViewController:self.beerListsVC];
-
 }
 
 //- (BOOL)searchVCIsVisible {

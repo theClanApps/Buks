@@ -8,6 +8,7 @@
 
 #import "BKSSearchResultsViewController.h"
 #import "UserBeerObject.h"
+#import "BKSBeersFilteredCollection.h"
 
 @interface BKSSearchResultsViewController ()
 
@@ -17,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.beersFilteredCollection = [[BKSBeersFilteredCollection alloc] initWithUnfilteredBeers:self.allBeers];
     // Do any additional setup after loading the view.
 }
 
@@ -25,13 +27,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.allBeers.count;
+    return [self.beersFilteredCollection countOfFilteredBeers];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchResultCell" forIndexPath:indexPath];
     
-    UserBeerObject *userBeer = (UserBeerObject *)[self.allBeers objectAtIndex:indexPath.row];
+    UserBeerObject *userBeer = (UserBeerObject *)[self.beersFilteredCollection filteredBeersAtIndex:indexPath.row];
     
     cell.textLabel.text = userBeer.beer.beerName;
     cell.detailTextLabel.text = userBeer.beer.brewery;
