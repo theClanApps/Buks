@@ -106,6 +106,9 @@
                             <constraint firstItem="VfW-FK-A5v" firstAttribute="leading" secondItem="peD-2O-qzi" secondAttribute="leadingMargin" constant="-16" id="e4o-Bj-Qz9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchResultsTableView" destination="VfW-FK-A5v" id="a7t-XV-xjY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ksP-in-Kvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

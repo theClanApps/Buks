@@ -113,12 +113,16 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     [searchBar setShowsCancelButton:NO animated:YES];
     [searchBar resignFirstResponder];
+    [searchBar setText:nil];
     [self setChildViewController:self.beerListsVC];
     
 }
 
 - (void)searchBar:(UISearchBar *)searchBar
     textDidChange:(NSString *)searchText {
+    //self.searchResultsVC.searchString = searchBar.text.mutableCopy;
+    self.searchResultsVC.beersFilteredCollection.filterString = searchBar.text;
+    [self.searchResultsVC.searchResultsTableView reloadData];
     
 }
 

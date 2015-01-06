@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSMutableString *searchString;
 @property (strong, nonatomic) BKSBeersFilteredCollection *beersFilteredCollection;
 @property (weak, nonatomic) id <BKSSearchResultsViewControllerDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UITableView *searchResultsTableView;
 
 @end
 
