@@ -12,6 +12,8 @@
 
 @interface BKSSearchResultsViewController ()
 
+@property (strong, nonatomic) UserBeerObject *beerSelected;
+
 @end
 
 @implementation BKSSearchResultsViewController
@@ -21,6 +23,8 @@
     self.beersFilteredCollection = [[BKSBeersFilteredCollection alloc] initWithUnfilteredBeers:self.allBeers];
     // Do any additional setup after loading the view.
 }
+
+#pragma mark - UITableView
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -40,6 +44,11 @@
     return cell;
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    self.beerSelected = [self.beersFilteredCollection filteredBeersAtIndex:indexPath.row];
+    [self.delegate beerSearchResultsViewControllerDidSelectBeer:self beerSelected:self.beerSelected];
+    
+}
 
 @end

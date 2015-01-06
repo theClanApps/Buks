@@ -33,11 +33,8 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setupChildViewControllers];
-    
     [self loadBeers];
-    // Do any additional setup after loading the view.
 }
 
 - (void)setupChildViewControllers {
@@ -102,6 +99,14 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
     [self performSegueWithIdentifier:kBKSStyleDetailSegue sender:nil];
 }
 
+#pragma mark - BKSSearchResultsViewController
+
+- (void)beerSearchResultsViewControllerDidSelectBeer:(BKSSearchResultsViewController *)beerSearchResultsVC beerSelected:(UserBeerObject *)beerSelected {
+    self.beerSelected = beerSelected;
+    [self performSegueWithIdentifier:kBKSBeerDetailSegue sender:nil];
+}
+
+
 #pragma mark - Search Bar
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
@@ -111,19 +116,22 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [searchBar setShowsCancelButton:NO animated:YES];
-    [searchBar resignFirstResponder];
-    [searchBar setText:nil];
-    [self setChildViewController:self.beerListsVC];
-    
+    [self clearSearch];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar
     textDidChange:(NSString *)searchText {
-    //self.searchResultsVC.searchString = searchBar.text.mutableCopy;
     self.searchResultsVC.beersFilteredCollection.filterString = searchBar.text;
     [self.searchResultsVC.searchResultsTableView reloadData];
-    
+}
+
+- (void)clearSearch {
+    [self.beerSearchBar setShowsCancelButton:NO animated:YES];
+    if (self.beerSearchBar.isFirstResponder) {
+        [self.beerSearchBar resignFirstResponder];
+    }
+    [self.beerSearchBar setText:nil];
+    [self setChildViewController:self.beerListsVC];
 }
 
 #pragma mark - Navigation

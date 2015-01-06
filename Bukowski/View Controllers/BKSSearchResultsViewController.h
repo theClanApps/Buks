@@ -14,7 +14,6 @@
 @interface BKSSearchResultsViewController : UIViewController
 
 @property (strong, nonatomic) NSArray *allBeers;
-@property (strong, nonatomic) NSMutableString *searchString;
 @property (strong, nonatomic) BKSBeersFilteredCollection *beersFilteredCollection;
 @property (weak, nonatomic) id <BKSSearchResultsViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UITableView *searchResultsTableView;
@@ -22,5 +21,7 @@
 @end
 
 @protocol BKSSearchResultsViewControllerDelegate <NSObject>
+
+- (void)beerSearchResultsViewControllerDidSelectBeer:(BKSSearchResultsViewController *)beerSearchResultsVC beerSelected:(UserBeerObject *)beerSelected;
 
 @end
