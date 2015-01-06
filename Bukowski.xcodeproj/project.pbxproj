@@ -69,6 +69,7 @@
 		63686E6C1A0AF40800D38A1B /* abv-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63686E6B1A0AF40800D38A1B /* abv-icon.png */; };
 		63686E6E1A0AF40F00D38A1B /* beer-size-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63686E6D1A0AF40F00D38A1B /* beer-size-icon.png */; };
 		63AD447B1A311E3400263465 /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AD447A1A311E3400263465 /* question.png */; };
+		63D1AFB81A5B7C7100FD1A1B /* BKSBaseBeerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D1AFB71A5B7C7100FD1A1B /* BKSBaseBeerViewController.m */; };
 		63DB79CC1A3F21BC00EBF7F1 /* shadedstar.png in Resources */ = {isa = PBXBuildFile; fileRef = 63DB79CA1A3F21BC00EBF7F1 /* shadedstar.png */; };
 		63DB79CD1A3F21BC00EBF7F1 /* unshadedstar.png in Resources */ = {isa = PBXBuildFile; fileRef = 63DB79CB1A3F21BC00EBF7F1 /* unshadedstar.png */; };
 		63DB7A0D1A3F3ED900EBF7F1 /* greystar.png in Resources */ = {isa = PBXBuildFile; fileRef = 63DB7A0C1A3F3ED900EBF7F1 /* greystar.png */; };
@@ -168,6 +169,8 @@
 		63686E6B1A0AF40800D38A1B /* abv-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "abv-icon.png"; sourceTree = "<group>"; };
 		63686E6D1A0AF40F00D38A1B /* beer-size-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beer-size-icon.png"; sourceTree = "<group>"; };
 		63AD447A1A311E3400263465 /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question.png; sourceTree = "<group>"; };
+		63D1AFB61A5B7C7100FD1A1B /* BKSBaseBeerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSBaseBeerViewController.h; sourceTree = "<group>"; };
+		63D1AFB71A5B7C7100FD1A1B /* BKSBaseBeerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSBaseBeerViewController.m; sourceTree = "<group>"; };
 		63DB79CA1A3F21BC00EBF7F1 /* shadedstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadedstar.png; sourceTree = "<group>"; };
 		63DB79CB1A3F21BC00EBF7F1 /* unshadedstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unshadedstar.png; sourceTree = "<group>"; };
 		63DB7A0C1A3F3ED900EBF7F1 /* greystar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greystar.png; sourceTree = "<group>"; };
@@ -286,6 +289,8 @@
 		49BB686419FF273700DFD75D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				63D1AFB61A5B7C7100FD1A1B /* BKSBaseBeerViewController.h */,
+				63D1AFB71A5B7C7100FD1A1B /* BKSBaseBeerViewController.m */,
 				490ED7861A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.h */,
 				490ED7871A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.m */,
 				63686E661A0AE97200D38A1B /* BKSBeerDetailViewController.h */,
@@ -628,6 +633,7 @@
 				49BB687419FF274600DFD75D /* AppDelegate.m in Sources */,
 				6308B1D01A08369B00B1C4FA /* BeerObject.m in Sources */,
 				634DE8871A4489F0004DAD0C /* UserObject.m in Sources */,
+				63D1AFB81A5B7C7100FD1A1B /* BKSBaseBeerViewController.m in Sources */,
 				49BB687119FF273700DFD75D /* BKSAccountManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

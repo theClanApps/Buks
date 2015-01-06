@@ -10,5 +10,7 @@
 
 @interface BKSBeerListsViewController : UIViewController
 
+@property (strong, nonatomic) NSArray *allBeers;
+
 @end
 

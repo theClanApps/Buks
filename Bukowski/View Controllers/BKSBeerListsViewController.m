@@ -37,7 +37,7 @@ NSString * const KBKSStyleDetailSegue = @"KBKSStyleDetailSegue";
 NSInteger const kBKSNumberOfSections = 4;
 
 @interface BKSBeerListsViewController () <UITableViewDataSource, UITableViewDelegate>
-@property (strong, nonatomic) NSArray *allBeers;
+
 @property (strong, nonatomic) NSArray *beersUnderEight;
 @property (strong, nonatomic) NSArray *beersUnderFivePercent;
 @property (strong, nonatomic) NSArray *allBeersRemaining;
@@ -61,8 +61,12 @@ NSInteger const kBKSNumberOfSections = 4;
     [self setup];
 }
 
+- (void)setAllBeers:(NSArray *)allBeers {
+    _allBeers = allBeers;
+    [self sortAllBeersIntoCategories:_allBeers];
+}
+
 - (void)setup {
-    [self loadBeers];
     [self loadUser];
     [self setToggleValue];
     
@@ -105,17 +109,7 @@ NSInteger const kBKSNumberOfSections = 4;
 }
 
 
-- (void)loadBeers {
-    [[BKSAccountManager sharedAccountManager] loadBeersWithSuccess:^(NSArray *beers, NSError *error) {
-        if (!error) {
-            self.allBeers = beers;
-            [self sortAllBeersIntoCategories:self.allBeers];
-        } else {
-            UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error loading beers" message:@"Beers were unable to load" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [errorAlert show];
-        }
-    }];
-}
+
 
 - (void)loadUser {
     self.userLoggedIn = [UserObject currentUser];
