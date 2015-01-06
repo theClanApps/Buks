@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 The Clan. All rights reserved.
 //
 
+
+
 #import <UIKit/UIKit.h>
 
 @protocol BKSSearchResultsViewControllerDelegate;
@@ -17,8 +19,6 @@
 
 @end
 
-@protocol BKSSearchResultsViewControllerDeleagate <NSObject>
-
-
+@protocol BKSSearchResultsViewControllerDelegate <NSObject>
 
 @end

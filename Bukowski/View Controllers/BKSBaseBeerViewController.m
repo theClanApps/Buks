@@ -15,14 +15,17 @@
 #import "BKSStyleViewController.h"
 
 NSString * const kBKSBeerListsViewController = @"BKSBeerListsViewController";
+NSString * const kBKSSearchResultsViewController = @"BKSSearchResultsViewController";
 NSString * const kBKSProgressSegue = @"kBKSProgressSegue";
 NSString * const kBKSBeerDetailSegue = @"kBKSBeerDetailSegue";
 NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
 
-@interface BKSBaseBeerViewController () <BKSBeerListsViewControllerDelegate, BKSSearchResultsViewControllerDeleagate>
+@interface BKSBaseBeerViewController () <BKSBeerListsViewControllerDelegate, BKSSearchResultsViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *childView;
 @property (strong, nonatomic) BKSBeerListsViewController *beerListsVC;
+@property (strong, nonatomic) BKSSearchResultsViewController *searchResultsVC;
 @property (strong, nonatomic) NSArray *allBeers;
+@property (weak, nonatomic) IBOutlet UISearchBar *beerSearchBar;
 
 @end
 
@@ -31,12 +34,18 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.beerListsVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kBKSBeerListsViewController];
-    
-    self.beerListsVC.delegate = self;
+    [self setupChildViewControllers];
     
     [self loadBeers];
     // Do any additional setup after loading the view.
+}
+
+- (void)setupChildViewControllers {
+    self.beerListsVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kBKSBeerListsViewController];
+    self.beerListsVC.delegate = self;
+    
+    self.searchResultsVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kBKSSearchResultsViewController];
+    self.searchResultsVC.delegate = self;
 }
 
 - (void)setChildViewController:(UIViewController *)child {
@@ -63,6 +72,7 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
         if (!error) {
             self.allBeers = beers;
             self.beerListsVC.allBeers = self.allBeers;
+            self.searchResultsVC.allBeers = self.allBeers;
             [self setChildViewController:self.beerListsVC];
         } else {
             UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error loading beers" message:@"Beers were unable to load" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -115,6 +125,21 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
         styleVC.beersOfStyle = [self beerObjectsFromStyle:self.styleSelected];
         styleVC.style = self.styleSelected;
     }
+}
+
+#pragma mark - Search Bar
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:YES animated:YES];
+    [self setChildViewController:self.searchResultsVC];
+
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+    [self setChildViewController:self.beerListsVC];
+
 }
 
 //- (BOOL)searchVCIsVisible {

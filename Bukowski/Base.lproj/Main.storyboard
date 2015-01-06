@@ -55,10 +55,10 @@
             </objects>
             <point key="canvasLocation" x="967" y="133"/>
         </scene>
-        <!--View Controller-->
+        <!--Search Results View Controller-->
         <scene sceneID="RYL-CF-Prx">
             <objects>
-                <viewController id="BvR-ic-nUJ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BKSSearchResultsViewController" id="BvR-ic-nUJ" customClass="BKSSearchResultsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VuL-cU-ht9"/>
                         <viewControllerLayoutGuide type="bottom" id="aYg-He-pWj"/>
@@ -68,7 +68,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VfW-FK-A5v">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="searchResultCell" textLabel="Hpe-mR-eaP" detailTextLabel="aYu-6P-Mhz" style="IBUITableViewCellStyleSubtitle" id="df0-L0-cXJ">
@@ -92,11 +92,15 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BvR-ic-nUJ" id="qlE-xi-FhO"/>
+                                    <outlet property="delegate" destination="BvR-ic-nUJ" id="KAQ-uL-znS"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VfW-FK-A5v" firstAttribute="top" secondItem="VuL-cU-ht9" secondAttribute="bottom" constant="-20" id="GHQ-Dv-Lv2"/>
+                            <constraint firstItem="VfW-FK-A5v" firstAttribute="top" secondItem="VuL-cU-ht9" secondAttribute="bottom" id="GHQ-Dv-Lv2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VfW-FK-A5v" secondAttribute="trailing" constant="-16" id="JLv-DP-RD1"/>
                             <constraint firstItem="aYg-He-pWj" firstAttribute="top" secondItem="VfW-FK-A5v" secondAttribute="bottom" id="XLP-lQ-odI"/>
                             <constraint firstItem="VfW-FK-A5v" firstAttribute="leading" secondItem="peD-2O-qzi" secondAttribute="leadingMargin" constant="-16" id="e4o-Bj-Qz9"/>
@@ -395,6 +399,9 @@
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="IW8-6j-LDn">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="fuJ-8z-9Z5" id="nqc-41-MUH"/>
+                                </connections>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -415,6 +422,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="beerSearchBar" destination="IW8-6j-LDn" id="FCo-hK-yVn"/>
                         <outlet property="childView" destination="d9b-L2-EpZ" id="obi-Dp-hJv"/>
                         <segue destination="5hT-WA-1y3" kind="show" identifier="kBKSBeerDetailSegue" id="o5f-Qi-KcF"/>
                         <segue destination="8p9-vl-bpC" kind="show" identifier="kBKSProgressSegue" id="d4I-mL-EhM"/>

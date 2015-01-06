@@ -112,9 +112,6 @@ NSInteger const kBKSNumberOfSections = 4;
     }];
 }
 
-
-
-
 - (void)loadUser {
     self.userLoggedIn = [UserObject currentUser];
 }
@@ -291,13 +288,6 @@ NSInteger const kBKSNumberOfSections = 4;
             [cell.collectionView reloadData];
         }
     }
-}
-
-#pragma mark - Navigation
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
 }
 
 - (UserBeerObject *)generateRandomBeer {

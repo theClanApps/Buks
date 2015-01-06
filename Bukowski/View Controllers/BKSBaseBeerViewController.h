@@ -10,7 +10,7 @@
 #import "UserBeerObject.h"
 #import "BeerStyle.h"
 
-@interface BKSBaseBeerViewController : UIViewController
+@interface BKSBaseBeerViewController : UIViewController <UISearchBarDelegate>
 
 @property (strong, nonatomic) UserBeerObject *beerSelected;
 @property (strong, nonatomic) BeerStyle *styleSelected;
