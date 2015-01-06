@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol BKSBeerListsViewControllerDeleagate;
+
 @interface BKSBeerListsViewController : UIViewController
 
 @property (strong, nonatomic) NSArray *allBeers;
+@property (weak, nonatomic) id <BKSBeerListsViewControllerDeleagate> delegate;
 
 @end
 
+@protocol BKSBeerListsViewControllerDeleagate <NSObject>
+
+- (void)beerListsViewControllerDidPushProgressButton:(BKSBeerListsViewController *)beerListsVC;
+
+@end

@@ -365,7 +365,7 @@
                     <connections>
                         <outlet property="childView" destination="d9b-L2-EpZ" id="obi-Dp-hJv"/>
                         <segue destination="5hT-WA-1y3" kind="show" identifier="beerDetailSegue" id="o5f-Qi-KcF"/>
-                        <segue destination="8p9-vl-bpC" kind="show" identifier="progressSegue" id="d4I-mL-EhM"/>
+                        <segue destination="8p9-vl-bpC" kind="show" identifier="kBKSProgressSegue" id="d4I-mL-EhM"/>
                         <segue destination="Yz5-nE-uxf" kind="show" identifier="KBKSStyleDetailSegue" id="69b-08-abj"/>
                     </connections>
                 </viewController>
@@ -492,6 +492,9 @@
                                 <state key="normal" image="stats.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="progressButtonPushed:" destination="ejc-bG-TaG" eventType="touchUpInside" id="NnF-TL-lvL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

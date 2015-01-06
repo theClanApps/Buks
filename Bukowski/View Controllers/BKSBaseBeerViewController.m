@@ -9,10 +9,12 @@
 #import "BKSBaseBeerViewController.h"
 #import "BKSBeerListsViewController.h"
 #import "BKSAccountManager.h"
+#import "BKSProgressViewController.h"
 
 NSString * const kBKSBeerListsViewController = @"BKSBeerListsViewController";
+NSString * const kBKSProgressSegue = @"kBKSProgressSegue";
 
-@interface BKSBaseBeerViewController ()
+@interface BKSBaseBeerViewController () <BKSBeerListsViewControllerDeleagate>
 @property (weak, nonatomic) IBOutlet UIView *childView;
 @property (strong, nonatomic) BKSBeerListsViewController *beerListsVC;
 @property (strong, nonatomic) NSArray *allBeers;
@@ -24,9 +26,9 @@ NSString * const kBKSBeerListsViewController = @"BKSBeerListsViewController";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.beerListsVC = [[BKSBeerListsViewController alloc] init];
-    
     self.beerListsVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kBKSBeerListsViewController];
+    
+    self.beerListsVC.delegate = self;
     
     [self loadBeers];
     // Do any additional setup after loading the view.
@@ -62,6 +64,25 @@ NSString * const kBKSBeerListsViewController = @"BKSBeerListsViewController";
             [errorAlert show];
         }
     }];
+}
+
+#pragma mark - BKSBeerListsViewControllerDelegate
+
+- (void)beerListsViewControllerDidPushProgressButton:(BKSBeerListsViewController *)beerListsVC {
+    [self performSegueWithIdentifier:kBKSProgressSegue sender:nil];
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:kBKSProgressSegue]) {
+        BKSProgressViewController *detailVC = (BKSProgressViewController *)segue.destinationViewController;
+        //send the user logged in to this VC
+        detailVC.currentUser = [UserObject currentUser];
+        //send the userBeers to this VC
+        detailVC.userBeers = self.allBeers;
+    }
 }
 
 //- (BOOL)searchVCIsVisible {

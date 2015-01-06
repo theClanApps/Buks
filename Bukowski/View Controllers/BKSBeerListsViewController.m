@@ -87,6 +87,9 @@ NSInteger const kBKSNumberOfSections = 4;
         [self.toggleAllOrRemainingSwitch setOn:YES];
     }
 }
+- (IBAction)progressButtonPushed:(id)sender {
+    [self.delegate beerListsViewControllerDidPushProgressButton:self];
+}
 
 - (void)sortAllBeersIntoCategories:(NSArray *)allBeers {
     [PFObject fetchAllInBackground:[self beerObjectsFromUserBeerObjects:self.allBeers] block:^(NSArray *objects, NSError *error) {
