@@ -37,6 +37,12 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
     [self loadBeers];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    [self setChildViewController:self.beerListsVC];
+}
+
 - (void)setupChildViewControllers {
     self.beerListsVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kBKSBeerListsViewController];
     self.beerListsVC.delegate = self;
@@ -70,7 +76,6 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
             self.allBeers = beers;
             self.beerListsVC.allBeers = self.allBeers;
             self.searchResultsVC.allBeers = self.allBeers;
-            [self setChildViewController:self.beerListsVC];
         } else {
             UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error loading beers" message:@"Beers were unable to load" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [errorAlert show];
@@ -102,10 +107,10 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
 #pragma mark - BKSSearchResultsViewController
 
 - (void)beerSearchResultsViewControllerDidSelectBeer:(BKSSearchResultsViewController *)beerSearchResultsVC beerSelected:(UserBeerObject *)beerSelected {
+    [self clearSearch];
     self.beerSelected = beerSelected;
     [self performSegueWithIdentifier:kBKSBeerDetailSegue sender:nil];
 }
-
 
 #pragma mark - Search Bar
 
@@ -116,6 +121,7 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [self setChildViewController:self.beerListsVC];
     [self clearSearch];
 }
 
@@ -131,7 +137,6 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
         [self.beerSearchBar resignFirstResponder];
     }
     [self.beerSearchBar setText:nil];
-    [self setChildViewController:self.beerListsVC];
 }
 
 #pragma mark - Navigation
@@ -159,9 +164,9 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
     }
 }
 
-//- (BOOL)searchVCIsVisible {
-//    return [self.childViewControllers firstObject] == self.searchVC;
-//}
+- (BOOL)searchVCIsVisible {
+    return [self.childViewControllers firstObject] == self.searchResultsVC;
+}
 
 #pragma mark - Helpers
 
