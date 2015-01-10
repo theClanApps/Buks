@@ -117,7 +117,6 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     [searchBar setShowsCancelButton:YES animated:YES];
     [self setChildViewController:self.searchResultsVC];
-    
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {

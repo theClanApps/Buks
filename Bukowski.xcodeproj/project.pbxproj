@@ -7,10 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		490ED78A1A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 490ED7871A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.m */; };
-		490ED78B1A2EA2C500FC0019 /* BKSBeerListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 490ED7891A2EA2C500FC0019 /* BKSBeerListsViewController.m */; };
-		4971E71D1A42427B00DB3BE1 /* BeerStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4971E71C1A42427B00DB3BE1 /* BeerStyle.m */; };
-		49A02DAB1A08370D004517B6 /* BKSStartMugClubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A02DAA1A08370D004517B6 /* BKSStartMugClubViewController.m */; };
+		4900EBBE1A618FFF00647ABD /* BKSBeersFilteredCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EB971A618FFF00647ABD /* BKSBeersFilteredCollection.m */; };
+		4900EBBF1A618FFF00647ABD /* BKSRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EB9A1A618FFF00647ABD /* BKSRateView.m */; };
+		4900EBC01A618FFF00647ABD /* HelveBla in Resources */ = {isa = PBXBuildFile; fileRef = 4900EB9E1A618FFF00647ABD /* HelveBla */; };
+		4900EBC11A618FFF00647ABD /* HelveBlaObl in Resources */ = {isa = PBXBuildFile; fileRef = 4900EB9F1A618FFF00647ABD /* HelveBlaObl */; };
+		4900EBC21A618FFF00647ABD /* HelveCom in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBA01A618FFF00647ABD /* HelveCom */; };
+		4900EBC31A618FFF00647ABD /* HelveCon in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBA11A618FFF00647ABD /* HelveCon */; };
+		4900EBC41A618FFF00647ABD /* HelveConBla in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBA21A618FFF00647ABD /* HelveConBla */; };
+		4900EBC51A618FFF00647ABD /* HelveConBlaObl in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBA31A618FFF00647ABD /* HelveConBlaObl */; };
+		4900EBC61A618FFF00647ABD /* HelveConBol in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBA41A618FFF00647ABD /* HelveConBol */; };
+		4900EBC71A618FFF00647ABD /* HelveConBolObl in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBA51A618FFF00647ABD /* HelveConBolObl */; };
+		4900EBC81A618FFF00647ABD /* HelveConLig in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBA61A618FFF00647ABD /* HelveConLig */; };
+		4900EBC91A618FFF00647ABD /* HelveConLigObl in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBA71A618FFF00647ABD /* HelveConLigObl */; };
+		4900EBCA1A618FFF00647ABD /* HelveConObl in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBA81A618FFF00647ABD /* HelveConObl */; };
+		4900EBCB1A618FFF00647ABD /* HelveExtCom in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBA91A618FFF00647ABD /* HelveExtCom */; };
+		4900EBCC1A618FFF00647ABD /* HelveFra in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBAA1A618FFF00647ABD /* HelveFra */; };
+		4900EBCD1A618FFF00647ABD /* HelveFraBol in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBAB1A618FFF00647ABD /* HelveFraBol */; };
+		4900EBCE1A618FFF00647ABD /* HelveLig in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBAC1A618FFF00647ABD /* HelveLig */; };
+		4900EBCF1A618FFF00647ABD /* HelveLigObl in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBAD1A618FFF00647ABD /* HelveLigObl */; };
+		4900EBD01A618FFF00647ABD /* Helvetica in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBAE1A618FFF00647ABD /* Helvetica */; };
+		4900EBD11A618FFF00647ABD /* HelveUltCom in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBAF1A618FFF00647ABD /* HelveUltCom */; };
+		4900EBD21A618FFF00647ABD /* Helvetica.dfont in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBB01A618FFF00647ABD /* Helvetica.dfont */; };
+		4900EBD31A618FFF00647ABD /* Oswald-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBB21A618FFF00647ABD /* Oswald-Bold.ttf */; };
+		4900EBD41A618FFF00647ABD /* Oswald-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBB31A618FFF00647ABD /* Oswald-Light.ttf */; };
+		4900EBD51A618FFF00647ABD /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBB41A618FFF00647ABD /* Oswald-Regular.ttf */; };
+		4900EBD61A618FFF00647ABD /* BeerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBB71A618FFF00647ABD /* BeerObject.m */; };
+		4900EBD71A618FFF00647ABD /* BeerStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBB91A618FFF00647ABD /* BeerStyle.m */; };
+		4900EBD81A618FFF00647ABD /* UserBeerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBBB1A618FFF00647ABD /* UserBeerObject.m */; };
+		4900EBD91A618FFF00647ABD /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBBD1A618FFF00647ABD /* UserObject.m */; };
+		4900EBFA1A6190A900647ABD /* BKSBeerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBDD1A6190A900647ABD /* BKSBeerDetailViewController.m */; };
+		4900EBFB1A6190A900647ABD /* BKSBaseBeerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBE01A6190A900647ABD /* BKSBaseBeerViewController.m */; };
+		4900EBFC1A6190A900647ABD /* BKSBeerListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBE21A6190A900647ABD /* BKSBeerListsViewController.m */; };
+		4900EBFD1A6190A900647ABD /* BKSCollectionViewListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBE41A6190A900647ABD /* BKSCollectionViewListViewController.m */; };
+		4900EBFE1A6190A900647ABD /* BKSSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBE61A6190A900647ABD /* BKSSearchResultsViewController.m */; };
+		4900EBFF1A6190A900647ABD /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBE91A6190A900647ABD /* CollectionCell.m */; };
+		4900EC001A6190A900647ABD /* NibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBEA1A6190A900647ABD /* NibCell.xib */; };
+		4900EC011A6190A900647ABD /* BKSBeerCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBED1A6190A900647ABD /* BKSBeerCollectionTableViewCell.m */; };
+		4900EC021A6190A900647ABD /* BKSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBF01A6190A900647ABD /* BKSLoginViewController.m */; };
+		4900EC031A6190A900647ABD /* BKSProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBF31A6190A900647ABD /* BKSProgressViewController.m */; };
+		4900EC041A6190A900647ABD /* BKSStartMugClubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBF61A6190A900647ABD /* BKSStartMugClubViewController.m */; };
+		4900EC051A6190A900647ABD /* BKSStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBF91A6190A900647ABD /* BKSStyleViewController.m */; };
+		4900EC091A6190CF00647ABD /* BKSAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EC081A6190CF00647ABD /* BKSAccountManager.m */; };
 		49BB682719FF26AA00DFD75D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB682619FF26AA00DFD75D /* main.m */; };
 		49BB682D19FF26AA00DFD75D /* Bukowski.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49BB682B19FF26AA00DFD75D /* Bukowski.xcdatamodeld */; };
 		49BB683319FF26AA00DFD75D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49BB683119FF26AA00DFD75D /* Main.storyboard */; };
@@ -19,63 +56,8 @@
 		49BB684419FF26AB00DFD75D /* BukowskiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB684319FF26AB00DFD75D /* BukowskiTests.m */; };
 		49BB685E19FF271600DFD75D /* BKSDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB685319FF271600DFD75D /* BKSDataManager.m */; };
 		49BB686019FF271600DFD75D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49BB685619FF271600DFD75D /* Model.xcdatamodeld */; };
-		49BB686F19FF273700DFD75D /* BKSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB686819FF273700DFD75D /* BKSLoginViewController.m */; };
-		49BB687119FF273700DFD75D /* BKSAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB686D19FF273700DFD75D /* BKSAccountManager.m */; };
 		49BB687419FF274600DFD75D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB687319FF274600DFD75D /* AppDelegate.m */; };
-		49BE31AB1A1D8105003F246F /* UserBeerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BE31AA1A1D8105003F246F /* UserBeerObject.m */; };
-		49E36C001A46745700514708 /* BKSStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E36BFF1A46745700514708 /* BKSStyleViewController.m */; };
 		4CD478DE1C524DD0C1156959 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4439E0F969A77184CFD09AAE /* libPods.a */; };
-		6308B1B11A082BC900B1C4FA /* bluemoonwhite.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1A81A082BC900B1C4FA /* bluemoonwhite.jpg */; };
-		6308B1B21A082BC900B1C4FA /* bostonlager in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1A91A082BC900B1C4FA /* bostonlager */; };
-		6308B1B31A082BC900B1C4FA /* dogfish90.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1AA1A082BC900B1C4FA /* dogfish90.jpg */; };
-		6308B1B41A082BC900B1C4FA /* guinessdraught in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1AB1A082BC900B1C4FA /* guinessdraught */; };
-		6308B1B51A082BC900B1C4FA /* lagunitasipa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1AC1A082BC900B1C4FA /* lagunitasipa.jpg */; };
-		6308B1B61A082BC900B1C4FA /* magichat#9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1AD1A082BC900B1C4FA /* magichat#9.jpg */; };
-		6308B1B71A082BC900B1C4FA /* millerlite in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1AE1A082BC900B1C4FA /* millerlite */; };
-		6308B1B81A082BC900B1C4FA /* newcastlebrown in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1AF1A082BC900B1C4FA /* newcastlebrown */; };
-		6308B1B91A082BC900B1C4FA /* yuenglinglager.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1B01A082BC900B1C4FA /* yuenglinglager.jpg */; };
-		6308B1BB1A082BD900B1C4FA /* collection-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1BA1A082BD900B1C4FA /* collection-back.png */; };
-		6308B1BE1A082C4D00B1C4FA /* NibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1BD1A082C4D00B1C4FA /* NibCell.xib */; };
-		6308B1C61A082F0100B1C4FA /* beer.png in Resources */ = {isa = PBXBuildFile; fileRef = 6308B1C51A082F0100B1C4FA /* beer.png */; };
-		6308B1CA1A08302C00B1C4FA /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6308B1C91A08302C00B1C4FA /* CollectionCell.m */; };
-		6308B1D01A08369B00B1C4FA /* BeerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6308B1CF1A08369B00B1C4FA /* BeerObject.m */; };
-		633629EF1A0D6FC000121D1C /* HelveBla in Resources */ = {isa = PBXBuildFile; fileRef = 633629DC1A0D6FC000121D1C /* HelveBla */; };
-		633629F01A0D6FC000121D1C /* HelveBlaObl in Resources */ = {isa = PBXBuildFile; fileRef = 633629DD1A0D6FC000121D1C /* HelveBlaObl */; };
-		633629F11A0D6FC000121D1C /* HelveCom in Resources */ = {isa = PBXBuildFile; fileRef = 633629DE1A0D6FC000121D1C /* HelveCom */; };
-		633629F21A0D6FC000121D1C /* HelveCon in Resources */ = {isa = PBXBuildFile; fileRef = 633629DF1A0D6FC000121D1C /* HelveCon */; };
-		633629F31A0D6FC000121D1C /* HelveConBla in Resources */ = {isa = PBXBuildFile; fileRef = 633629E01A0D6FC000121D1C /* HelveConBla */; };
-		633629F41A0D6FC000121D1C /* HelveConBlaObl in Resources */ = {isa = PBXBuildFile; fileRef = 633629E11A0D6FC000121D1C /* HelveConBlaObl */; };
-		633629F51A0D6FC000121D1C /* HelveConBol in Resources */ = {isa = PBXBuildFile; fileRef = 633629E21A0D6FC000121D1C /* HelveConBol */; };
-		633629F61A0D6FC000121D1C /* HelveConBolObl in Resources */ = {isa = PBXBuildFile; fileRef = 633629E31A0D6FC000121D1C /* HelveConBolObl */; };
-		633629F71A0D6FC000121D1C /* HelveConLig in Resources */ = {isa = PBXBuildFile; fileRef = 633629E41A0D6FC000121D1C /* HelveConLig */; };
-		633629F81A0D6FC000121D1C /* HelveConLigObl in Resources */ = {isa = PBXBuildFile; fileRef = 633629E51A0D6FC000121D1C /* HelveConLigObl */; };
-		633629F91A0D6FC000121D1C /* HelveConObl in Resources */ = {isa = PBXBuildFile; fileRef = 633629E61A0D6FC000121D1C /* HelveConObl */; };
-		633629FA1A0D6FC000121D1C /* HelveExtCom in Resources */ = {isa = PBXBuildFile; fileRef = 633629E71A0D6FC000121D1C /* HelveExtCom */; };
-		633629FB1A0D6FC000121D1C /* HelveFra in Resources */ = {isa = PBXBuildFile; fileRef = 633629E81A0D6FC000121D1C /* HelveFra */; };
-		633629FC1A0D6FC000121D1C /* HelveFraBol in Resources */ = {isa = PBXBuildFile; fileRef = 633629E91A0D6FC000121D1C /* HelveFraBol */; };
-		633629FD1A0D6FC000121D1C /* HelveLig in Resources */ = {isa = PBXBuildFile; fileRef = 633629EA1A0D6FC000121D1C /* HelveLig */; };
-		633629FE1A0D6FC000121D1C /* HelveLigObl in Resources */ = {isa = PBXBuildFile; fileRef = 633629EB1A0D6FC000121D1C /* HelveLigObl */; };
-		633629FF1A0D6FC000121D1C /* Helvetica in Resources */ = {isa = PBXBuildFile; fileRef = 633629EC1A0D6FC000121D1C /* Helvetica */; };
-		63362A001A0D6FC000121D1C /* HelveUltCom in Resources */ = {isa = PBXBuildFile; fileRef = 633629ED1A0D6FC000121D1C /* HelveUltCom */; };
-		63362A011A0D6FC000121D1C /* Helvetica.dfont in Resources */ = {isa = PBXBuildFile; fileRef = 633629EE1A0D6FC000121D1C /* Helvetica.dfont */; };
-		63362A071A0D700E00121D1C /* Oswald-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63362A041A0D700E00121D1C /* Oswald-Bold.ttf */; };
-		63362A081A0D700E00121D1C /* Oswald-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63362A051A0D700E00121D1C /* Oswald-Light.ttf */; };
-		63362A091A0D700E00121D1C /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63362A061A0D700E00121D1C /* Oswald-Regular.ttf */; };
-		633EEFCB1A5BAAC400AAE8D9 /* BKSBeersFilteredCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 633EEFCA1A5BAAC400AAE8D9 /* BKSBeersFilteredCollection.m */; };
-		634DE8811A447B47004DAD0C /* stats.png in Resources */ = {isa = PBXBuildFile; fileRef = 634DE8801A447B47004DAD0C /* stats.png */; };
-		634DE8841A447DCC004DAD0C /* BKSProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 634DE8831A447DCC004DAD0C /* BKSProgressViewController.m */; };
-		634DE8871A4489F0004DAD0C /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 634DE8861A4489F0004DAD0C /* UserObject.m */; };
-		63686E681A0AE97200D38A1B /* BKSBeerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63686E671A0AE97200D38A1B /* BKSBeerDetailViewController.m */; };
-		63686E6A1A0AF40100D38A1B /* price-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63686E691A0AF40100D38A1B /* price-icon.png */; };
-		63686E6C1A0AF40800D38A1B /* abv-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63686E6B1A0AF40800D38A1B /* abv-icon.png */; };
-		63686E6E1A0AF40F00D38A1B /* beer-size-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63686E6D1A0AF40F00D38A1B /* beer-size-icon.png */; };
-		63A87AB81A5B8FF800D9F523 /* BKSSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A87AB71A5B8FF800D9F523 /* BKSSearchResultsViewController.m */; };
-		63AD447B1A311E3400263465 /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AD447A1A311E3400263465 /* question.png */; };
-		63D1AFB81A5B7C7100FD1A1B /* BKSBaseBeerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D1AFB71A5B7C7100FD1A1B /* BKSBaseBeerViewController.m */; };
-		63DB79CC1A3F21BC00EBF7F1 /* shadedstar.png in Resources */ = {isa = PBXBuildFile; fileRef = 63DB79CA1A3F21BC00EBF7F1 /* shadedstar.png */; };
-		63DB79CD1A3F21BC00EBF7F1 /* unshadedstar.png in Resources */ = {isa = PBXBuildFile; fileRef = 63DB79CB1A3F21BC00EBF7F1 /* unshadedstar.png */; };
-		63DB7A0D1A3F3ED900EBF7F1 /* greystar.png in Resources */ = {isa = PBXBuildFile; fileRef = 63DB7A0C1A3F3ED900EBF7F1 /* greystar.png */; };
-		63DB7A101A3FE5E000EBF7F1 /* BKSRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DB7A0F1A3FE5E000EBF7F1 /* BKSRateView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,14 +73,65 @@
 /* Begin PBXFileReference section */
 		2AE21DD105B94890FB73E2DE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4439E0F969A77184CFD09AAE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		490ED7861A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSBeerCollectionTableViewCell.h; sourceTree = "<group>"; };
-		490ED7871A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSBeerCollectionTableViewCell.m; sourceTree = "<group>"; };
-		490ED7881A2EA2C500FC0019 /* BKSBeerListsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSBeerListsViewController.h; sourceTree = "<group>"; };
-		490ED7891A2EA2C500FC0019 /* BKSBeerListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSBeerListsViewController.m; sourceTree = "<group>"; };
-		4971E71B1A42427B00DB3BE1 /* BeerStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeerStyle.h; sourceTree = "<group>"; };
-		4971E71C1A42427B00DB3BE1 /* BeerStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeerStyle.m; sourceTree = "<group>"; };
-		49A02DA91A08370D004517B6 /* BKSStartMugClubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSStartMugClubViewController.h; sourceTree = "<group>"; };
-		49A02DAA1A08370D004517B6 /* BKSStartMugClubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSStartMugClubViewController.m; sourceTree = "<group>"; };
+		4900EB961A618FFF00647ABD /* BKSBeersFilteredCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSBeersFilteredCollection.h; sourceTree = "<group>"; };
+		4900EB971A618FFF00647ABD /* BKSBeersFilteredCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSBeersFilteredCollection.m; sourceTree = "<group>"; };
+		4900EB991A618FFF00647ABD /* BKSRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSRateView.h; sourceTree = "<group>"; };
+		4900EB9A1A618FFF00647ABD /* BKSRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSRateView.m; sourceTree = "<group>"; };
+		4900EB9E1A618FFF00647ABD /* HelveBla */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveBla; sourceTree = "<group>"; };
+		4900EB9F1A618FFF00647ABD /* HelveBlaObl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveBlaObl; sourceTree = "<group>"; };
+		4900EBA01A618FFF00647ABD /* HelveCom */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveCom; sourceTree = "<group>"; };
+		4900EBA11A618FFF00647ABD /* HelveCon */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveCon; sourceTree = "<group>"; };
+		4900EBA21A618FFF00647ABD /* HelveConBla */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveConBla; sourceTree = "<group>"; };
+		4900EBA31A618FFF00647ABD /* HelveConBlaObl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveConBlaObl; sourceTree = "<group>"; };
+		4900EBA41A618FFF00647ABD /* HelveConBol */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveConBol; sourceTree = "<group>"; };
+		4900EBA51A618FFF00647ABD /* HelveConBolObl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveConBolObl; sourceTree = "<group>"; };
+		4900EBA61A618FFF00647ABD /* HelveConLig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveConLig; sourceTree = "<group>"; };
+		4900EBA71A618FFF00647ABD /* HelveConLigObl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveConLigObl; sourceTree = "<group>"; };
+		4900EBA81A618FFF00647ABD /* HelveConObl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveConObl; sourceTree = "<group>"; };
+		4900EBA91A618FFF00647ABD /* HelveExtCom */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveExtCom; sourceTree = "<group>"; };
+		4900EBAA1A618FFF00647ABD /* HelveFra */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveFra; sourceTree = "<group>"; };
+		4900EBAB1A618FFF00647ABD /* HelveFraBol */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveFraBol; sourceTree = "<group>"; };
+		4900EBAC1A618FFF00647ABD /* HelveLig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveLig; sourceTree = "<group>"; };
+		4900EBAD1A618FFF00647ABD /* HelveLigObl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveLigObl; sourceTree = "<group>"; };
+		4900EBAE1A618FFF00647ABD /* Helvetica */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Helvetica; sourceTree = "<group>"; };
+		4900EBAF1A618FFF00647ABD /* HelveUltCom */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveUltCom; sourceTree = "<group>"; };
+		4900EBB01A618FFF00647ABD /* Helvetica.dfont */ = {isa = PBXFileReference; lastKnownFileType = file; path = Helvetica.dfont; sourceTree = "<group>"; };
+		4900EBB21A618FFF00647ABD /* Oswald-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Bold.ttf"; sourceTree = "<group>"; };
+		4900EBB31A618FFF00647ABD /* Oswald-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Light.ttf"; sourceTree = "<group>"; };
+		4900EBB41A618FFF00647ABD /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
+		4900EBB61A618FFF00647ABD /* BeerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeerObject.h; sourceTree = "<group>"; };
+		4900EBB71A618FFF00647ABD /* BeerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeerObject.m; sourceTree = "<group>"; };
+		4900EBB81A618FFF00647ABD /* BeerStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeerStyle.h; sourceTree = "<group>"; };
+		4900EBB91A618FFF00647ABD /* BeerStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeerStyle.m; sourceTree = "<group>"; };
+		4900EBBA1A618FFF00647ABD /* UserBeerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserBeerObject.h; sourceTree = "<group>"; };
+		4900EBBB1A618FFF00647ABD /* UserBeerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserBeerObject.m; sourceTree = "<group>"; };
+		4900EBBC1A618FFF00647ABD /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserObject.h; sourceTree = "<group>"; };
+		4900EBBD1A618FFF00647ABD /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserObject.m; sourceTree = "<group>"; };
+		4900EBDC1A6190A900647ABD /* BKSBeerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSBeerDetailViewController.h; sourceTree = "<group>"; };
+		4900EBDD1A6190A900647ABD /* BKSBeerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSBeerDetailViewController.m; sourceTree = "<group>"; };
+		4900EBDF1A6190A900647ABD /* BKSBaseBeerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSBaseBeerViewController.h; sourceTree = "<group>"; };
+		4900EBE01A6190A900647ABD /* BKSBaseBeerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSBaseBeerViewController.m; sourceTree = "<group>"; };
+		4900EBE11A6190A900647ABD /* BKSBeerListsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSBeerListsViewController.h; sourceTree = "<group>"; };
+		4900EBE21A6190A900647ABD /* BKSBeerListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSBeerListsViewController.m; sourceTree = "<group>"; };
+		4900EBE31A6190A900647ABD /* BKSCollectionViewListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSCollectionViewListViewController.h; sourceTree = "<group>"; };
+		4900EBE41A6190A900647ABD /* BKSCollectionViewListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSCollectionViewListViewController.m; sourceTree = "<group>"; };
+		4900EBE51A6190A900647ABD /* BKSSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSSearchResultsViewController.h; sourceTree = "<group>"; };
+		4900EBE61A6190A900647ABD /* BKSSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSSearchResultsViewController.m; sourceTree = "<group>"; };
+		4900EBE81A6190A900647ABD /* CollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCell.h; sourceTree = "<group>"; };
+		4900EBE91A6190A900647ABD /* CollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCell.m; sourceTree = "<group>"; };
+		4900EBEA1A6190A900647ABD /* NibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NibCell.xib; sourceTree = "<group>"; };
+		4900EBEC1A6190A900647ABD /* BKSBeerCollectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSBeerCollectionTableViewCell.h; sourceTree = "<group>"; };
+		4900EBED1A6190A900647ABD /* BKSBeerCollectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSBeerCollectionTableViewCell.m; sourceTree = "<group>"; };
+		4900EBEF1A6190A900647ABD /* BKSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSLoginViewController.h; sourceTree = "<group>"; };
+		4900EBF01A6190A900647ABD /* BKSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSLoginViewController.m; sourceTree = "<group>"; };
+		4900EBF21A6190A900647ABD /* BKSProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSProgressViewController.h; sourceTree = "<group>"; };
+		4900EBF31A6190A900647ABD /* BKSProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSProgressViewController.m; sourceTree = "<group>"; };
+		4900EBF51A6190A900647ABD /* BKSStartMugClubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSStartMugClubViewController.h; sourceTree = "<group>"; };
+		4900EBF61A6190A900647ABD /* BKSStartMugClubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSStartMugClubViewController.m; sourceTree = "<group>"; };
+		4900EBF81A6190A900647ABD /* BKSStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSStyleViewController.h; sourceTree = "<group>"; };
+		4900EBF91A6190A900647ABD /* BKSStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSStyleViewController.m; sourceTree = "<group>"; };
+		4900EC071A6190CF00647ABD /* BKSAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSAccountManager.h; sourceTree = "<group>"; };
+		4900EC081A6190CF00647ABD /* BKSAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSAccountManager.m; sourceTree = "<group>"; };
 		49BB682119FF26AA00DFD75D /* Bukowski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bukowski.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BB682519FF26AA00DFD75D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49BB682619FF26AA00DFD75D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -112,76 +145,8 @@
 		49BB685219FF271600DFD75D /* BKSDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSDataManager.h; sourceTree = "<group>"; };
 		49BB685319FF271600DFD75D /* BKSDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSDataManager.m; sourceTree = "<group>"; };
 		49BB685719FF271600DFD75D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		49BB686719FF273700DFD75D /* BKSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSLoginViewController.h; sourceTree = "<group>"; };
-		49BB686819FF273700DFD75D /* BKSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSLoginViewController.m; sourceTree = "<group>"; };
-		49BB686C19FF273700DFD75D /* BKSAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSAccountManager.h; sourceTree = "<group>"; };
-		49BB686D19FF273700DFD75D /* BKSAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSAccountManager.m; sourceTree = "<group>"; };
 		49BB687219FF274600DFD75D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49BB687319FF274600DFD75D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		49BE31A91A1D8105003F246F /* UserBeerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserBeerObject.h; sourceTree = "<group>"; };
-		49BE31AA1A1D8105003F246F /* UserBeerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserBeerObject.m; sourceTree = "<group>"; };
-		49E36BFE1A46745700514708 /* BKSStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSStyleViewController.h; sourceTree = "<group>"; };
-		49E36BFF1A46745700514708 /* BKSStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSStyleViewController.m; sourceTree = "<group>"; };
-		6308B1A81A082BC900B1C4FA /* bluemoonwhite.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bluemoonwhite.jpg; sourceTree = "<group>"; };
-		6308B1A91A082BC900B1C4FA /* bostonlager */ = {isa = PBXFileReference; lastKnownFileType = file; path = bostonlager; sourceTree = "<group>"; };
-		6308B1AA1A082BC900B1C4FA /* dogfish90.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dogfish90.jpg; sourceTree = "<group>"; };
-		6308B1AB1A082BC900B1C4FA /* guinessdraught */ = {isa = PBXFileReference; lastKnownFileType = file; path = guinessdraught; sourceTree = "<group>"; };
-		6308B1AC1A082BC900B1C4FA /* lagunitasipa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lagunitasipa.jpg; sourceTree = "<group>"; };
-		6308B1AD1A082BC900B1C4FA /* magichat#9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "magichat#9.jpg"; sourceTree = "<group>"; };
-		6308B1AE1A082BC900B1C4FA /* millerlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = millerlite; sourceTree = "<group>"; };
-		6308B1AF1A082BC900B1C4FA /* newcastlebrown */ = {isa = PBXFileReference; lastKnownFileType = file; path = newcastlebrown; sourceTree = "<group>"; };
-		6308B1B01A082BC900B1C4FA /* yuenglinglager.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yuenglinglager.jpg; sourceTree = "<group>"; };
-		6308B1BA1A082BD900B1C4FA /* collection-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "collection-back.png"; sourceTree = "<group>"; };
-		6308B1BD1A082C4D00B1C4FA /* NibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NibCell.xib; path = "View Controllers/NibCell.xib"; sourceTree = "<group>"; };
-		6308B1C51A082F0100B1C4FA /* beer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beer.png; sourceTree = "<group>"; };
-		6308B1C81A08302C00B1C4FA /* CollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCell.h; sourceTree = "<group>"; };
-		6308B1C91A08302C00B1C4FA /* CollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCell.m; sourceTree = "<group>"; };
-		6308B1CE1A08369B00B1C4FA /* BeerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeerObject.h; sourceTree = "<group>"; };
-		6308B1CF1A08369B00B1C4FA /* BeerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeerObject.m; sourceTree = "<group>"; };
-		633629DC1A0D6FC000121D1C /* HelveBla */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveBla; sourceTree = "<group>"; };
-		633629DD1A0D6FC000121D1C /* HelveBlaObl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveBlaObl; sourceTree = "<group>"; };
-		633629DE1A0D6FC000121D1C /* HelveCom */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveCom; sourceTree = "<group>"; };
-		633629DF1A0D6FC000121D1C /* HelveCon */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveCon; sourceTree = "<group>"; };
-		633629E01A0D6FC000121D1C /* HelveConBla */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveConBla; sourceTree = "<group>"; };
-		633629E11A0D6FC000121D1C /* HelveConBlaObl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveConBlaObl; sourceTree = "<group>"; };
-		633629E21A0D6FC000121D1C /* HelveConBol */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveConBol; sourceTree = "<group>"; };
-		633629E31A0D6FC000121D1C /* HelveConBolObl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveConBolObl; sourceTree = "<group>"; };
-		633629E41A0D6FC000121D1C /* HelveConLig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveConLig; sourceTree = "<group>"; };
-		633629E51A0D6FC000121D1C /* HelveConLigObl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveConLigObl; sourceTree = "<group>"; };
-		633629E61A0D6FC000121D1C /* HelveConObl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveConObl; sourceTree = "<group>"; };
-		633629E71A0D6FC000121D1C /* HelveExtCom */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveExtCom; sourceTree = "<group>"; };
-		633629E81A0D6FC000121D1C /* HelveFra */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveFra; sourceTree = "<group>"; };
-		633629E91A0D6FC000121D1C /* HelveFraBol */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveFraBol; sourceTree = "<group>"; };
-		633629EA1A0D6FC000121D1C /* HelveLig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveLig; sourceTree = "<group>"; };
-		633629EB1A0D6FC000121D1C /* HelveLigObl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveLigObl; sourceTree = "<group>"; };
-		633629EC1A0D6FC000121D1C /* Helvetica */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Helvetica; sourceTree = "<group>"; };
-		633629ED1A0D6FC000121D1C /* HelveUltCom */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HelveUltCom; sourceTree = "<group>"; };
-		633629EE1A0D6FC000121D1C /* Helvetica.dfont */ = {isa = PBXFileReference; lastKnownFileType = file; path = Helvetica.dfont; sourceTree = "<group>"; };
-		63362A041A0D700E00121D1C /* Oswald-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Bold.ttf"; sourceTree = "<group>"; };
-		63362A051A0D700E00121D1C /* Oswald-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Light.ttf"; sourceTree = "<group>"; };
-		63362A061A0D700E00121D1C /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
-		633EEFC91A5BAAC400AAE8D9 /* BKSBeersFilteredCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSBeersFilteredCollection.h; sourceTree = "<group>"; };
-		633EEFCA1A5BAAC400AAE8D9 /* BKSBeersFilteredCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSBeersFilteredCollection.m; sourceTree = "<group>"; };
-		634DE8801A447B47004DAD0C /* stats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stats.png; sourceTree = "<group>"; };
-		634DE8821A447DCC004DAD0C /* BKSProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSProgressViewController.h; sourceTree = "<group>"; };
-		634DE8831A447DCC004DAD0C /* BKSProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSProgressViewController.m; sourceTree = "<group>"; };
-		634DE8851A4489F0004DAD0C /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserObject.h; sourceTree = "<group>"; };
-		634DE8861A4489F0004DAD0C /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserObject.m; sourceTree = "<group>"; };
-		63686E661A0AE97200D38A1B /* BKSBeerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKSBeerDetailViewController.h; path = ../BKSBeerDetailViewController.h; sourceTree = "<group>"; };
-		63686E671A0AE97200D38A1B /* BKSBeerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKSBeerDetailViewController.m; path = ../BKSBeerDetailViewController.m; sourceTree = "<group>"; };
-		63686E691A0AF40100D38A1B /* price-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price-icon.png"; sourceTree = "<group>"; };
-		63686E6B1A0AF40800D38A1B /* abv-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "abv-icon.png"; sourceTree = "<group>"; };
-		63686E6D1A0AF40F00D38A1B /* beer-size-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beer-size-icon.png"; sourceTree = "<group>"; };
-		63A87AB61A5B8FF800D9F523 /* BKSSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSSearchResultsViewController.h; sourceTree = "<group>"; };
-		63A87AB71A5B8FF800D9F523 /* BKSSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSSearchResultsViewController.m; sourceTree = "<group>"; };
-		63AD447A1A311E3400263465 /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question.png; sourceTree = "<group>"; };
-		63D1AFB61A5B7C7100FD1A1B /* BKSBaseBeerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSBaseBeerViewController.h; sourceTree = "<group>"; };
-		63D1AFB71A5B7C7100FD1A1B /* BKSBaseBeerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSBaseBeerViewController.m; sourceTree = "<group>"; };
-		63DB79CA1A3F21BC00EBF7F1 /* shadedstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadedstar.png; sourceTree = "<group>"; };
-		63DB79CB1A3F21BC00EBF7F1 /* unshadedstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unshadedstar.png; sourceTree = "<group>"; };
-		63DB7A0C1A3F3ED900EBF7F1 /* greystar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greystar.png; sourceTree = "<group>"; };
-		63DB7A0E1A3FE5E000EBF7F1 /* BKSRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSRateView.h; sourceTree = "<group>"; };
-		63DB7A0F1A3FE5E000EBF7F1 /* BKSRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSRateView.m; sourceTree = "<group>"; };
 		C2D1ECEB79DB5C78EF171D49 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -213,6 +178,195 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4900EB951A618FFF00647ABD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4900EB961A618FFF00647ABD /* BKSBeersFilteredCollection.h */,
+				4900EB971A618FFF00647ABD /* BKSBeersFilteredCollection.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4900EB981A618FFF00647ABD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4900EB991A618FFF00647ABD /* BKSRateView.h */,
+				4900EB9A1A618FFF00647ABD /* BKSRateView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4900EB9B1A618FFF00647ABD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4900EB9C1A618FFF00647ABD /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4900EB9C1A618FFF00647ABD /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4900EB9D1A618FFF00647ABD /* Helvetica */,
+				4900EBB01A618FFF00647ABD /* Helvetica.dfont */,
+				4900EBB11A618FFF00647ABD /* Oswald */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		4900EB9D1A618FFF00647ABD /* Helvetica */ = {
+			isa = PBXGroup;
+			children = (
+				4900EB9E1A618FFF00647ABD /* HelveBla */,
+				4900EB9F1A618FFF00647ABD /* HelveBlaObl */,
+				4900EBA01A618FFF00647ABD /* HelveCom */,
+				4900EBA11A618FFF00647ABD /* HelveCon */,
+				4900EBA21A618FFF00647ABD /* HelveConBla */,
+				4900EBA31A618FFF00647ABD /* HelveConBlaObl */,
+				4900EBA41A618FFF00647ABD /* HelveConBol */,
+				4900EBA51A618FFF00647ABD /* HelveConBolObl */,
+				4900EBA61A618FFF00647ABD /* HelveConLig */,
+				4900EBA71A618FFF00647ABD /* HelveConLigObl */,
+				4900EBA81A618FFF00647ABD /* HelveConObl */,
+				4900EBA91A618FFF00647ABD /* HelveExtCom */,
+				4900EBAA1A618FFF00647ABD /* HelveFra */,
+				4900EBAB1A618FFF00647ABD /* HelveFraBol */,
+				4900EBAC1A618FFF00647ABD /* HelveLig */,
+				4900EBAD1A618FFF00647ABD /* HelveLigObl */,
+				4900EBAE1A618FFF00647ABD /* Helvetica */,
+				4900EBAF1A618FFF00647ABD /* HelveUltCom */,
+			);
+			path = Helvetica;
+			sourceTree = "<group>";
+		};
+		4900EBB11A618FFF00647ABD /* Oswald */ = {
+			isa = PBXGroup;
+			children = (
+				4900EBB21A618FFF00647ABD /* Oswald-Bold.ttf */,
+				4900EBB31A618FFF00647ABD /* Oswald-Light.ttf */,
+				4900EBB41A618FFF00647ABD /* Oswald-Regular.ttf */,
+			);
+			path = Oswald;
+			sourceTree = "<group>";
+		};
+		4900EBB51A618FFF00647ABD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4900EBB61A618FFF00647ABD /* BeerObject.h */,
+				4900EBB71A618FFF00647ABD /* BeerObject.m */,
+				4900EBB81A618FFF00647ABD /* BeerStyle.h */,
+				4900EBB91A618FFF00647ABD /* BeerStyle.m */,
+				4900EBBA1A618FFF00647ABD /* UserBeerObject.h */,
+				4900EBBB1A618FFF00647ABD /* UserBeerObject.m */,
+				4900EBBC1A618FFF00647ABD /* UserObject.h */,
+				4900EBBD1A618FFF00647ABD /* UserObject.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4900EBDA1A6190A900647ABD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4900EBDB1A6190A900647ABD /* BeerDetails */,
+				4900EBDE1A6190A900647ABD /* BeerLists */,
+				4900EBEE1A6190A900647ABD /* Login */,
+				4900EBF11A6190A900647ABD /* Progress */,
+				4900EBF41A6190A900647ABD /* StartMugClub */,
+				4900EBF71A6190A900647ABD /* Style */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4900EBDB1A6190A900647ABD /* BeerDetails */ = {
+			isa = PBXGroup;
+			children = (
+				4900EBDC1A6190A900647ABD /* BKSBeerDetailViewController.h */,
+				4900EBDD1A6190A900647ABD /* BKSBeerDetailViewController.m */,
+			);
+			path = BeerDetails;
+			sourceTree = "<group>";
+		};
+		4900EBDE1A6190A900647ABD /* BeerLists */ = {
+			isa = PBXGroup;
+			children = (
+				4900EBDF1A6190A900647ABD /* BKSBaseBeerViewController.h */,
+				4900EBE01A6190A900647ABD /* BKSBaseBeerViewController.m */,
+				4900EBE11A6190A900647ABD /* BKSBeerListsViewController.h */,
+				4900EBE21A6190A900647ABD /* BKSBeerListsViewController.m */,
+				4900EBE31A6190A900647ABD /* BKSCollectionViewListViewController.h */,
+				4900EBE41A6190A900647ABD /* BKSCollectionViewListViewController.m */,
+				4900EBE51A6190A900647ABD /* BKSSearchResultsViewController.h */,
+				4900EBE61A6190A900647ABD /* BKSSearchResultsViewController.m */,
+				4900EBE71A6190A900647ABD /* CollectionViewCells */,
+				4900EBEB1A6190A900647ABD /* TableViewCells */,
+			);
+			path = BeerLists;
+			sourceTree = "<group>";
+		};
+		4900EBE71A6190A900647ABD /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				4900EBE81A6190A900647ABD /* CollectionCell.h */,
+				4900EBE91A6190A900647ABD /* CollectionCell.m */,
+				4900EBEA1A6190A900647ABD /* NibCell.xib */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		4900EBEB1A6190A900647ABD /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				4900EBEC1A6190A900647ABD /* BKSBeerCollectionTableViewCell.h */,
+				4900EBED1A6190A900647ABD /* BKSBeerCollectionTableViewCell.m */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		4900EBEE1A6190A900647ABD /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4900EBEF1A6190A900647ABD /* BKSLoginViewController.h */,
+				4900EBF01A6190A900647ABD /* BKSLoginViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		4900EBF11A6190A900647ABD /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				4900EBF21A6190A900647ABD /* BKSProgressViewController.h */,
+				4900EBF31A6190A900647ABD /* BKSProgressViewController.m */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
+		4900EBF41A6190A900647ABD /* StartMugClub */ = {
+			isa = PBXGroup;
+			children = (
+				4900EBF51A6190A900647ABD /* BKSStartMugClubViewController.h */,
+				4900EBF61A6190A900647ABD /* BKSStartMugClubViewController.m */,
+			);
+			path = StartMugClub;
+			sourceTree = "<group>";
+		};
+		4900EBF71A6190A900647ABD /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				4900EBF81A6190A900647ABD /* BKSStyleViewController.h */,
+				4900EBF91A6190A900647ABD /* BKSStyleViewController.m */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		4900EC061A6190CF00647ABD /* WebServices */ = {
+			isa = PBXGroup;
+			children = (
+				4900EC071A6190CF00647ABD /* BKSAccountManager.h */,
+				4900EC081A6190CF00647ABD /* BKSAccountManager.m */,
+			);
+			path = WebServices;
+			sourceTree = "<group>";
+		};
 		49BB681819FF26AA00DFD75D = {
 			isa = PBXGroup;
 			children = (
@@ -238,18 +392,18 @@
 			children = (
 				49BB687219FF274600DFD75D /* AppDelegate.h */,
 				49BB687319FF274600DFD75D /* AppDelegate.m */,
-				6308B1D11A08369F00B1C4FA /* Test Objects */,
-				49BB686419FF273700DFD75D /* View Controllers */,
-				49BB686B19FF273700DFD75D /* Web Services */,
+				49BB682B19FF26AA00DFD75D /* Bukowski.xcdatamodeld */,
 				49BB684D19FF271600DFD75D /* Core Data */,
-				49BB683119FF26AA00DFD75D /* Main.storyboard */,
-				6308B1BD1A082C4D00B1C4FA /* NibCell.xib */,
+				4900EB951A618FFF00647ABD /* Helpers */,
 				49BB683419FF26AA00DFD75D /* Images.xcassets */,
 				49BB683619FF26AB00DFD75D /* LaunchScreen.xib */,
-				49BB682B19FF26AA00DFD75D /* Bukowski.xcdatamodeld */,
-				6308B1A61A082B9000B1C4FA /* Images */,
-				63362A021A0D6FC800121D1C /* Fonts */,
+				49BB683119FF26AA00DFD75D /* Main.storyboard */,
+				4900EBB51A618FFF00647ABD /* Models */,
+				4900EB9B1A618FFF00647ABD /* Resources */,
 				49BB682419FF26AA00DFD75D /* Supporting Files */,
+				4900EB981A618FFF00647ABD /* Views */,
+				4900EBDA1A6190A900647ABD /* ViewControllers */,
+				4900EC061A6190CF00647ABD /* WebServices */,
 			);
 			path = Bukowski;
 			sourceTree = "<group>";
@@ -283,161 +437,11 @@
 		49BB684D19FF271600DFD75D /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				6308B1C81A08302C00B1C4FA /* CollectionCell.h */,
-				6308B1C91A08302C00B1C4FA /* CollectionCell.m */,
 				49BB685219FF271600DFD75D /* BKSDataManager.h */,
 				49BB685319FF271600DFD75D /* BKSDataManager.m */,
 				49BB685619FF271600DFD75D /* Model.xcdatamodeld */,
 			);
 			path = "Core Data";
-			sourceTree = "<group>";
-		};
-		49BB686419FF273700DFD75D /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				63D1AFB61A5B7C7100FD1A1B /* BKSBaseBeerViewController.h */,
-				63D1AFB71A5B7C7100FD1A1B /* BKSBaseBeerViewController.m */,
-				490ED7861A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.h */,
-				490ED7871A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.m */,
-				63686E661A0AE97200D38A1B /* BKSBeerDetailViewController.h */,
-				63686E671A0AE97200D38A1B /* BKSBeerDetailViewController.m */,
-				490ED7881A2EA2C500FC0019 /* BKSBeerListsViewController.h */,
-				490ED7891A2EA2C500FC0019 /* BKSBeerListsViewController.m */,
-				49BB686719FF273700DFD75D /* BKSLoginViewController.h */,
-				49BB686819FF273700DFD75D /* BKSLoginViewController.m */,
-				634DE8821A447DCC004DAD0C /* BKSProgressViewController.h */,
-				634DE8831A447DCC004DAD0C /* BKSProgressViewController.m */,
-				63DB7A0E1A3FE5E000EBF7F1 /* BKSRateView.h */,
-				63DB7A0F1A3FE5E000EBF7F1 /* BKSRateView.m */,
-				63A87AB61A5B8FF800D9F523 /* BKSSearchResultsViewController.h */,
-				63A87AB71A5B8FF800D9F523 /* BKSSearchResultsViewController.m */,
-				49A02DA91A08370D004517B6 /* BKSStartMugClubViewController.h */,
-				49A02DAA1A08370D004517B6 /* BKSStartMugClubViewController.m */,
-				49E36BFE1A46745700514708 /* BKSStyleViewController.h */,
-				49E36BFF1A46745700514708 /* BKSStyleViewController.m */,
-			);
-			path = "View Controllers";
-			sourceTree = "<group>";
-		};
-		49BB686B19FF273700DFD75D /* Web Services */ = {
-			isa = PBXGroup;
-			children = (
-				49BB686C19FF273700DFD75D /* BKSAccountManager.h */,
-				49BB686D19FF273700DFD75D /* BKSAccountManager.m */,
-			);
-			path = "Web Services";
-			sourceTree = "<group>";
-		};
-		6308B1A61A082B9000B1C4FA /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				6308B1C71A082F1F00B1C4FA /* Buttons and Icons */,
-				6308B1BC1A082BDE00B1C4FA /* Frames and Containers */,
-				6308B1A71A082B9A00B1C4FA /* Beer Bottle Images */,
-			);
-			name = Images;
-			sourceTree = "<group>";
-		};
-		6308B1A71A082B9A00B1C4FA /* Beer Bottle Images */ = {
-			isa = PBXGroup;
-			children = (
-				6308B1A81A082BC900B1C4FA /* bluemoonwhite.jpg */,
-				6308B1A91A082BC900B1C4FA /* bostonlager */,
-				6308B1AA1A082BC900B1C4FA /* dogfish90.jpg */,
-				6308B1AB1A082BC900B1C4FA /* guinessdraught */,
-				6308B1AC1A082BC900B1C4FA /* lagunitasipa.jpg */,
-				6308B1AD1A082BC900B1C4FA /* magichat#9.jpg */,
-				6308B1AE1A082BC900B1C4FA /* millerlite */,
-				6308B1AF1A082BC900B1C4FA /* newcastlebrown */,
-				6308B1B01A082BC900B1C4FA /* yuenglinglager.jpg */,
-			);
-			name = "Beer Bottle Images";
-			sourceTree = "<group>";
-		};
-		6308B1BC1A082BDE00B1C4FA /* Frames and Containers */ = {
-			isa = PBXGroup;
-			children = (
-				6308B1BA1A082BD900B1C4FA /* collection-back.png */,
-			);
-			name = "Frames and Containers";
-			sourceTree = "<group>";
-		};
-		6308B1C71A082F1F00B1C4FA /* Buttons and Icons */ = {
-			isa = PBXGroup;
-			children = (
-				634DE8801A447B47004DAD0C /* stats.png */,
-				63DB7A0C1A3F3ED900EBF7F1 /* greystar.png */,
-				63DB79CA1A3F21BC00EBF7F1 /* shadedstar.png */,
-				63DB79CB1A3F21BC00EBF7F1 /* unshadedstar.png */,
-				63AD447A1A311E3400263465 /* question.png */,
-				63686E6D1A0AF40F00D38A1B /* beer-size-icon.png */,
-				63686E6B1A0AF40800D38A1B /* abv-icon.png */,
-				63686E691A0AF40100D38A1B /* price-icon.png */,
-				6308B1C51A082F0100B1C4FA /* beer.png */,
-			);
-			name = "Buttons and Icons";
-			sourceTree = "<group>";
-		};
-		6308B1D11A08369F00B1C4FA /* Test Objects */ = {
-			isa = PBXGroup;
-			children = (
-				633EEFC91A5BAAC400AAE8D9 /* BKSBeersFilteredCollection.h */,
-				633EEFCA1A5BAAC400AAE8D9 /* BKSBeersFilteredCollection.m */,
-				49BE31A91A1D8105003F246F /* UserBeerObject.h */,
-				49BE31AA1A1D8105003F246F /* UserBeerObject.m */,
-				634DE8851A4489F0004DAD0C /* UserObject.h */,
-				634DE8861A4489F0004DAD0C /* UserObject.m */,
-				6308B1CE1A08369B00B1C4FA /* BeerObject.h */,
-				6308B1CF1A08369B00B1C4FA /* BeerObject.m */,
-				4971E71B1A42427B00DB3BE1 /* BeerStyle.h */,
-				4971E71C1A42427B00DB3BE1 /* BeerStyle.m */,
-			);
-			name = "Test Objects";
-			sourceTree = "<group>";
-		};
-		633629DB1A0D6FC000121D1C /* Helvetica */ = {
-			isa = PBXGroup;
-			children = (
-				633629DC1A0D6FC000121D1C /* HelveBla */,
-				633629DD1A0D6FC000121D1C /* HelveBlaObl */,
-				633629DE1A0D6FC000121D1C /* HelveCom */,
-				633629DF1A0D6FC000121D1C /* HelveCon */,
-				633629E01A0D6FC000121D1C /* HelveConBla */,
-				633629E11A0D6FC000121D1C /* HelveConBlaObl */,
-				633629E21A0D6FC000121D1C /* HelveConBol */,
-				633629E31A0D6FC000121D1C /* HelveConBolObl */,
-				633629E41A0D6FC000121D1C /* HelveConLig */,
-				633629E51A0D6FC000121D1C /* HelveConLigObl */,
-				633629E61A0D6FC000121D1C /* HelveConObl */,
-				633629E71A0D6FC000121D1C /* HelveExtCom */,
-				633629E81A0D6FC000121D1C /* HelveFra */,
-				633629E91A0D6FC000121D1C /* HelveFraBol */,
-				633629EA1A0D6FC000121D1C /* HelveLig */,
-				633629EB1A0D6FC000121D1C /* HelveLigObl */,
-				633629EC1A0D6FC000121D1C /* Helvetica */,
-				633629ED1A0D6FC000121D1C /* HelveUltCom */,
-			);
-			path = Helvetica;
-			sourceTree = "<group>";
-		};
-		63362A021A0D6FC800121D1C /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				63362A031A0D700E00121D1C /* Oswald */,
-				633629DB1A0D6FC000121D1C /* Helvetica */,
-				633629EE1A0D6FC000121D1C /* Helvetica.dfont */,
-			);
-			name = Fonts;
-			sourceTree = "<group>";
-		};
-		63362A031A0D700E00121D1C /* Oswald */ = {
-			isa = PBXGroup;
-			children = (
-				63362A041A0D700E00121D1C /* Oswald-Bold.ttf */,
-				63362A051A0D700E00121D1C /* Oswald-Light.ttf */,
-				63362A061A0D700E00121D1C /* Oswald-Regular.ttf */,
-			);
-			path = Oswald;
 			sourceTree = "<group>";
 		};
 		80B2D75E4C6B5B015104C7DB /* Frameworks */ = {
@@ -530,51 +534,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6308B1B61A082BC900B1C4FA /* magichat#9.jpg in Resources */,
-				63362A071A0D700E00121D1C /* Oswald-Bold.ttf in Resources */,
-				6308B1B41A082BC900B1C4FA /* guinessdraught in Resources */,
-				63DB79CD1A3F21BC00EBF7F1 /* unshadedstar.png in Resources */,
-				6308B1B51A082BC900B1C4FA /* lagunitasipa.jpg in Resources */,
-				6308B1B21A082BC900B1C4FA /* bostonlager in Resources */,
-				633629F61A0D6FC000121D1C /* HelveConBolObl in Resources */,
-				633629FF1A0D6FC000121D1C /* Helvetica in Resources */,
-				633629F91A0D6FC000121D1C /* HelveConObl in Resources */,
-				6308B1BB1A082BD900B1C4FA /* collection-back.png in Resources */,
-				633629F31A0D6FC000121D1C /* HelveConBla in Resources */,
-				63362A081A0D700E00121D1C /* Oswald-Light.ttf in Resources */,
-				6308B1B31A082BC900B1C4FA /* dogfish90.jpg in Resources */,
-				633629F11A0D6FC000121D1C /* HelveCom in Resources */,
-				6308B1B71A082BC900B1C4FA /* millerlite in Resources */,
-				633629FC1A0D6FC000121D1C /* HelveFraBol in Resources */,
-				63686E6C1A0AF40800D38A1B /* abv-icon.png in Resources */,
-				63362A001A0D6FC000121D1C /* HelveUltCom in Resources */,
-				6308B1BE1A082C4D00B1C4FA /* NibCell.xib in Resources */,
-				634DE8811A447B47004DAD0C /* stats.png in Resources */,
-				63362A091A0D700E00121D1C /* Oswald-Regular.ttf in Resources */,
-				63DB7A0D1A3F3ED900EBF7F1 /* greystar.png in Resources */,
-				6308B1B91A082BC900B1C4FA /* yuenglinglager.jpg in Resources */,
+				4900EBCF1A618FFF00647ABD /* HelveLigObl in Resources */,
 				49BB683319FF26AA00DFD75D /* Main.storyboard in Resources */,
-				63362A011A0D6FC000121D1C /* Helvetica.dfont in Resources */,
-				633629F01A0D6FC000121D1C /* HelveBlaObl in Resources */,
-				633629F21A0D6FC000121D1C /* HelveCon in Resources */,
-				63686E6A1A0AF40100D38A1B /* price-icon.png in Resources */,
-				633629FD1A0D6FC000121D1C /* HelveLig in Resources */,
-				633629FA1A0D6FC000121D1C /* HelveExtCom in Resources */,
-				63AD447B1A311E3400263465 /* question.png in Resources */,
 				49BB683819FF26AB00DFD75D /* LaunchScreen.xib in Resources */,
-				633629FB1A0D6FC000121D1C /* HelveFra in Resources */,
-				633629F71A0D6FC000121D1C /* HelveConLig in Resources */,
-				633629FE1A0D6FC000121D1C /* HelveLigObl in Resources */,
-				63DB79CC1A3F21BC00EBF7F1 /* shadedstar.png in Resources */,
-				633629F51A0D6FC000121D1C /* HelveConBol in Resources */,
-				63686E6E1A0AF40F00D38A1B /* beer-size-icon.png in Resources */,
-				6308B1C61A082F0100B1C4FA /* beer.png in Resources */,
-				6308B1B11A082BC900B1C4FA /* bluemoonwhite.jpg in Resources */,
-				6308B1B81A082BC900B1C4FA /* newcastlebrown in Resources */,
-				633629F81A0D6FC000121D1C /* HelveConLigObl in Resources */,
+				4900EBC11A618FFF00647ABD /* HelveBlaObl in Resources */,
+				4900EBC31A618FFF00647ABD /* HelveCon in Resources */,
 				49BB683519FF26AA00DFD75D /* Images.xcassets in Resources */,
-				633629F41A0D6FC000121D1C /* HelveConBlaObl in Resources */,
-				633629EF1A0D6FC000121D1C /* HelveBla in Resources */,
+				4900EBCA1A618FFF00647ABD /* HelveConObl in Resources */,
+				4900EBC41A618FFF00647ABD /* HelveConBla in Resources */,
+				4900EBC01A618FFF00647ABD /* HelveBla in Resources */,
+				4900EBC71A618FFF00647ABD /* HelveConBolObl in Resources */,
+				4900EBD41A618FFF00647ABD /* Oswald-Light.ttf in Resources */,
+				4900EBD31A618FFF00647ABD /* Oswald-Bold.ttf in Resources */,
+				4900EBD51A618FFF00647ABD /* Oswald-Regular.ttf in Resources */,
+				4900EBC91A618FFF00647ABD /* HelveConLigObl in Resources */,
+				4900EBD01A618FFF00647ABD /* Helvetica in Resources */,
+				4900EBC61A618FFF00647ABD /* HelveConBol in Resources */,
+				4900EBC81A618FFF00647ABD /* HelveConLig in Resources */,
+				4900EBCC1A618FFF00647ABD /* HelveFra in Resources */,
+				4900EBC51A618FFF00647ABD /* HelveConBlaObl in Resources */,
+				4900EBD11A618FFF00647ABD /* HelveUltCom in Resources */,
+				4900EBCD1A618FFF00647ABD /* HelveFraBol in Resources */,
+				4900EC001A6190A900647ABD /* NibCell.xib in Resources */,
+				4900EBCE1A618FFF00647ABD /* HelveLig in Resources */,
+				4900EBD21A618FFF00647ABD /* Helvetica.dfont in Resources */,
+				4900EBC21A618FFF00647ABD /* HelveCom in Resources */,
+				4900EBCB1A618FFF00647ABD /* HelveExtCom in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,28 +610,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4900EC041A6190A900647ABD /* BKSStartMugClubViewController.m in Sources */,
+				4900EBD61A618FFF00647ABD /* BeerObject.m in Sources */,
+				4900EBD81A618FFF00647ABD /* UserBeerObject.m in Sources */,
+				4900EBFD1A6190A900647ABD /* BKSCollectionViewListViewController.m in Sources */,
+				4900EBFF1A6190A900647ABD /* CollectionCell.m in Sources */,
 				49BB682D19FF26AA00DFD75D /* Bukowski.xcdatamodeld in Sources */,
-				633EEFCB1A5BAAC400AAE8D9 /* BKSBeersFilteredCollection.m in Sources */,
-				4971E71D1A42427B00DB3BE1 /* BeerStyle.m in Sources */,
-				490ED78A1A2EA2C500FC0019 /* BKSBeerCollectionTableViewCell.m in Sources */,
-				49BB686F19FF273700DFD75D /* BKSLoginViewController.m in Sources */,
-				63A87AB81A5B8FF800D9F523 /* BKSSearchResultsViewController.m in Sources */,
-				490ED78B1A2EA2C500FC0019 /* BKSBeerListsViewController.m in Sources */,
+				4900EC051A6190A900647ABD /* BKSStyleViewController.m in Sources */,
 				49BB686019FF271600DFD75D /* Model.xcdatamodeld in Sources */,
-				634DE8841A447DCC004DAD0C /* BKSProgressViewController.m in Sources */,
-				63DB7A101A3FE5E000EBF7F1 /* BKSRateView.m in Sources */,
-				49A02DAB1A08370D004517B6 /* BKSStartMugClubViewController.m in Sources */,
-				63686E681A0AE97200D38A1B /* BKSBeerDetailViewController.m in Sources */,
-				49E36C001A46745700514708 /* BKSStyleViewController.m in Sources */,
-				49BE31AB1A1D8105003F246F /* UserBeerObject.m in Sources */,
+				4900EBBE1A618FFF00647ABD /* BKSBeersFilteredCollection.m in Sources */,
+				4900EC031A6190A900647ABD /* BKSProgressViewController.m in Sources */,
+				4900EBFE1A6190A900647ABD /* BKSSearchResultsViewController.m in Sources */,
 				49BB682719FF26AA00DFD75D /* main.m in Sources */,
-				6308B1CA1A08302C00B1C4FA /* CollectionCell.m in Sources */,
+				4900EBFB1A6190A900647ABD /* BKSBaseBeerViewController.m in Sources */,
 				49BB685E19FF271600DFD75D /* BKSDataManager.m in Sources */,
 				49BB687419FF274600DFD75D /* AppDelegate.m in Sources */,
-				6308B1D01A08369B00B1C4FA /* BeerObject.m in Sources */,
-				634DE8871A4489F0004DAD0C /* UserObject.m in Sources */,
-				63D1AFB81A5B7C7100FD1A1B /* BKSBaseBeerViewController.m in Sources */,
-				49BB687119FF273700DFD75D /* BKSAccountManager.m in Sources */,
+				4900EBFA1A6190A900647ABD /* BKSBeerDetailViewController.m in Sources */,
+				4900EBBF1A618FFF00647ABD /* BKSRateView.m in Sources */,
+				4900EBD71A618FFF00647ABD /* BeerStyle.m in Sources */,
+				4900EBFC1A6190A900647ABD /* BKSBeerListsViewController.m in Sources */,
+				4900EC091A6190CF00647ABD /* BKSAccountManager.m in Sources */,
+				4900EBD91A618FFF00647ABD /* UserObject.m in Sources */,
+				4900EC011A6190A900647ABD /* BKSBeerCollectionTableViewCell.m in Sources */,
+				4900EC021A6190A900647ABD /* BKSLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
