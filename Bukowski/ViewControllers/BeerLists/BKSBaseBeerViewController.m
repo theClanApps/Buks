@@ -140,8 +140,7 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
 
 #pragma mark - Navigation
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:kBKSProgressSegue]) {
         BKSProgressViewController *detailVC = (BKSProgressViewController *)segue.destinationViewController;
         //send the user logged in to this VC

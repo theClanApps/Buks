@@ -16,8 +16,7 @@ static NSString * const kSegueToBeerViewController = @"kSegueToBeerViewControlle
 
 @implementation BKSStartMugClubViewController
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if ([[BKSAccountManager sharedAccountManager] userStartedMugClub]) {
         [self performSegueWithIdentifier:kSegueToBeerViewController sender:self];
@@ -32,20 +31,13 @@ static NSString * const kSegueToBeerViewController = @"kSegueToBeerViewControlle
     }];
 }
 
-- (void)showFailedToJoinMugClubError
-{
+- (void)showFailedToJoinMugClubError {
     UIAlertView *failedToJoinMugClubAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                            message:@"Sorry, you could not start the mug club at this time."
-                                                                          delegate:self
+                                                                          delegate:nil
                                                                  cancelButtonTitle:@"OK"
                                                                  otherButtonTitles:nil];
     [failedToJoinMugClubAlertView show];
-}
-
-#pragma mark - AlertView Delegate
-
-- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
-    
 }
 
 @end

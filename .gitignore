@@ -5,3 +5,4 @@ contents.xcworkspacedata
 Bukowski.xccheckout
 Breakpoints_v2.xcbkptlist
 *.xcscheme
+.DS_Store

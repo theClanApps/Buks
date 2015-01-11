@@ -20,8 +20,7 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
 
 @implementation BKSAccountManager
 
-+ (id)sharedAccountManager
-{
++ (id)sharedAccountManager {
     static BKSAccountManager *_sharedAccountManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -30,16 +29,14 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
     return _sharedAccountManager;
 }
 
-- (NSArray *)faceBookPermissions
-{
+- (NSArray *)faceBookPermissions {
     if (_faceBookPermissions == nil) {
         _faceBookPermissions = @[@"public_profile"];
     }
     return _faceBookPermissions;
 }
 
-- (void)loginWithWithSuccess:(BKSSuccessBlock)success failure:(BKSErrorBlock)failure
-{
+- (void)loginWithWithSuccess:(BKSSuccessBlock)success failure:(BKSErrorBlock)failure {
     [PFFacebookUtils logInWithPermissions:self.faceBookPermissions block:^(PFUser *user, NSError *error) {
         if (!user) {
             if (!error) {
@@ -64,8 +61,7 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
     }];
 }
 
-- (void)configureParseUserObject:(PFUser *)user
-{
+- (void)configureParseUserObject:(PFUser *)user {
     FBRequest *request = [FBRequest requestForMe];
     [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         if (!error) {
@@ -85,8 +81,7 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
     }];
 }
 
-- (void)startMugClubWithSuccess:(BKSSuccessBlock)success failure:(BKSErrorBlock)failure
-{
+- (void)startMugClubWithSuccess:(BKSSuccessBlock)success failure:(BKSErrorBlock)failure {
     if (![self savedStartDateInUserDefaults]) {
         [self createUsersBeersInCloudWithCompletion:^(NSError *error, NSString *result) {
             PFUser *currentUser = [PFUser currentUser];
@@ -136,8 +131,7 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
 
 #pragma mark - helpers
 
-- (void)storeStartDateInUserDefaults:(NSDate *)date
-{
+- (void)storeStartDateInUserDefaults:(NSDate *)date {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if ([userDefaults objectForKey:kBKSMugClubStartDate] == nil) {
         [userDefaults setObject:date
@@ -146,13 +140,11 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
     [userDefaults synchronize];
 }
 
-- (BOOL)savedStartDateInUserDefaults
-{
+- (BOOL)savedStartDateInUserDefaults {
     return ([[NSUserDefaults standardUserDefaults] objectForKey:kBKSMugClubStartDate] != nil);
 }
 
-- (void)loadBeersWithSuccess:(void(^)(NSArray *beers, NSError *error))block
-{
+- (void)loadBeersWithSuccess:(void(^)(NSArray *beers, NSError *error))block {
     PFQuery *query = [PFQuery queryWithClassName:@"UserBeerObject"];
     [query whereKey:@"drinkingUser" equalTo:[PFUser currentUser]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {

@@ -15,13 +15,4 @@
 
 @implementation BKSCollectionViewListViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-- (IBAction)didTapLogoutButton:(id)sender {
-    [[BKSAccountManager sharedAccountManager] logout];
-    [self.navigationController popToRootViewControllerAnimated:YES];
-}
-
 @end
