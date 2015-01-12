@@ -13,6 +13,7 @@
 #import "UserBeerObject.h"
 #import "BKSBeerDetailViewController.h"
 #import "BKSBeerListsViewController.h"
+#import "NoItemsRemainingCell.h"
 
 NSString * const kBKSBeerDetailSegueFromStyle = @"kBKSBeerDetailSegue";
 
@@ -24,6 +25,7 @@ NSString * const kBKSBeerDetailSegueFromStyle = @"kBKSBeerDetailSegue";
 @property (weak, nonatomic) IBOutlet UISwitch *toggleAllOrRemainingSwitch;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) UserBeerObject *beerSelected;
+@property (nonatomic) BOOL noItemsRemaining;
 
 @end
 
@@ -68,11 +70,11 @@ NSString * const kBKSBeerDetailSegueFromStyle = @"kBKSBeerDetailSegue";
 
 - (void)setupFlowLayout {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setItemSize:CGSizeMake(112, 182)];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    [self.styleCollectionView registerNib:[UINib nibWithNibName:@"NoItemsRemainingCell" bundle:nil] forCellWithReuseIdentifier:@"NoItemsRemainingCell"];
+    [self.styleCollectionView registerNib:[UINib nibWithNibName:@"NibCell" bundle:nil] forCellWithReuseIdentifier:@"cvCell"];
     self.styleCollectionView.collectionViewLayout = flowLayout;
     self.styleCollectionView.backgroundColor = [UIColor clearColor];
-    [self.styleCollectionView registerNib:[UINib nibWithNibName:@"NibCell" bundle:nil] forCellWithReuseIdentifier:@"cvCell"];
 }
 
 - (IBAction)toggledSwitch:(id)sender {
@@ -80,6 +82,7 @@ NSString * const kBKSBeerDetailSegueFromStyle = @"kBKSBeerDetailSegue";
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:[NSNumber numberWithBool:self.toggleAllOrRemainingSwitch.on] forKey:kBKSUserToggleSetting];
     [defaults synchronize];
+    self.noItemsRemaining = nil;
     [self.collectionView reloadData];
 }
 
@@ -92,32 +95,58 @@ NSString * const kBKSBeerDetailSegueFromStyle = @"kBKSBeerDetailSegue";
     BeerObject *beer;
     
     if (self.toggleAllOrRemainingSwitch.isOn) {
-        beer = ((UserBeerObject *)[self.beersOfStyleRemaining objectAtIndex:indexPath.row]).beer;
+        if (self.noItemsRemaining) {
+            UICollectionViewCell *emptyCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"NoItemsRemainingCell" forIndexPath:indexPath];
+            return emptyCell;
+        } else {
+            beer = ((UserBeerObject *)[self.beersOfStyleRemaining objectAtIndex:indexPath.row]).beer;
+        }
     } else {
         beer = ((UserBeerObject *)[self.beersOfStyle objectAtIndex:indexPath.row]).beer;
     }
     
     [self configureCell:cell forBeer:beer];
-
+    
     return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section {
+    
+    NSInteger numberOfItemsToReturn;
+    
     if (self.toggleAllOrRemainingSwitch.isOn) {
-        return self.beersOfStyleRemaining.count;
+        numberOfItemsToReturn = self.beersOfStyleRemaining.count;
     } else {
-        return self.beersOfStyle.count;
+        numberOfItemsToReturn = self.beersOfStyle.count;
+    }
+    
+    if (!numberOfItemsToReturn) {
+        self.noItemsRemaining = YES;
+        numberOfItemsToReturn = 1;
+    }
+    
+    return numberOfItemsToReturn;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.noItemsRemaining) {
+        return CGSizeMake(self.collectionView.bounds.size.width, 182);
+    } else {
+        return CGSizeMake(112, 182);
     }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.toggleAllOrRemainingSwitch.isOn) {
-        self.beerSelected = ((UserBeerObject *)[self.beersOfStyleRemaining objectAtIndex:indexPath.row]);
-    } else {
-        self.beerSelected = ((UserBeerObject *)[self.beersOfStyle objectAtIndex:indexPath.row]);
+    
+    if (!self.noItemsRemaining) {
+        if (self.toggleAllOrRemainingSwitch.isOn) {
+            self.beerSelected = ((UserBeerObject *)[self.beersOfStyleRemaining objectAtIndex:indexPath.row]);
+        } else {
+            self.beerSelected = ((UserBeerObject *)[self.beersOfStyle objectAtIndex:indexPath.row]);
+        }
+        [self performSegueWithIdentifier:kBKSBeerDetailSegueFromStyle sender:nil];
     }
-    [self performSegueWithIdentifier:kBKSBeerDetailSegueFromStyle sender:nil];
 }
 
 

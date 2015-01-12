@@ -58,6 +58,8 @@
 		49BB686019FF271600DFD75D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49BB685619FF271600DFD75D /* Model.xcdatamodeld */; };
 		49BB687419FF274600DFD75D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB687319FF274600DFD75D /* AppDelegate.m */; };
 		4CD478DE1C524DD0C1156959 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4439E0F969A77184CFD09AAE /* libPods.a */; };
+		63157B9F1A647B9400D49E8E /* NoItemsRemainingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63157B9E1A647B9400D49E8E /* NoItemsRemainingCell.xib */; };
+		63157BA31A647FF100D49E8E /* NoItemsRemainingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63157BA21A647FF100D49E8E /* NoItemsRemainingCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +149,9 @@
 		49BB685719FF271600DFD75D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		49BB687219FF274600DFD75D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49BB687319FF274600DFD75D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		63157B9E1A647B9400D49E8E /* NoItemsRemainingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoItemsRemainingCell.xib; path = ../BeerLists/CollectionViewCells/NoItemsRemainingCell.xib; sourceTree = "<group>"; };
+		63157BA11A647FF100D49E8E /* NoItemsRemainingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoItemsRemainingCell.h; sourceTree = "<group>"; };
+		63157BA21A647FF100D49E8E /* NoItemsRemainingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoItemsRemainingCell.m; sourceTree = "<group>"; };
 		C2D1ECEB79DB5C78EF171D49 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -352,6 +357,7 @@
 		4900EBF71A6190A900647ABD /* Style */ = {
 			isa = PBXGroup;
 			children = (
+				63157BA01A647B9E00D49E8E /* CollectionViewCells */,
 				4900EBF81A6190A900647ABD /* BKSStyleViewController.h */,
 				4900EBF91A6190A900647ABD /* BKSStyleViewController.m */,
 			);
@@ -442,6 +448,16 @@
 				49BB685619FF271600DFD75D /* Model.xcdatamodeld */,
 			);
 			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		63157BA01A647B9E00D49E8E /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				63157BA11A647FF100D49E8E /* NoItemsRemainingCell.h */,
+				63157BA21A647FF100D49E8E /* NoItemsRemainingCell.m */,
+				63157B9E1A647B9400D49E8E /* NoItemsRemainingCell.xib */,
+			);
+			name = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 		80B2D75E4C6B5B015104C7DB /* Frameworks */ = {
@@ -555,6 +571,7 @@
 				4900EBC51A618FFF00647ABD /* HelveConBlaObl in Resources */,
 				4900EBD11A618FFF00647ABD /* HelveUltCom in Resources */,
 				4900EBCD1A618FFF00647ABD /* HelveFraBol in Resources */,
+				63157B9F1A647B9400D49E8E /* NoItemsRemainingCell.xib in Resources */,
 				4900EC001A6190A900647ABD /* NibCell.xib in Resources */,
 				4900EBCE1A618FFF00647ABD /* HelveLig in Resources */,
 				4900EBD21A618FFF00647ABD /* Helvetica.dfont in Resources */,
@@ -612,6 +629,7 @@
 			files = (
 				4900EC041A6190A900647ABD /* BKSStartMugClubViewController.m in Sources */,
 				4900EBD61A618FFF00647ABD /* BeerObject.m in Sources */,
+				63157BA31A647FF100D49E8E /* NoItemsRemainingCell.m in Sources */,
 				4900EBD81A618FFF00647ABD /* UserBeerObject.m in Sources */,
 				4900EBFD1A6190A900647ABD /* BKSCollectionViewListViewController.m in Sources */,
 				4900EBFF1A6190A900647ABD /* CollectionCell.m in Sources */,
