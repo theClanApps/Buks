@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *styleNameLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *styleCollectionView;
 @property (weak, nonatomic) IBOutlet UITextView *aboutStyleTextView;
+@property (strong, nonatomic) NSArray *beersOfStyleRemaining;
+@property (weak, nonatomic) IBOutlet UISwitch *toggleAllOrRemainingSwitch;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
@@ -32,6 +35,8 @@
     [self setupFlowLayout];
 
     self.aboutStyleTextView.text = self.style.styleDescription;
+    
+    self.beersOfStyleRemaining = [self.beersOfStyle filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
 }
 
 - (void)setupFlowLayout {
@@ -46,15 +51,27 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cvCell" forIndexPath:indexPath];
-
-    [self configureCell:cell forBeer:((UserBeerObject *)self.beersOfStyle[indexPath.row]).beer];
+    
+    BeerObject *beer;
+    
+    if (self.toggleAllOrRemainingSwitch.isOn) {
+        beer = ((UserBeerObject *)[self.beersOfStyleRemaining objectAtIndex:indexPath.row]).beer;
+    } else {
+        beer = ((UserBeerObject *)[self.beersOfStyle objectAtIndex:indexPath.row]).beer;
+    }
+    
+    [self configureCell:cell forBeer:beer];
 
     return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section {
-    return self.beersOfStyle.count;
+    if (self.toggleAllOrRemainingSwitch.isOn) {
+        return self.beersOfStyleRemaining.count;
+    } else {
+        return self.beersOfStyle.count;
+    }
 }
 
 - (void)configureCell:(CollectionCell *)cell forBeer:(BeerObject *)beer {
@@ -74,6 +91,10 @@
             }
         });
     }
+}
+
+- (IBAction)toggledSwitch:(id)sender {
+    [self.collectionView reloadData];
 }
 
 @end
