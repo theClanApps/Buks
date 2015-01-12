@@ -10,6 +10,8 @@
 #import "UserBeerObject.h"
 #import "BeerStyle.h"
 
+extern NSString * const kBKSUserToggleSetting;
+
 @protocol BKSBeerListsViewControllerDelegate;
 
 @interface BKSBeerListsViewController : UIViewController

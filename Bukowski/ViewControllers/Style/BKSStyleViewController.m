@@ -11,6 +11,10 @@
 #import "BeerObject.h"
 #import "CollectionCell.h"
 #import "UserBeerObject.h"
+#import "BKSBeerDetailViewController.h"
+#import "BKSBeerListsViewController.h"
+
+NSString * const kBKSBeerDetailSegueFromStyle = @"kBKSBeerDetailSegue";
 
 @interface BKSStyleViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *styleNameLabel;
@@ -19,6 +23,7 @@
 @property (strong, nonatomic) NSArray *beersOfStyleRemaining;
 @property (weak, nonatomic) IBOutlet UISwitch *toggleAllOrRemainingSwitch;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) UserBeerObject *beerSelected;
 
 @end
 
@@ -27,6 +32,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setup];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self setToggleValue];
 }
 
 - (void)setup {
@@ -39,6 +50,22 @@
     self.beersOfStyleRemaining = [self.beersOfStyle filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
 }
 
+- (void)setToggleValue {
+    NSUserDefaults *userToggleSetting = [NSUserDefaults standardUserDefaults];
+    
+    //Check if default has been set.
+    //If so, retrieve stored value & apply to switch
+    //If not, set switch to ON
+    id obj = [userToggleSetting objectForKey:kBKSUserToggleSetting];
+    
+    if (obj != nil) {
+        [self.toggleAllOrRemainingSwitch setOn:[[userToggleSetting objectForKey:kBKSUserToggleSetting] boolValue]];
+    } else {
+        [self.toggleAllOrRemainingSwitch setOn:YES];
+    }
+}
+
+
 - (void)setupFlowLayout {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setItemSize:CGSizeMake(112, 182)];
@@ -47,6 +74,16 @@
     self.styleCollectionView.backgroundColor = [UIColor clearColor];
     [self.styleCollectionView registerNib:[UINib nibWithNibName:@"NibCell" bundle:nil] forCellWithReuseIdentifier:@"cvCell"];
 }
+
+- (IBAction)toggledSwitch:(id)sender {
+    //Save toggle setting for that user
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithBool:self.toggleAllOrRemainingSwitch.on] forKey:kBKSUserToggleSetting];
+    [defaults synchronize];
+    [self.collectionView reloadData];
+}
+
+#pragma mark - CollectionView
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -74,6 +111,16 @@
     }
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.toggleAllOrRemainingSwitch.isOn) {
+        self.beerSelected = ((UserBeerObject *)[self.beersOfStyleRemaining objectAtIndex:indexPath.row]);
+    } else {
+        self.beerSelected = ((UserBeerObject *)[self.beersOfStyle objectAtIndex:indexPath.row]);
+    }
+    [self performSegueWithIdentifier:kBKSBeerDetailSegueFromStyle sender:nil];
+}
+
+
 - (void)configureCell:(CollectionCell *)cell forBeer:(BeerObject *)beer {
     if (beer.bottleImage) {
         dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
@@ -93,8 +140,14 @@
     }
 }
 
-- (IBAction)toggledSwitch:(id)sender {
-    [self.collectionView reloadData];
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:kBKSBeerDetailSegueFromStyle]) {
+        BKSBeerDetailViewController *detailVC = (BKSBeerDetailViewController *)segue.destinationViewController;
+        detailVC.beer = self.beerSelected;
+        detailVC.allBeers = self.allBeers;
+    }
 }
 
 @end
