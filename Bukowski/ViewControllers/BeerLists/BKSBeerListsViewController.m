@@ -59,6 +59,12 @@ NSInteger const kBKSNumberOfSections = 4;
     [self setup];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setToggleValue];
+    [self reloadAllCollectionViews];
+}
+
 - (void)setAllBeers:(NSArray *)allBeers {
     _allBeers = allBeers;
     [self sortAllBeersIntoCategories:_allBeers];
@@ -66,7 +72,6 @@ NSInteger const kBKSNumberOfSections = 4;
 
 - (void)setup {
     [self loadUser];
-    [self setToggleValue];
     
     self.edgesForExtendedLayout = UIRectEdgeAll;
 }

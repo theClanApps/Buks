@@ -12,5 +12,6 @@
 @interface BKSStyleViewController : UIViewController
 @property (strong, nonatomic) NSArray *beersOfStyle;
 @property (strong, nonatomic) BeerStyle *style;
+@property (strong, nonatomic) NSArray *allBeers;
 
 @end

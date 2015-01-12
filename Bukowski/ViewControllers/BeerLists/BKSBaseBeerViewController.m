@@ -162,6 +162,7 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
         BKSStyleViewController *styleVC = (BKSStyleViewController *)segue.destinationViewController;
         styleVC.beersOfStyle = [self beerObjectsFromStyle:self.styleSelected];
         styleVC.style = self.styleSelected;
+        styleVC.allBeers = self.allBeers;
     }
 }
 
