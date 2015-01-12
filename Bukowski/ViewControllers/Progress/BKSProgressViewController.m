@@ -49,12 +49,12 @@
     //% is not working right now
     //NSInteger beersDrankInt = [self getBeersDrank];
     
-    int beersDrank = [self getBeersDrank];
-    int totalBeers = self.userBeers.count;
-    int percentDrank = 100 * beersDrank / totalBeers;
-    self.drankNumberAndPercentageLabel.text = [NSString stringWithFormat:@"%i (%i%%)", beersDrank, percentDrank];
+    NSInteger beersDrank = [self getBeersDrank];
+    NSInteger totalBeers = self.userBeers.count;
+    NSInteger percentDrank = 100 * beersDrank / totalBeers;
+    self.drankNumberAndPercentageLabel.text = [NSString stringWithFormat:@"%li (%li%%)", (long)beersDrank, (long)percentDrank];
     self.beersLeftLabel.text = [NSString stringWithFormat:@"%lu", (self.userBeers.count - [self getBeersDrank])];
-    self.totalBeersLabel.text = [NSString stringWithFormat:@"%d", totalBeers];
+    self.totalBeersLabel.text = [NSString stringWithFormat:@"%ld", (long)totalBeers];
     
 }
 
@@ -78,15 +78,5 @@
     NSInteger dayDiff = [difference day];
     return dayDiff;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

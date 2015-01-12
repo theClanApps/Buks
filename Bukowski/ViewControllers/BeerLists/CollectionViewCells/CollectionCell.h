@@ -12,5 +12,4 @@
 @property (weak, nonatomic) IBOutlet UIImageView *beerImage;
 @property (weak, nonatomic) IBOutlet UILabel *beerNameLabel;
 
-
 @end

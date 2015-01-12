@@ -12,8 +12,7 @@
 
 @dynamic name, MugClubStartDate, mugClubEndDate, userImage, dateOfLastBeerDrank;
 
-+ (void)load
-{
++ (void)load {
     [self registerSubclass];
 }
 

@@ -20,10 +20,6 @@ static NSString * const kSegueToBeerViewController = @"kSegueToBeerViewControlle
 
 @implementation BKSLoginViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
         if ([[BKSAccountManager sharedAccountManager] userStartedMugClub]) {
@@ -46,8 +42,7 @@ static NSString * const kSegueToBeerViewController = @"kSegueToBeerViewControlle
     }];
 }
 
-- (void)showLoginFailureAlertView
-{
+- (void)showLoginFailureAlertView {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Error"
                                                     message:@"There was an error loggin in."
                                                    delegate:nil
