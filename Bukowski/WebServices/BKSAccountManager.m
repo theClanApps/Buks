@@ -10,11 +10,17 @@
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import "UserBeerObject.h"
+#import "BKSDataManager.h"
+#import "Beer.h"
+#import "BeerStyleObject.h"
+#import "UserBeerObject.h"
+#import <SDWebImage/SDWebImageManager.h>
 
 static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
 
 @interface BKSAccountManager ()
 @property (strong, nonatomic) NSArray *faceBookPermissions;
+@property (nonatomic) NSInteger beerImageSaveTally;
 
 @end
 
@@ -111,21 +117,25 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
     return ([[PFUser currentUser] objectForKey:@"MugClubStartDate"]!=nil);
 }
 
-- (void)rateBeer:(UserBeerObject *)userBeer
+- (void)rateBeer:(Beer *)beer
         withRating:(NSNumber*)rating
-      WithCompletion:(void(^)(NSError *error, UserBeerObject *userBeer))completion {
-    userBeer.userRating = rating;
-    
-    [userBeer saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            if (completion) {
-                completion(nil, userBeer);
+      WithCompletion:(void(^)(NSError *error, Beer *userBeer))completion {
+
+    PFQuery *query = [PFQuery queryWithClassName:NSStringFromClass([UserBeerObject class])];
+    [query getObjectInBackgroundWithId:beer.beerID block:^(PFObject *userBeerObject, NSError *error) {
+        ((UserBeerObject *)userBeerObject).userRating = rating;
+        [userBeerObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                if (completion) {
+                    beer.beerUserRating = rating;
+                    completion(nil, beer);
+                }
+            } else {
+                if (completion) {
+                    completion(error, nil);
+                }
             }
-        } else {
-            if (completion) {
-                completion(error, nil);
-            }
-        }
+        }];
     }];
 }
 
@@ -145,17 +155,46 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
 }
 
 - (void)loadBeersWithSuccess:(void(^)(NSArray *beers, NSError *error))block {
-    PFQuery *query = [PFQuery queryWithClassName:@"UserBeerObject"];
-    [query whereKey:@"drinkingUser" equalTo:[PFUser currentUser]];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            if (block) {
-                block(objects, nil);
+    NSArray *beers = [[BKSDataManager sharedDataManager] allBeers];
+    if (!beers.count > 0) {
+        PFQuery *query = [PFQuery queryWithClassName:@"UserBeerObject"];
+        [query whereKey:@"drinkingUser" equalTo:[PFUser currentUser]];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *userBeerObjects, NSError *error) {
+            if (!error) {
+                [PFObject fetchAllInBackground:[self beerObjectsFromUserBeerObjects:userBeerObjects] block:^(NSArray *beerObjects, NSError *error) {
+                    if (!error) {
+                        [PFObject fetchAllInBackground:[self stylesContainedInBeers:beerObjects] block:^(NSArray *styles, NSError *error) {
+                            if (!error) {
+                                [self saveAllImagesForStyles:styles withCompletion:^{
+                                    [self saveAllImagesForBeers:userBeerObjects withCompletion:^{
+                                        [[BKSDataManager sharedDataManager] persistBeerStyleObjects:styles];
+                                        [[BKSDataManager sharedDataManager] persistUserBeerObjects:userBeerObjects];
+                                        if (block) {
+                                            block([[BKSDataManager sharedDataManager] allBeers], nil);
+                                        }
+                                    }];
+                                }];
+                            } else {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+                    } else {
+                        NSLog(@"Error: %@", error);
+                    }
+                }];
+            } else {
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
             }
-        } else {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }];
+    } else {
+        if (block) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (block) {
+                    block(beers, nil);
+                }
+            });
         }
-    }];
+    }
 }
 
 - (void)createUsersBeersInCloudWithCompletion:(void(^)(NSError *error, NSString *result))completion {
@@ -175,5 +214,54 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
                                     }
                                 }];
 }
+
+- (NSArray *)beerObjectsFromUserBeerObjects:(NSArray *)userBeerObjects {
+    NSMutableArray *beerObjects = [[NSMutableArray alloc] init];
+    for (UserBeerObject *userBeerObject in userBeerObjects) {
+        [beerObjects addObject:userBeerObject.beer];
+    }
+    return [beerObjects copy];
+}
+
+- (NSArray *)stylesContainedInBeers:(NSArray *)beers {
+    NSMutableArray *styleArray = [[NSMutableArray alloc] init];
+    for (BeerObject *beer in beers) {
+        [styleArray addObject:beer.style];
+    }
+    return [styleArray copy];
+}
+
+- (void)saveAllImagesForStyles:(NSArray *)styles withCompletion:(void(^)())completion {
+    self.beerImageSaveTally = 0;
+    for (BeerStyleObject *beerStyleObject in styles) {
+        [beerStyleObject.styleImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            UIImage *image = [UIImage imageWithData:data];
+            [[SDWebImageManager sharedManager] saveImageToCache:image forURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", beerStyleObject.styleName]]];
+            self.beerImageSaveTally++;
+            if (self.beerImageSaveTally == styles.count) {
+                if (completion) {
+                    completion();
+                }
+            }
+        }];
+    }
+}
+
+- (void)saveAllImagesForBeers:(NSArray *)beers withCompletion:(void(^)())completion {
+    self.beerImageSaveTally = 0;
+    for (UserBeerObject *userBeerObject in beers) {
+        [userBeerObject.beer.bottleImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            UIImage *image = [UIImage imageWithData:data];
+            [[SDWebImageManager sharedManager] saveImageToCache:image forURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", userBeerObject.objectId]]];
+            self.beerImageSaveTally++;
+            if (self.beerImageSaveTally == beers.count) {
+                if (completion) {
+                    completion();
+                }
+            }
+        }];
+    }
+}
+
 
 @end

@@ -1,27 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="13F34" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14B25" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Beer" representedClassName="Beer" syncable="YES">
-        <attribute name="beerAbv" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="beerID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="beerAbv" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="beerDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beerID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="beerName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beerNickname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beerPrice" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="beerSize" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="beerUserRating" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="drank" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="beerStyle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BeerStyle" inverseName="beersOfStyle" inverseEntity="BeerStyle" syncable="YES"/>
         <relationship name="brewery" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Brewery" inverseName="beersOfBrewery" inverseEntity="Brewery" syncable="YES"/>
-        <relationship name="style" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BeerStyle" inverseName="beersOfStyle" inverseEntity="BeerStyle" syncable="YES"/>
     </entity>
-    <entity name="BeerStyle" representedClassName="Style" syncable="YES">
+    <entity name="BeerStyle" representedClassName="BeerStyle" syncable="YES">
         <attribute name="styleDescription" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="styleID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="styleID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="styleName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="beersOfStyle" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Beer" inverseName="style" inverseEntity="Beer" syncable="YES"/>
+        <relationship name="beersOfStyle" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Beer" inverseName="beerStyle" inverseEntity="Beer" syncable="YES"/>
     </entity>
     <entity name="Brewery" representedClassName="Brewery" syncable="YES">
         <attribute name="breweryDescription" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="breweryID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="breweryID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="breweryName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="beersOfBrewery" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Beer" inverseName="brewery" inverseEntity="Beer" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Beer" positionX="-101" positionY="162" width="128" height="118"/>
-        <element name="Brewery" positionX="-308" positionY="-63" width="128" height="103"/>
-        <element name="BeerStyle" positionX="72" positionY="-67" width="128" height="103"/>
+        <element name="Beer" positionX="0" positionY="0" width="128" height="210"/>
+        <element name="BeerStyle" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="Brewery" positionX="0" positionY="0" width="128" height="105"/>
     </elements>
 </model>

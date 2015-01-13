@@ -7,11 +7,11 @@
 //
 
 #import "BKSBeerDetailViewController.h"
-#import "UserBeerObject.h"
-#import "BeerObject.h"
 #import "BKSAccountManager.h"
-#import "BeerStyle.h"
 #import "BKSStyleViewController.h"
+#import "UIImageView+WebCache.h"
+#import "Beer.h"
+#import "BeerStyle.h"
 
 @interface BKSBeerDetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *beerNameLabel;
@@ -30,32 +30,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    BeerObject *beer = self.beer.beer;
-    self.beerNameLabel.text = beer.beerName.uppercaseString;
-    self.breweryLabel.text = beer.brewery.uppercaseString;
-    [self.beerStyleButton setTitle:beer.style.styleName.uppercaseString forState:UIControlStateNormal];
-    self.beerDescriptionTextView.text = beer.beerDescription;
-    self.abvLabel.text = [NSString stringWithFormat:@"%@ %%",beer.abv];
-    self.priceLabel.text = beer.price;
-    self.sizeLabel.text = [NSString stringWithFormat:@"%@ oz.",beer.size];
-    self.isRating = NO;
-    
-    dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(aQueue, ^{
-        PFFile *theImage = beer.bottleImage;
-        NSData *imageData = [theImage getData];
-        if (imageData) {
-            UIImage *image = [UIImage imageWithData:imageData];
-            if (image) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    self.bottleImage.image = image;
-                });
-            }
-        }
-    });
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    
+
+    Beer *beer = self.beer;
+    self.beerNameLabel.text = beer.beerName.uppercaseString;
+    [self.beerStyleButton setTitle:beer.beerStyle.styleName.uppercaseString forState:UIControlStateNormal];
+    self.beerDescriptionTextView.text = beer.beerDescription;
+    self.abvLabel.text = [NSString stringWithFormat:@"%@ %%",beer.beerAbv];
+    self.priceLabel.text = [NSString stringWithFormat:@"%@", beer.beerPrice];
+    self.sizeLabel.text = [NSString stringWithFormat:@"%@ oz.",beer.beerSize];
+    self.isRating = NO;
+
+    [self.bottleImage sd_setImageWithURL:[NSURL URLWithString:beer.beerID]];
     [self setupRateView];
 }
 
@@ -69,7 +55,7 @@
         self.rateBarButton.title = @"Rate";
     }
     self.rateView.editable = NO;
-    self.rateView.rating = self.beer.userRating;
+    self.rateView.rating = self.beer.beerUserRating;
     self.rateView.notSelectedImage = [UIImage imageNamed:@"unshadedstar"];
     self.rateView.fullSelectedImage = [UIImage imageNamed:@"shadedstar"];
     self.rateView.greyImage = [UIImage imageNamed:@"greystar"];
@@ -86,7 +72,7 @@
     } else {
         
         self.isRating = NO;
-        [[BKSAccountManager sharedAccountManager] rateBeer:self.beer withRating:self.rateView.rating WithCompletion:^(NSError *error, UserBeerObject *userBeer) {
+        [[BKSAccountManager sharedAccountManager] rateBeer:self.beer withRating:self.rateView.rating WithCompletion:^(NSError *error, Beer *beer) {
             if (!error) {
                 //NSLog(@"Success!");
             } else {
@@ -100,7 +86,7 @@
 }
 
 - (NSArray *)beerObjectsFromStyle:(BeerStyle *)style {
-    NSArray *beers = [self.allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.style == %@)", style]];
+    NSArray *beers = [self.allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beerStyle == %@)", style]];
     return beers;
 }
 
@@ -108,10 +94,9 @@
 {
     if ([[segue identifier] isEqualToString:@"goToStyleFromBeerSegue"]) {
         BKSStyleViewController *detailVC = (BKSStyleViewController *)segue.destinationViewController;
-        detailVC.beersOfStyle = [self beerObjectsFromStyle:self.beer.beer.style];
-        detailVC.style = self.beer.beer.style;
+        detailVC.beersOfStyle = [self beerObjectsFromStyle:self.beer.beerStyle];
+        detailVC.style = self.beer.beerStyle;
     }
-
 }
 
 @end

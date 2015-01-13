@@ -32,7 +32,7 @@
 		4900EBD41A618FFF00647ABD /* Oswald-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBB31A618FFF00647ABD /* Oswald-Light.ttf */; };
 		4900EBD51A618FFF00647ABD /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4900EBB41A618FFF00647ABD /* Oswald-Regular.ttf */; };
 		4900EBD61A618FFF00647ABD /* BeerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBB71A618FFF00647ABD /* BeerObject.m */; };
-		4900EBD71A618FFF00647ABD /* BeerStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBB91A618FFF00647ABD /* BeerStyle.m */; };
+		4900EBD71A618FFF00647ABD /* BeerStyleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBB91A618FFF00647ABD /* BeerStyleObject.m */; };
 		4900EBD81A618FFF00647ABD /* UserBeerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBBB1A618FFF00647ABD /* UserBeerObject.m */; };
 		4900EBD91A618FFF00647ABD /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBBD1A618FFF00647ABD /* UserObject.m */; };
 		4900EBFA1A6190A900647ABD /* BKSBeerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBDD1A6190A900647ABD /* BKSBeerDetailViewController.m */; };
@@ -48,8 +48,9 @@
 		4900EC041A6190A900647ABD /* BKSStartMugClubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBF61A6190A900647ABD /* BKSStartMugClubViewController.m */; };
 		4900EC051A6190A900647ABD /* BKSStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EBF91A6190A900647ABD /* BKSStyleViewController.m */; };
 		4900EC091A6190CF00647ABD /* BKSAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4900EC081A6190CF00647ABD /* BKSAccountManager.m */; };
+		495BEBB81A64A4F200D58223 /* Beer+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = 495BEBB71A64A4F200D58223 /* Beer+Configure.m */; };
+		49AF18BC1A6ABC3B00374089 /* Beer.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AF18BB1A6ABC3B00374089 /* Beer.m */; };
 		49BB682719FF26AA00DFD75D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB682619FF26AA00DFD75D /* main.m */; };
-		49BB682D19FF26AA00DFD75D /* Bukowski.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49BB682B19FF26AA00DFD75D /* Bukowski.xcdatamodeld */; };
 		49BB683319FF26AA00DFD75D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49BB683119FF26AA00DFD75D /* Main.storyboard */; };
 		49BB683519FF26AA00DFD75D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49BB683419FF26AA00DFD75D /* Images.xcassets */; };
 		49BB683819FF26AB00DFD75D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49BB683619FF26AB00DFD75D /* LaunchScreen.xib */; };
@@ -57,6 +58,9 @@
 		49BB685E19FF271600DFD75D /* BKSDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB685319FF271600DFD75D /* BKSDataManager.m */; };
 		49BB686019FF271600DFD75D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49BB685619FF271600DFD75D /* Model.xcdatamodeld */; };
 		49BB687419FF274600DFD75D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BB687319FF274600DFD75D /* AppDelegate.m */; };
+		49EE8A871A68810100E2712A /* BeerStyle+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EE8A861A68810100E2712A /* BeerStyle+Configure.m */; };
+		49EE8A9C1A688DBC00E2712A /* BeerStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EE8A9B1A688DBC00E2712A /* BeerStyle.m */; };
+		49EE8A9F1A688DBD00E2712A /* Brewery.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EE8A9E1A688DBD00E2712A /* Brewery.m */; };
 		4CD478DE1C524DD0C1156959 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4439E0F969A77184CFD09AAE /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -101,8 +105,8 @@
 		4900EBB41A618FFF00647ABD /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
 		4900EBB61A618FFF00647ABD /* BeerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeerObject.h; sourceTree = "<group>"; };
 		4900EBB71A618FFF00647ABD /* BeerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeerObject.m; sourceTree = "<group>"; };
-		4900EBB81A618FFF00647ABD /* BeerStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeerStyle.h; sourceTree = "<group>"; };
-		4900EBB91A618FFF00647ABD /* BeerStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeerStyle.m; sourceTree = "<group>"; };
+		4900EBB81A618FFF00647ABD /* BeerStyleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeerStyleObject.h; sourceTree = "<group>"; };
+		4900EBB91A618FFF00647ABD /* BeerStyleObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeerStyleObject.m; sourceTree = "<group>"; };
 		4900EBBA1A618FFF00647ABD /* UserBeerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserBeerObject.h; sourceTree = "<group>"; };
 		4900EBBB1A618FFF00647ABD /* UserBeerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserBeerObject.m; sourceTree = "<group>"; };
 		4900EBBC1A618FFF00647ABD /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserObject.h; sourceTree = "<group>"; };
@@ -132,10 +136,13 @@
 		4900EBF91A6190A900647ABD /* BKSStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSStyleViewController.m; sourceTree = "<group>"; };
 		4900EC071A6190CF00647ABD /* BKSAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSAccountManager.h; sourceTree = "<group>"; };
 		4900EC081A6190CF00647ABD /* BKSAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSAccountManager.m; sourceTree = "<group>"; };
+		495BEBB61A64A4F200D58223 /* Beer+Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Beer+Configure.h"; path = "Categories/Beer+Configure.h"; sourceTree = "<group>"; };
+		495BEBB71A64A4F200D58223 /* Beer+Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Beer+Configure.m"; path = "Categories/Beer+Configure.m"; sourceTree = "<group>"; };
+		49AF18BA1A6ABC3B00374089 /* Beer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Beer.h; path = ManagedObjects/Beer.h; sourceTree = "<group>"; };
+		49AF18BB1A6ABC3B00374089 /* Beer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Beer.m; path = ManagedObjects/Beer.m; sourceTree = "<group>"; };
 		49BB682119FF26AA00DFD75D /* Bukowski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bukowski.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BB682519FF26AA00DFD75D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49BB682619FF26AA00DFD75D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		49BB682C19FF26AA00DFD75D /* Bukowski.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bukowski.xcdatamodel; sourceTree = "<group>"; };
 		49BB683219FF26AA00DFD75D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49BB683419FF26AA00DFD75D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		49BB683719FF26AB00DFD75D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -147,6 +154,12 @@
 		49BB685719FF271600DFD75D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		49BB687219FF274600DFD75D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49BB687319FF274600DFD75D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		49EE8A851A68810100E2712A /* BeerStyle+Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BeerStyle+Configure.h"; path = "Categories/BeerStyle+Configure.h"; sourceTree = "<group>"; };
+		49EE8A861A68810100E2712A /* BeerStyle+Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "BeerStyle+Configure.m"; path = "Categories/BeerStyle+Configure.m"; sourceTree = "<group>"; };
+		49EE8A9A1A688DBC00E2712A /* BeerStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeerStyle.h; path = ManagedObjects/BeerStyle.h; sourceTree = "<group>"; };
+		49EE8A9B1A688DBC00E2712A /* BeerStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeerStyle.m; path = ManagedObjects/BeerStyle.m; sourceTree = "<group>"; };
+		49EE8A9D1A688DBD00E2712A /* Brewery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Brewery.h; path = ManagedObjects/Brewery.h; sourceTree = "<group>"; };
+		49EE8A9E1A688DBD00E2712A /* Brewery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Brewery.m; path = ManagedObjects/Brewery.m; sourceTree = "<group>"; };
 		C2D1ECEB79DB5C78EF171D49 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -254,8 +267,8 @@
 			children = (
 				4900EBB61A618FFF00647ABD /* BeerObject.h */,
 				4900EBB71A618FFF00647ABD /* BeerObject.m */,
-				4900EBB81A618FFF00647ABD /* BeerStyle.h */,
-				4900EBB91A618FFF00647ABD /* BeerStyle.m */,
+				4900EBB81A618FFF00647ABD /* BeerStyleObject.h */,
+				4900EBB91A618FFF00647ABD /* BeerStyleObject.m */,
 				4900EBBA1A618FFF00647ABD /* UserBeerObject.h */,
 				4900EBBB1A618FFF00647ABD /* UserBeerObject.m */,
 				4900EBBC1A618FFF00647ABD /* UserObject.h */,
@@ -367,6 +380,30 @@
 			path = WebServices;
 			sourceTree = "<group>";
 		};
+		495BEBB91A64A4F600D58223 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				495BEBB61A64A4F200D58223 /* Beer+Configure.h */,
+				495BEBB71A64A4F200D58223 /* Beer+Configure.m */,
+				49EE8A851A68810100E2712A /* BeerStyle+Configure.h */,
+				49EE8A861A68810100E2712A /* BeerStyle+Configure.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		495BEBCC1A64A88C00D58223 /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				49AF18BA1A6ABC3B00374089 /* Beer.h */,
+				49AF18BB1A6ABC3B00374089 /* Beer.m */,
+				49EE8A9D1A688DBD00E2712A /* Brewery.h */,
+				49EE8A9E1A688DBD00E2712A /* Brewery.m */,
+				49EE8A9A1A688DBC00E2712A /* BeerStyle.h */,
+				49EE8A9B1A688DBC00E2712A /* BeerStyle.m */,
+			);
+			name = ManagedObjects;
+			sourceTree = "<group>";
+		};
 		49BB681819FF26AA00DFD75D = {
 			isa = PBXGroup;
 			children = (
@@ -392,7 +429,6 @@
 			children = (
 				49BB687219FF274600DFD75D /* AppDelegate.h */,
 				49BB687319FF274600DFD75D /* AppDelegate.m */,
-				49BB682B19FF26AA00DFD75D /* Bukowski.xcdatamodeld */,
 				49BB684D19FF271600DFD75D /* Core Data */,
 				4900EB951A618FFF00647ABD /* Helpers */,
 				49BB683419FF26AA00DFD75D /* Images.xcassets */,
@@ -439,6 +475,8 @@
 			children = (
 				49BB685219FF271600DFD75D /* BKSDataManager.h */,
 				49BB685319FF271600DFD75D /* BKSDataManager.m */,
+				495BEBB91A64A4F600D58223 /* Categories */,
+				495BEBCC1A64A88C00D58223 /* ManagedObjects */,
 				49BB685619FF271600DFD75D /* Model.xcdatamodeld */,
 			);
 			path = "Core Data";
@@ -615,24 +653,28 @@
 				4900EBD81A618FFF00647ABD /* UserBeerObject.m in Sources */,
 				4900EBFD1A6190A900647ABD /* BKSCollectionViewListViewController.m in Sources */,
 				4900EBFF1A6190A900647ABD /* CollectionCell.m in Sources */,
-				49BB682D19FF26AA00DFD75D /* Bukowski.xcdatamodeld in Sources */,
 				4900EC051A6190A900647ABD /* BKSStyleViewController.m in Sources */,
+				49EE8A9F1A688DBD00E2712A /* Brewery.m in Sources */,
 				49BB686019FF271600DFD75D /* Model.xcdatamodeld in Sources */,
 				4900EBBE1A618FFF00647ABD /* BKSBeersFilteredCollection.m in Sources */,
 				4900EC031A6190A900647ABD /* BKSProgressViewController.m in Sources */,
 				4900EBFE1A6190A900647ABD /* BKSSearchResultsViewController.m in Sources */,
 				49BB682719FF26AA00DFD75D /* main.m in Sources */,
 				4900EBFB1A6190A900647ABD /* BKSBaseBeerViewController.m in Sources */,
+				49EE8A871A68810100E2712A /* BeerStyle+Configure.m in Sources */,
 				49BB685E19FF271600DFD75D /* BKSDataManager.m in Sources */,
 				49BB687419FF274600DFD75D /* AppDelegate.m in Sources */,
+				495BEBB81A64A4F200D58223 /* Beer+Configure.m in Sources */,
 				4900EBFA1A6190A900647ABD /* BKSBeerDetailViewController.m in Sources */,
 				4900EBBF1A618FFF00647ABD /* BKSRateView.m in Sources */,
-				4900EBD71A618FFF00647ABD /* BeerStyle.m in Sources */,
+				4900EBD71A618FFF00647ABD /* BeerStyleObject.m in Sources */,
 				4900EBFC1A6190A900647ABD /* BKSBeerListsViewController.m in Sources */,
 				4900EC091A6190CF00647ABD /* BKSAccountManager.m in Sources */,
+				49EE8A9C1A688DBC00E2712A /* BeerStyle.m in Sources */,
 				4900EBD91A618FFF00647ABD /* UserObject.m in Sources */,
 				4900EC011A6190A900647ABD /* BKSBeerCollectionTableViewCell.m in Sources */,
 				4900EC021A6190A900647ABD /* BKSLoginViewController.m in Sources */,
+				49AF18BC1A6ABC3B00374089 /* Beer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -839,16 +881,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		49BB682B19FF26AA00DFD75D /* Bukowski.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				49BB682C19FF26AA00DFD75D /* Bukowski.xcdatamodel */,
-			);
-			currentVersion = 49BB682C19FF26AA00DFD75D /* Bukowski.xcdatamodel */;
-			path = Bukowski.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		49BB685619FF271600DFD75D /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

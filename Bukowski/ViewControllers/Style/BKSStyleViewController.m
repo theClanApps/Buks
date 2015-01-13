@@ -8,9 +8,9 @@
 
 #import "BKSStyleViewController.h"
 #import "BeerStyle.h"
-#import "BeerObject.h"
+#import "Beer.h"
 #import "CollectionCell.h"
-#import "UserBeerObject.h"
+#import "UIImageView+WebCache.h"
 
 @interface BKSStyleViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *styleNameLabel;
@@ -47,7 +47,7 @@
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cvCell" forIndexPath:indexPath];
 
-    [self configureCell:cell forBeer:((UserBeerObject *)self.beersOfStyle[indexPath.row]).beer];
+    [self configureCell:cell forBeer:(Beer *)self.beersOfStyle[indexPath.row]];
 
     return cell;
 }
@@ -57,23 +57,9 @@
     return self.beersOfStyle.count;
 }
 
-- (void)configureCell:(CollectionCell *)cell forBeer:(BeerObject *)beer {
-    if (beer.bottleImage) {
-        dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        dispatch_async(aQueue, ^{
-            PFFile *theImage = beer.bottleImage;
-            NSData *imageData = [theImage getData];
-            if (imageData) {
-                UIImage *image = [UIImage imageWithData:imageData];
-                if (image) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        cell.beerImage.image = image;
-                        cell.beerNameLabel.text =  beer.nickname;
-                    });
-                }
-            }
-        });
-    }
+- (void)configureCell:(CollectionCell *)cell forBeer:(Beer *)beer {
+    [cell.beerImage sd_setImageWithURL:[NSURL URLWithString:beer.beerID]];
+    cell.beerNameLabel.text =  beer.beerNickname;
 }
 
 @end

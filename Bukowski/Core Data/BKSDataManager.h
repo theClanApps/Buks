@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+@class BeerStyle;
+@class UserBeerObject;
 
 @interface BKSDataManager : NSObject
 
@@ -20,5 +22,12 @@
 // Stock methods
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+
+// Custom methods
+- (void)persistUserBeerObjects:(NSArray *)userBeerObjects;
+- (void)persistBeerStyleObjects:(NSArray *)beerStyleObjects;
+- (BeerStyle *)beerStyleForUserBeerObject:(UserBeerObject *)userBeerObject;
+- (NSArray *)allBeers;
+- (NSArray *)allStyles;
 
 @end

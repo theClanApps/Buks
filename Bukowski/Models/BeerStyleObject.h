@@ -8,7 +8,7 @@
 
 #import <Parse/Parse.h>
 
-@interface BeerStyle : PFObject <PFSubclassing>
+@interface BeerStyleObject : PFObject <PFSubclassing>
 @property (strong, nonatomic) NSString *styleID;
 @property (strong, nonatomic) NSString *styleName;
 @property (strong, nonatomic) NSString *styleDescription;

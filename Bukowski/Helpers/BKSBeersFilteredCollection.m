@@ -36,7 +36,7 @@
             UserBeerObject *beer = (UserBeerObject *)evaluatedObject;
 
             if ([beer.beer.beerName rangeOfString:self.filterString options:NSCaseInsensitiveSearch].location == NSNotFound) {
-                if ([beer.beer.nickname rangeOfString:self.filterString options:NSCaseInsensitiveSearch].location == NSNotFound) {
+                if ([beer.beer.beerNickname rangeOfString:self.filterString options:NSCaseInsensitiveSearch].location == NSNotFound) {
                     if ([beer.beer.brewery rangeOfString:self.filterString options:NSCaseInsensitiveSearch].location == NSNotFound) {
                         return NO;
                     }

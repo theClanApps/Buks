@@ -13,7 +13,7 @@
 
 @property (strong, nonatomic) PFUser *drinkingUser;
 @property (strong, nonatomic) BeerObject *beer;
-@property (nonatomic) NSNumber *userRating;
+@property (strong, nonatomic) NSNumber *userRating;
 @property (strong, nonatomic) NSNumber *drank;
 @property (strong, nonatomic) NSDate *dateDrank;
 @property (strong, nonatomic) PFUser *checkingEmployee;

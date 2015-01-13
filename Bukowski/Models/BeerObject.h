@@ -7,21 +7,20 @@
 //
 
 #import <Parse/Parse.h>
-@class BeerStyle;
+@class BeerStyleObject;
 
 @interface BeerObject : PFObject <PFSubclassing>
 
-@property (strong, nonatomic) NSString *beerName;
-@property (strong, nonatomic) NSString *brewery;
-@property (strong, nonatomic) NSString *beerStyle;
+@property (strong, nonatomic) NSNumber *beerAbv;
 @property (strong, nonatomic) NSString *beerDescription;
-@property (strong, nonatomic) NSString *abv;
-@property (strong, nonatomic) NSString *price;
-@property (strong, nonatomic) NSString *size;
-@property (strong, nonatomic) NSString *nickname;
+@property (strong, nonatomic) NSString *beerName;
+@property (strong, nonatomic) NSString *beerNickname;
+@property (strong, nonatomic) NSNumber *beerPrice;
+@property (strong, nonatomic) NSNumber *beerSize;
+@property (strong, nonatomic) NSString *brewery;
 @property (strong, nonatomic) PFFile *bottleImage;
 @property (strong, nonatomic) PFFile *glassImage;
-@property (strong, nonatomic) BeerStyle *style;
+@property (strong, nonatomic) BeerStyleObject *style;
 
 + (NSString *)parseClassName;
 
