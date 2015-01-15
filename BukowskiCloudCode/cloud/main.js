@@ -48,3 +48,27 @@ Parse.Cloud.define("createUserBeerInCloud", function(request, response) {
 	});
 });
 
+Parse.Cloud.define("sendPushNotificationToUserWhenBeerIsMarkedDrank", function(request, response) {
+                   
+    var beerName = request.params.beerName;
+                   
+    var userQuery = new Parse.Query(Parse.User);
+    userQuery.equalTo('username', request.params.username);
+                   
+    var pushQuery = new Parse.Query(Parse.Installation);
+    pushQuery.matchesQuery('user', userQuery);
+                   
+    Parse.Push.send({
+        where: userQuery,
+        data: {
+            alert: "You drank " + beerName + "!"
+        }
+    }, {
+        success: function() {
+            // Push was successful
+        },
+        error: function(error) {
+            // Handle error
+        }
+    });
+});

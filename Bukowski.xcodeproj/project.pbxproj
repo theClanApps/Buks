@@ -64,6 +64,9 @@
 		4CD478DE1C524DD0C1156959 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4439E0F969A77184CFD09AAE /* libPods.a */; };
 		63157B9F1A647B9400D49E8E /* NoItemsRemainingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63157B9E1A647B9400D49E8E /* NoItemsRemainingCell.xib */; };
 		63157BA31A647FF100D49E8E /* NoItemsRemainingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63157BA21A647FF100D49E8E /* NoItemsRemainingCell.m */; };
+		635FDBE21A686209003CEA41 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 635FDBDD1A686209003CEA41 /* main.js */; };
+		635FDBE31A686209003CEA41 /* global.json in Resources */ = {isa = PBXBuildFile; fileRef = 635FDBDF1A686209003CEA41 /* global.json */; };
+		635FDBE41A686209003CEA41 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 635FDBE11A686209003CEA41 /* index.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +168,9 @@
 		63157B9E1A647B9400D49E8E /* NoItemsRemainingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoItemsRemainingCell.xib; path = ../BeerLists/CollectionViewCells/NoItemsRemainingCell.xib; sourceTree = "<group>"; };
 		63157BA11A647FF100D49E8E /* NoItemsRemainingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoItemsRemainingCell.h; sourceTree = "<group>"; };
 		63157BA21A647FF100D49E8E /* NoItemsRemainingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoItemsRemainingCell.m; sourceTree = "<group>"; };
+		635FDBDD1A686209003CEA41 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
+		635FDBDF1A686209003CEA41 /* global.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = global.json; sourceTree = "<group>"; };
+		635FDBE11A686209003CEA41 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		C2D1ECEB79DB5C78EF171D49 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -498,6 +504,40 @@
 			name = CollectionViewCells;
 			sourceTree = "<group>";
 		};
+		635FDBDB1A686209003CEA41 /* BukowskiCloudCode */ = {
+			isa = PBXGroup;
+			children = (
+				635FDBDC1A686209003CEA41 /* cloud */,
+				635FDBDE1A686209003CEA41 /* config */,
+				635FDBE01A686209003CEA41 /* public */,
+			);
+			path = BukowskiCloudCode;
+			sourceTree = "<group>";
+		};
+		635FDBDC1A686209003CEA41 /* cloud */ = {
+			isa = PBXGroup;
+			children = (
+				635FDBDD1A686209003CEA41 /* main.js */,
+			);
+			path = cloud;
+			sourceTree = "<group>";
+		};
+		635FDBDE1A686209003CEA41 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				635FDBDF1A686209003CEA41 /* global.json */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
+		635FDBE01A686209003CEA41 /* public */ = {
+			isa = PBXGroup;
+			children = (
+				635FDBE11A686209003CEA41 /* index.html */,
+			);
+			path = public;
+			sourceTree = "<group>";
+		};
 		80B2D75E4C6B5B015104C7DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -751,7 +791,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ezra Fried-Tanzer (CYZJJUT7VE)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ezra Fried-Tanzer (CYZJJUT7VE)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -792,7 +833,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ezra Fried-Tanzer (CYZJJUT7VE)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ezra Fried-Tanzer (CYZJJUT7VE)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -815,6 +857,7 @@
 			baseConfigurationReference = C2D1ECEB79DB5C78EF171D49 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ezra Fried-Tanzer (CYZJJUT7VE)";
 				INFOPLIST_FILE = Bukowski/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -826,6 +869,7 @@
 			baseConfigurationReference = 2AE21DD105B94890FB73E2DE /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ezra Fried-Tanzer (CYZJJUT7VE)";
 				INFOPLIST_FILE = Bukowski/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
