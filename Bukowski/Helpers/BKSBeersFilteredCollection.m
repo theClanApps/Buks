@@ -38,9 +38,9 @@
 
             if ([beer.beerName rangeOfString:self.filterString options:NSCaseInsensitiveSearch].location == NSNotFound) {
                 if ([beer.beerNickname rangeOfString:self.filterString options:NSCaseInsensitiveSearch].location == NSNotFound) {
-                    if ([beer.brewery.breweryName rangeOfString:self.filterString options:NSCaseInsensitiveSearch].location == NSNotFound) {
+                    //if ([beer.brewery.breweryName rangeOfString:self.filterString options:NSCaseInsensitiveSearch].location == NSNotFound) {
                         return NO;
-                    }
+                    //}
                 }
             }
 

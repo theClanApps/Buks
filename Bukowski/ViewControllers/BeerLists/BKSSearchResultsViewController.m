@@ -22,6 +22,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.beersFilteredCollection = [[BKSBeersFilteredCollection alloc] initWithUnfilteredBeers:self.allBeers];
 }
 
@@ -46,7 +50,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.beerSelected = [self.beersFilteredCollection filteredBeersAtIndex:indexPath.row];
     [self.delegate beerSearchResultsViewControllerDidSelectBeer:self beerSelected:self.beerSelected];
 }
