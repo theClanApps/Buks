@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BKSBeersFilteredCollection.h"
+#import "Beer.h"
 
 @protocol BKSSearchResultsViewControllerDelegate;
 
@@ -22,6 +23,6 @@
 
 @protocol BKSSearchResultsViewControllerDelegate <NSObject>
 
-- (void)beerSearchResultsViewControllerDidSelectBeer:(BKSSearchResultsViewController *)beerSearchResultsVC beerSelected:(UserBeerObject *)beerSelected;
+- (void)beerSearchResultsViewControllerDidSelectBeer:(BKSSearchResultsViewController *)beerSearchResultsVC beerSelected:(Beer *)beerSelected;
 
 @end

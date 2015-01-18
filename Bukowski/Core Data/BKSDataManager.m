@@ -8,6 +8,17 @@
 
 #import "BKSDataManager.h"
 #import <CoreData/CoreData.h>
+#import "BeerStyle.h"
+#import "BeerObject.h"
+
+#include "Beer+Configure.h"
+#include "BeerStyle+Configure.h"
+
+#import "UserBeerObject.h"
+#import "BeerObject.h"
+#import "BeerStyleObject.h"
+
+#import "UIImageView+WebCache.h"
 
 @implementation BKSDataManager
 
@@ -23,6 +34,57 @@
         _sharedManager = [[BKSDataManager alloc] init];
     });
     return _sharedManager;
+}
+
+#pragma mark - Custom Methods
+
+- (void)persistUserBeerObjects:(NSArray *)userBeerObjects {
+    for (UserBeerObject *userBeerObject in userBeerObjects) {
+        Beer *beer = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([Beer class])
+                                      inManagedObjectContext:self.managedObjectContext];
+        [beer configureWithUserBeerObject:userBeerObject];
+    }
+    [self saveContext];
+}
+
+- (void)persistBeerStyleObjects:(NSArray *)beerStyleObjects {
+    NSArray *filteredStyles = [self uniqueBeerStyleObjectsFromBeerStyleObjects:beerStyleObjects];
+    for (BeerStyleObject *beerStyleObject in filteredStyles) {
+        BeerStyle *beerStyle = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([BeerStyle class])
+                                                             inManagedObjectContext:self.managedObjectContext];
+        [beerStyle configureWithBeerStyleObject:beerStyleObject];
+    }
+    [self saveContext];
+}
+
+- (NSArray *)allBeers {
+    NSFetchRequest *styleFetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Beer class])];
+
+    NSError *error;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:styleFetchRequest
+                                                                error:&error];
+    return (error) ? nil : results;
+}
+
+- (NSArray *)allStyles {
+    NSFetchRequest *styleFetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([BeerStyle class])];
+    styleFetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"styleName" ascending:YES]];
+    NSError *error;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:styleFetchRequest
+                                                                error:&error];
+    return (error) ? nil : results;
+}
+
+#pragma mark - Queries
+
+- (BeerStyle *)beerStyleForUserBeerObject:(UserBeerObject *)userBeerObject {
+    NSFetchRequest *styleFetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([BeerStyle class])];
+    styleFetchRequest.predicate = [NSPredicate predicateWithFormat:@"styleID == %@",userBeerObject.beer.style.styleID];
+
+    NSError *error;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:styleFetchRequest
+                                                                error:&error];
+    return results.firstObject;
 }
 
 #pragma mark - Core Data stack
@@ -99,6 +161,18 @@
             abort();
         }
     }
+}
+
+#pragma mark - Helpers
+
+- (NSArray *)uniqueBeerStyleObjectsFromBeerStyleObjects:(NSArray *)beerStyleObjects {
+    NSMutableArray *styleArray = [[NSMutableArray alloc] init];
+    for (BeerStyleObject *style in beerStyleObjects) {
+        if (![styleArray containsObject:style]) {
+            [styleArray addObject:style];
+        }
+    }
+    return [styleArray copy];
 }
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class UserBeerObject;
+@class Beer;
 
 @interface BKSBeersFilteredCollection : NSObject
 
@@ -16,6 +16,6 @@
 - (instancetype)initWithUnfilteredBeers:(NSArray *)beers;
 
 - (NSUInteger)countOfFilteredBeers;
-- (UserBeerObject *)filteredBeersAtIndex:(NSUInteger)index;
+- (Beer *)filteredBeersAtIndex:(NSUInteger)index;
 
 @end

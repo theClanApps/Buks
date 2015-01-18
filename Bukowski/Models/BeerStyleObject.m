@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 The Clan. All rights reserved.
 //
 
-#import "BeerStyle.h"
+#import "BeerStyleObject.h"
 
-@implementation BeerStyle
+@implementation BeerStyleObject
 @dynamic styleID, styleName, styleImage, styleDescription;
 
 + (void)load {
@@ -16,7 +16,7 @@
 }
 
 + (NSString *)parseClassName {
-    return @"BeerStyle";
+    return @"BeerStyleObject";
 }
 
 - (BOOL)isEqual:(id)object {
@@ -24,11 +24,11 @@
         return YES;
     }
 
-    if (![object isKindOfClass:[BeerStyle class]]) {
+    if (![object isKindOfClass:[BeerStyleObject class]]) {
         return NO;
     }
 
-    return [self.styleID isEqualToString:((BeerStyle *)object).styleID];
+    return [self.styleID isEqualToString:((BeerStyleObject *)object).styleID];
 }
 
 @end

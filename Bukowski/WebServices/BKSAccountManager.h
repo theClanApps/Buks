@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class UserBeerObject;
+@class Beer;
 
 typedef void (^BKSSuccessBlock) (id successObject);
 typedef void (^BKSErrorBlock) (NSError *error);
@@ -20,7 +20,7 @@ typedef void (^BKSErrorBlock) (NSError *error);
 - (void)startMugClubWithSuccess:(BKSSuccessBlock)success failure:(BKSErrorBlock)failure;
 - (BOOL)userStartedMugClub;
 - (void)loadBeersWithSuccess:(void(^)(NSArray *beers, NSError *error))block;
-- (void)rateBeer:(UserBeerObject *)userBeer
+- (void)rateBeer:(Beer *)beer
         withRating:(NSNumber*)rating
-      WithCompletion:(void(^)(NSError *error, UserBeerObject *userBeer))completion;
+      WithCompletion:(void(^)(NSError *error, Beer *userBeer))completion;
 @end

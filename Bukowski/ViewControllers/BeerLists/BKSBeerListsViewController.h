@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UserBeerObject.h"
-#import "BeerStyle.h"
+@class Beer;
+@class BeerStyle;
 
 @protocol BKSBeerListsViewControllerDelegate;
 
@@ -23,9 +23,9 @@
 
 - (void)beerListsViewControllerDidPushProgressButton:(BKSBeerListsViewController *)beerListsVC;
 
-- (void)beerListsViewControllerDidSelectBeer:(BKSBeerListsViewController *)beerListsVC beerSelected:(UserBeerObject *)beerSelected;
+- (void)beerListsViewControllerDidSelectBeer:(BKSBeerListsViewController *)beerListsVC beerSelected:(Beer *)beerSelected;
 
-- (void)beerListsViewControllerDidPushRandomButton:(BKSBeerListsViewController *)beerListsVC randomBeer:(UserBeerObject *)beer;
+- (void)beerListsViewControllerDidPushRandomButton:(BKSBeerListsViewController *)beerListsVC randomBeer:(Beer *)beer;
 
 - (void)beerListsViewControllerDidSelectStyle:(BKSBeerListsViewController *)beerListsVC styleSelected:(BeerStyle *)styleSelected;
 

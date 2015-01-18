@@ -9,13 +9,15 @@
 #import "BKSBeerListsViewController.h"
 #import "BKSBeerCollectionTableViewCell.h"
 #import "BKSAccountManager.h"
-#import "UserBeerObject.h"
-#import "BeerObject.h"
 #import "CollectionCell.h"
 #import "BKSBeerDetailViewController.h"
-#import "BeerStyle.h"
+#import "BeerStyleObject.h"
 #import "BKSStyleViewController.h"
 #import "BKSProgressViewController.h"
+#import "BKSDataManager.h"
+#import "Beer.h"
+#import "BeerStyle.h"
+#import "UIImageView+WebCache.h"
 
 typedef NS_ENUM(NSInteger, BKSBeerCategorySection) {
     BKSBeerCategorySectionAllBeers,
@@ -42,7 +44,7 @@ NSInteger const kBKSNumberOfSections = 4;
 @property (strong, nonatomic) NSArray *styles;
 @property (strong, nonatomic) NSArray *stylesRemaining;
 
-@property (strong, nonatomic) UserBeerObject *beerSelected;
+@property (strong, nonatomic) Beer *beerSelected;
 @property (strong, nonatomic) BeerStyle *styleSelected;
 @property (strong, nonatomic) UserObject *userLoggedIn;
 
@@ -93,23 +95,16 @@ NSInteger const kBKSNumberOfSections = 4;
 }
 
 - (void)sortAllBeersIntoCategories:(NSArray *)allBeers {
-    [PFObject fetchAllInBackground:[self beerObjectsFromUserBeerObjects:self.allBeers] block:^(NSArray *objects, NSError *error) {
-        self.beersUnderEight = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.price < %@)", @"7"]];
-        self.beersUnderFivePercent = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.abv < %@)", @"5"]];
-        self.allBeersRemaining = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
-        self.beersUnderEightRemaining = [self.beersUnderEight filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
-        self.beersUnderFivePercentRemaining = [self.beersUnderFivePercent filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"drank = false"]];
+    self.beersUnderEight = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beerPrice < %@)", @7]];
+    self.beersUnderFivePercent = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beerAbv < %@)", @5]];
+    self.allBeersRemaining = [allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = %@)", @NO]];
+    self.beersUnderEightRemaining = [self.beersUnderEight filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = %@)", @NO]];
+    self.beersUnderFivePercentRemaining = [self.beersUnderFivePercent filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"drank = %@", @NO]];
 
-        [PFObject fetchAllInBackground:[self stylesContainedInBeers:[self beerObjectsFromUserBeerObjects:self.allBeers]] block:^(NSArray *objects, NSError *error) {
-            if (!error) {
-                self.styles = [self uniqueStylesFromStyles:objects];
-                self.stylesRemaining = [self uniqueStylesFromStyles:[self stylesContainedInBeers:[self beerObjectsFromUserBeerObjects:self.allBeersRemaining]]];
-                [self reloadAllCollectionViews];
-            } else {
-                NSLog(@"Error: %@", error);
-            }
-        }];
-    }];
+    self.styles = [[BKSDataManager sharedDataManager] allStyles];
+    self.stylesRemaining = [self stylesContainedInBeers:self.allBeers];
+
+    [self reloadAllCollectionViews];
 }
 
 - (void)loadUser {
@@ -202,26 +197,26 @@ NSInteger const kBKSNumberOfSections = 4;
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cvCell" forIndexPath:indexPath];
     
-    BeerObject *beer;
+    Beer *beer;
     BeerStyle *style;
     
     if (collectionView.tag == BKSBeerCategorySectionAllBeers) {
         if (self.toggleAllOrRemainingSwitch.isOn) {
-            beer = ((UserBeerObject *)[self.allBeersRemaining objectAtIndex:indexPath.row]).beer;
+            beer = ((Beer *)[self.allBeersRemaining objectAtIndex:indexPath.row]);
         } else {
-            beer = ((UserBeerObject *)[self.allBeers objectAtIndex:indexPath.row]).beer;
+            beer = ((Beer *)[self.allBeers objectAtIndex:indexPath.row]);
         }
     } else if (collectionView.tag == BKSBeerCategorySectionBeersUnderEight) {
         if (self.toggleAllOrRemainingSwitch.isOn) {
-            beer = ((UserBeerObject *)[self.beersUnderEightRemaining objectAtIndex:indexPath.row]).beer;
+            beer = ((Beer *)[self.beersUnderEightRemaining objectAtIndex:indexPath.row]);
         } else {
-            beer = ((UserBeerObject *)[self.beersUnderEight objectAtIndex:indexPath.row]).beer;
+            beer = ((Beer *)[self.beersUnderEight objectAtIndex:indexPath.row]);
         }
     } else if (collectionView.tag == BKSBeerCategorySectionBeersUnderFivePercent) {
         if (self.toggleAllOrRemainingSwitch.isOn) {
-            beer = ((UserBeerObject *)[self.beersUnderFivePercentRemaining objectAtIndex:indexPath.row]).beer;
+            beer = ((Beer *)[self.beersUnderFivePercentRemaining objectAtIndex:indexPath.row]);
         } else {
-            beer = ((UserBeerObject *)[self.beersUnderFivePercent objectAtIndex:indexPath.row]).beer;
+            beer = ((Beer *)[self.beersUnderFivePercent objectAtIndex:indexPath.row]);
         }
     } else if (collectionView.tag == BKSBeerCategorySectionStyles) {
         if (self.toggleAllOrRemainingSwitch.isOn) {
@@ -242,21 +237,21 @@ NSInteger const kBKSNumberOfSections = 4;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (collectionView.tag == BKSBeerCategorySectionAllBeers) {
         if (self.toggleAllOrRemainingSwitch.isOn) {
-            self.beerSelected = ((UserBeerObject *)[self.allBeersRemaining objectAtIndex:indexPath.row]);
+            self.beerSelected = ((Beer *)[self.allBeersRemaining objectAtIndex:indexPath.row]);
         } else {
-            self.beerSelected = ((UserBeerObject *)[self.allBeers objectAtIndex:indexPath.row]);
+            self.beerSelected = ((Beer *)[self.allBeers objectAtIndex:indexPath.row]);
         }
     } else if (collectionView.tag == BKSBeerCategorySectionBeersUnderEight) {
         if (self.toggleAllOrRemainingSwitch.isOn) {
-            self.beerSelected = ((UserBeerObject *)[self.beersUnderEightRemaining objectAtIndex:indexPath.row]);
+            self.beerSelected = ((Beer *)[self.beersUnderEightRemaining objectAtIndex:indexPath.row]);
         } else {
-            self.beerSelected = ((UserBeerObject *)[self.beersUnderEight objectAtIndex:indexPath.row]);
+            self.beerSelected = ((Beer *)[self.beersUnderEight objectAtIndex:indexPath.row]);
         }
     } else if (collectionView.tag == BKSBeerCategorySectionBeersUnderFivePercent) {
         if (self.toggleAllOrRemainingSwitch.isOn) {
-            self.beerSelected = ((UserBeerObject *)[self.beersUnderFivePercentRemaining objectAtIndex:indexPath.row]);
+            self.beerSelected = ((Beer *)[self.beersUnderFivePercentRemaining objectAtIndex:indexPath.row]);
         } else {
-            self.beerSelected = ((UserBeerObject *)[self.beersUnderFivePercent objectAtIndex:indexPath.row]);
+            self.beerSelected = ((Beer *)[self.beersUnderFivePercent objectAtIndex:indexPath.row]);
         }
     } else if (collectionView.tag == BKSBeerCategorySectionStyles) {
         if (self.toggleAllOrRemainingSwitch.isOn) {
@@ -290,8 +285,8 @@ NSInteger const kBKSNumberOfSections = 4;
     }
 }
 
-- (UserBeerObject *)generateRandomBeer {
-    UserBeerObject *randomBeer = nil;
+- (Beer *)generateRandomBeer {
+    Beer *randomBeer = nil;
     int i = 0;
     if (self.toggleAllOrRemainingSwitch.isOn) {
         i = (arc4random() % (self.allBeersRemaining.count));
@@ -312,68 +307,26 @@ NSInteger const kBKSNumberOfSections = 4;
 
 #pragma mark - Helpers
 
-- (NSArray *)beerObjectsFromUserBeerObjects:(NSArray *)userBeerObjects {
-    NSMutableArray *beerObjects = [[NSMutableArray alloc] init];
-    for (UserBeerObject *userBeerObject in userBeerObjects) {
-        [beerObjects addObject:userBeerObject.beer];
-    }
-    return [beerObjects copy];
+- (void)configureCell:(CollectionCell *)cell forBeerStyle:(BeerStyle *)style {
+    [cell.beerImage sd_setImageWithURL:[NSURL URLWithString:style.styleName]];
+    cell.beerNameLabel.text =  style.styleName;
+}
+
+- (void)configureCell:(CollectionCell *)cell forBeer:(Beer *)beer {
+    [cell.beerImage sd_setImageWithURL:[NSURL URLWithString:beer.beerID] placeholderImage:[UIImage imageNamed:@"beer"]];
+    cell.beerNameLabel.text =  beer.beerNickname;
 }
 
 - (NSArray *)stylesContainedInBeers:(NSArray *)beers {
     NSMutableArray *styleArray = [[NSMutableArray alloc] init];
-    for (BeerObject *beer in beers) {
-        [styleArray addObject:beer.style];
-    }
-    return [styleArray copy];
-}
-
-- (NSArray *)uniqueStylesFromStyles:(NSArray *)styles {
-    NSMutableArray *styleArray = [[NSMutableArray alloc] init];
-    for (BeerStyle *style in styles) {
-        if (![styleArray containsObject:style]) {
-            [styleArray addObject:style];
+    for (Beer *beer in beers) {
+        if (![styleArray containsObject:beer.beerStyle]) {
+            [styleArray addObject:beer.beerStyle];
         }
     }
-    return [styleArray copy];
-}
 
-- (void)configureCell:(CollectionCell *)cell forBeerStyle:(BeerStyle *)style {
-    if (style.styleImage) {
-        dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        dispatch_async(aQueue, ^{
-            PFFile *theImage = style.styleImage;
-            NSData *imageData = [theImage getData];
-            if (imageData) {
-                UIImage *image = [UIImage imageWithData:imageData];
-                if (image) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        cell.beerImage.image = image;
-                        cell.beerNameLabel.text =  style.styleName;
-                    });
-                }
-            }
-        });
-    }
-}
-
-- (void)configureCell:(CollectionCell *)cell forBeer:(BeerObject *)beer {
-    if (beer.bottleImage) {
-        dispatch_queue_t aQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        dispatch_async(aQueue, ^{
-            PFFile *theImage = beer.bottleImage;
-            NSData *imageData = [theImage getData];
-            if (imageData) {
-                UIImage *image = [UIImage imageWithData:imageData];
-                if (image) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        cell.beerImage.image = image;
-                        cell.beerNameLabel.text =  beer.nickname;
-                    });
-                }
-            }
-        });
-    }
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"styleName" ascending:YES];
+    return [[styleArray copy] sortedArrayUsingDescriptors:@[sort]];
 }
 
 @end

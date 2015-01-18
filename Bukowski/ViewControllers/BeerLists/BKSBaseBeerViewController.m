@@ -13,6 +13,7 @@
 #import "BKSSearchResultsViewController.h"
 #import "BKSBeerDetailViewController.h"
 #import "BKSStyleViewController.h"
+#import "Beer.h"
 
 NSString * const kBKSBeerListsViewController = @"BKSBeerListsViewController";
 NSString * const kBKSSearchResultsViewController = @"BKSSearchResultsViewController";
@@ -34,6 +35,7 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupChildViewControllers];
+
     [self loadBeers];
 }
 
@@ -48,6 +50,7 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
     self.beerListsVC.delegate = self;
     
     self.searchResultsVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kBKSSearchResultsViewController];
+
     self.searchResultsVC.delegate = self;
 }
 
@@ -89,12 +92,12 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
     [self performSegueWithIdentifier:kBKSProgressSegue sender:nil];
 }
 
-- (void)beerListsViewControllerDidSelectBeer:(BKSBeerListsViewController *)beerListsVC beerSelected:(UserBeerObject *)beerSelected {
+- (void)beerListsViewControllerDidSelectBeer:(BKSBeerListsViewController *)beerListsVC beerSelected:(Beer *)beerSelected {
     self.beerSelected = beerSelected;
     [self performSegueWithIdentifier:kBKSBeerDetailSegue sender:nil];
 }
 
-- (void)beerListsViewControllerDidPushRandomButton:(BKSBeerListsViewController *)beerListsVC randomBeer:(UserBeerObject *)beer {
+- (void)beerListsViewControllerDidPushRandomButton:(BKSBeerListsViewController *)beerListsVC randomBeer:(Beer *)beer {
     self.beerSelected = beer;
     [self performSegueWithIdentifier:kBKSBeerDetailSegue sender:nil];
 }
@@ -106,7 +109,7 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
 
 #pragma mark - BKSSearchResultsViewController
 
-- (void)beerSearchResultsViewControllerDidSelectBeer:(BKSSearchResultsViewController *)beerSearchResultsVC beerSelected:(UserBeerObject *)beerSelected {
+- (void)beerSearchResultsViewControllerDidSelectBeer:(BKSSearchResultsViewController *)beerSearchResultsVC beerSelected:(Beer *)beerSelected {
     [self clearSearch];
     self.beerSelected = beerSelected;
     [self performSegueWithIdentifier:kBKSBeerDetailSegue sender:nil];
@@ -169,7 +172,7 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
 #pragma mark - Helpers
 
 - (NSArray *)beerObjectsFromStyle:(BeerStyle *)style {
-    NSArray *beers = [self.allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beer.style == %@)", self.styleSelected]];
+    NSArray *beers = [self.allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beerStyle == %@)", self.styleSelected]];
     return beers;
 }
 

@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "BKSRateView.h"
-@class UserBeerObject;
+@class Beer;
 
 @interface BKSBeerDetailViewController : UIViewController <BKSRateViewDelegate>
 
-@property (nonatomic, strong) UserBeerObject *beer;
+@property (nonatomic, strong) Beer *beer;
 @property (strong, nonatomic) NSArray *allBeers;
 
 @property (weak, nonatomic) IBOutlet BKSRateView *rateView;
