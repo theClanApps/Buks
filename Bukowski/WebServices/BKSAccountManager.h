@@ -23,4 +23,6 @@ typedef void (^BKSErrorBlock) (NSError *error);
 - (void)rateBeer:(Beer *)beer
         withRating:(NSNumber*)rating
       WithCompletion:(void(^)(NSError *error, Beer *userBeer))completion;
+- (void)updateBeersThatHaveBeenDrunkWithCompletion:(void(^)(NSError *error))completion;
+
 @end

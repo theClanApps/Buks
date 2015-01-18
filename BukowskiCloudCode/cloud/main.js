@@ -24,7 +24,8 @@ Parse.Cloud.define("createUserBeerInCloud", function(request, response) {
 						  beer : results[i],
 						  dateDrank : undefined,
 						  checkingEmployee : undefined,
-						  checkingEmployeeComments : undefined
+						  checkingEmployeeComments : undefined,
+						  pendingUpdatesToUserDevice : false
 						}, {
 						  success: function(userBeerObject) {
 						  },

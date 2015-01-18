@@ -10,7 +10,7 @@
 #import <Parse/PFObject+Subclass.h>
 
 @implementation UserBeerObject
-@dynamic drinkingUser, beer, drank, dateDrank, checkingEmployee, checkingEmployeeComments, userRating;
+@dynamic drinkingUser, beer, drank, dateDrank, checkingEmployee, checkingEmployeeComments, userRating, pendingUpdatesToUserDevice;
 
 + (void)load {
     [self registerSubclass];

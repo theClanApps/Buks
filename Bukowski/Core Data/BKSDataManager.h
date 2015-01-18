@@ -30,4 +30,6 @@
 - (NSArray *)allBeers;
 - (NSArray *)allStyles;
 
+- (void)markBeersDrank:(NSArray *)userBeerObjects;
+
 @end

@@ -215,6 +215,24 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
                                 }];
 }
 
+- (void)updateBeersThatHaveBeenDrunkWithCompletion:(void(^)(NSError *error))completion {
+    PFQuery *query = [PFQuery queryWithClassName:NSStringFromClass([UserBeerObject class])];
+    [query whereKey:NSStringFromSelector(@selector(pendingUpdatesToUserDevice)) equalTo:@YES];
+    [query whereKey:NSStringFromSelector(@selector(drank)) equalTo:@YES];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *userBeerObjects, NSError *error) {
+        if (!error) {
+            [[BKSDataManager sharedDataManager] markBeersDrank:userBeerObjects];
+            if (completion) {
+                completion(nil);
+            } else {
+                completion(error);
+            }
+        } else {
+            // DO NOTHING
+        }
+    }];
+}
+
 - (NSArray *)beerObjectsFromUserBeerObjects:(NSArray *)userBeerObjects {
     NSMutableArray *beerObjects = [[NSMutableArray alloc] init];
     for (UserBeerObject *userBeerObject in userBeerObjects) {
