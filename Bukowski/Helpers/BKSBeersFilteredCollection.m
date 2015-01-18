@@ -7,7 +7,8 @@
 //
 
 #import "BKSBeersFilteredCollection.h"
-#import "UserBeerObject.h"
+#import "Beer.h"
+#import "Brewery.h"
 
 @interface BKSBeersFilteredCollection ()
 
@@ -33,11 +34,11 @@
         self.filteredBeers = [self.unfilteredBeers copy];
     } else {
         self.filteredBeers = [self.unfilteredBeers filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
-            UserBeerObject *beer = (UserBeerObject *)evaluatedObject;
+            Beer *beer = (Beer *)evaluatedObject;
 
-            if ([beer.beer.beerName rangeOfString:self.filterString options:NSCaseInsensitiveSearch].location == NSNotFound) {
-                if ([beer.beer.beerNickname rangeOfString:self.filterString options:NSCaseInsensitiveSearch].location == NSNotFound) {
-                    if ([beer.beer.brewery rangeOfString:self.filterString options:NSCaseInsensitiveSearch].location == NSNotFound) {
+            if ([beer.beerName rangeOfString:self.filterString options:NSCaseInsensitiveSearch].location == NSNotFound) {
+                if ([beer.beerNickname rangeOfString:self.filterString options:NSCaseInsensitiveSearch].location == NSNotFound) {
+                    if ([beer.brewery.breweryName rangeOfString:self.filterString options:NSCaseInsensitiveSearch].location == NSNotFound) {
                         return NO;
                     }
                 }
@@ -63,7 +64,7 @@
     return self.filteredBeers.count;
 }
 
-- (UserBeerObject *)filteredBeersAtIndex:(NSUInteger)index {
+- (Beer *)filteredBeersAtIndex:(NSUInteger)index {
     return self.filteredBeers[index];
 }
 

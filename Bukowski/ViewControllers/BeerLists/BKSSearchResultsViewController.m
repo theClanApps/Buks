@@ -9,10 +9,12 @@
 #import "BKSSearchResultsViewController.h"
 #import "UserBeerObject.h"
 #import "BKSBeersFilteredCollection.h"
+#import "Beer.h"
+#import "Brewery.h"
 
 @interface BKSSearchResultsViewController ()
 
-@property (strong, nonatomic) UserBeerObject *beerSelected;
+@property (strong, nonatomic) Beer *beerSelected;
 
 @end
 
@@ -36,10 +38,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchResultCell" forIndexPath:indexPath];
     
-    UserBeerObject *userBeer = (UserBeerObject *)[self.beersFilteredCollection filteredBeersAtIndex:indexPath.row];
+    Beer *beer = (Beer *)[self.beersFilteredCollection filteredBeersAtIndex:indexPath.row];
     
-    cell.textLabel.text = userBeer.beer.beerName;
-    cell.detailTextLabel.text = userBeer.beer.brewery;
+    cell.textLabel.text = beer.beerName;
+    cell.detailTextLabel.text = beer.brewery.breweryName;
     return cell;
 }
 
