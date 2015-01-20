@@ -10,6 +10,8 @@
 @class Beer;
 @class BeerStyle;
 
+extern NSString * const kBKSUserToggleSetting;
+
 @protocol BKSBeerListsViewControllerDelegate;
 
 @interface BKSBeerListsViewController : UIViewController
