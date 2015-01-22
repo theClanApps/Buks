@@ -17,10 +17,13 @@
 #import <SDWebImage/SDWebImageManager.h>
 
 static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
+NSTimeInterval const kBKSMarkDrankTimeInterval = 60.0;
+NSString * const kBKSBeersNeedUpdateNotification = @"kBKSBeersNeedUpdateNotification";
 
 @interface BKSAccountManager ()
 @property (strong, nonatomic) NSArray *faceBookPermissions;
 @property (nonatomic) NSInteger beerImageSaveTally;
+@property (strong, nonatomic) NSTimer *markedDrankTimer;
 
 @end
 
@@ -31,6 +34,7 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedAccountManager = [[BKSAccountManager alloc] init];
+        [_sharedAccountManager setupMarkedDrankTimer];
     });
     return _sharedAccountManager;
 }
@@ -92,7 +96,7 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
         [self createUsersBeersInCloudWithCompletion:^(NSError *error, NSString *result) {
             PFUser *currentUser = [PFUser currentUser];
             NSDate * currentDate = [NSDate date];
-            currentUser[@"MugClubStartDate"] = currentDate;
+            currentUser[@"mugClubStartDate"] = currentDate;
             [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
                     [self storeStartDateInUserDefaults:currentDate];
@@ -114,7 +118,7 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
 }
 
 - (BOOL)userStartedMugClub {
-    return ([[PFUser currentUser] objectForKey:@"MugClubStartDate"]!=nil);
+    return ([[PFUser currentUser] objectForKey:@"mugClubStartDate"]!=nil);
 }
 
 - (void)rateBeer:(Beer *)beer
@@ -215,17 +219,17 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
                                 }];
 }
 
-- (void)updateBeersThatHaveBeenDrunkWithCompletion:(void(^)(NSError *error))completion {
+- (void)updateBeersThatHaveBeenDrunkWithCompletion:(void(^)(NSError *error, BOOL beersNeedUpdate))completion {
     PFQuery *query = [PFQuery queryWithClassName:NSStringFromClass([UserBeerObject class])];
+    [query whereKey:NSStringFromSelector(@selector(drinkingUser)) equalTo:[PFUser currentUser]];
     [query whereKey:NSStringFromSelector(@selector(pendingUpdatesToUserDevice)) equalTo:@YES];
     [query whereKey:NSStringFromSelector(@selector(drank)) equalTo:@YES];
     [query findObjectsInBackgroundWithBlock:^(NSArray *userBeerObjects, NSError *error) {
         if (!error) {
+#warning mark pendingUpdates as false again.
             [[BKSDataManager sharedDataManager] markBeersDrank:userBeerObjects];
             if (completion) {
-                completion(nil);
-            } else {
-                completion(error);
+                completion(nil, userBeerObjects.count > 0);
             }
         } else {
             // DO NOTHING
@@ -281,5 +285,34 @@ static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
     }
 }
 
+- (void)setupMarkedDrankTimer {
+    [NSTimer scheduledTimerWithTimeInterval:kBKSMarkDrankTimeInterval
+                                     target:self
+                                   selector:@selector(markedDrankTimerDidFire:)
+                                   userInfo:nil
+                                    repeats:YES];
+}
+
+- (void)markedDrankTimerDidFire:(NSTimer *)timer {
+    NSLog(@"Tick");
+    [self updateBeersThatHaveBeenDrunkWithCompletion:^(NSError *error, BOOL beersNeedUpdate) {
+        if (!error && beersNeedUpdate) {
+            [self postBeersMarkDrankNotification];
+        }
+    }];
+}
+
+- (void)dealloc {
+    [self.markedDrankTimer invalidate];
+    self.markedDrankTimer = nil;
+}
+
+
+#pragma mark - Notifications 
+
+- (void)postBeersMarkDrankNotification {
+    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kBKSBeersNeedUpdateNotification
+                                                                                         object:nil]];
+}
 
 @end

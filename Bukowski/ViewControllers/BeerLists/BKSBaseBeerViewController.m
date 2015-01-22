@@ -35,6 +35,7 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupChildViewControllers];
+    [self registerForMarkedDrankNotifications];
 
     [self loadBeers];
 }
@@ -175,6 +176,15 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
 - (NSArray *)beerObjectsFromStyle:(BeerStyle *)style {
     NSArray *beers = [self.allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beerStyle == %@)", self.styleSelected]];
     return beers;
+}
+
+#pragma mark - Notifications
+
+- (void)registerForMarkedDrankNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(loadBeers)
+                                                 name:kBKSBeersNeedUpdateNotification
+                                               object:nil];
 }
 
 @end
