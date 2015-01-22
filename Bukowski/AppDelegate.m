@@ -29,18 +29,18 @@
     // described here: https://developers.facebook.com/docs/getting-started/facebook-sdk-for-ios/
     [PFFacebookUtils initializeFacebook];
     // ****************************************************************************
-
+    
     [PFUser enableAutomaticUser];
-
+    
     PFACL *defaultACL = [PFACL ACL];
-
+    
     // If you would like all objects to be private by default, remove this line.
     [defaultACL setPublicReadAccess:YES];
-
+    
     [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
-
+    
     // Override point for customization after application launch.
-
+    
     if (application.applicationState != UIApplicationStateBackground) {
         // Track an app open here if we launch with a push, unless
         // "content_available" was used to trigger a background push (introduced in iOS 7).
@@ -52,44 +52,54 @@
             [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
         }
     }
-
+    
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
+    
     if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-        UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
-                                                        UIUserNotificationTypeBadge |
-                                                        UIUserNotificationTypeSound);
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge|UIUserNotificationTypeAlert|UIUserNotificationTypeSound
                                                                                  categories:nil];
-        [application registerUserNotificationSettings:settings];
-        [application registerForRemoteNotifications];
-    } else
-#endif
-    {
-        [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
-                                                         UIRemoteNotificationTypeAlert |
-                                                         UIRemoteNotificationTypeSound)];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    } else {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         UIRemoteNotificationTypeBadge |
+         UIRemoteNotificationTypeAlert |
+         UIRemoteNotificationTypeSound];
+        
     }
+#else
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     UIRemoteNotificationTypeBadge |
+     UIRemoteNotificationTypeAlert |
+     UIRemoteNotificationTypeSound];
+    
+#endif
+    
     return YES;
 }
 
 /*
-
-///////////////////////////////////////////////////////////
-// Uncomment this method if you are using Facebook
-///////////////////////////////////////////////////////////
-
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
-    return [PFFacebookUtils handleOpenURL:url];
-}
-
+ 
+ ///////////////////////////////////////////////////////////
+ // Uncomment this method if you are using Facebook
+ ///////////////////////////////////////////////////////////
+ 
+ - (BOOL)application:(UIApplication *)application
+ openURL:(NSURL *)url
+ sourceApplication:(NSString *)sourceApplication
+ annotation:(id)annotation {
+ return [PFFacebookUtils handleOpenURL:url];
+ }
+ 
  */
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
-    [PFPush storeDeviceToken:newDeviceToken];
-    [PFPush subscribeToChannelInBackground:@"" target:self selector:@selector(subscribeFinished:error:)];
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:newDeviceToken];
+    currentInstallation.channels = @[ @"global" ];
+    currentInstallation[@"user"] = [PFUser currentUser];
+    [currentInstallation saveInBackground];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
@@ -103,7 +113,7 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [PFPush handlePush:userInfo];
-
+    
     if (application.applicationState == UIApplicationStateInactive) {
         [PFAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
     }
@@ -113,11 +123,11 @@
 // Uncomment this method if you want to use Push Notifications with Background App Refresh
 ///////////////////////////////////////////////////////////
 /*
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    if (application.applicationState == UIApplicationStateInactive) {
-        [PFAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
-    }
-}
+ - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+ if (application.applicationState == UIApplicationStateInactive) {
+ [PFAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
+ }
+ }
  */
 
 - (void)applicationWillResignActive:(UIApplication *)application {
