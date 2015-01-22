@@ -12,6 +12,8 @@
 typedef void (^BKSSuccessBlock) (id successObject);
 typedef void (^BKSErrorBlock) (NSError *error);
 
+extern NSString * const kBKSBeersNeedUpdateNotification;
+
 @interface BKSAccountManager : NSObject
 + (id)sharedAccountManager;
 
@@ -23,6 +25,6 @@ typedef void (^BKSErrorBlock) (NSError *error);
 - (void)rateBeer:(Beer *)beer
         withRating:(NSNumber*)rating
       WithCompletion:(void(^)(NSError *error, Beer *userBeer))completion;
-- (void)updateBeersThatHaveBeenDrunkWithCompletion:(void(^)(NSError *error))completion;
+- (void)updateBeersThatHaveBeenDrunkWithCompletion:(void(^)(NSError *error, BOOL beersNeedUpdate))completion;
 
 @end

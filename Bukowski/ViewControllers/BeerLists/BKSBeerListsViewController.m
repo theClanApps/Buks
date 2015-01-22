@@ -107,7 +107,7 @@ NSInteger const kBKSNumberOfSections = 4;
     self.beersUnderFivePercentRemaining = [self.beersUnderFivePercent filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"drank = %@", @NO]];
 
     self.styles = [[BKSDataManager sharedDataManager] allStyles];
-    self.stylesRemaining = [self stylesContainedInBeers:self.allBeers];
+    self.stylesRemaining = [self stylesContainedInBeers:self.allBeersRemaining];
 
     [self reloadAllCollectionViews];
 }
