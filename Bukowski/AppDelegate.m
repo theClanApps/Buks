@@ -98,6 +98,7 @@
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:newDeviceToken];
     currentInstallation.channels = @[ @"global" ];
+    currentInstallation[@"user"] = [PFUser currentUser];
     [currentInstallation saveInBackground];
 }
 
