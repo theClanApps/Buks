@@ -163,7 +163,31 @@
     }
 }
 
+- (void)markBeersDrank:(NSArray *)userBeerObjects {
+    NSArray *fetchedBeers = [self fetchBeers:userBeerObjects];
+    for (Beer *beer in fetchedBeers) {
+        beer.drank = @YES;
+    }
+    [self saveContext];
+}
+
 #pragma mark - Helpers
+
+- (NSArray *)fetchBeers:(NSArray *)userBeerObjects {
+    NSMutableArray *fetchedBeers = [[NSMutableArray alloc] init];
+    NSFetchRequest *beerFetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Beer class])];
+    for (UserBeerObject *userBeerObject in userBeerObjects) {
+        beerFetchRequest.predicate = [NSPredicate predicateWithFormat:@"beerID == %@", userBeerObject.objectId];
+        NSError *error;
+        NSArray *results = [self.managedObjectContext executeFetchRequest:beerFetchRequest
+                                                                    error:&error];
+        if (results.count == 1 && !error) {
+            [fetchedBeers addObject:results.firstObject];
+        }
+    }
+
+    return (userBeerObjects.count == fetchedBeers.count) ? fetchedBeers : nil;
+}
 
 - (NSArray *)uniqueBeerStyleObjectsFromBeerStyleObjects:(NSArray *)beerStyleObjects {
     NSMutableArray *styleArray = [[NSMutableArray alloc] init];

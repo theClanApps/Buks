@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSDate *dateDrank;
 @property (strong, nonatomic) PFUser *checkingEmployee;
 @property (strong, nonatomic) NSString *checkingEmployeeComments;
+@property (strong, nonatomic) NSNumber *pendingUpdatesToUserDevice;
 
 + (NSString *)parseClassName;
 
