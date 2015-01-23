@@ -93,9 +93,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"goToStyleFromBeerSegue"]) {
-        BKSStyleViewController *detailVC = (BKSStyleViewController *)segue.destinationViewController;
-        detailVC.beersOfStyle = [self beerObjectsFromStyle:self.beer.beerStyle];
-        detailVC.style = self.beer.beerStyle;
+        BKSStyleViewController *styleVC = (BKSStyleViewController *)segue.destinationViewController;
+        styleVC.beersOfStyle = [self beerObjectsFromStyle:self.beer.beerStyle];
+        styleVC.style = self.beer.beerStyle;
+        styleVC.allBeers = self.allBeers;
     }
 }
 
