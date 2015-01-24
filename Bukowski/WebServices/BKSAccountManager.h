@@ -26,5 +26,7 @@ extern NSString * const kBKSBeersNeedUpdateNotification;
         withRating:(NSNumber*)rating
       WithCompletion:(void(^)(NSError *error, Beer *userBeer))completion;
 - (void)updateBeersThatHaveBeenDrunkWithCompletion:(void(^)(NSError *error, BOOL beersNeedUpdate))completion;
+- (void)startCheckingForBeerUpdates;
+- (void)stopCheckingForBeerUpdates;
 
 @end
