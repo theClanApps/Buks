@@ -34,7 +34,6 @@ NSString * const kBKSBeersNeedUpdateNotification = @"kBKSBeersNeedUpdateNotifica
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedAccountManager = [[BKSAccountManager alloc] init];
-        [_sharedAccountManager setupMarkedDrankTimer];
     });
     return _sharedAccountManager;
 }
@@ -114,6 +113,7 @@ NSString * const kBKSBeersNeedUpdateNotification = @"kBKSBeersNeedUpdateNotifica
 }
 
 - (void)logout {
+    [self stopCheckingForBeerUpdates];
     [PFUser logOut];
 }
 
@@ -285,16 +285,20 @@ NSString * const kBKSBeersNeedUpdateNotification = @"kBKSBeersNeedUpdateNotifica
     }
 }
 
-- (void)setupMarkedDrankTimer {
-    [NSTimer scheduledTimerWithTimeInterval:kBKSMarkDrankTimeInterval
-                                     target:self
-                                   selector:@selector(markedDrankTimerDidFire:)
-                                   userInfo:nil
-                                    repeats:YES];
+- (void)startCheckingForBeerUpdates {
+    self.markedDrankTimer = [NSTimer scheduledTimerWithTimeInterval:kBKSMarkDrankTimeInterval
+                                                             target:self
+                                                           selector:@selector(markedDrankTimerDidFire:)
+                                                           userInfo:nil
+                                                            repeats:YES];
+}
+
+- (void)stopCheckingForBeerUpdates {
+        [self.markedDrankTimer invalidate];
+        self.markedDrankTimer = nil;
 }
 
 - (void)markedDrankTimerDidFire:(NSTimer *)timer {
-    NSLog(@"Tick");
     [self updateBeersThatHaveBeenDrunkWithCompletion:^(NSError *error, BOOL beersNeedUpdate) {
         if (!error && beersNeedUpdate) {
             [self postBeersMarkDrankNotification];
@@ -303,8 +307,7 @@ NSString * const kBKSBeersNeedUpdateNotification = @"kBKSBeersNeedUpdateNotifica
 }
 
 - (void)dealloc {
-    [self.markedDrankTimer invalidate];
-    self.markedDrankTimer = nil;
+    [self stopCheckingForBeerUpdates];
 }
 
 

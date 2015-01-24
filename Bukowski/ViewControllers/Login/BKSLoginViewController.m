@@ -24,6 +24,7 @@ static NSString * const kSegueToBeerViewController = @"kSegueToBeerViewControlle
     if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
         if ([[BKSAccountManager sharedAccountManager] userStartedMugClub]) {
             [self performSegueWithIdentifier:kSegueToBeerViewController sender:self];
+            [[BKSAccountManager sharedAccountManager] startCheckingForBeerUpdates];
         } else {
             [self performSegueWithIdentifier:kBKSSegueToWelcomeViewControllerIdentifier sender:self];
         }
@@ -34,6 +35,7 @@ static NSString * const kSegueToBeerViewController = @"kSegueToBeerViewControlle
     [[BKSAccountManager sharedAccountManager] loginWithWithSuccess:^(id successObject) {
         if ([[BKSAccountManager sharedAccountManager] userStartedMugClub]) {
             [self performSegueWithIdentifier:kSegueToBeerViewController sender:self];
+            [[BKSAccountManager sharedAccountManager] startCheckingForBeerUpdates];
         } else {
             [self performSegueWithIdentifier:kBKSSegueToWelcomeViewControllerIdentifier sender:self];
         }
