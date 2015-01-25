@@ -156,14 +156,11 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
     if ([[segue identifier] isEqualToString:kBKSBeerDetailSegue]) {
         BKSBeerDetailViewController *detailVC = (BKSBeerDetailViewController *)segue.destinationViewController;
         detailVC.beer = self.beerSelected;
-        detailVC.allBeers = self.allBeers;
     }
     
     if ([[segue identifier] isEqualToString:kBKSStyleDetailSegue]) {
         BKSStyleViewController *styleVC = (BKSStyleViewController *)segue.destinationViewController;
-        styleVC.beersOfStyle = [self beerObjectsFromStyle:self.styleSelected];
         styleVC.style = self.styleSelected;
-        styleVC.allBeers = self.allBeers;
     }
 }
 
@@ -185,6 +182,10 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
                                              selector:@selector(loadBeers)
                                                  name:kBKSBeersNeedUpdateNotification
                                                object:nil];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

@@ -87,6 +87,26 @@
     return results.firstObject;
 }
 
+- (NSArray *)beersOfStyle:(BeerStyle *)style {
+    NSFetchRequest *beerFetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Beer class])];
+    beerFetchRequest.predicate = [NSPredicate predicateWithFormat:@"beerStyle == %@", style];
+
+    NSError *error;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:beerFetchRequest
+                                                                error:&error];
+    return results;
+}
+
+- (Beer *)currentBeer:(Beer *)beer {
+    NSFetchRequest *beerFetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Beer class])];
+    beerFetchRequest.predicate = [NSPredicate predicateWithFormat:@"beerID == %@", beer.beerID];
+
+    NSError *error;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:beerFetchRequest
+                                                                error:&error];
+    return results.firstObject;
+}
+
 #pragma mark - Core Data stack
 
 - (NSURL *)applicationDocumentsDirectory {

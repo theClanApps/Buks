@@ -12,6 +12,7 @@
 #import "UIImageView+WebCache.h"
 #import "Beer.h"
 #import "BeerStyle.h"
+#import "BKSDataManager.h"
 
 @interface BKSBeerDetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *beerNameLabel;
@@ -22,6 +23,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *bottleImage;
 @property (weak, nonatomic) IBOutlet UITextView *beerDescriptionTextView;
+@property (weak, nonatomic) IBOutlet BKSRateView *rateView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *rateBarButton;
+
 @property (nonatomic) BOOL isRating;
 
 @end
@@ -30,9 +34,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.edgesForExtendedLayout = UIRectEdgeNone;
 
-    Beer *beer = self.beer;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    [self registerForMarkedDrankNotifications];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    [self setup];
+}
+
+- (void)setup {
+    self.beer = [[BKSDataManager sharedDataManager] currentBeer:self.beer];
+    [self configureForBeer];
+    [self setupRateView];
+}
+
+- (void)configureForBeer {
+    Beer * beer = self.beer;
     self.beerNameLabel.text = beer.beerName.uppercaseString;
     [self.beerStyleButton setTitle:beer.beerStyle.styleName.uppercaseString forState:UIControlStateNormal];
     self.beerDescriptionTextView.text = beer.beerDescription;
@@ -42,7 +62,6 @@
     self.isRating = NO;
 
     [self.bottleImage sd_setImageWithURL:[NSURL URLWithString:beer.beerID]];
-    [self setupRateView];
 }
 
 - (void)setupRateView {
@@ -53,6 +72,7 @@
     } else {
         self.rateBarButton.enabled = YES;
         self.rateBarButton.title = @"Rate";
+        self.rateView.hidden = NO;
     }
     self.rateView.editable = NO;
     self.rateView.rating = self.beer.beerUserRating;
@@ -70,11 +90,10 @@
         self.rateView.editable = YES;
         [self.rateBarButton setTitle:@"Save"];
     } else {
-        
         self.isRating = NO;
         [[BKSAccountManager sharedAccountManager] rateBeer:self.beer withRating:self.rateView.rating WithCompletion:^(NSError *error, Beer *beer) {
             if (!error) {
-                //NSLog(@"Success!");
+                // DO NOTHING
             } else {
                 NSLog(@"Error checking beer: %@", error);
             }
@@ -85,19 +104,25 @@
     }
 }
 
-- (NSArray *)beerObjectsFromStyle:(BeerStyle *)style {
-    NSArray *beers = [self.allBeers filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(beerStyle == %@)", style]];
-    return beers;
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"goToStyleFromBeerSegue"]) {
         BKSStyleViewController *styleVC = (BKSStyleViewController *)segue.destinationViewController;
-        styleVC.beersOfStyle = [self beerObjectsFromStyle:self.beer.beerStyle];
         styleVC.style = self.beer.beerStyle;
-        styleVC.allBeers = self.allBeers;
     }
+}
+
+#pragma mark - Notifications
+
+- (void)registerForMarkedDrankNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(setup)
+                                                 name:kBKSBeersNeedUpdateNotification
+                                               object:nil];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
