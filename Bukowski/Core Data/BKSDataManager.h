@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+@class Beer;
 @class BeerStyle;
 @class UserBeerObject;
 
@@ -26,9 +27,12 @@
 // Custom methods
 - (void)persistUserBeerObjects:(NSArray *)userBeerObjects;
 - (void)persistBeerStyleObjects:(NSArray *)beerStyleObjects;
+
+- (Beer *)currentBeer:(Beer *)beer;
 - (BeerStyle *)beerStyleForUserBeerObject:(UserBeerObject *)userBeerObject;
 - (NSArray *)allBeers;
 - (NSArray *)allStyles;
+- (NSArray *)beersOfStyle:(BeerStyle *)style;
 
 - (void)markBeersDrank:(NSArray *)userBeerObjects;
 

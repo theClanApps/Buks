@@ -15,6 +15,8 @@
 #import "BKSBeerDetailViewController.h"
 #import "BKSBeerListsViewController.h"
 #import "NoItemsRemainingCell.h"
+#import "BKSAccountManager.h"
+#import "BKSDataManager.h"
 
 NSString * const kBKSBeerDetailSegueFromStyle = @"kBKSBeerDetailSegue";
 
@@ -22,9 +24,11 @@ NSString * const kBKSBeerDetailSegueFromStyle = @"kBKSBeerDetailSegue";
 @property (weak, nonatomic) IBOutlet UILabel *styleNameLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *styleCollectionView;
 @property (weak, nonatomic) IBOutlet UITextView *aboutStyleTextView;
-@property (strong, nonatomic) NSArray *beersOfStyleRemaining;
 @property (weak, nonatomic) IBOutlet UISwitch *toggleAllOrRemainingSwitch;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+@property (strong, nonatomic) NSArray *beersOfStyle;
+@property (strong, nonatomic) NSArray *beersOfStyleRemaining;
 @property (strong, nonatomic) Beer *beerSelected;
 @property (nonatomic) BOOL noItemsRemaining;
 
@@ -34,6 +38,7 @@ NSString * const kBKSBeerDetailSegueFromStyle = @"kBKSBeerDetailSegue";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self setup];
 }
 
@@ -41,16 +46,21 @@ NSString * const kBKSBeerDetailSegueFromStyle = @"kBKSBeerDetailSegue";
     [super viewWillAppear:animated];
     
     [self setToggleValue];
+    [self loadBeersOfStyle];
 }
 
 - (void)setup {
     self.styleNameLabel.text = self.style.styleName;
+    self.aboutStyleTextView.text = self.style.styleDescription;
 
     [self setupFlowLayout];
+    [self registerForMarkedDrankNotifications];
+}
 
-    self.aboutStyleTextView.text = self.style.styleDescription;
-    
+- (void)loadBeersOfStyle {
+    self.beersOfStyle = [[BKSDataManager sharedDataManager] beersOfStyle:self.style];
     self.beersOfStyleRemaining = [self.beersOfStyle filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(drank = false)"]];
+    [self.collectionView reloadData];
 }
 
 - (void)setToggleValue {
@@ -160,8 +170,20 @@ NSString * const kBKSBeerDetailSegueFromStyle = @"kBKSBeerDetailSegue";
     if ([segue.identifier isEqualToString:kBKSBeerDetailSegueFromStyle]) {
         BKSBeerDetailViewController *detailVC = (BKSBeerDetailViewController *)segue.destinationViewController;
         detailVC.beer = self.beerSelected;
-        detailVC.allBeers = self.allBeers;
     }
+}
+
+#pragma mark - Notifications
+
+- (void)registerForMarkedDrankNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(loadBeersOfStyle)
+                                                 name:kBKSBeersNeedUpdateNotification
+                                               object:nil];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
