@@ -71,6 +71,12 @@
 		63C5EED71A6D881F004E921A /* ProgressSummaryInProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C5EED61A6D881F004E921A /* ProgressSummaryInProgressView.m */; };
 		63C5EEDB1A6D915B004E921A /* ProgressSummaryDoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C5EEDA1A6D915B004E921A /* ProgressSummaryDoneView.m */; };
 		63C5EEDF1A6D92B3004E921A /* ProgressSummaryDoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C5EEDE1A6D92B3004E921A /* ProgressSummaryDoneView.xib */; };
+		632B04531A7C0BF5006998CB /* login-bkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 632B044D1A7C0BF5006998CB /* login-bkg@2x.png */; };
+		632B04541A7C0BF5006998CB /* login-bkg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 632B044E1A7C0BF5006998CB /* login-bkg@3x.png */; };
+		632B04551A7C0BF5006998CB /* login-fb-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 632B044F1A7C0BF5006998CB /* login-fb-button@2x.png */; };
+		632B04561A7C0BF5006998CB /* login-fb-button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 632B04501A7C0BF5006998CB /* login-fb-button@3x.png */; };
+		632B04571A7C0BF5006998CB /* muglogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 632B04511A7C0BF5006998CB /* muglogo@2x.png */; };
+		632B04581A7C0BF5006998CB /* muglogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 632B04521A7C0BF5006998CB /* muglogo@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,6 +187,12 @@
 		63C5EED91A6D915B004E921A /* ProgressSummaryDoneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressSummaryDoneView.h; sourceTree = "<group>"; };
 		63C5EEDA1A6D915B004E921A /* ProgressSummaryDoneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressSummaryDoneView.m; sourceTree = "<group>"; };
 		63C5EEDE1A6D92B3004E921A /* ProgressSummaryDoneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressSummaryDoneView.xib; sourceTree = "<group>"; };
+		632B044D1A7C0BF5006998CB /* login-bkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-bkg@2x.png"; sourceTree = "<group>"; };
+		632B044E1A7C0BF5006998CB /* login-bkg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-bkg@3x.png"; sourceTree = "<group>"; };
+		632B044F1A7C0BF5006998CB /* login-fb-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-fb-button@2x.png"; sourceTree = "<group>"; };
+		632B04501A7C0BF5006998CB /* login-fb-button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-fb-button@3x.png"; sourceTree = "<group>"; };
+		632B04511A7C0BF5006998CB /* muglogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "muglogo@2x.png"; sourceTree = "<group>"; };
+		632B04521A7C0BF5006998CB /* muglogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "muglogo@3x.png"; sourceTree = "<group>"; };
 		C2D1ECEB79DB5C78EF171D49 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -233,6 +245,7 @@
 		4900EB9B1A618FFF00647ABD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				632B044B1A7C0BD6006998CB /* Images */,
 				4900EB9C1A618FFF00647ABD /* Fonts */,
 			);
 			path = Resources;
@@ -515,40 +528,28 @@
 			name = CollectionViewCells;
 			sourceTree = "<group>";
 		};
-		635FDBDB1A686209003CEA41 /* BukowskiCloudCode */ = {
+		632B044B1A7C0BD6006998CB /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				635FDBDC1A686209003CEA41 /* cloud */,
-				635FDBDE1A686209003CEA41 /* config */,
-				635FDBE01A686209003CEA41 /* public */,
+				632B044C1A7C0BDF006998CB /* LoginPage */,
 			);
-			path = BukowskiCloudCode;
+			name = Images;
 			sourceTree = "<group>";
         };
-		635FDBDC1A686209003CEA41 /* cloud */ = {
+		
+		632B044C1A7C0BDF006998CB /* LoginPage */ = {
 			isa = PBXGroup;
 			children = (
-				635FDBDD1A686209003CEA41 /* main.js */,
+				632B044D1A7C0BF5006998CB /* login-bkg@2x.png */,
+				632B044E1A7C0BF5006998CB /* login-bkg@3x.png */,
+				632B044F1A7C0BF5006998CB /* login-fb-button@2x.png */,
+				632B04501A7C0BF5006998CB /* login-fb-button@3x.png */,
+				632B04511A7C0BF5006998CB /* muglogo@2x.png */,
+				632B04521A7C0BF5006998CB /* muglogo@3x.png */,
 			);
-			path = cloud;
+			name = LoginPage;
 			sourceTree = "<group>";
-		};
-		635FDBDE1A686209003CEA41 /* config */ = {
-			isa = PBXGroup;
-			children = (
-				635FDBDF1A686209003CEA41 /* global.json */,
-			);
-			path = config;
-			sourceTree = "<group>";
-		};
-		635FDBE01A686209003CEA41 /* public */ = {
-			isa = PBXGroup;
-			children = (
-				635FDBE11A686209003CEA41 /* index.html */,
-			);
-			path = public;
-            sourceTree = "<group>";
-        };
+		};		
 		63C5EED81A6D8833004E921A /* ProgressSummaryViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -670,8 +671,11 @@
 			files = (
 				4900EBCF1A618FFF00647ABD /* HelveLigObl in Resources */,
 				49BB683319FF26AA00DFD75D /* Main.storyboard in Resources */,
+				632B04581A7C0BF5006998CB /* muglogo@3x.png in Resources */,
 				49BB683819FF26AB00DFD75D /* LaunchScreen.xib in Resources */,
+				632B04531A7C0BF5006998CB /* login-bkg@2x.png in Resources */,
 				4900EBC11A618FFF00647ABD /* HelveBlaObl in Resources */,
+				632B04571A7C0BF5006998CB /* muglogo@2x.png in Resources */,
 				4900EBC31A618FFF00647ABD /* HelveCon in Resources */,
 				49BB683519FF26AA00DFD75D /* Images.xcassets in Resources */,
 				63C5EEDF1A6D92B3004E921A /* ProgressSummaryDoneView.xib in Resources */,
@@ -696,7 +700,10 @@
 				4900EBCE1A618FFF00647ABD /* HelveLig in Resources */,
 				4900EBD21A618FFF00647ABD /* Helvetica.dfont in Resources */,
 				4900EBC21A618FFF00647ABD /* HelveCom in Resources */,
+				632B04541A7C0BF5006998CB /* login-bkg@3x.png in Resources */,
+				632B04551A7C0BF5006998CB /* login-fb-button@2x.png in Resources */,
 				4900EBCB1A618FFF00647ABD /* HelveExtCom in Resources */,
+				632B04561A7C0BF5006998CB /* login-fb-button@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

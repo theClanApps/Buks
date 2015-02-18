@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VGe-Vf-7H8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -29,9 +30,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y73-nY-T0s">
-                                <rect key="frame" x="281" y="285" width="38" height="30"/>
-                                <state key="normal" title="Login">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login-bkg.png" translatesAutoresizingMaskIntoConstraints="NO" id="oHk-mA-HUq">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="muglogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="iAf-nM-C0b">
+                                <rect key="frame" x="0.0" y="-468" width="600" height="1068"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y73-nY-T0s">
+                                <rect key="frame" x="181" y="507" width="239" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="y73-nY-T0s" secondAttribute="height" multiplier="928:253" id="etb-7r-HJ4"/>
+                                </constraints>
+                                <state key="normal" image="login-fb-button.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -40,20 +50,28 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="y73-nY-T0s" secondAttribute="centerY" id="Rdf-3D-4G4"/>
+                            <constraint firstItem="iAf-nM-C0b" firstAttribute="leading" secondItem="tqh-Hz-Acq" secondAttribute="leadingMargin" constant="-16" id="3SJ-D8-BO3"/>
+                            <constraint firstItem="jTO-y6-23Q" firstAttribute="top" secondItem="y73-nY-T0s" secondAttribute="bottom" constant="28" id="Czi-mK-F1n"/>
+                            <constraint firstItem="jTO-y6-23Q" firstAttribute="top" secondItem="iAf-nM-C0b" secondAttribute="bottom" id="LDy-gJ-UR8"/>
                             <constraint firstAttribute="centerX" secondItem="y73-nY-T0s" secondAttribute="centerX" id="bSU-wY-m5G"/>
+                            <constraint firstItem="oHk-mA-HUq" firstAttribute="top" secondItem="s5r-es-Mvi" secondAttribute="bottom" constant="-64" id="irJ-jI-d0A"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iAf-nM-C0b" secondAttribute="trailing" constant="-16" id="jGn-3r-Oq4"/>
+                            <constraint firstItem="jTO-y6-23Q" firstAttribute="top" secondItem="oHk-mA-HUq" secondAttribute="bottom" id="tb5-aI-P0o"/>
+                            <constraint firstItem="oHk-mA-HUq" firstAttribute="leading" secondItem="tqh-Hz-Acq" secondAttribute="leadingMargin" constant="-16" id="wJp-su-M84"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oHk-mA-HUq" secondAttribute="trailing" constant="-16" id="zHy-aM-Jap"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5CW-Mh-pDE"/>
                     <connections>
+                        <outlet property="mugLogoImageView" destination="iAf-nM-C0b" id="Q8q-bT-Y7N"/>
                         <segue destination="fuJ-8z-9Z5" kind="show" identifier="kSegueToBeerViewController" id="ZcM-7W-clJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="02W-6v-GWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="967" y="133"/>
+            <point key="canvasLocation" x="967" y="132"/>
         </scene>
         <!--Search Results View Controller-->
         <scene sceneID="RYL-CF-Prx">
@@ -869,13 +887,16 @@
     <resources>
         <image name="abv-icon.png" width="71" height="30"/>
         <image name="beer-size-icon.png" width="37" height="30"/>
+        <image name="login-bkg.png" width="320" height="568"/>
+        <image name="login-fb-button.png" width="239" height="65"/>
+        <image name="muglogo.png" width="320" height="568"/>
         <image name="price-icon.png" width="60" height="30"/>
         <image name="question.png" width="72" height="72"/>
         <image name="stats.png" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EUR-yN-ouv"/>
+        <segue reference="ZcM-7W-clJ"/>
         <segue reference="d5v-cp-Vfa"/>
-        <segue reference="RyT-2y-Obr"/>
+        <segue reference="EUR-yN-ouv"/>
     </inferredMetricsTieBreakers>
 </document>
