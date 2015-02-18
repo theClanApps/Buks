@@ -10,7 +10,7 @@
 
 @implementation UserObject
 
-@dynamic name, MugClubStartDate, mugClubEndDate, userImage, dateOfLastBeerDrank;
+@dynamic name, mugClubStartDate, mugClubEndDate, timeIsUp, allBeersDrank, userImage, dateOfLastBeerDrank;
 
 + (void)load {
     [self registerSubclass];

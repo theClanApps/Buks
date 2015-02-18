@@ -458,25 +458,25 @@
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Ut-68-oAb">
-                                <rect key="frame" x="276" y="28" width="51" height="31"/>
+                                <rect key="frame" x="276" y="68" width="51" height="31"/>
                                 <connections>
                                     <action selector="toggledSwitch:" destination="ejc-bG-TaG" eventType="valueChanged" id="lsn-lz-Nie"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show All" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6o-OY-8SH">
-                                <rect key="frame" x="201" y="33" width="67" height="21"/>
+                                <rect key="frame" x="201" y="73" width="67" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remaining" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="puc-ue-Qgd">
-                                <rect key="frame" x="333" y="33" width="82" height="21"/>
+                                <rect key="frame" x="333" y="73" width="82" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="204" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GSG-9e-sCa">
-                                <rect key="frame" x="0.0" y="62" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="102" width="600" height="447"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="169" id="OTp-pS-wre" customClass="BKSBeerCollectionTableViewCell">
@@ -537,7 +537,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPx-Bs-DIY">
-                                <rect key="frame" x="16" y="31" width="25" height="25"/>
+                                <rect key="frame" x="16" y="71" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="HP0-be-EDE"/>
                                     <constraint firstAttribute="width" constant="25" id="hxB-tb-nOY"/>
@@ -550,7 +550,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Lv-Zn-rEu">
-                                <rect key="frame" x="559" y="31" width="25" height="25"/>
+                                <rect key="frame" x="559" y="71" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="Mnr-ud-xfj"/>
                                     <constraint firstAttribute="height" constant="25" id="x8o-9s-ijM"/>
@@ -562,28 +562,39 @@
                                     <action selector="progressButtonPushed:" destination="ejc-bG-TaG" eventType="touchUpInside" id="NnF-TL-lvL"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JQf-eI-nDw">
+                                <rect key="frame" x="16" y="15" width="568" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="qC5-TE-9ej"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="puc-ue-Qgd" firstAttribute="leading" secondItem="5Ut-68-oAb" secondAttribute="trailing" constant="8" id="0Ij-8I-0Cz"/>
                             <constraint firstItem="5Ut-68-oAb" firstAttribute="centerY" secondItem="R6o-OY-8SH" secondAttribute="centerY" id="8wV-c8-pTb"/>
                             <constraint firstAttribute="centerX" secondItem="eCE-XR-XdS" secondAttribute="centerX" constant="-0.5" id="F7i-ri-HnS"/>
-                            <constraint firstItem="5Ut-68-oAb" firstAttribute="top" secondItem="Hp5-GZ-Qxd" secondAttribute="bottom" constant="8" id="FLa-Nt-Em6"/>
                             <constraint firstItem="eCE-XR-XdS" firstAttribute="top" secondItem="GSG-9e-sCa" secondAttribute="bottom" constant="13" id="HdC-qQ-ON8"/>
                             <constraint firstItem="5Ut-68-oAb" firstAttribute="centerY" secondItem="oPx-Bs-DIY" secondAttribute="centerY" id="Hmq-Jn-RQ1"/>
                             <constraint firstItem="9Lv-Zn-rEu" firstAttribute="trailing" secondItem="ZF3-rO-bEJ" secondAttribute="trailingMargin" id="Ice-Kg-mAh"/>
+                            <constraint firstItem="JQf-eI-nDw" firstAttribute="top" secondItem="Hp5-GZ-Qxd" secondAttribute="bottom" constant="-5" id="MF2-8o-FBe"/>
+                            <constraint firstItem="5Ut-68-oAb" firstAttribute="centerY" secondItem="9Lv-Zn-rEu" secondAttribute="centerY" id="NQw-Ev-pOW"/>
                             <constraint firstItem="5Ut-68-oAb" firstAttribute="centerY" secondItem="puc-ue-Qgd" secondAttribute="centerY" id="Tge-wA-954"/>
-                            <constraint firstItem="9Lv-Zn-rEu" firstAttribute="top" secondItem="Hp5-GZ-Qxd" secondAttribute="bottom" constant="11" id="V7f-aL-FCT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GSG-9e-sCa" secondAttribute="trailing" constant="-16" id="Yt8-yT-bR2"/>
                             <constraint firstAttribute="centerX" secondItem="5Ut-68-oAb" secondAttribute="centerX" constant="-0.5" id="bxh-XR-4ar"/>
                             <constraint firstItem="5Ut-68-oAb" firstAttribute="leading" secondItem="R6o-OY-8SH" secondAttribute="trailing" constant="8" id="cfV-BA-KcE"/>
                             <constraint firstItem="6Qg-Ne-ah2" firstAttribute="top" secondItem="eCE-XR-XdS" secondAttribute="bottom" constant="8" id="fTV-OB-pkn"/>
                             <constraint firstItem="GSG-9e-sCa" firstAttribute="leading" secondItem="ZF3-rO-bEJ" secondAttribute="leadingMargin" constant="-16" id="gQL-rp-7cN"/>
+                            <constraint firstItem="5Ut-68-oAb" firstAttribute="top" secondItem="JQf-eI-nDw" secondAttribute="bottom" constant="8" id="jDR-J4-dLK"/>
+                            <constraint firstItem="JQf-eI-nDw" firstAttribute="trailing" secondItem="ZF3-rO-bEJ" secondAttribute="trailingMargin" id="meJ-f6-4OC"/>
+                            <constraint firstItem="JQf-eI-nDw" firstAttribute="leading" secondItem="ZF3-rO-bEJ" secondAttribute="leadingMargin" id="tlg-9X-ZW1"/>
                             <constraint firstItem="GSG-9e-sCa" firstAttribute="top" secondItem="5Ut-68-oAb" secondAttribute="bottom" constant="3" id="xDS-6v-Cte"/>
                             <constraint firstItem="oPx-Bs-DIY" firstAttribute="leading" secondItem="ZF3-rO-bEJ" secondAttribute="leadingMargin" id="y4c-HY-I6f"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="progressChildView" destination="JQf-eI-nDw" id="R4a-nL-E4e"/>
                         <outlet property="tableView" destination="GSG-9e-sCa" id="ui7-fR-n4o"/>
                         <outlet property="toggleAllOrRemainingSwitch" destination="5Ut-68-oAb" id="f9z-2g-T4F"/>
                     </connections>

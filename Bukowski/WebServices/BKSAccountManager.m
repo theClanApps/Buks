@@ -17,6 +17,8 @@
 #import <SDWebImage/SDWebImageManager.h>
 
 static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
+static NSString * const kBKSMugClubEndDate = @"kBKSMugClubEndDate";
+
 NSTimeInterval const kBKSMarkDrankTimeInterval = 60.0;
 NSString * const kBKSBeersNeedUpdateNotification = @"kBKSBeersNeedUpdateNotification";
 
@@ -95,10 +97,13 @@ NSString * const kBKSBeersNeedUpdateNotification = @"kBKSBeersNeedUpdateNotifica
         [self createUsersBeersInCloudWithCompletion:^(NSError *error, NSString *result) {
             PFUser *currentUser = [PFUser currentUser];
             NSDate * currentDate = [NSDate date];
+            NSCalendar *calendar = [NSCalendar currentCalendar];
+            NSDate * endDate = [calendar dateByAddingUnit:NSCalendarUnitMonth value:6 toDate:currentDate options:0];
             currentUser[@"mugClubStartDate"] = currentDate;
+            currentUser[@"mugClubEndDate"] = endDate;
             [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
-                    [self storeStartDateInUserDefaults:currentDate];
+                    [self storeStartAndEndDatesInUserDefaults:currentDate withEndDate:endDate];
                     if (success) {
                         success([NSNumber numberWithBool:succeeded]);
                     }
@@ -145,11 +150,13 @@ NSString * const kBKSBeersNeedUpdateNotification = @"kBKSBeersNeedUpdateNotifica
 
 #pragma mark - helpers
 
-- (void)storeStartDateInUserDefaults:(NSDate *)date {
+- (void)storeStartAndEndDatesInUserDefaults:(NSDate *)startDate withEndDate:(NSDate *)endDate {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if ([userDefaults objectForKey:kBKSMugClubStartDate] == nil) {
-        [userDefaults setObject:date
+        [userDefaults setObject:startDate
                          forKey:kBKSMugClubStartDate];
+        [userDefaults setObject:endDate
+                         forKey:kBKSMugClubEndDate];
     }
     [userDefaults synchronize];
 }

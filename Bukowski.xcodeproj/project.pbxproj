@@ -67,6 +67,10 @@
 		635FDBE21A686209003CEA41 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 635FDBDD1A686209003CEA41 /* main.js */; };
 		635FDBE31A686209003CEA41 /* global.json in Resources */ = {isa = PBXBuildFile; fileRef = 635FDBDF1A686209003CEA41 /* global.json */; };
 		635FDBE41A686209003CEA41 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 635FDBE11A686209003CEA41 /* index.html */; };
+		63C5EED41A6D87C6004E921A /* ProgressSummaryInProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C5EED31A6D87C6004E921A /* ProgressSummaryInProgressView.xib */; };
+		63C5EED71A6D881F004E921A /* ProgressSummaryInProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C5EED61A6D881F004E921A /* ProgressSummaryInProgressView.m */; };
+		63C5EEDB1A6D915B004E921A /* ProgressSummaryDoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C5EEDA1A6D915B004E921A /* ProgressSummaryDoneView.m */; };
+		63C5EEDF1A6D92B3004E921A /* ProgressSummaryDoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C5EEDE1A6D92B3004E921A /* ProgressSummaryDoneView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +175,12 @@
 		635FDBDD1A686209003CEA41 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		635FDBDF1A686209003CEA41 /* global.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = global.json; sourceTree = "<group>"; };
 		635FDBE11A686209003CEA41 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		63C5EED31A6D87C6004E921A /* ProgressSummaryInProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressSummaryInProgressView.xib; sourceTree = "<group>"; };
+		63C5EED51A6D881F004E921A /* ProgressSummaryInProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressSummaryInProgressView.h; sourceTree = "<group>"; };
+		63C5EED61A6D881F004E921A /* ProgressSummaryInProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressSummaryInProgressView.m; sourceTree = "<group>"; };
+		63C5EED91A6D915B004E921A /* ProgressSummaryDoneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressSummaryDoneView.h; sourceTree = "<group>"; };
+		63C5EEDA1A6D915B004E921A /* ProgressSummaryDoneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressSummaryDoneView.m; sourceTree = "<group>"; };
+		63C5EEDE1A6D92B3004E921A /* ProgressSummaryDoneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressSummaryDoneView.xib; sourceTree = "<group>"; };
 		C2D1ECEB79DB5C78EF171D49 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -323,6 +333,7 @@
 				4900EBE61A6190A900647ABD /* BKSSearchResultsViewController.m */,
 				4900EBE71A6190A900647ABD /* CollectionViewCells */,
 				4900EBEB1A6190A900647ABD /* TableViewCells */,
+				63C5EED81A6D8833004E921A /* ProgressSummaryViews */,
 			);
 			path = BeerLists;
 			sourceTree = "<group>";
@@ -513,7 +524,7 @@
 			);
 			path = BukowskiCloudCode;
 			sourceTree = "<group>";
-		};
+        };
 		635FDBDC1A686209003CEA41 /* cloud */ = {
 			isa = PBXGroup;
 			children = (
@@ -536,6 +547,35 @@
 				635FDBE11A686209003CEA41 /* index.html */,
 			);
 			path = public;
+            sourceTree = "<group>";
+        };
+		63C5EED81A6D8833004E921A /* ProgressSummaryViews */ = {
+			isa = PBXGroup;
+			children = (
+				63C5EEDC1A6D9162004E921A /* In Progress */,
+				63C5EEDD1A6D916B004E921A /* Time Is Up */,
+			);
+			name = ProgressSummaryViews;
+			sourceTree = "<group>";
+		};
+		63C5EEDC1A6D9162004E921A /* In Progress */ = {
+			isa = PBXGroup;
+			children = (
+				63C5EED51A6D881F004E921A /* ProgressSummaryInProgressView.h */,
+				63C5EED61A6D881F004E921A /* ProgressSummaryInProgressView.m */,
+				63C5EED31A6D87C6004E921A /* ProgressSummaryInProgressView.xib */,
+			);
+			name = "In Progress";
+			sourceTree = "<group>";
+		};
+		63C5EEDD1A6D916B004E921A /* Time Is Up */ = {
+			isa = PBXGroup;
+			children = (
+				63C5EED91A6D915B004E921A /* ProgressSummaryDoneView.h */,
+				63C5EEDA1A6D915B004E921A /* ProgressSummaryDoneView.m */,
+				63C5EEDE1A6D92B3004E921A /* ProgressSummaryDoneView.xib */,
+			);
+			name = "Time Is Up";
 			sourceTree = "<group>";
 		};
 		80B2D75E4C6B5B015104C7DB /* Frameworks */ = {
@@ -634,6 +674,7 @@
 				4900EBC11A618FFF00647ABD /* HelveBlaObl in Resources */,
 				4900EBC31A618FFF00647ABD /* HelveCon in Resources */,
 				49BB683519FF26AA00DFD75D /* Images.xcassets in Resources */,
+				63C5EEDF1A6D92B3004E921A /* ProgressSummaryDoneView.xib in Resources */,
 				4900EBCA1A618FFF00647ABD /* HelveConObl in Resources */,
 				4900EBC41A618FFF00647ABD /* HelveConBla in Resources */,
 				4900EBC01A618FFF00647ABD /* HelveBla in Resources */,
@@ -650,6 +691,7 @@
 				4900EBD11A618FFF00647ABD /* HelveUltCom in Resources */,
 				4900EBCD1A618FFF00647ABD /* HelveFraBol in Resources */,
 				63157B9F1A647B9400D49E8E /* NoItemsRemainingCell.xib in Resources */,
+				63C5EED41A6D87C6004E921A /* ProgressSummaryInProgressView.xib in Resources */,
 				4900EC001A6190A900647ABD /* NibCell.xib in Resources */,
 				4900EBCE1A618FFF00647ABD /* HelveLig in Resources */,
 				4900EBD21A618FFF00647ABD /* Helvetica.dfont in Resources */,
@@ -710,6 +752,7 @@
 				63157BA31A647FF100D49E8E /* NoItemsRemainingCell.m in Sources */,
 				4900EBD81A618FFF00647ABD /* UserBeerObject.m in Sources */,
 				4900EBFD1A6190A900647ABD /* BKSCollectionViewListViewController.m in Sources */,
+				63C5EED71A6D881F004E921A /* ProgressSummaryInProgressView.m in Sources */,
 				4900EBFF1A6190A900647ABD /* CollectionCell.m in Sources */,
 				4900EC051A6190A900647ABD /* BKSStyleViewController.m in Sources */,
 				49EE8A9F1A688DBD00E2712A /* Brewery.m in Sources */,
@@ -722,6 +765,7 @@
 				49EE8A871A68810100E2712A /* BeerStyle+Configure.m in Sources */,
 				49BB685E19FF271600DFD75D /* BKSDataManager.m in Sources */,
 				49BB687419FF274600DFD75D /* AppDelegate.m in Sources */,
+				63C5EEDB1A6D915B004E921A /* ProgressSummaryDoneView.m in Sources */,
 				495BEBB81A64A4F200D58223 /* Beer+Configure.m in Sources */,
 				4900EBFA1A6190A900647ABD /* BKSBeerDetailViewController.m in Sources */,
 				4900EBBF1A618FFF00647ABD /* BKSRateView.m in Sources */,
