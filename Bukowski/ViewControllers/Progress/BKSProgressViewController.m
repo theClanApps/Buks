@@ -33,22 +33,12 @@
     
     NSLog(@"User: %@", self.currentUser);
     
-    self.dateStartedLabel.text = [dateFormatter stringFromDate:self.currentUser.MugClubStartDate];
-    
-    //calculate end date
-    NSDateComponents *monthComponent = [[NSDateComponents alloc] init];
-    monthComponent.month = 6;
-    NSCalendar *theCalendar = [NSCalendar currentCalendar];
-    self.currentUser.mugClubEndDate = [theCalendar dateByAddingComponents:monthComponent toDate:self.currentUser.MugClubStartDate options:0];
+    self.dateStartedLabel.text = [dateFormatter stringFromDate:self.currentUser.mugClubEndDate];
+    self.endDateLabel.text = [dateFormatter stringFromDate:self.currentUser.mugClubEndDate];
     
     NSInteger daysLeft = [self dateDiffrenceFromDate:[NSDate date] second:self.currentUser.mugClubEndDate];
     self.daysLeftLabel.text = @(daysLeft).stringValue;
-    self.endDateLabel.text = [dateFormatter stringFromDate:self.currentUser.mugClubEndDate];
-    
-
-    //% is not working right now
-    //NSInteger beersDrankInt = [self getBeersDrank];
-    
+     
     NSInteger beersDrank = [self getBeersDrank];
     NSInteger totalBeers = self.userBeers.count;
     NSInteger percentDrank = 100 * beersDrank / totalBeers;

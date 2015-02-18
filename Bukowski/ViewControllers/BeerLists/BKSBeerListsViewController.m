@@ -18,6 +18,8 @@
 #import "Beer.h"
 #import "BeerStyle.h"
 #import "UIImageView+WebCache.h"
+#import "ProgressSummaryInProgressView.h"
+#import "ProgressSummaryDoneView.h"
 
 typedef NS_ENUM(NSInteger, BKSBeerCategorySection) {
     BKSBeerCategorySectionAllBeers,
@@ -50,6 +52,8 @@ NSInteger const kBKSNumberOfSections = 4;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISwitch *toggleAllOrRemainingSwitch;
+@property (weak, nonatomic) IBOutlet UIView *progressChildView;
+
 @end
 
 @implementation BKSBeerListsViewController
@@ -63,6 +67,32 @@ NSInteger const kBKSNumberOfSections = 4;
     [super viewWillAppear:animated];
     [self setToggleValue];
     [self reloadAllCollectionViews];
+    [self setChildProgressViewController];
+}
+
+- (void)setChildProgressViewController {
+    
+#warning - need to check if subviews exist & remove them
+    
+    if (self.userLoggedIn.allBeersDrank) {
+        ProgressSummaryDoneView *progressSummaryDoneView = [ProgressSummaryDoneView progressSummaryDoneView];
+        [self.progressChildView addSubview:progressSummaryDoneView];
+        progressSummaryDoneView.timeIsUpTextLabel.text = @"You drank all the beers! Way to go! Enjoy discounted huge beers at Buks for life!";
+    } else if (self.userLoggedIn.timeIsUp) {
+        ProgressSummaryDoneView *progressSummaryDoneView = [ProgressSummaryDoneView progressSummaryDoneView];
+        [self.progressChildView addSubview:progressSummaryDoneView];
+        progressSummaryDoneView.timeIsUpTextLabel.text = @"You didn't finish all the beers in the allotted time. Enjoy thinking about the money you've pissed away here!";
+    } else {
+        ProgressSummaryInProgressView *progressSummaryInProgressView = [ProgressSummaryInProgressView progressSummaryInProgressView];
+        [self.progressChildView addSubview:progressSummaryInProgressView];
+
+#warning autolayout still messed up
+        //[self.progressChildView sizeToFit];
+        //[progressSummaryInProgressView layoutIfNeeded];
+        //[progressSummaryInProgressView setNeedsLayout];
+        //[self.progressChildView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        //self.progressChildView.frame = self.progressChildView.bounds;
+    }
 }
 
 - (void)setAllBeers:(NSArray *)allBeers {
@@ -72,7 +102,8 @@ NSInteger const kBKSNumberOfSections = 4;
 
 - (void)setup {
     [self loadUser];
-    
+
+    [self addGestureRecogniser:self.progressChildView];
     self.edgesForExtendedLayout = UIRectEdgeAll;
 }
 
@@ -89,6 +120,15 @@ NSInteger const kBKSNumberOfSections = 4;
     } else {
         [self.toggleAllOrRemainingSwitch setOn:YES];
     }
+}
+
+-(void)addGestureRecogniser:(UIView *)touchView{
+    UITapGestureRecognizer *singleTap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(progressViewTapped)];
+    [touchView addGestureRecognizer:singleTap];
+}
+
+- (void)progressViewTapped {
+    [self.delegate beerListsViewControllerDidPushProgressButton:self];
 }
 
 - (IBAction)progressButtonPushed:(id)sender {
