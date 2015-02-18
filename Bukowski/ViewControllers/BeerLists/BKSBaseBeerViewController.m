@@ -42,7 +42,8 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
+    
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
     [self setChildViewController:self.beerListsVC];
 }
 
@@ -145,6 +146,7 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
     if ([[segue identifier] isEqualToString:kBKSProgressSegue]) {
         BKSProgressViewController *detailVC = (BKSProgressViewController *)segue.destinationViewController;
         //send the user logged in to this VC

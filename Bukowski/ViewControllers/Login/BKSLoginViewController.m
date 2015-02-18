@@ -15,12 +15,18 @@ static NSString * const kBKSSegueToWelcomeViewControllerIdentifier = @"kBKSSegue
 static NSString * const kSegueToBeerViewController = @"kSegueToBeerViewController";
 
 @interface BKSLoginViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *mugLogoImageView;
 
 @end
 
 @implementation BKSLoginViewController
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    
+    [self setAutoLayout];
+    
     if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
         if ([[BKSAccountManager sharedAccountManager] userStartedMugClub]) {
             [self performSegueWithIdentifier:kSegueToBeerViewController sender:self];
@@ -29,6 +35,29 @@ static NSString * const kSegueToBeerViewController = @"kSegueToBeerViewControlle
             [self performSegueWithIdentifier:kBKSSegueToWelcomeViewControllerIdentifier sender:self];
         }
     }
+}
+
+- (void)setAutoLayout {
+    
+    CGRect screenBound = [[UIScreen mainScreen] bounds];
+    CGSize screenSize = screenBound.size;
+    CGFloat screenWidth = screenSize.width;
+    CGFloat screenHeight = screenSize.height;
+    CGFloat aspectRatio = screenHeight/screenWidth;
+    //NSLog(@"Width: %f, Height: %f", screenWidth, screenHeight);
+    NSLog(@"Aspect Ratio: %f", screenHeight/screenWidth);
+    
+    NSLayoutConstraint *constraint =[NSLayoutConstraint
+                                     constraintWithItem:self.mugLogoImageView
+                                     attribute:NSLayoutAttributeHeight
+                                     relatedBy:NSLayoutRelationEqual
+                                     toItem:self.mugLogoImageView
+                                     attribute:NSLayoutAttributeWidth
+                                     multiplier:aspectRatio
+                                     constant:0.0f];
+    [self.mugLogoImageView addConstraint:constraint];
+    
+    NSLog(@"Image Aspect Ratio: %f", self.mugLogoImageView.frame.size.height/self.mugLogoImageView.frame.size.width);
 }
 
 - (IBAction)loginButtonPressed:(id)sender {
