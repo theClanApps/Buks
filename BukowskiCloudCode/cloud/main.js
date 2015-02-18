@@ -49,27 +49,206 @@ Parse.Cloud.define("createUserBeerInCloud", function(request, response) {
 	});
 });
 
-Parse.Cloud.define("sendPushNotificationToUserWhenBeerIsMarkedDrank", function(request, response) {
-                   
-    var beerName = request.params.beerName;
-                   
-    var userQuery = new Parse.Query(Parse.User);
-    userQuery.equalTo('username', request.params.username);
-                   
-    var pushQuery = new Parse.Query(Parse.Installation);
-    pushQuery.matchesQuery('user', userQuery);
-                   
+Parse.Cloud.define("markBeerDrank", function(request, response) {
+    var userQuery = new Parse.Query(Parse.User);	
+	userQuery.get(request.params.userId, {
+	  success: function(user) {
+	  	var finished = user.get("finished");
+	  	var ranOutOfTime = user.get("ranOutOfTime");
+		if(!finished && !ranOutOfTime) {
+			var date = new Date();
+			var startDate = user.get("mugClubStartDate");
+			var timeLimit = 1000 * 60 * 60 * 24 * 7 * 2; // Two weeks in milliseconds  
+		
+			if(date - startDate > timeLimit) {
+				console.log("You failed notification");
+				saveUserRanOutOfTime(user, request, response);
+			} else {
+				console.log("trying to save beer");
+				saveUserDrankBeer(request.params.beerId, request, response, user);
+			}  
+		}
+	  }
+	});
+});
+
+Parse.Cloud.job("checkIfAnyUserHasFinishedMugClub", function(request, status) {
+  Parse.Cloud.useMasterKey();
+  var counter = 0;
+  var query = new Parse.Query(Parse.User);
+  query.each(function(user) {
+    var BeerObject = Parse.Object.extend("UserBeerObject");
+	var query = new Parse.Query(BeerObject);
+	query.equalTo("drinkingUser", user);
+  
+	query.count({
+		success: function(allCount) {
+			var BeerObject = Parse.Object.extend("UserBeerObject");
+			var drankQuery = new Parse.Query(BeerObject);
+			drankQuery.equalTo("drank", true);
+            drankQuery.equalTo("drinkingUser", user);
+						
+			drankQuery.count({
+			success: function(drankCount) {       
+                var date = new Date();
+                var startDate = user.get("mugClubStartDate");
+                var timeLimit = 1000 * 60 * 60 * 24 * 7 * 2; // Two weeks in milliseconds  
+
+				// If they are doing the mug club
+                if(startDate) {
+                	var ranOutOfTime = user.get("ranOutOfTime");
+                    if(date - startDate > timeLimit && !ranOutOfTime) {
+                    	user.save({
+						ranOutOfTime: true,
+					  }, {
+						success: function(user) {
+							console.log("you sent notification")
+                        	sendPushNotificationForJob(0, user);
+ 						},
+						error: function(user, error) {
+							console.log("you failed to send notification");
+						}
+					  });
+                    }
+                    
+                }
+			}
+			});
+	}
+    });
+  });
+});
+
+function sendPushNotificationForJob(status, user) {
+    
+    var query = new Parse.Query(Parse.Installation);
+    query.equalTo('user', user);
+    
+    var pushMessageString = "";
+    if(status == 0) {
+		pushMessageString = "You failed to finish the mug club!";
+	} else if (status == 1) {
+		pushMessageString = "You finished the mug club!";
+	}
+     
     Parse.Push.send({
-        where: userQuery,
+        where: query,
         data: {
-            alert: "You drank " + beerName + "!"
+			alert: pushMessageString
         }
     }, {
         success: function() {
-            // Push was successful
         },
         error: function(error) {
-            // Handle error
         }
     });
-});
+}
+
+function sendPushNotification(status, request, response, user) {
+                   
+    var beerName = request.params.beerName;
+    
+    var userQuery = new Parse.Query(Parse.User);
+    userQuery.equalTo('objectId', request.params.userId);
+    
+    var query = new Parse.Query(Parse.Installation);
+    query.matchesQuery('user', userQuery);
+    
+    var pushMessageString = "";
+    if(status == 0) {
+		pushMessageString = "You failed to finish the mug club!";
+	} else if (status == 1) {
+		pushMessageString = "You finished the mug club!";
+	} else {
+		pushMessageString = "You drank " + beerName + "!";
+	}
+     
+    Parse.Push.send({
+        where: query,
+        data: {
+			alert: pushMessageString
+        }
+    }, {
+        success: function() {            
+            if(user) {
+            console.log("user");
+            var UserBeerObject = Parse.Object.extend("UserBeerObject");
+            var beerQuery = new Parse.Query(UserBeerObject);
+            beerQuery.equalTo("drinkingUser", user);
+            beerQuery.count({
+			  success: function(beerCount) {
+				beerQuery.equalTo("drank", true);
+				beerQuery.count({
+				  success: function(drankCount) {
+					saveUserFinishedMugClub(user, request, response);
+				  }, error: function(error) {
+				  	console.log(error);
+				  } 
+				});
+			  }, error: function(error) {
+				  	console.log(error);
+				  }
+			});
+            }
+        },
+        error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+				response.error("failed");
+        }
+    });
+}
+
+function saveUserRanOutOfTime(user, request, response) {
+    Parse.Cloud.useMasterKey();
+	user.save({
+		ranOutOfTime: true,
+	  }, {
+		success: function(user) {
+			console.log("you sent failed to finish notification")
+			sendPushNotification(0, request, response);
+		},
+		error: function(user, error) {
+			console.log("you failed to send notification");
+		}
+	  });
+}
+
+function saveUserFinishedMugClub(user, request, response) {
+    Parse.Cloud.useMasterKey();
+	user.save({
+		finished: true,
+	  }, {
+		success: function(user) {
+			console.log("you sent finished mug club notification")
+			sendPushNotification(1, request, response);
+		},
+		error: function(user, error) {
+			console.log("you failed to send notification");
+		}
+	  });
+}
+
+function saveUserDrankBeer(beerId, request, response, user) {
+	var query = new Parse.Query("UserBeerObject");
+	query.get(beerId, {
+	  success: function(beer) {
+		beer.save({
+		drank: true,
+		pendingUpdatesToUserDevice : true
+	  }, {
+		success: function(beer) {
+			console.log("you sent drank beer notification");
+			sendPushNotification(2, request, response, user);
+		},
+		error: function(beer, error) {
+			console.log("you failed to send notification");
+		}
+	  });
+	  },
+	  error: function(object, error) {
+		
+	  }
+	});
+}
+
+
