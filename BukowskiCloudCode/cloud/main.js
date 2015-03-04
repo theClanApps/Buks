@@ -53,7 +53,7 @@ Parse.Cloud.define("markBeerDrank", function(request, response) {
     var userQuery = new Parse.Query(Parse.User);	
 	userQuery.get(request.params.userId, {
 	  success: function(user) {
-	  	var finished = user.get("finished");
+	  	var finished = user.get("finishedMugClub");
 	  	var ranOutOfTime = user.get("ranOutOfTime");
 		if(!finished && !ranOutOfTime) {
 			var date = new Date();
@@ -216,7 +216,7 @@ function saveUserRanOutOfTime(user, request, response) {
 function saveUserFinishedMugClub(user, request, response) {
     Parse.Cloud.useMasterKey();
 	user.save({
-		finished: true,
+		finishedMugClub: true,
 	  }, {
 		success: function(user) {
 			console.log("you sent finished mug club notification")

@@ -64,19 +64,18 @@
 		4CD478DE1C524DD0C1156959 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4439E0F969A77184CFD09AAE /* libPods.a */; };
 		63157B9F1A647B9400D49E8E /* NoItemsRemainingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63157B9E1A647B9400D49E8E /* NoItemsRemainingCell.xib */; };
 		63157BA31A647FF100D49E8E /* NoItemsRemainingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63157BA21A647FF100D49E8E /* NoItemsRemainingCell.m */; };
-		635FDBE21A686209003CEA41 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 635FDBDD1A686209003CEA41 /* main.js */; };
-		635FDBE31A686209003CEA41 /* global.json in Resources */ = {isa = PBXBuildFile; fileRef = 635FDBDF1A686209003CEA41 /* global.json */; };
-		635FDBE41A686209003CEA41 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 635FDBE11A686209003CEA41 /* index.html */; };
-		63C5EED41A6D87C6004E921A /* ProgressSummaryInProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C5EED31A6D87C6004E921A /* ProgressSummaryInProgressView.xib */; };
-		63C5EED71A6D881F004E921A /* ProgressSummaryInProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C5EED61A6D881F004E921A /* ProgressSummaryInProgressView.m */; };
-		63C5EEDB1A6D915B004E921A /* ProgressSummaryDoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C5EEDA1A6D915B004E921A /* ProgressSummaryDoneView.m */; };
-		63C5EEDF1A6D92B3004E921A /* ProgressSummaryDoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C5EEDE1A6D92B3004E921A /* ProgressSummaryDoneView.xib */; };
 		632B04531A7C0BF5006998CB /* login-bkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 632B044D1A7C0BF5006998CB /* login-bkg@2x.png */; };
 		632B04541A7C0BF5006998CB /* login-bkg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 632B044E1A7C0BF5006998CB /* login-bkg@3x.png */; };
 		632B04551A7C0BF5006998CB /* login-fb-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 632B044F1A7C0BF5006998CB /* login-fb-button@2x.png */; };
 		632B04561A7C0BF5006998CB /* login-fb-button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 632B04501A7C0BF5006998CB /* login-fb-button@3x.png */; };
 		632B04571A7C0BF5006998CB /* muglogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 632B04511A7C0BF5006998CB /* muglogo@2x.png */; };
 		632B04581A7C0BF5006998CB /* muglogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 632B04521A7C0BF5006998CB /* muglogo@3x.png */; };
+		63C5EED41A6D87C6004E921A /* ProgressSummaryInProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C5EED31A6D87C6004E921A /* ProgressSummaryInProgressView.xib */; };
+		63C5EED71A6D881F004E921A /* ProgressSummaryInProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C5EED61A6D881F004E921A /* ProgressSummaryInProgressView.m */; };
+		63C5EEDB1A6D915B004E921A /* ProgressSummaryDoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C5EEDA1A6D915B004E921A /* ProgressSummaryDoneView.m */; };
+		63C5EEDF1A6D92B3004E921A /* ProgressSummaryDoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C5EEDE1A6D92B3004E921A /* ProgressSummaryDoneView.xib */; };
+		8B34B7B51AA2463800A2C98D /* BKSRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B34B7B41AA2463800A2C98D /* BKSRootViewController.m */; };
+		8B48B3191AA5431400488081 /* BKSOnboardingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B48B3181AA5431400488081 /* BKSOnboardingManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,21 +177,24 @@
 		63157B9E1A647B9400D49E8E /* NoItemsRemainingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoItemsRemainingCell.xib; path = ../BeerLists/CollectionViewCells/NoItemsRemainingCell.xib; sourceTree = "<group>"; };
 		63157BA11A647FF100D49E8E /* NoItemsRemainingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoItemsRemainingCell.h; sourceTree = "<group>"; };
 		63157BA21A647FF100D49E8E /* NoItemsRemainingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoItemsRemainingCell.m; sourceTree = "<group>"; };
-		635FDBDD1A686209003CEA41 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
-		635FDBDF1A686209003CEA41 /* global.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = global.json; sourceTree = "<group>"; };
-		635FDBE11A686209003CEA41 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		63C5EED31A6D87C6004E921A /* ProgressSummaryInProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressSummaryInProgressView.xib; sourceTree = "<group>"; };
-		63C5EED51A6D881F004E921A /* ProgressSummaryInProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressSummaryInProgressView.h; sourceTree = "<group>"; };
-		63C5EED61A6D881F004E921A /* ProgressSummaryInProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressSummaryInProgressView.m; sourceTree = "<group>"; };
-		63C5EED91A6D915B004E921A /* ProgressSummaryDoneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressSummaryDoneView.h; sourceTree = "<group>"; };
-		63C5EEDA1A6D915B004E921A /* ProgressSummaryDoneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressSummaryDoneView.m; sourceTree = "<group>"; };
-		63C5EEDE1A6D92B3004E921A /* ProgressSummaryDoneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressSummaryDoneView.xib; sourceTree = "<group>"; };
 		632B044D1A7C0BF5006998CB /* login-bkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-bkg@2x.png"; sourceTree = "<group>"; };
 		632B044E1A7C0BF5006998CB /* login-bkg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-bkg@3x.png"; sourceTree = "<group>"; };
 		632B044F1A7C0BF5006998CB /* login-fb-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-fb-button@2x.png"; sourceTree = "<group>"; };
 		632B04501A7C0BF5006998CB /* login-fb-button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-fb-button@3x.png"; sourceTree = "<group>"; };
 		632B04511A7C0BF5006998CB /* muglogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "muglogo@2x.png"; sourceTree = "<group>"; };
 		632B04521A7C0BF5006998CB /* muglogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "muglogo@3x.png"; sourceTree = "<group>"; };
+		63C5EED31A6D87C6004E921A /* ProgressSummaryInProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressSummaryInProgressView.xib; sourceTree = "<group>"; };
+		63C5EED51A6D881F004E921A /* ProgressSummaryInProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressSummaryInProgressView.h; sourceTree = "<group>"; };
+		63C5EED61A6D881F004E921A /* ProgressSummaryInProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressSummaryInProgressView.m; sourceTree = "<group>"; };
+		63C5EED91A6D915B004E921A /* ProgressSummaryDoneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressSummaryDoneView.h; sourceTree = "<group>"; };
+		63C5EEDA1A6D915B004E921A /* ProgressSummaryDoneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressSummaryDoneView.m; sourceTree = "<group>"; };
+		63C5EEDE1A6D92B3004E921A /* ProgressSummaryDoneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressSummaryDoneView.xib; sourceTree = "<group>"; };
+		8B34B7B31AA2463800A2C98D /* BKSRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSRootViewController.h; sourceTree = "<group>"; };
+		8B34B7B41AA2463800A2C98D /* BKSRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKSRootViewController.m; sourceTree = "<group>"; };
+		8B48B3171AA5431400488081 /* BKSOnboardingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKSOnboardingManager.h; path = Bukowski/Wireframes/BKSOnboardingManager.h; sourceTree = SOURCE_ROOT; };
+		8B48B3181AA5431400488081 /* BKSOnboardingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKSOnboardingManager.m; path = Bukowski/Wireframes/BKSOnboardingManager.m; sourceTree = SOURCE_ROOT; };
+		8B48B3551AA6D5AF00488081 /* BKSFlowStepDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSFlowStepDelegate.h; sourceTree = "<group>"; };
+		8B48B3561AA6D5AF00488081 /* BKSOnboardingFlowDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKSOnboardingFlowDelegate.h; sourceTree = "<group>"; };
 		C2D1ECEB79DB5C78EF171D49 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -320,6 +322,8 @@
 				4900EBF11A6190A900647ABD /* Progress */,
 				4900EBF41A6190A900647ABD /* StartMugClub */,
 				4900EBF71A6190A900647ABD /* Style */,
+				8B34B7B31AA2463800A2C98D /* BKSRootViewController.h */,
+				8B34B7B41AA2463800A2C98D /* BKSRootViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -476,6 +480,7 @@
 				4900EB981A618FFF00647ABD /* Views */,
 				4900EBDA1A6190A900647ABD /* ViewControllers */,
 				4900EC061A6190CF00647ABD /* WebServices */,
+				8B48B31A1AA5431C00488081 /* Wireframes */,
 			);
 			path = Bukowski;
 			sourceTree = "<group>";
@@ -535,8 +540,7 @@
 			);
 			name = Images;
 			sourceTree = "<group>";
-        };
-		
+		};
 		632B044C1A7C0BDF006998CB /* LoginPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -549,7 +553,7 @@
 			);
 			name = LoginPage;
 			sourceTree = "<group>";
-		};		
+		};
 		63C5EED81A6D8833004E921A /* ProgressSummaryViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -585,6 +589,18 @@
 				4439E0F969A77184CFD09AAE /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8B48B31A1AA5431C00488081 /* Wireframes */ = {
+			isa = PBXGroup;
+			children = (
+				8B48B3551AA6D5AF00488081 /* BKSFlowStepDelegate.h */,
+				8B48B3561AA6D5AF00488081 /* BKSOnboardingFlowDelegate.h */,
+				8B48B3171AA5431400488081 /* BKSOnboardingManager.h */,
+				8B48B3181AA5431400488081 /* BKSOnboardingManager.m */,
+			);
+			name = Wireframes;
+			path = WebServices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -769,6 +785,7 @@
 				4900EBFE1A6190A900647ABD /* BKSSearchResultsViewController.m in Sources */,
 				49BB682719FF26AA00DFD75D /* main.m in Sources */,
 				4900EBFB1A6190A900647ABD /* BKSBaseBeerViewController.m in Sources */,
+				8B48B3191AA5431400488081 /* BKSOnboardingManager.m in Sources */,
 				49EE8A871A68810100E2712A /* BeerStyle+Configure.m in Sources */,
 				49BB685E19FF271600DFD75D /* BKSDataManager.m in Sources */,
 				49BB687419FF274600DFD75D /* AppDelegate.m in Sources */,
@@ -784,6 +801,7 @@
 				4900EC011A6190A900647ABD /* BKSBeerCollectionTableViewCell.m in Sources */,
 				4900EC021A6190A900647ABD /* BKSLoginViewController.m in Sources */,
 				49AF18BC1A6ABC3B00374089 /* Beer.m in Sources */,
+				8B34B7B51AA2463800A2C98D /* BKSRootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

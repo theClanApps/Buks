@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BKSFlowStepDelegate.h"
 
 @interface BKSStartMugClubViewController : UIViewController
+@property (nonatomic, weak) id<BKSFlowStepDelegate> delegate;
 
 @end

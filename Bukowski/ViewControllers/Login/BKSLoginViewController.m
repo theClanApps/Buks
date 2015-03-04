@@ -10,31 +10,24 @@
 #import "BKSAccountManager.h"
 #import <Parse/Parse.h>
 #import "PFFacebookUtils.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 static NSString * const kBKSSegueToWelcomeViewControllerIdentifier = @"kBKSSegueToWelcomeViewControllerIdentifier";
 static NSString * const kSegueToBeerViewController = @"kSegueToBeerViewController";
 
 @interface BKSLoginViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *mugLogoImageView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
 @implementation BKSLoginViewController
 
 - (void)viewWillAppear:(BOOL)animated {
-    
+    [super viewWillAppear:animated];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
     [self setAutoLayout];
-    
-    if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
-        if ([[BKSAccountManager sharedAccountManager] userStartedMugClub]) {
-            [self performSegueWithIdentifier:kSegueToBeerViewController sender:self];
-            [[BKSAccountManager sharedAccountManager] startCheckingForBeerUpdates];
-        } else {
-            [self performSegueWithIdentifier:kBKSSegueToWelcomeViewControllerIdentifier sender:self];
-        }
-    }
 }
 
 - (void)setAutoLayout {
@@ -61,13 +54,12 @@ static NSString * const kSegueToBeerViewController = @"kSegueToBeerViewControlle
 }
 
 - (IBAction)loginButtonPressed:(id)sender {
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     [[BKSAccountManager sharedAccountManager] loginWithWithSuccess:^(id successObject) {
-        if ([[BKSAccountManager sharedAccountManager] userStartedMugClub]) {
-            [self performSegueWithIdentifier:kSegueToBeerViewController sender:self];
-            [[BKSAccountManager sharedAccountManager] startCheckingForBeerUpdates];
-        } else {
-            [self performSegueWithIdentifier:kBKSSegueToWelcomeViewControllerIdentifier sender:self];
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate didFinishFlowStepWithViewController:self];
+            [SVProgressHUD dismiss];
+        });
     } failure:^(NSError *error) {
         [self showLoginFailureAlertView];
     }];

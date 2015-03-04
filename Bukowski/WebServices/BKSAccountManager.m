@@ -101,6 +101,8 @@ NSString * const kBKSBeersNeedUpdateNotification = @"kBKSBeersNeedUpdateNotifica
             NSDate * endDate = [calendar dateByAddingUnit:NSCalendarUnitMonth value:6 toDate:currentDate options:0];
             currentUser[@"mugClubStartDate"] = currentDate;
             currentUser[@"mugClubEndDate"] = endDate;
+            currentUser[@"ranOutOfTime"] = @NO;
+            currentUser[@"finishedMugClub"] = @NO;
             [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
                     [self storeStartAndEndDatesInUserDefaults:currentDate withEndDate:endDate];
@@ -123,7 +125,11 @@ NSString * const kBKSBeersNeedUpdateNotification = @"kBKSBeersNeedUpdateNotifica
 }
 
 - (BOOL)userStartedMugClub {
-    return ([[PFUser currentUser] objectForKey:@"mugClubStartDate"]!=nil);
+    return ([[PFUser currentUser] objectForKey:@"mugClubStartDate"] != nil);
+}
+
+- (BOOL)userIsLoggedIn {
+    return [PFUser currentUser];
 }
 
 - (void)rateBeer:(Beer *)beer

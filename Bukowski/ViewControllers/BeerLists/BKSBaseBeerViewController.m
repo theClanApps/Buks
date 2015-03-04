@@ -109,6 +109,10 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
     [self performSegueWithIdentifier:kBKSStyleDetailSegue sender:nil];
 }
 
+- (void)beerListsViewControllerDidPressLogout:(BKSBeerListsViewController *)beerListsVC {
+    [self.delegate baseBeerViewControllerDidPressLogoutButton:self];
+}
+
 #pragma mark - BKSSearchResultsViewController
 
 - (void)beerSearchResultsViewControllerDidSelectBeer:(BKSSearchResultsViewController *)beerSearchResultsVC beerSelected:(Beer *)beerSelected {

@@ -15,8 +15,8 @@
 @property (strong, nonatomic) NSDate *mugClubStartDate;
 @property (strong, nonatomic) NSDate *mugClubEndDate;
 @property (strong, nonatomic) NSDate *dateOfLastBeerDrank;
-@property (strong, nonatomic) NSNumber *timeIsUp;
-@property (strong, nonatomic) NSNumber *allBeersDrank;
+@property (strong, nonatomic) NSNumber *ranOutOfTime;
+@property (strong, nonatomic) NSNumber *finishedMugClub;
 
 @property (strong, nonatomic) PFFile *userImage;
 

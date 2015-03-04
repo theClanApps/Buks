@@ -74,11 +74,11 @@ NSInteger const kBKSNumberOfSections = 4;
     
 #warning - need to check if subviews exist & remove them
     
-    if (self.userLoggedIn.allBeersDrank) {
+    if (self.userLoggedIn.finishedMugClub) {
         ProgressSummaryDoneView *progressSummaryDoneView = [ProgressSummaryDoneView progressSummaryDoneView];
         [self.progressChildView addSubview:progressSummaryDoneView];
         progressSummaryDoneView.timeIsUpTextLabel.text = @"You drank all the beers! Way to go! Enjoy discounted huge beers at Buks for life!";
-    } else if (self.userLoggedIn.timeIsUp) {
+    } else if (self.userLoggedIn.ranOutOfTime) {
         ProgressSummaryDoneView *progressSummaryDoneView = [ProgressSummaryDoneView progressSummaryDoneView];
         [self.progressChildView addSubview:progressSummaryDoneView];
         progressSummaryDoneView.timeIsUpTextLabel.text = @"You didn't finish all the beers in the allotted time. Enjoy thinking about the money you've pissed away here!";
@@ -347,7 +347,7 @@ NSInteger const kBKSNumberOfSections = 4;
 
 - (IBAction)didTapLogoutButton:(id)sender {
     [[BKSAccountManager sharedAccountManager] logout];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.delegate beerListsViewControllerDidPressLogout:self];
 }
 
 #pragma mark - Helpers

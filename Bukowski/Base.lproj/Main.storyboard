@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VGe-Vf-7H8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="k5g-U1-7dU">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -18,10 +18,28 @@
         </mutableArray>
     </customFonts>
     <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="cuG-mA-gXj">
+            <objects>
+                <viewController id="k5g-U1-7dU" customClass="BKSRootViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dwr-4C-nez"/>
+                        <viewControllerLayoutGuide type="bottom" id="W12-q3-krv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8nV-mE-5Nh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bVH-xF-q8k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="965" y="-552"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="RML-ox-I9d">
             <objects>
-                <viewController id="bnr-9E-thk" customClass="BKSLoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BKSLoginViewController" id="bnr-9E-thk" customClass="BKSLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="s5r-es-Mvi"/>
                         <viewControllerLayoutGuide type="bottom" id="jTO-y6-23Q"/>
@@ -30,7 +48,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login-bkg.png" translatesAutoresizingMaskIntoConstraints="NO" id="oHk-mA-HUq">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="login-bkg.png" translatesAutoresizingMaskIntoConstraints="NO" id="oHk-mA-HUq">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="muglogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="iAf-nM-C0b">
@@ -46,7 +64,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="bnr-9E-thk" eventType="touchUpInside" id="s3A-B6-lvc"/>
-                                    <segue destination="USW-ah-Ada" kind="show" identifier="kBKSSegueToWelcomeViewControllerIdentifier" id="7nb-ha-DXE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -66,12 +83,11 @@
                     <navigationItem key="navigationItem" id="5CW-Mh-pDE"/>
                     <connections>
                         <outlet property="mugLogoImageView" destination="iAf-nM-C0b" id="Q8q-bT-Y7N"/>
-                        <segue destination="fuJ-8z-9Z5" kind="show" identifier="kSegueToBeerViewController" id="ZcM-7W-clJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="02W-6v-GWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="967" y="132"/>
+            <point key="canvasLocation" x="1779" y="132"/>
         </scene>
         <!--Search Results View Controller-->
         <scene sceneID="RYL-CF-Prx">
@@ -135,7 +151,7 @@
         <!--Start Mug Club View Controller-->
         <scene sceneID="RQR-QI-1Ya">
             <objects>
-                <viewController id="USW-ah-Ada" customClass="BKSStartMugClubViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BKSStartMugClubViewController" id="USW-ah-Ada" customClass="BKSStartMugClubViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kfF-dq-FkW"/>
                         <viewControllerLayoutGuide type="bottom" id="ZLn-5M-cwJ"/>
@@ -160,31 +176,10 @@
                             <constraint firstAttribute="centerY" secondItem="gPA-vs-DWB" secondAttribute="centerY" id="Xwh-JW-KO3"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <segue destination="fuJ-8z-9Z5" kind="show" identifier="kSegueToBeerViewController" id="RyT-2y-Obr"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dMg-QR-cAI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1657" y="136"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="CVG-EI-0fC">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VGe-Vf-7H8" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fU2-Sg-CXs">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="bnr-9E-thk" kind="relationship" relationship="rootViewController" id="ajc-J4-357"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fvT-Xd-0cV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="155" y="133"/>
+            <point key="canvasLocation" x="2469" y="136"/>
         </scene>
         <!--Beer Detail View Controller-->
         <scene sceneID="VPa-qo-Oox">
@@ -404,7 +399,7 @@
         <!--Base Beer View Controller-->
         <scene sceneID="DHm-uo-pWe">
             <objects>
-                <viewController id="fuJ-8z-9Z5" customClass="BKSBaseBeerViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BKSBaseBeerViewController" id="fuJ-8z-9Z5" customClass="BKSBaseBeerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="abR-MA-kfr"/>
                         <viewControllerLayoutGuide type="bottom" id="Fa9-ji-QkZ"/>
@@ -413,11 +408,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9b-L2-EpZ">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d9b-L2-EpZ">
                                 <rect key="frame" x="0.0" y="108" width="600" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="IW8-6j-LDn">
+                            <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IW8-6j-LDn">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -630,17 +625,17 @@
                         <viewControllerLayoutGuide type="bottom" id="teC-gA-6KW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cte-WP-pmx">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="700"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CY8-zL-JAK">
-                                <rect key="frame" x="263" y="72" width="42" height="21"/>
+                                <rect key="frame" x="279" y="72" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1Ha-tj-Bez">
-                                <rect key="frame" x="0.0" y="140" width="568" height="224"/>
+                                <rect key="frame" x="0.0" y="140" width="600" height="224"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="224" id="iU5-fT-cSc"/>
                                 </constraints>
@@ -674,25 +669,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="Style Description" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcq-CI-KeQ">
-                                <rect key="frame" x="16" y="401" width="536" height="279"/>
+                                <rect key="frame" x="16" y="401" width="568" height="279"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EPb-zH-lpf">
-                                <rect key="frame" x="260" y="101" width="51" height="31"/>
+                                <rect key="frame" x="276" y="101" width="51" height="31"/>
                                 <connections>
                                     <action selector="toggledSwitch:" destination="Yz5-nE-uxf" eventType="valueChanged" id="WwV-Cb-ClA"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Show All" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAJ-rC-lMX">
-                                <rect key="frame" x="185" y="106" width="67" height="21"/>
+                                <rect key="frame" x="201" y="106" width="67" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Remaining" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLs-L1-MrL">
-                                <rect key="frame" x="317" y="106" width="82" height="21"/>
+                                <rect key="frame" x="333" y="106" width="82" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -895,8 +890,7 @@
         <image name="stats.png" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZcM-7W-clJ"/>
-        <segue reference="d5v-cp-Vfa"/>
-        <segue reference="EUR-yN-ouv"/>
+        <segue reference="69b-08-abj"/>
+        <segue reference="o5f-Qi-KcF"/>
     </inferredMetricsTieBreakers>
 </document>

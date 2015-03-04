@@ -20,7 +20,6 @@ extern NSString * const kBKSBeersNeedUpdateNotification;
 - (void)logout;
 - (void)loginWithWithSuccess:(BKSSuccessBlock)success failure:(BKSErrorBlock)failure;
 - (void)startMugClubWithSuccess:(BKSSuccessBlock)success failure:(BKSErrorBlock)failure;
-- (BOOL)userStartedMugClub;
 - (void)loadBeersWithSuccess:(void(^)(NSArray *beers, NSError *error))block;
 - (void)rateBeer:(Beer *)beer
         withRating:(NSNumber*)rating
@@ -28,5 +27,8 @@ extern NSString * const kBKSBeersNeedUpdateNotification;
 - (void)updateBeersThatHaveBeenDrunkWithCompletion:(void(^)(NSError *error, BOOL beersNeedUpdate))completion;
 - (void)startCheckingForBeerUpdates;
 - (void)stopCheckingForBeerUpdates;
+
+- (BOOL)userStartedMugClub;
+- (BOOL)userIsLoggedIn;
 
 @end
