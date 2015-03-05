@@ -43,8 +43,15 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [self setupNavigationBar];
     [self setChildViewController:self.beerListsVC];
+}
+
+- (void)setupNavigationBar {
+    [[self navigationController] setNavigationBarHidden:NO animated:NO];
+    self.navigationItem.hidesBackButton = YES;
+    UserObject *currentUser = [UserObject currentUser];
+    self.navigationItem.title = [NSString stringWithFormat:@"%@'s Mug Hub", currentUser.name];
 }
 
 - (void)setupChildViewControllers {
@@ -146,7 +153,7 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    //[[self navigationController] setNavigationBarHidden:NO animated:YES];
     if ([[segue identifier] isEqualToString:kBKSProgressSegue]) {
         BKSProgressViewController *detailVC = (BKSProgressViewController *)segue.destinationViewController;
         //send the user logged in to this VC

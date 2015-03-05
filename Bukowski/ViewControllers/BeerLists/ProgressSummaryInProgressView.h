@@ -10,6 +10,11 @@
 
 @interface ProgressSummaryInProgressView : UIView
 
+@property (weak, nonatomic) IBOutlet UILabel *beerDrankLabel;
+@property (weak, nonatomic) IBOutlet UILabel *beersRemainingLabel;
+@property (nonatomic) NSUInteger *totalBeers;
+@property (nonatomic) NSUInteger *beersDrank;
+
 + (id)progressSummaryInProgressView;
 
 @end

@@ -21,4 +21,11 @@
     }
 }
 
+
+
+//-(void)drawRect:(CGRect)rect{
+//    [[UIColor redColor] setFill];
+//    UIRectFill(CGRectInset(self.bounds, 100, 100));
+//}
+
 @end

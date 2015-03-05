@@ -74,6 +74,8 @@ NSInteger const kBKSNumberOfSections = 4;
     
 #warning - need to check if subviews exist & remove them
     
+    [self removeCurrentChildViews];
+    
     if (self.userLoggedIn.allBeersDrank) {
         ProgressSummaryDoneView *progressSummaryDoneView = [ProgressSummaryDoneView progressSummaryDoneView];
         [self.progressChildView addSubview:progressSummaryDoneView];
@@ -85,14 +87,24 @@ NSInteger const kBKSNumberOfSections = 4;
     } else {
         ProgressSummaryInProgressView *progressSummaryInProgressView = [ProgressSummaryInProgressView progressSummaryInProgressView];
         [self.progressChildView addSubview:progressSummaryInProgressView];
+        ProgressSummaryInProgressView *view = [self.progressChildView.subviews firstObject];
+        view.totalBeers = (NSUInteger*)self.allBeers.count;
+        view.beersDrank = (NSUInteger*)(self.allBeers.count)-(self.allBeersRemaining.count);
 
 #warning autolayout still messed up
-        //[self.progressChildView sizeToFit];
+        [self.progressChildView sizeToFit];
         //[progressSummaryInProgressView layoutIfNeeded];
         //[progressSummaryInProgressView setNeedsLayout];
-        //[self.progressChildView setTranslatesAutoresizingMaskIntoConstraints:NO];
-        //self.progressChildView.frame = self.progressChildView.bounds;
+        [self.progressChildView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        self.progressChildView.frame = self.progressChildView.bounds;
     }
+}
+
+- (void)removeCurrentChildViews {
+    UIView *child = [self.progressChildView.subviews firstObject];
+    NSLog(@"%lu", (unsigned long)[self.progressChildView.subviews count]);
+    [child willMoveToSuperview:nil];
+    [child removeFromSuperview];
 }
 
 - (void)setAllBeers:(NSArray *)allBeers {
