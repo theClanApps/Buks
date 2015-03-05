@@ -8,6 +8,8 @@
 
 #import "BKSStartMugClubViewController.h"
 #import "BKSAccountManager.h"
+#import "BKSLoginViewController.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 static NSString * const kSegueToBeerViewController = @"kSegueToBeerViewController";
 
@@ -16,16 +18,19 @@ static NSString * const kSegueToBeerViewController = @"kSegueToBeerViewControlle
 
 @implementation BKSStartMugClubViewController
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    if ([[BKSAccountManager sharedAccountManager] userStartedMugClub]) {
-        [self performSegueWithIdentifier:kSegueToBeerViewController sender:self];
-    }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
 }
 
 - (IBAction)startMugClubButtonPressed:(id)sender {
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     [[BKSAccountManager sharedAccountManager] startMugClubWithSuccess:^(id successObject) {
-        [self performSegueWithIdentifier:kSegueToBeerViewController sender:self];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate didFinishFlowStepWithViewController:self];
+            [SVProgressHUD dismiss];
+        });
     } failure:^(NSError *error) {
         [self showFailedToJoinMugClubError];
     }];

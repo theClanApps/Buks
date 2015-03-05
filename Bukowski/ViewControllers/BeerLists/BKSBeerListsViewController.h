@@ -31,4 +31,6 @@ extern NSString * const kBKSUserToggleSetting;
 
 - (void)beerListsViewControllerDidSelectStyle:(BKSBeerListsViewController *)beerListsVC styleSelected:(BeerStyle *)styleSelected;
 
+- (void)beerListsViewControllerDidPressLogout:(BKSBeerListsViewController *)beerListsVC;
+
 @end

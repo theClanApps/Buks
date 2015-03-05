@@ -10,9 +10,17 @@
 @class Beer;
 @class BeerStyle;
 
-@interface BKSBaseBeerViewController : UIViewController <UISearchBarDelegate>
+@protocol BKSBaseBeerViewControllerDelegate;
 
+@interface BKSBaseBeerViewController : UIViewController <UISearchBarDelegate>
+@property (weak, nonatomic) id<BKSBaseBeerViewControllerDelegate> delegate;
 @property (strong, nonatomic) Beer *beerSelected;
 @property (strong, nonatomic) BeerStyle *styleSelected;
+
+@end
+
+@protocol BKSBaseBeerViewControllerDelegate <NSObject>
+
+- (void)baseBeerViewControllerDidPressLogoutButton:(BKSBaseBeerViewController *)vc;
 
 @end
