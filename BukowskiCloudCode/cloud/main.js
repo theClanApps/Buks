@@ -180,7 +180,11 @@ function sendPushNotification(status, request, response, user) {
 				beerQuery.equalTo("drank", true);
 				beerQuery.count({
 				  success: function(drankCount) {
-					saveUserFinishedMugClub(user, request, response);
+				  console.log(drankCount);
+				  console.log(beerCount);
+				  if(beerCount == drankCount) {
+				  	saveUserFinishedMugClub(user, request, response);
+				  }
 				  }, error: function(error) {
 				  	console.log(error);
 				  } 
