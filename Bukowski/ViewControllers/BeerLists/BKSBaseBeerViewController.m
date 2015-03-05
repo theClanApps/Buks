@@ -45,6 +45,7 @@ NSString * const kBKSStyleDetailSegue = @"kBKSStyleDetailSegue";
     
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     [self setChildViewController:self.beerListsVC];
+    [[BKSAccountManager sharedAccountManager] startCheckingForBeerUpdates];
 }
 
 - (void)setupChildViewControllers {
