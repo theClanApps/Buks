@@ -31,4 +31,6 @@ extern NSString * const kBKSBeersNeedUpdateNotification;
 - (BOOL)userStartedMugClub;
 - (BOOL)userIsLoggedIn;
 
+- (void)postBeersMarkDrankNotification;
+
 @end

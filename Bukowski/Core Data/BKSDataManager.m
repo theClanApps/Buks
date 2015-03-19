@@ -19,6 +19,7 @@
 #import "BeerStyleObject.h"
 
 #import "UIImageView+WebCache.h"
+#import "BKSAccountManager.h"
 
 @implementation BKSDataManager
 
@@ -189,6 +190,21 @@
         beer.drank = @YES;
     }
     [self saveContext];
+}
+
+- (void)markBeerWithIdDrank:(NSString *)identifier {
+    BOOL markedDrank = NO;
+    NSArray *allBeers = [self allBeers];
+    for (Beer *beer in allBeers) {
+        if ([beer.beerName isEqualToString:identifier]) {
+            beer.drank = @YES;
+            markedDrank = YES;
+        }
+    }
+    [self saveContext];
+    if (markedDrank) {
+        [[BKSAccountManager sharedAccountManager] postBeersMarkDrankNotification];
+    }
 }
 
 #pragma mark - Helpers
