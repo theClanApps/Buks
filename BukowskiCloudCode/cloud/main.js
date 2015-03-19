@@ -154,6 +154,8 @@ function sendPushNotification(status, request, response, user) {
     var query = new Parse.Query(Parse.Installation);
     query.matchesQuery('user', userQuery);
     
+    var beerData = undefined;
+    
     var pushMessageString = "";
     if(status == 0) {
 		pushMessageString = "You failed to finish the mug club!";
@@ -161,12 +163,14 @@ function sendPushNotification(status, request, response, user) {
 		pushMessageString = "You finished the mug club!";
 	} else {
 		pushMessageString = "You drank " + beerName + "!";
+		beerData = beerName;
 	}
      
     Parse.Push.send({
         where: query,
         data: {
-			alert: pushMessageString
+			alert: pushMessageString,
+			data: beerData
         }
     }, {
         success: function() {            
