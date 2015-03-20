@@ -14,6 +14,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "BKSAccountManager.h"
 #import "UserObject.h"
+#import "BKSDataManager.h"
 
 @protocol BKSRootNavigation <NSObject>
 
@@ -81,6 +82,12 @@
     
 #endif
     
+    NSDictionary *notificationDictionary = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
+    
+    if (notificationDictionary[@"data"] != nil) {
+        [[BKSDataManager sharedDataManager] markBeerWithIdDrank:notificationDictionary[@"data"]];
+    }
+    
     return YES;
 }
 
@@ -106,6 +113,9 @@
     
     if (application.applicationState == UIApplicationStateInactive) {
         [PFAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
+    }
+    if (userInfo[@"data"] != nil) {
+        [[BKSDataManager sharedDataManager] markBeerWithIdDrank:userInfo[@"data"]];
     }
 }
 

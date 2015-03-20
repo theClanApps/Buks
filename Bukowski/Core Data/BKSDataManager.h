@@ -35,5 +35,6 @@
 - (NSArray *)beersOfStyle:(BeerStyle *)style;
 
 - (void)markBeersDrank:(NSArray *)userBeerObjects;
+- (void)markBeerWithIdDrank:(NSString *)identifier;
 
 @end

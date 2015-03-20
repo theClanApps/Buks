@@ -19,7 +19,7 @@
 static NSString * const kBKSMugClubStartDate = @"kBKSMugClubStartDate";
 static NSString * const kBKSMugClubEndDate = @"kBKSMugClubEndDate";
 
-NSTimeInterval const kBKSMarkDrankTimeInterval = 60.0;
+NSTimeInterval const kBKSMarkDrankTimeInterval = 600.0;
 NSString * const kBKSBeersNeedUpdateNotification = @"kBKSBeersNeedUpdateNotification";
 
 @interface BKSAccountManager ()
